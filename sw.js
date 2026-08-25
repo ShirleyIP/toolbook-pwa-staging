@@ -1,4 +1,4 @@
-const CACHE_NAME = 'toolbook-shell-v1';
+const CACHE_NAME = 'toolbook-shell-v2';
 const SHELL_FILES = [
   './',
   './index.html',
@@ -8,6 +8,7 @@ const SHELL_FILES = [
   './toolbook-card.js',
   './toolbook.js',
   './fonts.css',
+  './tool-shell.css',
   './manifest.webmanifest',
   './icon.svg',
   './vendor/react.production.min.js',
