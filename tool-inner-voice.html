@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CKM6MRRVBM"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-CKM6MRRVBM');</script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="fonts.css?v=2">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:#e9e3d6;color:#241f18;font-family:-apple-system,"PingFang TC","PingFang SC",sans-serif;line-height:1.8;-webkit-font-smoothing:antialiased;}
+  a{color:#35456a;text-decoration:none;transition:.18s;}
+  a:hover{color:#26324f;}
+  input,textarea,button{font-family:inherit;}
+  input::placeholder,textarea::placeholder{color:#b9b09a;}
+  textarea:focus,input:focus{outline:none;border-color:#35456a!important;box-shadow:0 0 0 2px rgba(53,69,106,.08);}
+  .stage::-webkit-scrollbar{width:0;}
+  ::selection{background:rgba(53,69,106,.15);}
+</style>
+</helmet>
+<div style="position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:26px 18px;background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E&quot;);background-color:#e9e3d6;">
+
+  <div style="width:min(440px,100%);height:min(860px,94vh);display:flex;flex-direction:column;background:#fbf9f4;border:1px solid #cec6b4;border-radius:8px;box-shadow:0 20px 60px rgba(36,31,24,.16);overflow:hidden;position:relative;">
+
+    <div style="flex:none;height:52px;display:flex;align-items:center;padding:0 20px;position:relative;border-bottom:1px solid #efe9dd;">
+      <span onClick="{{ onBack }}" style="font-size:24px;line-height:1;width:24px;cursor:pointer;color:{{ backColor }};">‹</span>
+      <div style="position:absolute;left:0;right:0;display:flex;gap:6px;justify-content:center;pointer-events:none;">
+        <sc-for list="{{ dots }}" as="d" hint-placeholder-count="5">
+          <span style="height:5px;border-radius:3px;transition:.3s;width:{{ d.w }};background:{{ d.bg }};"></span>
+        </sc-for>
+      </div>
+      <a href="index.html" style="margin-left:auto;color:#938a78;font-size:16px;line-height:1;" title="回首頁">✕</a>
+    </div>
+
+    <div class="stage" style="flex:1;overflow-y:auto;padding:22px 26px 8px;">
+
+      <sc-if value="{{ s0 }}">
+        <div style="display:flex;flex-direction:column;justify-content:center;min-height:100%;text-align:center;padding:20px 0;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:30px;color:#35456a;margin-bottom:20px;">❦</div>
+          <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">工具 Nº 13 · 內言</div>
+          <h1 style="font-family:'Noto Serif TC',serif;font-size:27px;font-weight:600;line-height:1.7;letter-spacing:.5px;">腦中有兩個聲音<br />在互相撕扯？</h1>
+          <p style="color:#938a78;font-size:13.5px;line-height:1.9;margin-top:18px;">把它們原樣寫下來，逐句翻成你真正要的東西。<br />這不是要解決問題——是先看清楚你在跟自己說什麼。</p>
+          <p style="color:#b9b09a;font-size:12px;line-height:1.8;margin-top:16px;">大約 8 分鐘 · 只有你看得到 · 隨時可以停</p>
+          <div onClick="{{ onOpenExample }}" style="margin-top:22px;color:#35456a;font-size:13px;cursor:pointer;text-decoration:underline;text-underline-offset:3px;">看一個填好的例子 →</div>
+          <div style="margin-top:16px;"><span onClick="{{ onQuit }}" style="color:#938a78;font-size:12.5px;cursor:pointer;text-decoration:underline;text-underline-offset:3px;">這不是我要的</span></div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ s1 }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 01 · 兩個聲音</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">此刻在你腦中<br />吵的那兩句</h2>
+        <p style="color:#938a78;font-size:13px;margin-bottom:8px;">各寫一句，原話就好，不用修飾。哪一句先冒出來就先寫哪一句。</p>
+        <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:16px 0 7px;">聲音 A</label>
+        <textarea value="{{ voiceA }}" onInput="{{ onVoiceA }}" maxlength="200" placeholder="例如：我應該早就做出點成績了" style="width:100%;min-height:78px;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:14px 15px;font-size:14.5px;color:#241f18;line-height:1.8;resize:vertical;"></textarea>
+        <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:16px 0 7px;">聲音 B</label>
+        <textarea value="{{ voiceB }}" onInput="{{ onVoiceB }}" maxlength="200" placeholder="例如：你想太多了，能力就這樣，認命吧" style="width:100%;min-height:78px;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:14px 15px;font-size:14.5px;color:#241f18;line-height:1.8;resize:vertical;"></textarea>
+        <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:20px;color:#554d40;font-family:'EB Garamond','Noto Serif TC',serif;font-size:14px;line-height:1.9;">兩個聲音不必分對錯。這張卡不是要你選一邊，是要看清楚它們各自在替你擔心什麼。</div>
+      </sc-if>
+
+      <sc-if value="{{ s2 }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 02 · 藏起來的評判</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">有幾個詞，<br />通常是評判躲的地方</h2>
+        <p style="color:#938a78;font-size:13px;margin-bottom:14px;">「應該 · 不得不 · 必須 · 不能 · 理應 · 總是 · 永遠 · 從來 · 每次」——這些詞出現時，往往表示你正在論斷，而還沒說出自己要什麼。</p>
+        <sc-if value="{{ hasHits }}">
+          <div style="border-left:2px solid #35456a;background:rgba(53,69,106,.05);padding:13px 15px;margin:0 0 12px;border-radius:0 3px 3px 0;">
+            <div style="font-size:9px;letter-spacing:2.2px;text-transform:uppercase;color:#938a78;margin-bottom:7px;">你剛才寫的句子裡出現了</div>
+            <div style="display:flex;flex-wrap:wrap;gap:7px;">
+              <sc-for list="{{ hits }}" as="h" hint-placeholder-count="3">
+                <span style="font-family:'Noto Serif TC',serif;font-size:14px;color:#35456a;background:#fff;border:1px solid #cec6b4;border-radius:3px;padding:4px 11px;">{{ h.w }}</span>
+              </sc-for>
+            </div>
+          </div>
+          <p style="color:#554d40;font-size:13px;line-height:1.8;">這不是說你寫錯了。只是把它記下來——待會兒改寫時，我們會把「應該怎樣」換成「我要什麼」。</p>
+        </sc-if>
+        <sc-if value="{{ noHits }}">
+          <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;color:#554d40;font-family:'EB Garamond','Noto Serif TC',serif;font-size:14px;line-height:1.9;">這次沒偵測到那幾個詞，也很好——直接往下，把兩個聲音翻成你真正要的東西。</div>
+        </sc-if>
+      </sc-if>
+
+      <sc-if value="{{ s3 }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 03 · 翻成你要的</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">撕扯的底下，<br />你其實在要什麼？</h2>
+        <div style="border-left:2px solid #cec6b4;background:#f3efe7;padding:11px 14px;margin:6px 0 16px;border-radius:0 3px 3px 0;">
+          <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#938a78;margin-bottom:4px;">你剛才寫的兩個聲音</div>
+          <div style="font-family:'Noto Serif TC',serif;font-size:13.5px;line-height:1.7;white-space:pre-wrap;color:#554d40;">A｜{{ mirrorA }}
+B｜{{ mirrorB }}</div>
+        </div>
+        <p style="color:#938a78;font-size:13px;margin-bottom:4px;">一次填一格。填不出「因為我需要」也沒關係——那一格空著，本身就告訴你還沒想清楚。</p>
+
+        <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:16px 0 5px;">當我</label>
+        <input value="{{ obs }}" onInput="{{ onObs }}" maxlength="120" placeholder="攝影機拍得到的事——不是「他不尊重我」，是「他沒回我訊息」" style="width:100%;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:12px 14px;font-size:14.5px;color:#241f18;" />
+
+        <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:14px 0 5px;">我感到</label>
+        <input value="{{ feel }}" onInput="{{ onFeel }}" maxlength="60" placeholder="一個情緒詞——難過、焦慮、委屈、失望……" style="width:100%;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:12px 14px;font-size:14.5px;color:#241f18;" />
+
+        <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:14px 0 5px;">因為我需要 <span style="color:#b9b09a;font-size:12px;font-family:sans-serif;">（可留空）</span></label>
+        <input value="{{ need }}" onInput="{{ onNeed }}" maxlength="120" placeholder="不涉及「某個人做某件事」——是被理解、被尊重、安穩、休息……" style="width:100%;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:12px 14px;font-size:14.5px;color:#241f18;" />
+
+        <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:14px 0 5px;">因此我想要</label>
+        <input value="{{ want }}" onInput="{{ onWant }}" maxlength="120" placeholder="此刻可以回應的一個動作——今晚早點睡、明天問清楚……" style="width:100%;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:12px 14px;font-size:14.5px;color:#241f18;" />
+      </sc-if>
+
+      <sc-if value="{{ s4 }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 04 · 看一眼那個感受</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:14px;">你填的感受是<br />「{{ feelEcho }}」</h2>
+        <sc-if value="{{ feelJudge }}">
+          <div style="border:1px solid #cd9a86;background:rgba(156,90,60,.06);border-radius:4px;padding:15px 16px;margin-bottom:16px;">
+            <p style="font-size:13.5px;color:#6b5347;line-height:1.8;margin:0;"><b style="color:#9c5a3c;">內疚 · 羞愧 · 壓抑</b> 這一類，通常表示你還停在評判自己裡，還沒連上底下的需要。<br />要不要回上一步，把「我感到」再看一次？</p>
+          </div>
+        </sc-if>
+        <sc-if value="{{ feelConnected }}">
+          <div style="border:1px solid #b7c0a8;background:rgba(90,110,70,.06);border-radius:4px;padding:15px 16px;margin-bottom:16px;">
+            <p style="font-size:13.5px;color:#4f5a41;line-height:1.8;margin:0;"><b style="color:#5c6b45;">難過 · 失望 · 挫敗</b> 這一類，通常表示你已經連上自己的需要了。可以往下。</p>
+          </div>
+        </sc-if>
+        <sc-if value="{{ feelNeutral }}">
+          <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-bottom:16px;color:#554d40;font-family:'EB Garamond','Noto Serif TC',serif;font-size:14px;line-height:1.9;">只有你知道這個感受對不對。這裡不替你判定——你覺得就是它，就往下。</div>
+        </sc-if>
+        <p style="color:#938a78;font-size:12.5px;line-height:1.8;margin-bottom:16px;">這只是一個提示，不是判定。是不是這個感受，你說了算。</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+          <button onClick="{{ onFeelBack }}" style="border:1px solid #cec6b4;background:transparent;color:#35456a;border-radius:2px;padding:13px;font-size:14px;cursor:pointer;">回去看看</button>
+          <button onClick="{{ onFeelPass }}" style="border:none;background:#35456a;color:#fbf9f4;border-radius:2px;padding:13px;font-size:14px;cursor:pointer;">就是「{{ feelEcho }}」，往下</button>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ s5 }}">
+        <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:10px;letter-spacing:5px;text-transform:uppercase;color:#938a78;margin:4px 0 14px;">你的內在對話卡</div>
+        <div style="position:relative;border:1px solid #cec6b4;border-radius:3px;padding:26px 22px 22px;background:#f3efe7;box-shadow:inset 0 0 0 5px #fbf9f4,inset 0 0 0 6px #cec6b4;">
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:22px;color:#35456a;">❦</div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:15px;letter-spacing:6px;padding-left:6px;margin-top:4px;">內 在 對 話 卡</div>
+          <div style="text-align:center;font-size:8.5px;letter-spacing:3px;color:#938a78;text-transform:uppercase;margin-top:5px;">Inner Voice · Nº 13</div>
+          <div style="width:30px;height:1px;background:#35456a;opacity:.6;margin:16px auto 18px;"></div>
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">改寫前 · 兩個聲音</div>
+          <div style="font-size:13.5px;line-height:1.7;margin-bottom:4px;white-space:pre-wrap;">A｜{{ mirrorA }}</div>
+          <div style="font-size:13.5px;line-height:1.7;margin-bottom:14px;white-space:pre-wrap;">B｜{{ mirrorB }}</div>
+          <div style="height:1px;background:#e3ddd0;margin-bottom:14px;"></div>
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">改寫後 · 我真正要的</div>
+          <div style="border:1px solid #cec6b4;border-radius:2px;padding:14px 14px;background:#fbf9f4;">
+            <div style="font-family:'Noto Serif TC',serif;font-size:15px;color:#35456a;line-height:1.9;white-space:pre-wrap;">{{ rewriteV }}</div>
+          </div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;color:#35456a;font-size:14px;letter-spacing:1px;margin-top:16px;line-height:1.8;">你已經看清自己要什麼了。<br />接下來是安排的問題。</div>
+          <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:10px;">Edition Nº 13 · MMXXVI</div>
+        </div>
+
+        <div style="border-left:2px solid #cec6b4;padding:14px 16px;margin-top:18px;background:#f3efe7;border-radius:0 3px 3px 0;">
+          <p style="font-size:13.5px;color:#554d40;line-height:1.85;margin:0 0 10px;">看清楚要什麼，不等於問題就解決了——接下來是怎麼安排的問題，不是想通不想通的問題。</p>
+          <label style="display:flex;align-items:flex-start;gap:9px;cursor:pointer;font-size:13px;color:#554d40;line-height:1.7;">
+            <input type="checkbox" checked="{{ noChoice }}" onChange="{{ onNoChoice }}" style="margin-top:4px;flex:none;width:15px;height:15px;accent-color:#35456a;cursor:pointer;" />
+            <span>這件事我目前<b>沒有選擇的空間</b>（勾了也不算失敗——有些限制是真的，看清楚它是什麼本身就有用）</span>
+          </label>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:16px;">
+          <button onClick="{{ onSaveImage }}" style="border:1px solid #cec6b4;background:transparent;color:#35456a;border-radius:2px;padding:12px;font-size:13px;cursor:pointer;">儲存為圖片</button>
+          <button onClick="{{ onCopy }}" style="border:1px solid #cec6b4;background:transparent;color:#35456a;border-radius:2px;padding:12px;font-size:13px;cursor:pointer;">複製文字</button>
+          <button onClick="{{ onShare }}" style="border:1px solid #cec6b4;background:transparent;color:#35456a;border-radius:2px;padding:12px;font-size:13px;cursor:pointer;">分享這張</button>
+        </div>
+
+        <div style="border-top:1px solid #e3ddd0;margin-top:24px;padding-top:22px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:16px;font-weight:600;margin-bottom:4px;">做完了，跟我說一句</div>
+          <p style="font-size:12.5px;color:#938a78;margin-bottom:12px;line-height:1.75;">這張卡對你有沒有用、你希望下一個工具解決什麼——我在收集建議。留 Email，新工具上線也會通知你。</p>
+          <form onSubmit="{{ onSubmitFeedback }}">
+            <textarea value="{{ feedbackText }}" onInput="{{ onFeedbackText }}" maxlength="500" placeholder="你希望下一個工具處理什麼？（可留空）" style="width:100%;min-height:76px;border:1px solid #cec6b4;background:#fff;border-radius:2px;padding:12px 14px;font-size:14px;color:#241f18;line-height:1.7;resize:vertical;outline:none;margin-bottom:8px;"></textarea>
+            <div style="display:flex;gap:8px;">
+              <input value="{{ email }}" onInput="{{ onEmail }}" type="email" placeholder="你的 Email" required style="flex:1;border:1px solid #cec6b4;background:#fff;border-radius:2px;padding:12px 14px;font-size:14px;color:#241f18;outline:none;" />
+              <button type="submit" style="border:none;background:#35456a;color:#fbf9f4;border-radius:2px;padding:0 20px;font-size:13px;letter-spacing:1px;cursor:pointer;white-space:nowrap;">{{ subLabel }}</button>
+            </div>
+            <div style="min-height:16px;text-align:center;color:#35456a;font-size:11px;margin-top:8px;">{{ subStatus }}</div>
+          </form>
+          <p style="font-size:11px;color:#b9b09a;line-height:1.7;margin-top:10px;">這張卡啟發自《非暴力溝通》。它幫你看清自己在說什麼，不處理情緒疾病；方法是否適合，請自行判斷。</p>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ s6 }}">
+        <div style="display:flex;flex-direction:column;justify-content:center;min-height:100%;padding:16px 0;">
+          <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">找人談談</div>
+          <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:14px;">這張卡幫你看清楚，<br />但它不是拿來扛難受的</h2>
+          <p style="color:#554d40;font-size:14px;line-height:1.9;margin-bottom:12px;">這個工具是用來看清自己在說什麼的。如果這些念頭已經持續了一段時間，或影響到你的睡眠與日常——找一個專業的人談，會比繼續填表有用得多。</p>
+          <div style="border:1px solid #cec6b4;border-radius:4px;background:#fff;padding:18px 18px;margin:8px 0 4px;">
+            <div style="font-family:'Noto Serif TC',serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#938a78;margin-bottom:10px;">一些可以找的地方</div>
+            <p style="font-size:13.5px;color:#554d40;line-height:1.9;margin:0;">
+              <b>台灣</b> · 安心專線 <b>1925</b>（24 小時免付費）<br />
+              <b>香港</b> · 政府「情緒通」精神健康支援熱線 <b>18111</b>（24 小時）；醫院管理局精神健康專線 <b>2466 7350</b>；香港撒瑪利亞防止自殺會 <b>2389 2222</b><br />
+              <b>其他地區</b> · 搜尋當地的心理輔導或精神健康服務<br />
+              <span style="color:#938a78;font-size:12px;">若有立即危險，請直接撥打當地的緊急電話。</span>
+            </p>
+          </div>
+          <p style="color:#b9b09a;font-size:11px;line-height:1.7;margin-top:10px;">以上專線資料可能更新，請以各機構官方公告為準。</p>
+        </div>
+      </sc-if>
+
+    </div>
+
+    <div style="flex:none;padding:12px 26px 22px;background:linear-gradient(transparent,#fbf9f4 30%);">
+      <sc-if value="{{ showGate }}">
+        <div style="text-align:center;font-size:11px;color:#938a78;margin-bottom:8px;height:15px;letter-spacing:.5px;">{{ gateMsg }}</div>
+      </sc-if>
+      <sc-if value="{{ showNextBtn }}">
+        <button onClick="{{ onNext }}" disabled="{{ nextDisabled }}" style="display:block;width:100%;border:none;background:{{ nextBg }};color:#fbf9f4;border-radius:2px;padding:15px;font-size:15px;font-weight:600;letter-spacing:1px;cursor:pointer;opacity:{{ nextOp }};">{{ nextLabel }}</button>
+      </sc-if>
+      <sc-if value="{{ s5 }}">
+        <button onClick="{{ onWantTalk }}" style="display:block;width:100%;border:1px solid #cec6b4;background:transparent;color:#35456a;border-radius:2px;padding:12px;font-size:13px;letter-spacing:1px;cursor:pointer;margin-top:8px;">我想找人談談</button>
+        <button onClick="{{ onHome }}" style="display:block;width:100%;border:1px solid #cec6b4;background:transparent;color:#35456a;border-radius:2px;padding:12px;font-size:13px;letter-spacing:1px;cursor:pointer;margin-top:8px;">返回主頁</button>
+      </sc-if>
+      <sc-if value="{{ s6 }}">
+        <button onClick="{{ onBackToCard }}" style="display:block;width:100%;border:1px solid #cec6b4;background:transparent;color:#35456a;border-radius:2px;padding:13px;font-size:13px;letter-spacing:1px;cursor:pointer;">返回我的卡片</button>
+      </sc-if>
+      <sc-if value="{{ showRecordsBtn }}">
+        <button onClick="{{ onOpenRecords }}" style="display:block;width:100%;border:1px solid #cec6b4;background:transparent;color:#35456a;border-radius:2px;padding:12px;font-size:13px;letter-spacing:1px;cursor:pointer;margin-top:8px;">查看內在對話卡紀錄簿（{{ recordsCount }}）</button>
+      </sc-if>
+    </div>
+
+    <sc-if value="{{ toastOn }}">
+      <div style="position:absolute;bottom:96px;left:50%;transform:translateX(-50%);background:#241f18;color:#fbf9f4;padding:10px 18px;border-radius:3px;font-size:12px;letter-spacing:.5px;white-space:nowrap;">{{ toastMsg }}</div>
+    </sc-if>
+
+  </div>
+
+  <sc-if value="{{ exampleOpen }}">
+    <div onClick="{{ onCloseExample }}" style="position:fixed;inset:0;z-index:30;background:rgba(36,31,24,.4);display:flex;justify-content:center;">
+      <div onClick="{{ stop }}" style="width:min(440px,100%);height:100%;background:#f3efe7;padding:22px 24px 34px;overflow-y:auto;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:22px;font-weight:600;white-space:nowrap;">一個填好的例子</div>
+          <span onClick="{{ onCloseExample }}" style="color:#938a78;font-size:22px;cursor:pointer;">✕</span>
+        </div>
+        <p style="font-size:12.5px;color:#938a78;margin-bottom:18px;line-height:1.75;">假設腦中兩個聲音在吵——一個說「我應該早就做出點成績」，一個說「認命吧」。翻過之後，卡片長這樣——</p>
+
+        <div style="position:relative;border:1px solid #cec6b4;border-radius:3px;padding:26px 22px 22px;background:#fbf9f4;box-shadow:inset 0 0 0 5px #f3efe7,inset 0 0 0 6px #cec6b4;">
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:22px;color:#35456a;">❦</div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:15px;letter-spacing:6px;padding-left:6px;margin-top:4px;">內 在 對 話 卡</div>
+          <div style="text-align:center;font-size:8.5px;letter-spacing:3px;color:#938a78;text-transform:uppercase;margin-top:5px;">Inner Voice · Nº 13</div>
+          <div style="width:30px;height:1px;background:#35456a;opacity:.6;margin:16px auto 18px;"></div>
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">改寫前 · 兩個聲音</div>
+          <div style="font-size:13.5px;line-height:1.7;margin-bottom:4px;">A｜我應該早就做出點成績了</div>
+          <div style="font-size:13.5px;line-height:1.7;margin-bottom:14px;">B｜你想太多了，能力就這樣，認命吧</div>
+          <div style="height:1px;background:#e3ddd0;margin-bottom:14px;"></div>
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">改寫後 · 我真正要的</div>
+          <div style="border:1px solid #cec6b4;border-radius:2px;padding:14px 14px;background:#fbf9f4;">
+            <div style="font-family:'Noto Serif TC',serif;font-size:15px;color:#35456a;line-height:1.9;">當我看到同齡的人升遷了，<br />我感到焦慮，<br />因為我需要肯定自己走的路，<br />因此我想要這週把手上的作品完成一件。</div>
+          </div>
+          <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:12px;">Edition Nº 13 · MMXXVI</div>
+        </div>
+
+        <div style="margin-top:20px;">
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:10px;">這個例子想讓你看到三件事</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;">兩個聲音<b>不必選一邊</b>。它們各自在替你擔心一件事——這張卡不是要你分對錯，是把它們翻成你要什麼。</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;">「應該、必須、總是」這種詞，通常是評判躲的地方。把「<b>應該怎樣</b>」換成「<b>我要什麼</b>」。</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;color:#554d40;font-size:13.5px;line-height:1.85;">「因為我需要」不指向某個人做某件事——不是「他該回我訊息」，是「<b>被在乎</b>」。填不出來就先空著，空著本身也告訴你還沒想清楚。</div>
+        </div>
+
+        <button onClick="{{ onCloseExample }}" style="display:block;width:100%;border:none;background:#35456a;color:#fbf9f4;border-radius:2px;padding:14px;font-size:14px;letter-spacing:1px;cursor:pointer;margin-top:24px;">懂了，寫我自己的</button>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ recordsOpen }}">
+    <div onClick="{{ onCloseRecords }}" style="position:fixed;inset:0;z-index:30;background:rgba(36,31,24,.4);display:flex;justify-content:center;">
+      <div onClick="{{ stop }}" style="width:min(440px,100%);height:100%;background:#f3efe7;padding:22px 24px 34px;overflow-y:auto;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:22px;font-weight:600;white-space:nowrap;">內在對話卡紀錄簿</div>
+          <span onClick="{{ onCloseRecords }}" style="color:#938a78;font-size:22px;cursor:pointer;">✕</span>
+        </div>
+        <p style="font-size:12px;color:#938a78;margin-bottom:18px;">紀錄只保存在這部裝置的目前瀏覽器。</p>
+        <sc-if value="{{ hasCards }}">
+          <sc-for list="{{ cards }}" as="c" hint-placeholder-count="0">
+            <div style="background:#fbf9f4;border:1px solid #e3ddd0;border-radius:4px;padding:18px;margin-bottom:12px;">
+              <div style="display:flex;justify-content:space-between;align-items:center;color:#938a78;font-size:11px;margin-bottom:12px;"><span style="white-space:nowrap;">第 {{ c.idx }} 張 · {{ c.date }}{{ c.tag }}</span><span onClick="{{ c.onDel }}" style="cursor:pointer;">刪除</span></div>
+              <div style="font-size:9px;letter-spacing:2px;color:#938a78;">兩個聲音</div><div style="font-family:'Noto Serif TC',serif;font-size:14px;margin-top:3px;white-space:pre-wrap;">{{ c.voices }}</div>
+              <div style="font-size:9px;letter-spacing:2px;color:#938a78;margin-top:10px;">我真正要的</div><div style="font-family:'Noto Serif TC',serif;font-size:15px;color:#35456a;font-weight:600;margin-top:3px;white-space:pre-wrap;">{{ c.rewrite }}</div>
+            </div>
+          </sc-for>
+        </sc-if>
+        <sc-if value="{{ noCards }}">
+          <div style="text-align:center;color:#938a78;font-size:13px;padding:60px 10px;">還沒有卡片。<br />完成第一張後，會保存在這裡。</div>
+        </sc-if>
+      </div>
+    </div>
+  </sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:480,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  state = {
+    step: 0, voiceA: "", voiceB: "", obs: "", feel: "", need: "", want: "", noChoice: false,
+    toastOn: false, toastMsg: "", feedbackText: "", email: "", subLabel: "傳給創作者", subStatus: "",
+    cards: [], recordsOpen: false, started: false, exampleOpen: false,
+  };
+  HKEY = "toolbook_innervoice_history_v1";
+  JUDGE = ["應該", "应该", "不得不", "應當", "应当", "必須", "必须", "不能", "理應", "理应", "總是", "总是", "永遠", "永远", "從來", "从来", "每次"];
+  FEEL_JUDGE = ["內疚", "内疚", "羞愧", "慚愧", "惭愧", "壓抑", "压抑", "丟臉", "丢脸", "自責", "自责", "罪惡", "罪恶"];
+  FEEL_CONNECTED = ["難過", "难过", "失望", "挫敗", "挫败", "委屈", "傷心", "伤心", "無力", "无力", "孤單", "孤单", "疲憊", "疲惫", "害怕", "焦慮", "焦虑"];
+
+  componentDidMount() {
+    try { const raw = localStorage.getItem(this.HKEY); if (raw) { const a = JSON.parse(raw); if (Array.isArray(a)) this.setState({ cards: a.slice(0, 50) }); } } catch (_) {}
+  }
+  set(k, v) { this.setState({ [k]: v }); }
+  hitWords() {
+    const t = (this.state.voiceA + " " + this.state.voiceB);
+    const out = []; this.JUDGE.forEach(w => { if (t.indexOf(w) >= 0 && out.indexOf(w) < 0) out.push(w); });
+    return out;
+  }
+  feelClass() {
+    const f = this.state.feel;
+    if (!f.trim()) return "neutral";
+    if (this.FEEL_JUDGE.some(w => f.indexOf(w) >= 0)) return "judge";
+    if (this.FEEL_CONNECTED.some(w => f.indexOf(w) >= 0)) return "connected";
+    return "neutral";
+  }
+  gateOk(step) {
+    const s = this.state;
+    if (step === 1) return !!s.voiceA.trim() && !!s.voiceB.trim();
+    if (step === 2) return true;
+    if (step === 3) return !!s.obs.trim() && !!s.feel.trim() && !!s.want.trim();
+    return true;
+  }
+  scrollTop() { const st = document.querySelector(".stage"); if (st) st.scrollTop = 0; }
+  next() {
+    const step = this.state.step;
+    if (step <= 3 && !this.gateOk(step)) return;
+    if (step === 0 && !this.state.started) { this.setState({ started: true }); if (typeof gtag === "function") gtag("event", "tool_start", { tool_name: "內在對話改寫器" }); }
+    this.setState({ step: Math.min(4, step + 1) });
+    this.scrollTop();
+  }
+  prev() {
+    const step = this.state.step;
+    if (step === 6) { this.setState({ step: 5 }); this.scrollTop(); return; }
+    this.setState({ step: Math.max(0, step - 1) });
+    this.scrollTop();
+  }
+  confirmFeel() { this.archive(); this.setState({ step: 5 }); this.scrollTop(); }
+  quit() { window.location.href = "index.html"; }
+  wantTalk() { this.setState({ step: 6 }); this.scrollTop(); }
+  newCard() {
+    if (!window.confirm("再跑一組新的聲音？目前內容會清掉。")) return;
+    this.setState({ step: 1, voiceA: "", voiceB: "", obs: "", feel: "", need: "", want: "", noChoice: false });
+    this.scrollTop();
+  }
+  rewriteText() {
+    const s = this.state;
+    let t = "當我" + (s.obs.trim() || "……") + "，\n我感到" + (s.feel.trim() || "……");
+    if (s.need.trim()) t += "，\n因為我需要" + s.need.trim();
+    t += "，\n因此我想要" + (s.want.trim() || "……") + "。";
+    if (s.noChoice) t += "\n（這件事我目前沒有選擇的空間。）";
+    return t;
+  }
+  archive() {
+    const s = this.state; if (!s.obs.trim() && !s.want.trim()) return;
+    const card = {
+      id: "iv_" + Date.now().toString(36), createdAt: new Date().toISOString(),
+      voiceA: s.voiceA.trim(), voiceB: s.voiceB.trim(),
+      obs: s.obs.trim(), feel: s.feel.trim(), need: s.need.trim(), want: s.want.trim(), noChoice: !!s.noChoice,
+    };
+    const cards = [card, ...this.state.cards].slice(0, 50);
+    this.setState({ cards });
+    try { localStorage.setItem(this.HKEY, JSON.stringify(cards.slice(0, 50))); if (typeof gtag === "function") gtag("event", "tool_complete", { tool_name: "內在對話改寫器" }); } catch (_) {}
+  }
+  deleteCard(id) { const cards = this.state.cards.filter(c => c.id !== id); this.setState({ cards }); try { localStorage.setItem(this.HKEY, JSON.stringify(cards)); } catch (_) {} }
+
+  cardText() {
+    const s = this.state;
+    return "內在對話卡\n\n改寫前 · 兩個聲音\nA｜" + (s.voiceA.trim() || "—") + "\nB｜" + (s.voiceB.trim() || "—") + "\n\n改寫後 · 我真正要的\n" + this.rewriteText() + "\n\n你已經看清自己要什麼了。接下來是安排的問題。";
+  }
+  toast(msg) { this.setState({ toastOn: true, toastMsg: msg }); clearTimeout(this._t); this._t = setTimeout(() => this.setState({ toastOn: false }), 1700); }
+  async copy() { try { await navigator.clipboard.writeText(this.cardText()); this.toast("已複製卡片文字"); } catch (_) { this.toast("瀏覽器未允許複製"); } }
+  async share() { try { if (navigator.share) await navigator.share({ title: "我的內在對話卡", text: this.cardText() }); else { await navigator.clipboard.writeText(this.cardText()); this.toast("已複製，可貼到其他地方"); } } catch (_) {} }
+  onSubmitFeedback(e) { e.preventDefault(); var self = this; var fd = new FormData(); fd.append("email", this.state.email || ""); fd.append("message", this.state.feedbackText || ""); fd.append("tool", "內在對話改寫器"); fd.append("_subject", "Toolbook 工具回饋 · 內在對話改寫器"); fd.append("submission_type", "工具完成後回饋"); this.setState({ subLabel: "傳送中…", subStatus: "" }); fetch("https://formspree.io/f/mlgkgveq", { method: "POST", body: fd, headers: { Accept: "application/json" } }).then(function (r) { if (!r.ok) throw r; return r.json(); }).then(function () { self.setState({ subLabel: "已送出", subStatus: "已傳給創作者 ✓" }); }).catch(function () { self.setState({ subLabel: "傳給創作者", subStatus: "送出失敗，請稍後再試" }); }); }
+  async saveImage() {
+    const s = this.state;
+    const blocks = [
+      { k: "改寫前 · 兩個聲音", v: "A｜" + (s.voiceA.trim() || "—") + "\nB｜" + (s.voiceB.trim() || "—") },
+      { k: "改寫後 · 我真正要的", v: this.rewriteText(), big: true, serif: true },
+    ];
+    try { const m = await import("./toolbook-card.js"); const ok = await m.downloadCardPNG({ title: "內在對話卡", sub: "INNER VOICE · Nº 13", filename: "內在對話卡-Toolbook", mantra: "看清楚要什麼，就不那麼撕扯了。", edition: "Edition Nº 13 · MMXXVI", blocks }); this.toast(ok ? "卡片圖片已儲存" : "圖片產生失敗"); } catch (_) { this.toast("圖片產生失敗"); }
+  }
+
+  renderVals() {
+    const s = this.state, step = s.step;
+    const dots = [1, 2, 3, 4, 5].map(n => ({ w: n === step ? "16px" : "5px", bg: n === step ? "#35456a" : "#e3ddd0" }));
+    const showGate = step >= 1 && step <= 3;
+    const gateBad = showGate && !this.gateOk(step);
+    const hits = this.hitWords().map(w => ({ w }));
+    const fc = this.feelClass();
+    const cards = s.cards.map((c, n) => {
+      let rw = "當我" + (c.obs || "……") + "，我感到" + (c.feel || "……");
+      if (c.need) rw += "，因為我需要" + c.need;
+      rw += "，因此我想要" + (c.want || "……") + "。";
+      return {
+        idx: s.cards.length - n,
+        date: new Date(c.createdAt).toLocaleDateString("zh-HK", { year: "numeric", month: "2-digit", day: "2-digit" }),
+        tag: c.noChoice ? " · 沒有選擇空間" : "",
+        voices: "A｜" + (c.voiceA || "—") + "\nB｜" + (c.voiceB || "—"),
+        rewrite: rw,
+        onDel: (e) => { if (e && e.stopPropagation) e.stopPropagation(); this.deleteCard(c.id); },
+      };
+    });
+    return {
+      dots: (step >= 1 && step <= 5) ? dots : [],
+      backColor: (step === 0) ? "transparent" : "#938a78", onBack: () => this.prev(),
+      s0: step === 0, s1: step === 1, s2: step === 2, s3: step === 3, s4: step === 4, s5: step === 5, s6: step === 6,
+      onQuit: () => this.quit(),
+      voiceA: s.voiceA, onVoiceA: e => this.set("voiceA", e.target.value),
+      voiceB: s.voiceB, onVoiceB: e => this.set("voiceB", e.target.value),
+      hits, hasHits: hits.length > 0, noHits: hits.length === 0,
+      mirrorA: s.voiceA.trim() || "—", mirrorB: s.voiceB.trim() || "—",
+      obs: s.obs, onObs: e => this.set("obs", e.target.value),
+      feel: s.feel, onFeel: e => this.set("feel", e.target.value),
+      need: s.need, onNeed: e => this.set("need", e.target.value),
+      want: s.want, onWant: e => this.set("want", e.target.value),
+      feelEcho: s.feel.trim() || "—",
+      feelJudge: fc === "judge", feelConnected: fc === "connected", feelNeutral: fc === "neutral",
+      onFeelBack: () => this.prev(), onFeelPass: () => this.confirmFeel(),
+      rewriteV: this.rewriteText(),
+      noChoice: s.noChoice ? "checked" : "", onNoChoice: e => this.set("noChoice", !!e.target.checked),
+      onCopy: () => this.copy(), onShare: () => this.share(), onSaveImage: () => this.saveImage(),
+      onHome: () => { window.location.href = "index.html"; },
+      onWantTalk: () => this.wantTalk(), onBackToCard: () => this.setState({ step: 5 }),
+      feedbackText: s.feedbackText, email: s.email, subLabel: s.subLabel, subStatus: s.subStatus,
+      onFeedbackText: e => this.set("feedbackText", e.target.value), onEmail: e => this.set("email", e.target.value), onSubmitFeedback: e => this.onSubmitFeedback(e),
+      showGate, gateMsg: gateBad ? (step === 1 ? "兩個聲音都寫一句，才能繼續" : step === 3 ? "「當我」「我感到」「因此我想要」先各填一句" : "") : "",
+      showNextBtn: step <= 3 || step === 5,
+      onNext: step === 5 ? () => this.newCard() : () => this.next(),
+      nextLabel: step === 0 ? "開始" : step === 2 ? "繼續" : step === 3 ? "看一眼那個感受" : step === 5 ? "再跑一組新的聲音" : "下一步",
+      nextDisabled: gateBad ? "disabled" : "", nextOp: gateBad ? ".5" : "1", nextBg: gateBad ? "#b7bdcb" : "#35456a",
+      toastOn: s.toastOn, toastMsg: s.toastMsg,
+      cards, recordsCount: s.cards.length, hasCards: s.cards.length > 0, noCards: s.cards.length === 0,
+      showRecordsBtn: (step === 0 || step === 5) && s.cards.length > 0,
+      onOpenRecords: () => this.set("recordsOpen", true),
+      recordsOpen: s.recordsOpen, onCloseRecords: () => this.set("recordsOpen", false), stop: e => e.stopPropagation(),
+      exampleOpen: s.exampleOpen, onOpenExample: () => this.set("exampleOpen", true), onCloseExample: () => this.set("exampleOpen", false),
+    };
+  }
+}
+</script>
+</body>
+</html>

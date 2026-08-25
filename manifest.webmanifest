@@ -1,0 +1,19 @@
+{
+  "name": "Toolbook｜把好書變成工具",
+  "short_name": "Toolbook",
+  "description": "把好書變成工具：一頁一工具，本機儲存，免登入。",
+  "lang": "zh-Hant",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#fbf9f4",
+  "theme_color": "#35456a",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

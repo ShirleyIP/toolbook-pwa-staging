@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CKM6MRRVBM"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-CKM6MRRVBM');</script>
+<title>我的紀錄 · Toolbook</title>
+<meta name="description" content="你用過哪些工具，以及上次寫下了什麼。答案只存在這部裝置。">
+<link rel="stylesheet" href="fonts.css?v=2">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:#f3efe7;color:#241f18;font-family:-apple-system,"PingFang TC","PingFang SC",sans-serif;line-height:1.8;-webkit-font-smoothing:antialiased;}
+  a{color:#35456a;text-decoration:none;transition:color .18s,border-color .18s;}
+  a:hover{color:#26324f;}
+  ::selection{background:rgba(53,69,106,.15);}
+  .serif{font-family:'Noto Serif TC',serif;}
+  .rec-row:hover{border-color:#35456a !important;}
+  /* 手機版：兩行式頁首（品牌獨佔上排維持大器、連結退下排），全站一致 */
+  @media(max-width:600px){
+    nav{flex-direction:column !important;align-items:flex-start !important;gap:11px !important;padding:16px 0 14px !important;}
+    nav > a{letter-spacing:clamp(2px,1.4vw,4px) !important;font-size:clamp(17px,5vw,19px) !important;}
+    nav > a .ed{font-size:10px !important;letter-spacing:2px !important;margin-left:8px !important;display:inline !important;}
+    nav > div{gap:20px !important;}
+    nav > div a{font-size:12px !important;letter-spacing:1px !important;}
+  }
+</style>
+</head>
+<body>
+<div style="position:relative;min-height:100vh;background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.045'/%3E%3C/svg%3E&quot;);">
+  <div style="max-width:640px;margin:0 auto;padding:0 26px;">
+
+    <nav style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:22px 0;border-bottom:1px solid #e3ddd0;">
+      <a href="index.html" class="serif" style="font-size:clamp(15px,4.2vw,18px);letter-spacing:clamp(1px,1.2vw,3px);font-weight:600;color:#241f18;white-space:nowrap;">TOOLBOOK<span style="color:#35456a;">.</span><span class="ed" style="font-size:10px;letter-spacing:clamp(1px,0.8vw,3px);color:#35456a;text-transform:uppercase;font-weight:400;margin-left:clamp(4px,1.5vw,7px);">Editions</span></a>
+      <div class="nav-links" style="display:flex;gap:clamp(14px,4.5vw,22px);flex-shrink:0;">
+        <a href="index.html#appendix" style="color:#938a78;font-size:13px;letter-spacing:1px;">附錄</a>
+        <a href="index.html#tools" style="color:#938a78;font-size:13px;letter-spacing:1px;">工具</a>
+      </div>
+    </nav>
+
+    <header style="padding:34px 0 26px;">
+      <div style="color:#35456a;font-size:12px;letter-spacing:4px;text-transform:uppercase;margin-bottom:16px;">我的紀錄</div>
+      <h1 class="serif" style="font-size:clamp(27px,6vw,34px);font-weight:600;line-height:1.35;letter-spacing:.5px;margin-bottom:14px;text-wrap:balance;">你用過哪些，<br />以及上次寫下了什麼。</h1>
+      <p style="color:#5d564a;font-size:15px;line-height:1.9;font-family:'EB Garamond','Noto Serif TC',serif;">忘記一個工具做什麼的時候，不必回去重讀文章——先看你上次自己寫下的結論。答案只存在這部裝置，我看不到。</p>
+    </header>
+
+    <div style="display:flex;border:1px solid #cec6b4;border-radius:4px;background:#fbf9f4;margin-bottom:26px;">
+      <div style="flex:1;padding:18px 12px;text-align:center;"><div id="tUsed" class="serif" style="font-size:28px;color:#35456a;line-height:1.2;">0 / 10</div><div style="font-size:11px;color:#938a78;letter-spacing:.5px;margin-top:3px;">用過的工具</div></div>
+      <div style="flex:1;padding:18px 12px;text-align:center;border-left:1px solid #e3ddd0;"><div id="tCards" class="serif" style="font-size:28px;color:#35456a;line-height:1.2;">0</div><div style="font-size:11px;color:#938a78;letter-spacing:.5px;margin-top:3px;">留下的紀錄</div></div>
+      <div style="flex:1;padding:18px 12px;text-align:center;border-left:1px solid #e3ddd0;"><div id="tLast" class="serif" style="font-size:28px;color:#35456a;line-height:1.2;">—</div><div style="font-size:11px;color:#938a78;letter-spacing:.5px;margin-top:3px;">最近一次</div></div>
+    </div>
+
+    <div style="font-size:12px;letter-spacing:4px;text-transform:uppercase;color:#938a78;margin-bottom:16px;">全部工具</div>
+    <div id="rows"></div>
+
+    <div style="height:1px;background:#e3ddd0;margin:30px 0;"></div>
+
+    <div style="font-size:12px;letter-spacing:4px;text-transform:uppercase;color:#938a78;margin-bottom:16px;">帶走你的紀錄</div>
+    <div style="border:1px solid #cec6b4;border-radius:4px;background:#fbf9f4;padding:22px 20px;">
+      <h3 class="serif" style="font-size:18px;margin-bottom:7px;">資料只在這部裝置</h3>
+      <p style="font-size:13px;color:#5d564a;margin-bottom:16px;line-height:1.85;">Toolbook 沒有帳號、不用登入，所有答案都存在這個瀏覽器裡——這樣我看不到你寫了什麼。代價是：換裝置看不到，清掉瀏覽器資料就沒了。</p>
+      <div style="font-size:13px;color:#7a4f3c;background:rgba(156,107,82,.08);border-left:2px solid #9c6b52;padding:11px 14px;margin-bottom:16px;line-height:1.8;"><b>兩件要知道的事。</b>用無痕視窗做的紀錄，關掉視窗就消失。「今天兩格」按設計只保留最近 14 天，更早的會自動清掉——想留住就先匯出。</div>
+      <div style="display:flex;gap:9px;flex-wrap:wrap;">
+        <button id="btnExport" style="border:1px solid #35456a;background:#35456a;color:#fbf9f4;border-radius:3px;padding:12px 20px;font-size:13px;letter-spacing:1px;cursor:pointer;">匯出全部紀錄</button>
+        <label style="border:1px solid #35456a;background:transparent;color:#35456a;border-radius:3px;padding:12px 20px;font-size:13px;letter-spacing:1px;cursor:pointer;">從檔案匯入<input id="fileImport" type="file" accept="application/json,.json" style="display:none;" /></label>
+      </div>
+      <div id="status" style="font-size:13px;color:#35456a;min-height:20px;margin-top:12px;line-height:1.7;"></div>
+      <p style="font-size:12px;color:#938a78;line-height:1.8;margin-top:6px;">匯出的是一個 JSON 檔，存在你自己的電腦或手機裡，不會經過我這邊。匯入預設是<b>合併</b>——同一張卡兩邊都有時留較新的那張，所以在兩部裝置之間來回匯入不會互相蓋掉。</p>
+    </div>
+
+    <footer style="color:#938a78;font-size:12px;text-align:center;padding:44px 0 40px;letter-spacing:.5px;">
+      <div class="serif" style="margin-bottom:6px;">TOOLBOOK<span style="color:#35456a;">.</span> EDITIONS</div>
+      把好書變成工具 · 一個還在路上的讀者 · MMXXVI
+    </footer>
+
+  </div>
+</div>
+
+<script>
+(function () {
+  var TOOLS = [
+    { no: "01", name: "目標釐清器", key: "toolbook_direction_cards_v1", file: "tool.html", unit: "張", label: "想朝的方向", pick: function (c) { return c.want; } },
+    { no: "02", name: "成果鎖定卡", key: "toolbook_result_lock_history_v1", file: "tool-result-lock.html", unit: "張", label: "本輪結果", pick: function (c) { return c.outcome; } },
+    { no: "03", name: "復盤卡", key: "toolbook_review_history_v1", file: "tool-review.html", unit: "張", label: "下一輪只改這一件", pick: function (c) { return c.onething; } },
+    { no: "04", name: "恐懼拆解卡", key: "toolbook_fear_history_v1", file: "tool-fear.html", unit: "張", label: "這星期先做這一小步", pick: function (c) { return c.ministep; } },
+    { no: "05", name: "小規模試驗卡", key: "toolbook_pilot_history_v1", file: "tool-pilot.html", unit: "張", label: "先試的那件小事", pick: function (c) { return c.pilot; } },
+    { no: "06", name: "空下來之後", key: "toolbook_leisure_history_v1", file: "tool-leisure.html", unit: "張", label: "想做的那件事", pick: function (c) { return c.thing; } },
+    { no: "07", name: "減法掃描卡", key: "toolbook_subtract_history_v1", file: "tool-subtract.html", unit: "張", label: "這週動的那一項", pick: function (c) { return c.action; } },
+    { no: "08", name: "今天兩格", key: "toolbook_two_v1", file: "tool-two.html", unit: "天", daymap: true, label: "最近一天", pick: function (d) { return [d.one, d.two].filter(Boolean).join("／"); } },
+    { no: "09", name: "週期執行器", key: "toolbook_cycle_history_v1", file: "tool-cycle.html", unit: "輪", label: "這一輪要交付", pick: function (c) { return c.deliver; } },
+    { no: "10", name: "講完話之後", key: "toolbook_after_talk_history_v1", file: "tool-after-talk.html", unit: "則", label: "上次答的", pick: function (c) { return c.answer; } },
+    { no: "11", name: "學習筆記卡", key: "toolbook_studynote_history_v1", file: "tool-study-note.html", unit: "張", label: "這次學的", pick: function (c) { return c.topic; } },
+    { no: "12", name: "承諾成本卡", key: "toolbook_commitcost_history_v1", file: "tool-commit-cost.html", unit: "張", label: "想做的事", pick: function (c) { return c.wish; } },
+    { no: "13", name: "內在對話改寫器", key: "toolbook_innervoice_history_v1", file: "tool-inner-voice.html", unit: "張", label: "最後想要的", pick: function (c) { return c.want; } },
+    { no: "14", name: "習慣追蹤卡", key: "toolbook_habit_history_v1", file: "tool-habit.html", unit: "個", label: "在追蹤", pick: function (c) { return c.name; } },
+    { no: "15", name: "重新解讀卡", key: "toolbook_reframe_history_v1", file: "tool-reframe.html", unit: "張", label: "那句話", pick: function (c) { return c.line; } }
+  ];
+
+  function readJSON(k, f) { try { var v = JSON.parse(localStorage.getItem(k)); return v == null ? f : v; } catch (_) { return f; } }
+  function fmtDate(d) { if (!d || isNaN(d.getTime())) return "日期不明"; return d.getFullYear() + "." + String(d.getMonth() + 1).padStart(2, "0") + "." + String(d.getDate()).padStart(2, "0"); }
+  function clip(s, n) { s = String(s == null ? "" : s).replace(/\s+/g, " ").trim(); return s.length > n ? s.slice(0, n) + "…" : s; }
+  function esc(s) { return String(s == null ? "" : s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;"); }
+
+  function usageOf(t) {
+    if (t.daymap) {
+      var o = readJSON(t.key, {}); if (!o || typeof o !== "object") return { count: 0 };
+      var keys = Object.keys(o).sort().reverse(); if (!keys.length) return { count: 0 };
+      var last = new Date(keys[0]); var top = o[keys[0]] || {};
+      return { count: keys.length, lastAt: last, summary: clip(t.pick(top), 42) };
+    }
+    var a = readJSON(t.key, []); if (!Array.isArray(a) || !a.length) return { count: 0 };
+    var dates = a.map(function (c) { return new Date(c.createdAt || c.updatedAt || 0); }).filter(function (d) { return !isNaN(d.getTime()); }).sort(function (x, y) { return y - x; });
+    return { count: a.length, lastAt: dates[0] || null, summary: clip(t.pick(a[0]), 42) };
+  }
+
+  function rowHTML(r) {
+    var head =
+      '<div style="display:flex;align-items:baseline;gap:10px;">' +
+        '<span class="serif" style="font-size:11px;letter-spacing:1.5px;color:#35456a;flex:none;">Nº ' + r.no + '</span>' +
+        '<span class="serif" style="font-size:17px;font-weight:600;flex:1;min-width:0;">' + esc(r.name) + '</span>' +
+        '<span style="font-size:11px;color:#938a78;flex:none;letter-spacing:.5px;">' + esc(r.when) + '</span>' +
+      '</div>';
+    var body;
+    if (r.used) {
+      body =
+        '<div style="margin-top:9px;border-left:2px solid #cec6b4;padding-left:12px;">' +
+          '<div style="font-size:9px;letter-spacing:2.2px;text-transform:uppercase;color:#938a78;">' + esc(r.summaryLabel) + '</div>' +
+          '<div class="serif" style="font-size:15px;line-height:1.65;margin-top:2px;white-space:pre-wrap;">' + esc(r.summary) + '</div>' +
+        '</div>' +
+        (r.hasMeta ? '<div style="margin-top:8px;font-size:11px;color:#938a78;letter-spacing:.5px;">' + esc(r.meta) + '</div>' : '');
+    } else {
+      body = '<div style="margin-top:6px;font-size:13px;color:#938a78;">開始 →</div>';
+    }
+    return '<a class="rec-row" href="' + r.href + '" style="display:block;border:1px solid #e3ddd0;border-style:' + (r.used ? "solid" : "dashed") + ';border-radius:4px;background:' + (r.used ? "#fbf9f4" : "transparent") + ';padding:17px 18px;margin-bottom:10px;color:inherit;">' + head + body + '</a>';
+  }
+
+  function refresh() {
+    var raw = TOOLS.map(function (t) { return { t: t, u: usageOf(t) }; });
+    var used = raw.filter(function (r) { return r.u.count > 0; });
+    var cards = raw.reduce(function (s, r) { return s + r.u.count; }, 0);
+    var dates = used.map(function (r) { return r.u.lastAt; }).filter(Boolean).sort(function (a, b) { return b - a; });
+    var sorted = raw.slice().sort(function (a, b) {
+      var au = a.u.count > 0, bu = b.u.count > 0;
+      if (au !== bu) return au ? -1 : 1;
+      if (au && bu) return (b.u.lastAt || 0) - (a.u.lastAt || 0);
+      return a.t.no.localeCompare(b.t.no);
+    });
+    var rows = sorted.map(function (o) {
+      var t = o.t, u = o.u;
+      var isUsed = u.count > 0;
+      var meta = isUsed && u.count > 1 ? "共 " + u.count + " " + t.unit : "";
+      return {
+        no: t.no, name: t.name, href: t.file, used: isUsed,
+        when: isUsed ? fmtDate(u.lastAt) : "還沒用過",
+        summaryLabel: t.label, summary: u.summary || "—", meta: meta, hasMeta: !!meta
+      };
+    });
+    document.getElementById("rows").innerHTML = rows.map(rowHTML).join("");
+    document.getElementById("tUsed").textContent = used.length + " / " + TOOLS.length;
+    document.getElementById("tCards").textContent = cards;
+    document.getElementById("tLast").textContent = dates.length ? ((dates[0].getMonth() + 1) + "." + String(dates[0].getDate()).padStart(2, "0")) : "—";
+  }
+
+  function setStatus(msg) { document.getElementById("status").textContent = msg; }
+
+  function exportAll() {
+    var data = {}; var n = 0;
+    TOOLS.forEach(function (t) { var raw = localStorage.getItem(t.key); if (raw) { try { data[t.key] = JSON.parse(raw); n += Array.isArray(data[t.key]) ? data[t.key].length : Object.keys(data[t.key] || {}).length; } catch (_) {} } });
+    if (!n) { setStatus("現在還沒有任何紀錄可以匯出。"); return; }
+    var payload = { app: "toolbook", version: 1, exportedAt: new Date().toISOString(), data: data };
+    var blob = new Blob([JSON.stringify(payload, null, 2)], { type: "application/json" });
+    var a = document.createElement("a"); a.href = URL.createObjectURL(blob);
+    a.download = "toolbook-紀錄-" + fmtDate(new Date()).replace(/\./g, "") + ".json"; a.click();
+    setTimeout(function () { URL.revokeObjectURL(a.href); }, 1000);
+    setStatus("已匯出。檔案在你的下載資料夾。");
+  }
+
+  function onFile(e) {
+    var f = e.target.files && e.target.files[0]; if (!f) return;
+    setStatus("讀取中…");
+    f.text().then(function (text) {
+      var payload = JSON.parse(text);
+      var data = payload && payload.data;
+      if (!data || typeof data !== "object") { setStatus("認不出這個檔——請選 Toolbook 匯出的 JSON。"); return; }
+      var restored = 0;
+      Object.keys(data).forEach(function (key) {
+        var val = data[key];
+        if (Array.isArray(val)) {
+          var cur = readJSON(key, []); if (!Array.isArray(cur)) cur = [];
+          var byId = {}; var noId = [];
+          cur.concat(val).forEach(function (c) { if (!c) return; var id = c.id; if (!id) { noId.push(c); return; } var ex = byId[id]; if (!ex || new Date(c.updatedAt || c.createdAt || 0) >= new Date(ex.updatedAt || ex.createdAt || 0)) byId[id] = c; });
+          var merged = Object.keys(byId).map(function (k) { return byId[k]; }).concat(noId).sort(function (a, b) { return new Date(b.createdAt || 0) - new Date(a.createdAt || 0); }).slice(0, 50);
+          localStorage.setItem(key, JSON.stringify(merged)); restored += val.length;
+        } else if (val && typeof val === "object") {
+          var curo = readJSON(key, {}); if (!curo || typeof curo !== "object") curo = {};
+          localStorage.setItem(key, JSON.stringify(Object.assign({}, curo, val))); restored += Object.keys(val).length;
+        }
+      });
+      setStatus("匯入完成，還原了 " + restored + " 項紀錄。");
+      refresh();
+    }).catch(function () { setStatus("匯入失敗——檔案可能損壞或格式不對。"); });
+    e.target.value = "";
+  }
+
+  document.getElementById("btnExport").addEventListener("click", exportAll);
+  document.getElementById("fileImport").addEventListener("change", onFile);
+  refresh();
+})();
+</script>
+</body>
+</html>

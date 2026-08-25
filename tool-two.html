@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CKM6MRRVBM"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-CKM6MRRVBM');</script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="fonts.css?v=2">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:#e9e3d6;color:#241f18;font-family:-apple-system,"PingFang TC","PingFang SC",sans-serif;line-height:1.7;-webkit-font-smoothing:antialiased;}
+  a{color:#35456a;text-decoration:none;transition:.18s;}
+  a:hover{color:#26324f;}
+  input,textarea,button{font-family:inherit;}
+  textarea::placeholder{color:#938a78;opacity:.65;}
+  textarea:focus{outline:none;}
+  ::selection{background:rgba(53,69,106,.15);}
+</style>
+</helmet>
+<div style="position:relative;min-height:100vh;padding:0 0 40px;background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E&quot;);background-color:#e9e3d6;">
+  <div style="max-width:460px;margin:0 auto;min-height:100vh;background:rgba(251,249,244,.5);border-left:1px solid #e3ddd0;border-right:1px solid #e3ddd0;padding:0 30px 40px;">
+
+    <div style="height:52px;display:flex;align-items:center;justify-content:space-between;">
+      <a href="index.html" style="font-family:'Noto Serif TC',serif;font-size:13px;letter-spacing:2px;color:#938a78;">TOOLBOOK<span style="color:#35456a;">.</span></a>
+      <a href="index.html" style="color:#938a78;font-size:16px;" title="回首頁">✕</a>
+    </div>
+
+    <header style="padding:18px 0 4px;">
+      <div style="color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:10px;">工具 Nº 08 · 推進</div>
+      <h1 style="font-family:'Noto Serif TC',serif;font-size:25px;font-weight:600;line-height:1.55;margin-bottom:8px;">今天，只有兩格</h1>
+      <div style="font-size:12px;color:#938a78;letter-spacing:1px;margin-bottom:10px;">{{ todayLabel }}</div>
+      <div onClick="{{ onOpenExample }}" style="margin-bottom:22px;color:#35456a;font-size:13px;cursor:pointer;text-decoration:underline;text-underline-offset:3px;display:inline-block;">看一個填好的例子 →</div>
+    </header>
+
+    <div style="border:1px solid {{ slot1Bd }};background:#fbf9f4;border-radius:4px;padding:16px 17px;margin-bottom:12px;box-shadow:{{ slot1Shadow }};transition:.25s;">
+      <div style="font-family:'Noto Serif TC',serif;font-size:11px;letter-spacing:3px;color:#35456a;margin-bottom:8px;">其 一</div>
+      <textarea value="{{ one }}" onInput="{{ onOne }}" readOnly="{{ locked }}" maxlength="120" placeholder="今天要完成的第一件" style="width:100%;border:0;background:transparent;font-family:'Noto Serif TC',serif;font-size:17px;line-height:1.65;color:{{ slotTextColor }};resize:none;min-height:58px;padding:0;"></textarea>
+    </div>
+    <div style="border:1px solid {{ slot2Bd }};background:#fbf9f4;border-radius:4px;padding:16px 17px;margin-bottom:12px;box-shadow:{{ slot2Shadow }};transition:.25s;">
+      <div style="font-family:'Noto Serif TC',serif;font-size:11px;letter-spacing:3px;color:#35456a;margin-bottom:8px;">其 二</div>
+      <textarea value="{{ two }}" onInput="{{ onTwo }}" readOnly="{{ locked }}" maxlength="120" placeholder="第二件——沒有第三格" style="width:100%;border:0;background:transparent;font-family:'Noto Serif TC',serif;font-size:17px;line-height:1.65;color:{{ slotTextColor }};resize:none;min-height:58px;padding:0;"></textarea>
+    </div>
+
+    <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:15px;color:#35456a;line-height:1.8;padding:20px 10px 4px;">如果今天只完成這一件，<br />我滿意嗎？</div>
+
+    <div style="display:flex;gap:9px;margin-top:6px;">
+      <sc-if value="{{ notLocked }}">
+        <button onClick="{{ onLock }}" disabled="{{ lockDisabled }}" style="flex:1;background:{{ lockBg }};color:#fbf9f4;border:1px solid {{ lockBg }};border-radius:3px;padding:13px;font-size:13.5px;font-weight:600;letter-spacing:1px;cursor:pointer;opacity:{{ lockOp }};">寫好了，鎖起來</button>
+      </sc-if>
+      <sc-if value="{{ locked }}">
+        <button onClick="{{ onUnlock }}" style="flex:1;background:transparent;border:1px solid #e3ddd0;color:#938a78;border-radius:3px;padding:13px;font-size:13.5px;font-weight:500;letter-spacing:1px;cursor:pointer;">改一下</button>
+      </sc-if>
+    </div>
+    <div style="text-align:center;font-size:11.5px;color:#938a78;min-height:17px;margin-top:11px;letter-spacing:.5px;">{{ stateMsg }}</div>
+
+    <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:30px;color:#655e51;font-size:12.5px;line-height:1.85;">
+      <b style="font-family:'Noto Serif TC',serif;color:#35456a;display:block;margin-bottom:3px;font-size:13px;">為什麼只有兩格</b>
+      書裡把這個做法掛在「工作會膨脹到填滿所有時間，所以把死線壓短就會更有效率」上。那一條我沒有沿用——研究顯示，時間壓力會讓人覺得自己更有創意，實際上卻降低了成果的品質。<br /><br />
+      留下這張卡，是因為它真正有用的地方在另一邊：<b style="color:#35456a;">只有兩個格子這件事本身</b>。位置不夠，你就得選；不必靠意志力，也不必說服自己。
+    </div>
+
+    <div style="margin-top:30px;border-top:1px solid #e3ddd0;padding-top:18px;">
+      <h2 style="font-family:'Noto Serif TC',serif;font-size:15px;font-weight:600;margin-bottom:4px;">前幾天</h2>
+      <div style="font-size:11.5px;color:#938a78;margin-bottom:14px;line-height:1.7;">只留最近 14 天，存在這個瀏覽器。這裡不算達成率，也不記你連續幾天——那是給工作用的，不是給你用的。</div>
+      <sc-if value="{{ hasPast }}">
+        <sc-for list="{{ past }}" as="d" hint-placeholder-count="0">
+          <div style="border-bottom:1px solid #e3ddd0;padding:12px 0;">
+            <div style="font-size:10.5px;color:#938a78;letter-spacing:1px;margin-bottom:5px;">{{ d.label }}</div>
+            <div style="font-family:'Noto Serif TC',serif;font-size:14.5px;line-height:1.7;color:#4d463b;white-space:pre-wrap;">{{ d.text }}</div>
+          </div>
+        </sc-for>
+      </sc-if>
+      <sc-if value="{{ noPast }}">
+        <div style="color:#938a78;font-size:12.5px;padding:10px 0;">還沒有前幾天的紀錄。</div>
+      </sc-if>
+      <sc-if value="{{ hasStore }}">
+        <button onClick="{{ onClear }}" style="border:0;background:transparent;color:#938a78;font-size:11.5px;display:block;margin:18px auto 0;cursor:pointer;text-decoration:underline;">清空全部紀錄</button>
+      </sc-if>
+    </div>
+
+    <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:30px;color:#655e51;font-size:12.5px;line-height:1.85;">
+      <b style="font-family:'Noto Serif TC',serif;color:#35456a;display:block;margin-bottom:3px;font-size:13px;">下一步</b>
+      如果兩格天天都塞不下，問題不在這張卡——是上游的事太多了。用 <a href="tool-subtract.html">減法掃描卡</a> 先看清楚你有多少決定權，再挑一項動它。<br /><br />
+      如果你想跑一段長一點的，<a href="tool-cycle.html">週期執行器</a> 開一輪十二週、只帶一個關鍵行動，每週回來記兩個數字。
+    </div>
+
+    <footer style="text-align:center;color:#938a78;font-size:10.5px;letter-spacing:1px;padding:34px 0 0;">TOOLBOOK<span style="color:#35456a;">.</span> EDITIONS · 把好書變成工具</footer>
+
+  </div>
+
+  <sc-if value="{{ exampleOpen }}">
+    <div onClick="{{ onCloseExample }}" style="position:fixed;inset:0;z-index:30;background:rgba(36,31,24,.4);display:flex;justify-content:center;">
+      <div onClick="{{ stop }}" style="width:min(440px,100%);height:100%;background:#f3efe7;padding:22px 24px 34px;overflow-y:auto;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:22px;font-weight:600;white-space:nowrap;">一個填好的例子</div>
+          <span onClick="{{ onCloseExample }}" style="color:#938a78;font-size:22px;cursor:pointer;">✕</span>
+        </div>
+        <p style="font-size:12.5px;color:#938a78;margin-bottom:18px;line-height:1.75;">假設有個人前兩天都用過這張卡。今天他又只挑了兩件——寫好、鎖起來，加上前幾天的紀錄，長這樣：</p>
+
+        <div style="font-family:'Noto Serif TC',serif;font-size:11px;letter-spacing:1px;color:#938a78;margin-bottom:10px;">今天 · 08.22 · 已鎖</div>
+        <div style="border:1px solid #cec6b4;background:#fbf9f4;border-radius:4px;padding:16px 17px;margin-bottom:12px;box-shadow:inset 0 0 0 3px #f3efe7,inset 0 0 0 4px #cec6b4;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:11px;letter-spacing:3px;color:#35456a;margin-bottom:8px;">其 一</div>
+          <div style="font-family:'Noto Serif TC',serif;font-size:17px;line-height:1.65;color:#5d564a;">把提案的第一段寫完</div>
+        </div>
+        <div style="border:1px solid #cec6b4;background:#fbf9f4;border-radius:4px;padding:16px 17px;margin-bottom:12px;box-shadow:inset 0 0 0 3px #f3efe7,inset 0 0 0 4px #cec6b4;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:11px;letter-spacing:3px;color:#35456a;margin-bottom:8px;">其 二</div>
+          <div style="font-family:'Noto Serif TC',serif;font-size:17px;line-height:1.65;color:#5d564a;">打電話跟客戶敲下週見面的時間</div>
+        </div>
+        <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:14px;color:#35456a;line-height:1.8;padding:6px 10px 2px;">如果今天只完成這一件，我也算滿意。</div>
+
+        <div style="border-top:1px solid #e3ddd0;margin-top:22px;padding-top:16px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:14px;font-weight:600;margin-bottom:12px;">前幾天</div>
+          <div style="border-bottom:1px solid #e3ddd0;padding:10px 0;">
+            <div style="font-size:10.5px;color:#938a78;letter-spacing:1px;margin-bottom:5px;">08.21</div>
+            <div style="font-family:'Noto Serif TC',serif;font-size:14.5px;line-height:1.7;color:#4d463b;white-space:pre-wrap;">修完設計稿
+回覆積壓的那三封信</div>
+          </div>
+          <div style="border-bottom:1px solid #e3ddd0;padding:10px 0;">
+            <div style="font-size:10.5px;color:#938a78;letter-spacing:1px;margin-bottom:5px;">08.20</div>
+            <div style="font-family:'Noto Serif TC',serif;font-size:14.5px;line-height:1.7;color:#4d463b;white-space:pre-wrap;">陪家人好好吃頓飯
+把下週的行程排一排</div>
+          </div>
+        </div>
+
+        <div style="margin-top:22px;">
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:10px;">這個例子想讓你看到三件事</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;"><b>一天只挑兩件</b>，逼你分辨什麼真的要緊——格子只有兩個，位置不夠，你就得選。</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;"><b>做完兩格就算數</b>，不必清空整張待辦——這裡不追求把事情做完，只問今天最要緊的兩件。</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;color:#554d40;font-size:13.5px;line-height:1.85;"><b>每天一格，回頭看是一條節奏</b>——它不算達成率、不記你連續幾天；累積起來是你自己的步調，不是一張永遠做不完的清單。</div>
+        </div>
+
+        <button onClick="{{ onCloseExample }}" style="display:block;width:100%;border:none;background:#35456a;color:#fbf9f4;border-radius:2px;padding:14px;font-size:14px;letter-spacing:1px;cursor:pointer;margin-top:24px;">懂了，開始做我自己的</button>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ toastOn }}">
+    <div style="position:fixed;bottom:40px;left:50%;transform:translateX(-50%);background:#241f18;color:#fbf9f4;padding:10px 18px;border-radius:3px;font-size:12px;letter-spacing:.5px;">{{ toastMsg }}</div>
+  </sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:460,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  state = { store: {}, today: "", one: "", two: "", locked: false, toastOn: false, toastMsg: "", exampleOpen: false };
+  KEY = "toolbook_two_v1";
+
+  componentDidMount() {
+    const store = this.prune(this.load());
+    const today = this.todayKey();
+    const c = store[today] || { one: "", two: "", locked: false };
+    this.setState({ store, today, one: c.one || "", two: c.two || "", locked: !!c.locked });
+    this._iv = setInterval(() => { const k = this.todayKey(); if (k !== this.state.today) { const cc = this.state.store[k] || { one: "", two: "", locked: false }; this.setState({ today: k, one: cc.one || "", two: cc.two || "", locked: !!cc.locked }); } }, 60000);
+  }
+  componentWillUnmount() { clearInterval(this._iv); }
+
+  load() { try { const o = JSON.parse(localStorage.getItem(this.KEY) || "{}"); return o && typeof o === "object" ? o : {}; } catch (_) { return {}; } }
+  save(o) { try { localStorage.setItem(this.KEY, JSON.stringify(o)); } catch (_) {} }
+  prune(o) { const keys = Object.keys(o).sort().reverse().slice(0, 14); const out = {}; keys.forEach(k => out[k] = o[k]); return out; }
+  todayKey() { const d = new Date(); return d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0"); }
+  labelOf(k) { const p = k.split("-"); return p[0] + "." + p[1] + "." + p[2]; }
+
+  writeDay(one, two, locked) {
+    const store = this.prune({ ...this.state.store, [this.state.today]: { one, two, locked } });
+    this.setState({ store, one, two, locked }); this.save(store); if(locked&&typeof gtag==='function')gtag('event','tool_complete',{tool_name:'今天兩格'});
+  }
+  onOne(v) { if (this.state.locked) return; this.writeDay(v, this.state.two, false); }
+  onTwo(v) { if (this.state.locked) return; this.writeDay(this.state.one, v, false); }
+  lock() {
+    const one = this.state.one.trim(), two = this.state.two.trim();
+    if (!one && !two) return;
+    this.writeDay(one, two, true); this.toast("鎖好了");
+  }
+  unlock() { this.writeDay(this.state.one, this.state.two, false); }
+  clearAll() { if (!window.confirm("清空全部紀錄？包括今天的兩格。")) return; this.setState({ store: {}, one: "", two: "", locked: false }); this.save({}); this.toast("已清空"); }
+  toast(msg) { this.setState({ toastOn: true, toastMsg: msg }); clearTimeout(this._t); this._t = setTimeout(() => this.setState({ toastOn: false }), 1600); }
+
+  renderVals() {
+    const s = this.state;
+    const oneFilled = !!s.one.trim(), twoFilled = !!s.two.trim();
+    const past = Object.keys(s.store).filter(k => k !== s.today).sort().reverse().map(k => {
+      const d = s.store[k]; const text = [d.one, d.two].filter(Boolean).join("\n") || "—";
+      return { label: this.labelOf(k), text };
+    });
+    return {
+      todayLabel: (s.today ? this.labelOf(s.today) : "—") + (s.locked ? " · 已鎖" : ""),
+      one: s.one, two: s.two, locked: s.locked, notLocked: !s.locked,
+      onOne: e => this.onOne(e.target.value), onTwo: e => this.onTwo(e.target.value),
+      slotTextColor: s.locked ? "#5d564a" : "#241f18",
+      slot1Bd: oneFilled ? "#cec6b4" : "#e3ddd0", slot2Bd: twoFilled ? "#cec6b4" : "#e3ddd0",
+      slot1Shadow: oneFilled ? "inset 0 0 0 3px #e9e3d6,inset 0 0 0 4px #cec6b4" : "none",
+      slot2Shadow: twoFilled ? "inset 0 0 0 3px #e9e3d6,inset 0 0 0 4px #cec6b4" : "none",
+      onLock: () => this.lock(), onUnlock: () => this.unlock(),
+      lockDisabled: (!oneFilled && !twoFilled) ? "disabled" : "", lockBg: (!oneFilled && !twoFilled) ? "#b7bdcb" : "#35456a", lockOp: (!oneFilled && !twoFilled) ? ".5" : "1",
+      stateMsg: s.locked ? "今天鎖好了。明天再打開就是新的兩格。" : (oneFilled && twoFilled ? "兩格都寫了。" : ""),
+      past, hasPast: past.length > 0, noPast: past.length === 0, hasStore: Object.keys(s.store).length > 0,
+      onClear: () => this.clearAll(),
+      toastOn: s.toastOn, toastMsg: s.toastMsg,
+      exampleOpen: s.exampleOpen, onOpenExample: () => this.setState({ exampleOpen: true }), onCloseExample: () => this.setState({ exampleOpen: false }), stop: e => e.stopPropagation(),
+    };
+  }
+}
+</script>
+</body>
+</html>

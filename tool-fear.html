@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CKM6MRRVBM"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-CKM6MRRVBM');</script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="fonts.css?v=2">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:#e9e3d6;color:#241f18;font-family:-apple-system,"PingFang TC","PingFang SC",sans-serif;line-height:1.8;-webkit-font-smoothing:antialiased;}
+  a{color:#35456a;text-decoration:none;transition:.18s;}
+  a:hover{color:#26324f;}
+  input,textarea,button{font-family:inherit;}
+  input::placeholder,textarea::placeholder{color:#b9b09a;}
+  textarea:focus,input:focus{outline:none;border-color:#35456a!important;box-shadow:0 0 0 2px rgba(53,69,106,.08);}
+  input[type=range]{accent-color:#35456a;}
+  .stage::-webkit-scrollbar{width:0;}
+  ::selection{background:rgba(53,69,106,.15);}
+</style>
+</helmet>
+<div style="position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:26px 18px;background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E&quot;);background-color:#e9e3d6;">
+
+  <div style="width:min(440px,100%);height:min(880px,94vh);display:flex;flex-direction:column;background:#fbf9f4;border:1px solid #cec6b4;border-radius:8px;box-shadow:0 20px 60px rgba(36,31,24,.16);overflow:hidden;position:relative;">
+
+    <div style="flex:none;height:52px;display:flex;align-items:center;padding:0 20px;position:relative;border-bottom:1px solid #efe9dd;">
+      <span onClick="{{ onBack }}" style="font-size:24px;line-height:1;width:24px;cursor:pointer;color:{{ backColor }};">‹</span>
+      <div style="position:absolute;left:0;right:0;display:flex;gap:5px;justify-content:center;pointer-events:none;">
+        <sc-for list="{{ dots }}" as="d" hint-placeholder-count="9">
+          <span style="height:5px;border-radius:3px;transition:.3s;width:{{ d.w }};background:{{ d.bg }};"></span>
+        </sc-for>
+      </div>
+      <a href="index.html" style="margin-left:auto;color:#938a78;font-size:16px;line-height:1;" title="回首頁">✕</a>
+    </div>
+
+    <div class="stage" style="flex:1;overflow-y:auto;padding:22px 26px 8px;">
+
+      <sc-if value="{{ s0 }}">
+        <div style="display:flex;flex-direction:column;justify-content:center;min-height:100%;text-align:center;padding:20px 0;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:30px;color:#35456a;margin-bottom:20px;">❦</div>
+          <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">工具 Nº 04 · 抉擇</div>
+          <h1 style="font-family:'Noto Serif TC',serif;font-size:26px;font-weight:600;line-height:1.6;letter-spacing:.5px;">擋住你的不是風險，<br />是沒被寫下來的<br />那件事</h1>
+          <p style="color:#938a78;font-size:13.5px;line-height:1.9;margin-top:16px;">八個問題，把「不敢動」拆成可以逐條處理的清單。最後生成一張恐懼拆解卡。</p>
+          <div style="border:1px solid #e3ddd0;border-radius:4px;background:rgba(53,69,106,.03);padding:16px 18px;margin-top:16px;text-align:left;">
+            <div style="font-size:12.5px;color:#655e51;line-height:1.9;display:flex;gap:9px;"><span style="color:#35456a;font-family:'Noto Serif TC',serif;">一</span>寫第一個浮上來的念頭，不用想漂亮。</div>
+            <div style="font-size:12.5px;color:#655e51;line-height:1.9;display:flex;gap:9px;"><span style="color:#35456a;font-family:'Noto Serif TC',serif;">二</span>只寫一個最擋住你的，其他下次再開一張。</div>
+            <div style="font-size:12.5px;color:#655e51;line-height:1.9;display:flex;gap:9px;"><span style="color:#35456a;font-family:'Noto Serif TC',serif;">三</span>每題花幾分鐘就夠，沒有人在計時。</div>
+          </div>
+          <p style="color:#938a78;font-size:11.5px;margin-top:16px;line-height:1.8;">啟發自《一週工作 4 小時》第 3 章的恐懼設定練習；第八問「你的退路是什麼」是書上沒有、我自己加的。答案只存在這部裝置。</p>
+          <p style="color:#938a78;font-size:11.5px;margin-top:10px;line-height:1.8;">這是一張幫你把想法寫下來的卡，不是心理治療。如果這件事已經讓你長期睡不著、無法工作，或你發現自己一遍又一遍地填同樣的答案來求安心，那需要的是專業協助，不是這張卡。</p>
+          <div onClick="{{ onOpenExample }}" style="margin-top:22px;color:#35456a;font-size:13px;cursor:pointer;text-decoration:underline;text-underline-offset:3px;">看一個填好的例子 →</div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ s1 }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">第一問 · 最壞的情況</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">如果你現在就去做，<br />最壞會壞到什麼程度？</h2>
+        <p style="color:#938a78;font-size:13px;margin-bottom:12px;">不要寫「會失敗」，寫失敗之後會發生什麼事。越具體越好。</p>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:8px;">
+          <sc-for list="{{ worstChips }}" as="c" hint-placeholder-count="6">
+            <button onClick="{{ c.onClick }}" style="background:transparent;border:1px solid #e3ddd0;padding:8px 14px;border-radius:3px;font-size:13px;color:#241f18;cursor:pointer;letter-spacing:.5px;" style-hover="border-color:#35456a;">{{ c.label }}</button>
+          </sc-for>
+        </div>
+        <p style="color:#938a78;font-size:11.5px;margin:0 0 4px;">點一個當開頭，再用自己的話寫完。<b style="color:#35456a;">只寫一個</b>——最擋住你的那一個。</p>
+        <textarea value="{{ worstText }}" onInput="{{ onWorstText }}" maxlength="300" placeholder="例如：收入斷掉，存款大概撐八個月，然後要跟家人開口借錢" style="width:100%;min-height:100px;border:1px solid #e3ddd0;background:#fff;border-radius:4px;padding:13px 15px;font-size:14.5px;color:#241f18;line-height:1.8;resize:vertical;"></textarea>
+        <div style="border:1px solid #e3ddd0;border-radius:4px;background:rgba(53,69,106,.03);padding:15px 17px;margin-top:18px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:14px;color:#5d564a;margin-bottom:3px;">這件事真的發生了，對你的人生有多大影響？</div>
+          <div style="font-size:11.5px;color:#938a78;margin-bottom:10px;line-height:1.7;">1 是過幾天就沒事，10 是這輩子都不一樣。</div>
+          <div style="display:flex;align-items:center;gap:12px;"><input type="range" min="1" max="10" value="{{ worstScore }}" onInput="{{ onWorstScore }}" style="flex:1;background:transparent;" /><span style="font-family:'Noto Serif TC',serif;font-size:24px;font-weight:600;color:#35456a;width:34px;text-align:right;">{{ worstScore }}</span></div>
+        </div>
+        <div style="border:1px solid #e3ddd0;border-radius:4px;background:rgba(53,69,106,.03);padding:15px 17px;margin-top:10px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:14px;color:#5d564a;margin-bottom:3px;">這個影響是暫時的，還是永久的？</div>
+          <div style="font-size:11.5px;color:#938a78;margin-bottom:10px;line-height:1.7;">會不會過去？過得去，就是暫時的。</div>
+          <div style="display:flex;gap:6px;">
+            <sc-for list="{{ worstPermOpts }}" as="o" hint-placeholder-count="3">
+              <button onClick="{{ o.onClick }}" style="flex:1;text-align:center;font-size:11.5px;padding:9px 3px;border-radius:3px;background:{{ o.bg }};color:{{ o.col }};cursor:pointer;border:1px solid {{ o.bd }};letter-spacing:.5px;">{{ o.label }}</button>
+            </sc-for>
+          </div>
+        </div>
+        <div style="border:1px solid #e3ddd0;border-radius:4px;background:rgba(53,69,106,.03);padding:15px 17px;margin-top:10px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:14px;color:#5d564a;margin-bottom:3px;">你覺得它真的會發生嗎？</div>
+          <div style="font-size:11.5px;color:#938a78;margin-bottom:10px;line-height:1.7;">憑感覺就好，這裡沒有正確答案。</div>
+          <div style="display:flex;gap:6px;">
+            <sc-for list="{{ worstOddsOpts }}" as="o" hint-placeholder-count="3">
+              <button onClick="{{ o.onClick }}" style="flex:1;text-align:center;font-size:11.5px;padding:9px 3px;border-radius:3px;background:{{ o.bg }};color:{{ o.col }};cursor:pointer;border:1px solid {{ o.bd }};letter-spacing:.5px;">{{ o.label }}</button>
+            </sc-for>
+          </div>
+        </div>
+        <div style="border-left:2px solid #cec6b4;padding:11px 0 11px 16px;margin-top:20px;color:#655e51;font-family:'EB Garamond','Noto Serif TC',serif;font-size:13.5px;line-height:1.9;">害怕之所以擋得住人，是因為它一直沒有形狀。<b style="color:#35456a;">寫成一句可以唸出來的話，它就變成一件事，而事情是可以處理的。</b>針對焦慮的研究發現，反覆把同一個最壞情境寫透，焦慮會下降；一次掃過好幾個擔憂，幾乎沒有效果。</div>
+      </sc-if>
+
+      <sc-if value="{{ s2 }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">第二問 · 怎麼接住</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">如果真的發生了，<br />你會怎麼把它接住？</h2>
+        <p style="color:#938a78;font-size:13px;margin-bottom:8px;">不用完美的解法。只要能讓生活暫時回到過得下去的樣子就行。</p>
+        <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:16px 0 7px;">我會這樣接住它</label>
+        <textarea value="{{ fixText }}" onInput="{{ onFixText }}" maxlength="300" placeholder="例如：先接兼職把現金補回來，退掉訂閱和健身房，搬回家住半年" style="width:100%;min-height:100px;border:1px solid #e3ddd0;background:#fff;border-radius:4px;padding:13px 15px;font-size:14.5px;color:#241f18;line-height:1.8;resize:vertical;"></textarea>
+        <div style="border-left:2px solid #cec6b4;padding:11px 0 11px 16px;margin-top:20px;color:#655e51;font-family:'EB Garamond','Noto Serif TC',serif;font-size:13.5px;line-height:1.9;">從最具體的地方想：先做什麼賺回現金、可以少花哪一筆、可以先住哪裡、可以先找誰。</div>
+      </sc-if>
+
+      <sc-if value="{{ s3 }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">第三問 · 好的那一面</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">如果順利，<br />你會得到什麼？</h2>
+        <p style="color:#938a78;font-size:13px;margin-bottom:8px;">寫最可能發生的那個好結果就好，不用寫最誇張的。</p>
+        <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:16px 0 7px;">順利的話，我會得到</label>
+        <textarea value="{{ bestText }}" onInput="{{ onBestText }}" maxlength="300" placeholder="例如：時間變成自己的，而且知道自己有本事養活自己" style="width:100%;min-height:90px;border:1px solid #e3ddd0;background:#fff;border-radius:4px;padding:13px 15px;font-size:14.5px;color:#241f18;line-height:1.8;resize:vertical;"></textarea>
+        <div style="border:1px solid #e3ddd0;border-radius:4px;background:rgba(53,69,106,.03);padding:15px 17px;margin-top:18px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:14px;color:#5d564a;margin-bottom:3px;">這個好處對你的人生有多大影響？</div>
+          <div style="font-size:11.5px;color:#938a78;margin-bottom:10px;line-height:1.7;">同一把尺：1 是過幾天就沒感覺，10 是這輩子都不一樣。</div>
+          <div style="display:flex;align-items:center;gap:12px;"><input type="range" min="1" max="10" value="{{ bestScore }}" onInput="{{ onBestScore }}" style="flex:1;background:transparent;" /><span style="font-family:'Noto Serif TC',serif;font-size:24px;font-weight:600;color:#35456a;width:34px;text-align:right;">{{ bestScore }}</span></div>
+        </div>
+        <div style="border:1px solid #e3ddd0;border-radius:4px;background:rgba(53,69,106,.03);padding:15px 17px;margin-top:10px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:14px;color:#5d564a;margin-bottom:3px;">這個好處是暫時的，還是永久的？</div>
+          <div style="font-size:11.5px;color:#938a78;margin-bottom:10px;line-height:1.7;">學到的本事、建立的關係，通常會留下來。</div>
+          <div style="display:flex;gap:6px;">
+            <sc-for list="{{ bestPermOpts }}" as="o" hint-placeholder-count="3">
+              <button onClick="{{ o.onClick }}" style="flex:1;text-align:center;font-size:11.5px;padding:9px 3px;border-radius:3px;background:{{ o.bg }};color:{{ o.col }};cursor:pointer;border:1px solid {{ o.bd }};letter-spacing:.5px;">{{ o.label }}</button>
+            </sc-for>
+          </div>
+        </div>
+        <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:16px 0 7px;">有沒有條件比你差的人，已經做成這件事？<span style="font-size:11px;color:#938a78;letter-spacing:1px;border:1px solid #e3ddd0;border-radius:2px;padding:1px 7px;margin-left:8px;">可留空</span></label>
+        <input value="{{ precedent }}" onInput="{{ onPrecedent }}" maxlength="120" placeholder="例如：有，我前同事三十八歲轉行，沒有存款" style="width:100%;border:1px solid #e3ddd0;background:#fff;border-radius:4px;padding:13px 15px;font-size:14.5px;color:#241f18;" />
+        <div style="border-left:2px solid #cec6b4;padding:11px 0 11px 16px;margin-top:20px;color:#655e51;font-family:'EB Garamond','Noto Serif TC',serif;font-size:13.5px;line-height:1.9;">這一格不是要你比較，是要你確認：<b style="color:#35456a;">這條路上有沒有腳印。</b></div>
+      </sc-if>
+
+      <sc-if value="{{ s4 }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">對照 · 兩邊放一起看</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">把兩邊<br />放在同一張圖上</h2>
+        <p style="color:#938a78;font-size:13px;margin-bottom:14px;">上下是影響大小，左右是會不會過去。</p>
+        <div style="border:1px solid #e3ddd0;border-radius:4px;background:#f3efe7;padding:14px 12px 8px;margin-bottom:16px;">
+          <svg viewBox="0 0 320 232" style="display:block;width:100%;height:auto;">
+            <rect x="52" y="16" width="252" height="172" fill="none" stroke="#d6cdba" stroke-width="1"></rect>
+            <line x1="178" y1="16" x2="178" y2="188" stroke="#d6cdba" stroke-width="1" stroke-dasharray="3 4"></line>
+            <line x1="52" y1="102" x2="304" y2="102" stroke="#d6cdba" stroke-width="1" stroke-dasharray="3 4"></line>
+            <circle cx="{{ refBadX }}" cy="{{ refBadY }}" r="4.5" fill="none" stroke="#c9bea4" stroke-width="1" stroke-dasharray="2 2"></circle>
+            <circle cx="{{ refGoodX }}" cy="{{ refGoodY }}" r="4.5" fill="none" stroke="#c9bea4" stroke-width="1" stroke-dasharray="2 2"></circle>
+            <text x="{{ refBadTX }}" y="{{ refBadTY }}" font-size="8" fill="#938b78" text-anchor="start">書中的壞</text>
+            <text x="{{ refGoodTX }}" y="{{ refGoodTY }}" font-size="8" fill="#938b78" text-anchor="end">書中的好</text>
+            <circle cx="{{ badX }}" cy="{{ badY }}" r="9" fill="#9c5f4a" fill-opacity=".85" stroke="#f3efe7" stroke-width="1.5"></circle>
+            <circle cx="{{ goodX }}" cy="{{ goodY }}" r="9" fill="#6b7a5e" fill-opacity=".85" stroke="#f3efe7" stroke-width="1.5"></circle>
+            <text x="{{ badTX }}" y="{{ badTY }}" font-size="9" fill="#9c5f4a" text-anchor="middle" font-weight="600">你的壞</text>
+            <text x="{{ goodTX }}" y="{{ goodTY }}" font-size="9" fill="#6b7a5e" text-anchor="middle" font-weight="600">你的好</text>
+            <text x="46" y="22" font-size="9" fill="#938b78" text-anchor="end">10</text>
+            <text x="46" y="106" font-size="9" fill="#938b78" text-anchor="end">5</text>
+            <text x="46" y="191" font-size="9" fill="#938b78" text-anchor="end">1</text>
+            <text x="20" y="105" font-size="9" fill="#938b78" text-anchor="middle" transform="rotate(-90 20 105)">影響大小</text>
+            <text x="80" y="206" font-size="9.5" fill="#938b78" text-anchor="middle">暫時的</text>
+            <text x="276" y="206" font-size="9.5" fill="#938b78" text-anchor="middle">永久的</text>
+            <text x="178" y="224" font-size="9" fill="#938b78" text-anchor="middle">左右：這個影響會不會過去</text>
+          </svg>
+          <div style="display:flex;gap:16px;justify-content:center;font-size:11px;color:#938a78;padding:6px 0 2px;letter-spacing:.5px;"><span><i style="display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:5px;vertical-align:middle;background:#9c5f4a;"></i>你寫的最壞情況</span><span><i style="display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:5px;vertical-align:middle;background:#6b7a5e;"></i>你寫的最好情況</span></div>
+        </div>
+        <div style="border:1px solid {{ verdictBd }};border-width:{{ verdictBw }};border-radius:4px;padding:16px 18px;background:rgba(53,69,106,.04);">
+          <h4 style="font-family:'Noto Serif TC',serif;font-size:16px;margin-bottom:7px;color:{{ verdictTitleCol }};">{{ verdictTitle }}</h4>
+          <p style="font-size:13px;color:#5d564a;line-height:1.85;white-space:pre-line;">{{ verdictBody }}</p>
+        </div>
+        <p style="font-size:11.5px;color:#938a78;line-height:1.8;margin-top:14px;border-top:1px solid #e3ddd0;padding-top:12px;">這兩個分數都是你自己給的，沒有客觀標準。它的用處是把說不清楚的害怕變成看得見的東西，不是幫你算出正確答案。</p>
+        <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:16px;color:#655e51;font-size:12.5px;line-height:1.85;"><b style="font-family:'Noto Serif TC',serif;color:#35456a;display:block;margin-bottom:3px;">那兩個空心圈是什麼</b>那是書裡那組對照：作者算出來的壞處是「暫時的、三四分」，好處是「永久的、九十分」，所以他說值得。你的兩個點跟它像不像，決定了那本書的結論適不適合搬到你身上。</div>
+      </sc-if>
+
+      <sc-if value="{{ s5 }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">第四問 · 演習</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">如果今天收入就沒了，<br />你靠什麼撐下去？</h2>
+        <p style="color:#938a78;font-size:13px;margin-bottom:8px;">這一題不是嚇自己，是把答案先找出來，之後就不用再怕它。</p>
+        <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:16px 0 7px;">我會這樣撐過去</label>
+        <textarea value="{{ survive }}" onInput="{{ onSurvive }}" maxlength="300" placeholder="例如：先靠存款兩個月，同時接以前那種案子，一個月大概能補回一半" style="width:100%;min-height:100px;border:1px solid #e3ddd0;background:#fff;border-radius:4px;padding:13px 15px;font-size:14.5px;color:#241f18;line-height:1.8;resize:vertical;"></textarea>
+        <div style="border-left:2px solid #cec6b4;padding:11px 0 11px 16px;margin-top:20px;color:#655e51;font-family:'EB Garamond','Noto Serif TC',serif;font-size:13.5px;line-height:1.9;">寫得出來，這件事就從「不敢想」變成「已經想過」。<b style="color:#35456a;">差別只在這裡。</b></div>
+      </sc-if>
+
+      <sc-if value="{{ s6 }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">第五問 · 一直在推的那件事</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">有沒有一件事，<br />你因為害怕<br />一直往後推？</h2>
+        <p style="color:#938a78;font-size:13px;margin-bottom:8px;">通常一想到就會胃緊的那件。</p>
+        <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:16px 0 7px;">我一直在推的是</label>
+        <textarea value="{{ delayed }}" onInput="{{ onDelayed }}" maxlength="200" placeholder="例如：跟主管說我想調整工作範圍" style="width:100%;min-height:70px;border:1px solid #e3ddd0;background:#fff;border-radius:4px;padding:13px 15px;font-size:14.5px;color:#241f18;line-height:1.8;resize:vertical;"></textarea>
+        <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:16px 0 7px;">這星期可以先做的一小步</label>
+        <input value="{{ ministep }}" onInput="{{ onMinistep }}" maxlength="120" placeholder="例如：先把要說的三句話寫下來" style="width:100%;border:1px solid #e3ddd0;background:#fff;border-radius:4px;padding:13px 15px;font-size:14.5px;color:#241f18;" />
+        <div style="border-left:2px solid #cec6b4;padding:11px 0 11px 16px;margin-top:20px;color:#655e51;font-family:'EB Garamond','Noto Serif TC',serif;font-size:13.5px;line-height:1.9;">挑小到今天就能做完的那種。<b style="color:#35456a;">這一格的目的不是解決它，是讓它動一下。</b></div>
+      </sc-if>
+
+      <sc-if value="{{ s7 }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">第六問 · 不動的代價</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">如果什麼都不改，<br />一年後會是什麼樣子？</h2>
+        <p style="color:#938a78;font-size:13px;margin-bottom:8px;">三個地方分開想。至少寫一個。</p>
+        <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:16px 0 7px;">錢<span style="font-size:11px;color:#938a78;letter-spacing:1px;border:1px solid #e3ddd0;border-radius:2px;padding:1px 7px;margin-left:8px;">可留空</span></label>
+        <input value="{{ costMoney }}" onInput="{{ onCostMoney }}" maxlength="120" placeholder="例如：薪水一樣，但物價不會一樣" style="width:100%;border:1px solid #e3ddd0;background:#fff;border-radius:4px;padding:13px 15px;font-size:14.5px;color:#241f18;" />
+        <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:16px 0 7px;">心情<span style="font-size:11px;color:#938a78;letter-spacing:1px;border:1px solid #e3ddd0;border-radius:2px;padding:1px 7px;margin-left:8px;">可留空</span></label>
+        <input value="{{ costMood }}" onInput="{{ onCostMood }}" maxlength="120" placeholder="例如：每個星期天晚上都不想睡" style="width:100%;border:1px solid #e3ddd0;background:#fff;border-radius:4px;padding:13px 15px;font-size:14.5px;color:#241f18;" />
+        <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:16px 0 7px;">身體<span style="font-size:11px;color:#938a78;letter-spacing:1px;border:1px solid #e3ddd0;border-radius:2px;padding:1px 7px;margin-left:8px;">可留空</span></label>
+        <input value="{{ costBody }}" onInput="{{ onCostBody }}" maxlength="120" placeholder="例如：胃痛已經一年了，還沒去看" style="width:100%;border:1px solid #e3ddd0;background:#fff;border-radius:4px;padding:13px 15px;font-size:14.5px;color:#241f18;" />
+        <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:20px;color:#655e51;font-size:12.5px;line-height:1.85;"><b style="font-family:'Noto Serif TC',serif;color:#35456a;display:block;margin-bottom:3px;">為什麼要問這一題</b>大部分人只算「動了會失去什麼」，不算「不動會失去什麼」。不動的代價一直在付，只是它不會寄帳單來。這一題就是把帳單自己開出來。</div>
+      </sc-if>
+
+      <sc-if value="{{ s8 }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">第七問 · 你在等什麼</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">那，你在等什麼？</h2>
+        <p style="color:#938a78;font-size:13px;margin-bottom:12px;">先寫你在等的東西，再寫你怎麼知道它到了。</p>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:8px;">
+          <sc-for list="{{ waitChips }}" as="c" hint-placeholder-count="6">
+            <button onClick="{{ c.onClick }}" style="background:transparent;border:1px solid #e3ddd0;padding:8px 14px;border-radius:3px;font-size:13px;color:#241f18;cursor:pointer;letter-spacing:.5px;" style-hover="border-color:#35456a;">{{ c.label }}</button>
+          </sc-for>
+        </div>
+        <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:12px 0 7px;">我在等</label>
+        <input value="{{ waitFor }}" onInput="{{ onWaitFor }}" maxlength="120" placeholder="例如：存夠一年的生活費" style="width:100%;border:1px solid #e3ddd0;background:#fff;border-radius:4px;padding:13px 15px;font-size:14.5px;color:#241f18;" />
+        <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:16px 0 7px;">我會知道它到了，因為<span style="font-size:11px;color:#938a78;letter-spacing:1px;border:1px solid #e3ddd0;border-radius:2px;padding:1px 7px;margin-left:8px;">可留空</span></label>
+        <input value="{{ waitSignal }}" onInput="{{ onWaitSignal }}" maxlength="120" placeholder="例如：戶頭到三十萬，而且連續三個月沒動用" style="width:100%;border:1px solid #e3ddd0;background:#fff;border-radius:4px;padding:13px 15px;font-size:14.5px;color:#241f18;" />
+        <div style="border-left:2px solid #cec6b4;padding:11px 0 11px 16px;margin-top:20px;color:#655e51;font-family:'EB Garamond','Noto Serif TC',serif;font-size:13.5px;line-height:1.9;">如果第二格寫得出來，那是一個計劃，去執行它就好。<b style="color:#35456a;">如果寫不出來，那大概不是時機的問題。</b></div>
+      </sc-if>
+
+      <sc-if value="{{ s9 }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">第八問 · 書上沒有的</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">你的退路<br />是什麼？</h2>
+        <p style="color:#938a78;font-size:13px;margin-bottom:8px;">這一題不在書裡，是我加的。理由寫在下面。</p>
+        <div style="border:1px solid #e3ddd0;border-radius:4px;background:rgba(53,69,106,.03);padding:15px 17px;margin-top:14px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:14px;color:#5d564a;margin-bottom:3px;">如果三個月後你想回頭，回得去嗎？</div>
+          <div style="font-size:11.5px;color:#938a78;margin-bottom:10px;line-height:1.7;">先誠實回答這一格，其他都好說。</div>
+          <div style="display:flex;gap:6px;">
+            <sc-for list="{{ backRevOpts }}" as="o" hint-placeholder-count="3">
+              <button onClick="{{ o.onClick }}" style="flex:1;text-align:center;font-size:11.5px;padding:9px 3px;border-radius:3px;background:{{ o.bg }};color:{{ o.col }};cursor:pointer;border:1px solid {{ o.bd }};letter-spacing:.5px;">{{ o.label }}</button>
+            </sc-for>
+          </div>
+        </div>
+        <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:16px 0 7px;">我的退路具體是什麼<span style="font-size:11px;color:#938a78;letter-spacing:1px;border:1px solid #e3ddd0;border-radius:2px;padding:1px 7px;margin-left:8px;">可留空</span></label>
+        <textarea value="{{ backText }}" onInput="{{ onBackText }}" maxlength="200" placeholder="例如：證照還在，前公司主管說過隨時可以回去談" style="width:100%;min-height:70px;border:1px solid #e3ddd0;background:#fff;border-radius:4px;padding:13px 15px;font-size:14.5px;color:#241f18;line-height:1.8;resize:vertical;"></textarea>
+        <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:16px 0 7px;">沒有收入的話，你能撐幾個月？<span style="font-size:11px;color:#938a78;letter-spacing:1px;border:1px solid #e3ddd0;border-radius:2px;padding:1px 7px;margin-left:8px;">可留空</span></label>
+        <input value="{{ backMonths }}" onInput="{{ onBackMonths }}" type="number" min="0" max="600" placeholder="例如：8" style="width:100%;border:1px solid #e3ddd0;background:#fff;border-radius:4px;padding:13px 15px;font-size:14.5px;color:#241f18;" />
+        <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:20px;color:#655e51;font-size:12.5px;line-height:1.85;"><b style="font-family:'Noto Serif TC',serif;color:#35456a;display:block;margin-bottom:3px;">為什麼加這一題</b>書裡每個敢跳的人，其實都有退路——執照還在、原本的生意還在轉。書把退路寫進了故事，卻沒有寫進方法。少了這一欄，這套練習就是把有安全網的人的算法，賣給沒有安全網的人。沒有退路不代表不能做，它代表這一步要走得小一點、留得住回頭的餘地。</div>
+        <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:14px;color:#655e51;font-size:12.5px;line-height:1.85;"><b style="font-family:'Noto Serif TC',serif;color:#35456a;display:block;margin-bottom:3px;">有些擋路的東西，寫下來也不會消失</b>如果你的最壞情況來自簽證或居留身分、要照顧的家人、沒有任何存款緩衝、或是還不完的債——那不是心理練習能解決的。那些需要真正的資源：法律或移民諮詢、社福與照護支援、債務協商、一筆先存起來的緊急金。這張卡能幫你看清楚它們是什麼，但下一步是去找資源，不是再寫一次。</div>
+      </sc-if>
+
+      <sc-if value="{{ s10 }}">
+        <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:10px;letter-spacing:5px;text-transform:uppercase;color:#938a78;margin:4px 0 14px;">你的恐懼拆解卡</div>
+        <div style="position:relative;border:1px solid #cec6b4;border-radius:3px;padding:28px 22px 22px;background:#f3efe7;box-shadow:inset 0 0 0 5px #fbf9f4,inset 0 0 0 6px #cec6b4;">
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:22px;color:#35456a;">❦</div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:15px;letter-spacing:7px;padding-left:7px;margin-top:4px;">恐 懼 拆 解 卡</div>
+          <div style="text-align:center;font-size:8.5px;letter-spacing:3px;color:#938a78;text-transform:uppercase;margin-top:5px;">Fear · Nº 04</div>
+          <div style="width:30px;height:1px;background:#35456a;opacity:.6;margin:14px auto 20px;"></div>
+          <div style="border:1px solid #e3ddd0;border-radius:3px;padding:10px 8px 4px;margin-bottom:14px;">
+            <svg viewBox="0 0 300 150" style="display:block;width:100%;height:auto;">
+              <rect x="30" y="10" width="256" height="112" fill="none" stroke="#d6cdba" stroke-width="1"></rect>
+              <line x1="158" y1="10" x2="158" y2="122" stroke="#d6cdba" stroke-width="1" stroke-dasharray="3 4"></line>
+              <line x1="30" y1="66" x2="286" y2="66" stroke="#d6cdba" stroke-width="1" stroke-dasharray="3 4"></line>
+              <circle cx="{{ cBadX }}" cy="{{ cBadY }}" r="7" fill="#9c5f4a" fill-opacity=".85" stroke="#f3efe7" stroke-width="1.2"></circle>
+              <circle cx="{{ cGoodX }}" cy="{{ cGoodY }}" r="7" fill="#6b7a5e" fill-opacity=".85" stroke="#f3efe7" stroke-width="1.2"></circle>
+              <text x="24" y="15" font-size="8" fill="#938b78" text-anchor="end">10</text>
+              <text x="24" y="125" font-size="8" fill="#938b78" text-anchor="end">1</text>
+              <text x="62" y="137" font-size="8" fill="#938b78" text-anchor="middle">暫時的</text>
+              <text x="254" y="137" font-size="8" fill="#938b78" text-anchor="middle">永久的</text>
+              <text x="158" y="148" font-size="7.5" text-anchor="middle" fill="#938b78">● 最壞　● 最好　上下＝影響 1–10</text>
+            </svg>
+          </div>
+          <div style="font-family:'Noto Serif TC',serif;font-size:13.5px;color:{{ verdictTitleCol }};text-align:center;line-height:1.75;margin-bottom:18px;white-space:pre-line;">{{ cardVerdict }}</div>
+          <div style="border:1px solid #e3ddd0;border-radius:3px;margin-bottom:15px;">
+            <div style="padding:13px 15px;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">最壞的情況</div><div style="font-family:'Noto Serif TC',serif;font-size:15px;line-height:1.6;white-space:pre-wrap;">{{ cWorst }}</div><div style="font-size:10.5px;color:#938a78;margin-top:6px;letter-spacing:.5px;">{{ cWorstMeta }}</div></div>
+            <div style="padding:13px 15px;border-top:1px solid #e3ddd0;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">我會怎麼接住它</div><div style="font-family:'Noto Serif TC',serif;font-size:15px;line-height:1.6;white-space:pre-wrap;">{{ cFix }}</div></div>
+            <div style="padding:13px 15px;border-top:1px solid #e3ddd0;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">順利的話會得到</div><div style="font-family:'Noto Serif TC',serif;font-size:15px;line-height:1.6;white-space:pre-wrap;">{{ cBest }}</div><div style="font-size:10.5px;color:#938a78;margin-top:6px;letter-spacing:.5px;">{{ cBestMeta }}</div></div>
+          </div>
+          <div style="margin-bottom:14px;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">收入沒了，我靠這個撐</div><div style="font-size:13.5px;white-space:pre-wrap;line-height:1.7;">{{ cSurvive }}</div></div>
+          <div style="height:1px;background:#e3ddd0;margin:17px 0;"></div>
+          <div style="text-align:center;border:1px solid #cec6b4;border-radius:2px;padding:14px 12px;margin:4px 0 16px;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">這星期先做這一小步</div><div style="font-family:'Noto Serif TC',serif;font-size:16px;color:#35456a;line-height:1.6;white-space:pre-wrap;">{{ cStep }}</div><div style="font-size:10.5px;color:#938a78;margin-top:7px;">{{ cDelayed }}</div></div>
+          <div style="margin-bottom:14px;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">什麼都不改，一年後</div><div style="font-size:13.5px;white-space:pre-wrap;line-height:1.7;">{{ cCost }}</div></div>
+          <div style="margin-bottom:14px;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">我在等的</div><div style="font-size:13.5px;white-space:pre-wrap;line-height:1.7;">{{ cWait }}</div></div>
+          <div style="margin-bottom:0;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">我的退路</div><div style="font-size:13.5px;white-space:pre-wrap;line-height:1.7;">{{ cBack }}</div></div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;color:#35456a;font-size:14px;letter-spacing:2px;margin-top:16px;">寫下來的害怕，才拆得動。</div>
+          <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:10px;">Edition Nº 04 · MMXXVI</div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:16px;">
+          <button onClick="{{ onSaveImage }}" style="border:1px solid #cec6b4;background:transparent;color:#35456a;border-radius:2px;padding:12px;font-size:13px;cursor:pointer;">儲存為圖片</button>
+          <button onClick="{{ onCopy }}" style="border:1px solid #cec6b4;background:transparent;color:#35456a;border-radius:2px;padding:12px;font-size:13px;cursor:pointer;">複製文字</button>
+          <button onClick="{{ onShare }}" style="border:1px solid #cec6b4;background:transparent;color:#35456a;border-radius:2px;padding:12px;font-size:13px;cursor:pointer;">分享恐懼拆解卡</button>
+        </div>
+        <div style="border:1px solid #cec6b4;border-radius:4px;background:#fff;padding:20px;margin-top:24px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#938a78;margin-bottom:8px;">卷 III · 抉擇 · 這條線的下一步</div>
+          <p style="color:#554d40;font-size:13.5px;line-height:1.8;font-family:'EB Garamond','Noto Serif TC',serif;">把「這星期先做這一小步」帶進 <a href="tool-result-lock.html">成果鎖定卡</a> 給它一個交付日期。害怕最怕的就是被排進行事曆。</p>
+        </div>
+        <div style="border-top:1px solid #e3ddd0;margin-top:24px;padding-top:22px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:16px;font-weight:600;margin-bottom:4px;">做完了，跟我說一句</div>
+          <p style="font-size:12.5px;color:#938a78;margin-bottom:12px;line-height:1.75;">這張卡對你有沒有用、你希望下一個工具解決什麼——我在收集建議。留 Email，新工具上線也會通知你。</p>
+          <form onSubmit="{{ onSubmitFeedback }}">
+            <textarea value="{{ feedbackText }}" onInput="{{ onFeedbackText }}" maxlength="500" placeholder="你希望下一個工具處理什麼？（可留空）" style="width:100%;min-height:76px;border:1px solid #cec6b4;background:#fff;border-radius:2px;padding:12px 14px;font-size:14px;color:#241f18;line-height:1.7;resize:vertical;outline:none;margin-bottom:8px;"></textarea>
+            <div style="display:flex;gap:8px;">
+              <input value="{{ email }}" onInput="{{ onEmail }}" type="email" placeholder="你的 Email" required style="flex:1;border:1px solid #cec6b4;background:#fff;border-radius:2px;padding:12px 14px;font-size:14px;color:#241f18;outline:none;" />
+              <button type="submit" style="border:none;background:#35456a;color:#fbf9f4;border-radius:2px;padding:0 20px;font-size:13px;letter-spacing:1px;cursor:pointer;white-space:nowrap;">{{ subLabel }}</button>
+            </div>
+            <div style="min-height:16px;text-align:center;color:#35456a;font-size:11px;margin-top:8px;">{{ subStatus }}</div>
+          </form>
+        </div>
+      </sc-if>
+
+    </div>
+
+    <div style="flex:none;padding:12px 26px 22px;background:linear-gradient(transparent,#fbf9f4 30%);">
+      <sc-if value="{{ showGate }}">
+        <div style="text-align:center;font-size:11px;color:#938a78;margin-bottom:8px;height:15px;letter-spacing:.5px;">{{ gateMsg }}</div>
+      </sc-if>
+      <button onClick="{{ onNext }}" disabled="{{ nextDisabled }}" style="display:block;width:100%;border:none;background:{{ nextBg }};color:#fbf9f4;border-radius:2px;padding:15px;font-size:15px;font-weight:600;letter-spacing:1px;cursor:pointer;opacity:{{ nextOp }};">{{ nextLabel }}</button>
+      <sc-if value="{{ s10 }}">
+        <button onClick="{{ onHome }}" style="display:block;width:100%;border:1px solid #cec6b4;background:transparent;color:#35456a;border-radius:2px;padding:12px;font-size:13px;letter-spacing:1px;cursor:pointer;margin-top:8px;">返回主頁</button>
+      </sc-if>
+      <sc-if value="{{ showRecordsBtn }}">
+        <button onClick="{{ onOpenRecords }}" style="display:block;width:100%;border:1px solid #cec6b4;background:transparent;color:#35456a;border-radius:2px;padding:12px;font-size:13px;letter-spacing:1px;cursor:pointer;margin-top:8px;">查看恐懼拆解卡紀錄簿（{{ recordsCount }}）</button>
+      </sc-if>
+    </div>
+
+    <sc-if value="{{ toastOn }}">
+      <div style="position:absolute;bottom:96px;left:50%;transform:translateX(-50%);background:#241f18;color:#fbf9f4;padding:10px 18px;border-radius:3px;font-size:12px;letter-spacing:.5px;white-space:nowrap;">{{ toastMsg }}</div>
+    </sc-if>
+
+  </div>
+
+  <!-- 填好的例子 -->
+  <sc-if value="{{ exampleOpen }}">
+    <div onClick="{{ onCloseExample }}" style="position:fixed;inset:0;z-index:30;background:rgba(36,31,24,.4);display:flex;justify-content:center;">
+      <div onClick="{{ stop }}" style="width:min(440px,100%);height:100%;background:#f3efe7;padding:22px 24px 34px;overflow-y:auto;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:22px;font-weight:600;white-space:nowrap;">一個填好的例子</div>
+          <span onClick="{{ onCloseExample }}" style="color:#938a78;font-size:22px;cursor:pointer;">✕</span>
+        </div>
+        <p style="font-size:12.5px;color:#938a78;margin-bottom:18px;line-height:1.75;">假設有個人想辭掉穩定的工作、全職接設計案，卻卡在「不敢動」快一年了。她走完八題之後，這張恐懼拆解卡長這樣——</p>
+
+        <div style="position:relative;border:1px solid #cec6b4;border-radius:3px;padding:28px 22px 22px;background:#fbf9f4;box-shadow:inset 0 0 0 5px #f3efe7,inset 0 0 0 6px #cec6b4;">
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:22px;color:#35456a;">❦</div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:15px;letter-spacing:7px;padding-left:7px;margin-top:4px;">恐 懼 拆 解 卡</div>
+          <div style="text-align:center;font-size:8.5px;letter-spacing:3px;color:#938a78;text-transform:uppercase;margin-top:5px;">Fear · Nº 04</div>
+          <div style="width:30px;height:1px;background:#35456a;opacity:.6;margin:14px auto 20px;"></div>
+          <div style="border:1px solid #e3ddd0;border-radius:3px;padding:10px 8px 4px;margin-bottom:14px;">
+            <svg viewBox="0 0 300 150" style="display:block;width:100%;height:auto;">
+              <rect x="30" y="10" width="256" height="112" fill="none" stroke="#d6cdba" stroke-width="1"></rect>
+              <line x1="158" y1="10" x2="158" y2="122" stroke="#d6cdba" stroke-width="1" stroke-dasharray="3 4"></line>
+              <line x1="30" y1="66" x2="286" y2="66" stroke="#d6cdba" stroke-width="1" stroke-dasharray="3 4"></line>
+              <circle cx="44" cy="60" r="7" fill="#9c5f4a" fill-opacity=".85" stroke="#f3efe7" stroke-width="1.2"></circle>
+              <circle cx="272" cy="38" r="7" fill="#6b7a5e" fill-opacity=".85" stroke="#f3efe7" stroke-width="1.2"></circle>
+              <text x="24" y="15" font-size="8" fill="#938b78" text-anchor="end">10</text>
+              <text x="24" y="125" font-size="8" fill="#938b78" text-anchor="end">1</text>
+              <text x="62" y="137" font-size="8" fill="#938b78" text-anchor="middle">暫時的</text>
+              <text x="254" y="137" font-size="8" fill="#938b78" text-anchor="middle">永久的</text>
+              <text x="158" y="148" font-size="7.5" text-anchor="middle" fill="#938b78">● 最壞　● 最好　上下＝影響 1–10</text>
+            </svg>
+          </div>
+          <div style="font-family:'Noto Serif TC',serif;font-size:13.5px;color:#241f18;text-align:center;line-height:1.75;margin-bottom:18px;white-space:pre-line;">壞的 6 分、暫時的；好的 8 分。
+差距在這裡。</div>
+          <div style="border:1px solid #e3ddd0;border-radius:3px;margin-bottom:15px;">
+            <div style="padding:13px 15px;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">最壞的情況</div><div style="font-family:'Noto Serif TC',serif;font-size:15px;line-height:1.6;white-space:pre-wrap;">接案接不夠，半年後存款見底，只好回去找一份差不多的全職工作</div><div style="font-size:10.5px;color:#938a78;margin-top:6px;letter-spacing:.5px;">影響 6 分 · 暫時的 · 不太可能發生</div></div>
+            <div style="padding:13px 15px;border-top:1px solid #e3ddd0;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">我會怎麼接住它</div><div style="font-family:'Noto Serif TC',serif;font-size:15px;line-height:1.6;white-space:pre-wrap;">先留半年生活費當緩衝；每月至少談成兩個案子；真的不行就回去上班，履歷不會因此變差</div></div>
+            <div style="padding:13px 15px;border-top:1px solid #e3ddd0;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">順利的話會得到</div><div style="font-family:'Noto Serif TC',serif;font-size:15px;line-height:1.6;white-space:pre-wrap;">能自己安排時間，做真正喜歡的設計案，收入慢慢超過原本的薪水</div><div style="font-size:10.5px;color:#938a78;margin-top:6px;letter-spacing:.5px;">影響 8 分 · 永久的 · 已有人走過：前同事阿 May</div></div>
+          </div>
+          <div style="margin-bottom:14px;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">收入沒了，我靠這個撐</div><div style="font-size:13.5px;white-space:pre-wrap;line-height:1.7;">半年的生活費、還能接原公司的外包、必要時搬回家住一陣子</div></div>
+          <div style="height:1px;background:#e3ddd0;margin:17px 0;"></div>
+          <div style="text-align:center;border:1px solid #cec6b4;border-radius:2px;padding:14px 12px;margin:4px 0 16px;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">這星期先做這一小步</div><div style="font-family:'Noto Serif TC',serif;font-size:16px;color:#35456a;line-height:1.6;white-space:pre-wrap;">這週先談成第一個付費案子，不辭職也能做</div><div style="font-size:10.5px;color:#938a78;margin-top:7px;">為了：先確認自己真的接得到案</div></div>
+          <div style="margin-bottom:14px;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">什麼都不改，一年後</div><div style="font-size:13.5px;white-space:pre-wrap;line-height:1.7;">心情：每天上班都在想「如果那時試了」
+身體：長期壓著，睡不好、常胃痛</div></div>
+          <div style="margin-bottom:14px;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">我在等的</div><div style="font-size:13.5px;white-space:pre-wrap;line-height:1.7;">等到手上有三個穩定客戶再辭
+我會知道它到了，因為：第三個客戶簽約那天</div></div>
+          <div style="margin-bottom:0;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">我的退路</div><div style="font-size:13.5px;white-space:pre-wrap;line-height:1.7;">回得去
+原公司說隨時歡迎回來
+沒有收入能撐 6 個月</div></div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;color:#35456a;font-size:14px;letter-spacing:2px;margin-top:16px;">寫下來的害怕，才拆得動。</div>
+          <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:10px;">Edition Nº 04 · MMXXVI</div>
+        </div>
+
+        <div style="margin-top:20px;">
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:10px;">這個例子想讓你看到三件事</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;">把模糊的「怕養不活自己」寫成一個<b>攝影機拍得到的具體畫面</b>——半年後存款見底、回去上班。看得見，才拆得動。</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;">多數最壞情況<b>都能預防或事後修復</b>，而且多半是暫時的——留緩衝、留退路，那一邊就沒有想像中重。</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;color:#554d40;font-size:13.5px;line-height:1.85;">別忘了算「<b>什麼都不做</b>」的代價，它通常比想像大；然後這週先做一小步——不辭職也能開始的那一步。</div>
+        </div>
+
+        <button onClick="{{ onCloseExample }}" style="display:block;width:100%;border:none;background:#35456a;color:#fbf9f4;border-radius:2px;padding:14px;font-size:14px;letter-spacing:1px;cursor:pointer;margin-top:24px;">懂了，開始做我自己的</button>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ recordsOpen }}">
+    <div onClick="{{ onCloseRecords }}" style="position:fixed;inset:0;z-index:30;background:rgba(36,31,24,.4);display:flex;justify-content:center;">
+      <div onClick="{{ stop }}" style="width:min(440px,100%);height:100%;background:#f3efe7;padding:22px 24px 34px;overflow-y:auto;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:22px;font-weight:600;white-space:nowrap;">恐懼拆解卡紀錄簿</div>
+          <span onClick="{{ onCloseRecords }}" style="color:#938a78;font-size:22px;cursor:pointer;">✕</span>
+        </div>
+        <p style="font-size:12px;color:#938a78;margin-bottom:18px;">紀錄只保存在這部裝置的目前瀏覽器。</p>
+        <sc-if value="{{ hasCards }}">
+          <sc-for list="{{ cards }}" as="c" hint-placeholder-count="0">
+            <div onClick="{{ c.onOpen }}" style="background:#fbf9f4;border:1px solid #e3ddd0;border-radius:4px;padding:18px;margin-bottom:12px;cursor:pointer;" style-hover="border-color:#35456a;">
+              <div style="display:flex;justify-content:space-between;align-items:center;color:#938a78;font-size:11px;margin-bottom:12px;"><span style="white-space:nowrap;">第 {{ c.idx }} 張 · {{ c.date }}</span><span onClick="{{ c.onDel }}" style="cursor:pointer;">刪除</span></div>
+              <div style="font-size:9px;letter-spacing:2px;color:#938a78;">最壞的情況</div><div style="font-family:'Noto Serif TC',serif;font-size:15px;margin-top:3px;white-space:pre-wrap;">{{ c.worst }}</div>
+              <div style="font-size:9px;letter-spacing:2px;color:#938a78;margin-top:10px;">這星期先做這一小步</div><div style="font-family:'Noto Serif TC',serif;font-size:15px;color:#35456a;font-weight:600;margin-top:3px;white-space:pre-wrap;">{{ c.step }}</div>
+              <div style="text-align:right;font-size:11px;color:#35456a;margin-top:10px;letter-spacing:1px;">開啟回顧 →</div>
+            </div>
+          </sc-for>
+        </sc-if>
+        <sc-if value="{{ noCards }}">
+          <div style="text-align:center;color:#938a78;font-size:13px;padding:60px 10px;">還沒有恐懼拆解卡。<br />完成第一張後，會保存在這裡。</div>
+        </sc-if>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ hasOpened }}">
+    <div onClick="{{ onCloseCard }}" style="position:fixed;inset:0;z-index:40;background:rgba(36,31,24,.5);display:flex;align-items:center;justify-content:center;padding:26px 20px;">
+      <div onClick="{{ stop }}" style="width:min(400px,100%);background:#fbf9f4;border-radius:8px;padding:24px;box-shadow:0 20px 60px rgba(36,31,24,.28);max-height:92vh;overflow-y:auto;">
+        <div style="position:relative;border:1px solid #cec6b4;border-radius:3px;padding:26px 22px 20px;background:#f3efe7;box-shadow:inset 0 0 0 5px #fbf9f4,inset 0 0 0 6px #cec6b4;">
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:22px;color:#35456a;">❦</div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:15px;letter-spacing:7px;padding-left:7px;margin-top:4px;">恐 懼 拆 解 卡</div>
+          <div style="text-align:center;font-size:8.5px;letter-spacing:3px;color:#938a78;text-transform:uppercase;margin-top:5px;">Fear · Nº 04</div>
+          <div style="width:30px;height:1px;background:#35456a;opacity:.6;margin:14px auto 20px;"></div>
+          <div style="margin-bottom:14px;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">最壞的情況</div><div style="font-family:'Noto Serif TC',serif;font-size:16px;line-height:1.55;white-space:pre-wrap;">{{ ocWorst }}</div></div>
+          <div style="text-align:center;border:1px solid #cec6b4;border-radius:2px;padding:14px 12px;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">這星期先做這一小步</div><div style="font-family:'Noto Serif TC',serif;font-size:16px;color:#35456a;line-height:1.6;white-space:pre-wrap;">{{ ocStep }}</div></div>
+          <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:14px;">Edition Nº 04 · MMXXVI</div>
+        </div>
+        <button onClick="{{ onShareOpened }}" style="display:block;width:100%;border:1px solid #cec6b4;background:transparent;color:#35456a;border-radius:2px;padding:12px;font-size:13px;letter-spacing:1px;cursor:pointer;margin-top:16px;">分享這張</button>
+        <a href="tool-result-lock.html" style="display:block;text-align:center;border:1px solid #cec6b4;border-radius:2px;padding:12px;font-size:13px;letter-spacing:1px;margin-top:8px;">下一步：成果鎖定卡 →</a>
+        <button onClick="{{ onCloseCard }}" style="display:block;width:100%;border:none;background:transparent;color:#938a78;border-radius:2px;padding:10px;font-size:12px;letter-spacing:1px;cursor:pointer;margin-top:4px;">關閉</button>
+      </div>
+    </div>
+  </sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:480,&quot;height&quot;:920}}">
+class Component extends DCLogic {
+  state = {
+    step: 0, worstText: "", worstScore: 5, worstPerm: null, worstOdds: null,
+    fixText: "", bestText: "", bestScore: 5, bestPerm: null, precedent: "",
+    survive: "", delayed: "", ministep: "", costMoney: "", costMood: "", costBody: "",
+    waitFor: "", waitSignal: "", backRev: null, backText: "", backMonths: "",
+    toastOn: false, toastMsg: "", feedbackText: "", email: "", subLabel: "傳給創作者", subStatus: "",
+    cards: [], recordsOpen: false, openedCard: null, exampleOpen: false,
+  };
+  HKEY = "toolbook_fear_history_v1";
+  PERM = { "0": "暫時的", "0.5": "暫時還是永久說不準", "1": "永久的" };
+  ODDS = { high: "很可能發生", mid: "說不準會不會發生", low: "不太可能發生" };
+  BACK = { easy: "回得去", hard: "要花點力氣才回得去", none: "回不去" };
+  WORST_CHIPS = ["收入斷掉", "存款用完", "家人反對", "被人看不起", "回不去原本的位置", "白忙一場"];
+  WAIT_CHIPS = ["存夠錢", "孩子大一點", "工作穩定下來", "準備好", "別人同意", "一個好時機"];
+
+  componentDidMount() {
+    try { const raw = localStorage.getItem(this.HKEY); if (raw) { const a = JSON.parse(raw); if (Array.isArray(a)) this.setState({ cards: a.slice(0, 50) }); } } catch (_) {}
+  }
+  saveCards(cards, done) { try { localStorage.setItem(this.HKEY, JSON.stringify(cards.slice(0, 50))); if(done&&typeof gtag==='function')gtag('event','tool_complete',{tool_name:'恐懼拆解卡'}); } catch (_) {} }
+  set(k, v) { this.setState({ [k]: v }); }
+  appendChip(k, text) { const cur = (this.state[k] || "").trim().replace(/[，、]+$/, ""); this.set(k, (cur ? cur + "、" : "") + text); }
+
+  gateOk(step) {
+    const s = this.state;
+    if (step === 1) return !!s.worstText.trim() && s.worstPerm !== null && s.worstOdds !== null;
+    if (step === 2) return !!s.fixText.trim();
+    if (step === 3) return !!s.bestText.trim() && s.bestPerm !== null;
+    if (step === 5) return !!s.survive.trim();
+    if (step === 6) return !!s.delayed.trim() && !!s.ministep.trim();
+    if (step === 7) return !!(s.costMoney.trim() || s.costMood.trim() || s.costBody.trim());
+    if (step === 8) return !!s.waitFor.trim();
+    if (step === 9) return s.backRev !== null;
+    return true;
+  }
+  next() {
+    if (!this.gateOk(this.state.step)) return;
+    const n = Math.min(10, this.state.step + 1);
+    if (n === 10) this.archive();
+    this.setState({ step: n });
+    const st = document.querySelector(".stage"); if (st) st.scrollTop = 0;
+  }
+  prev() { this.setState({ step: Math.max(0, this.state.step - 1) }); const st = document.querySelector(".stage"); if (st) st.scrollTop = 0; }
+  newCard() {
+    if (!window.confirm("開始一張新的恐懼拆解卡？目前內容會清掉，舊的保留在紀錄簿。")) return;
+    this.setState({ step: 1, worstText: "", worstScore: 5, worstPerm: null, worstOdds: null, fixText: "", bestText: "", bestScore: 5, bestPerm: null, precedent: "", survive: "", delayed: "", ministep: "", costMoney: "", costMood: "", costBody: "", waitFor: "", waitSignal: "", backRev: null, backText: "", backMonths: "" });
+  }
+
+  num(v) { return Number(v) || 0; }
+  costText() { const s = this.state, p = []; if (s.costMoney.trim()) p.push("錢：" + s.costMoney.trim()); if (s.costMood.trim()) p.push("心情：" + s.costMood.trim()); if (s.costBody.trim()) p.push("身體：" + s.costBody.trim()); return p.join("\n") || "—"; }
+  waitText() { const s = this.state, a = s.waitFor.trim(); if (!a) return "—"; return s.waitSignal.trim() ? a + "\n我會知道它到了，因為：" + s.waitSignal.trim() : a + "\n（還說不出怎麼知道它到了）"; }
+  backLine() { const s = this.state, p = []; if (s.backRev) p.push(this.BACK[s.backRev]); if (s.backText.trim()) p.push(s.backText.trim()); if (String(s.backMonths).trim()) p.push("沒有收入能撐 " + String(s.backMonths).trim() + " 個月"); return p.join("\n") || "—"; }
+
+  verdict() {
+    const s = this.state, bs = this.num(s.worstScore), gs = this.num(s.bestScore), bp = Number(s.worstPerm || 0), gp = Number(s.bestPerm || 0);
+    let v;
+    if (bp === 1 && bs >= 8) {
+      v = { stop: true, title: "這一段要停下來看", body: "你寫的最壞情況是永久的，而且有 " + bs + " 分。這本書之所以敢說「去做吧」，是因為它假設壞的那一邊會過去、而且不大。你的情況不是這樣。\n\n所以這本書的結論，不適用於你。\n\n後面幾題還是值得做——但請把它們當成把事情看清楚，不要當成一句「所以動手吧」。特別是最後一題：退路。" };
+    } else if (gs - bs >= 2 && bp <= 0.5) {
+      v = { stop: false, title: "兩邊差得很開", body: "壞的一邊 " + bs + " 分、" + this.PERM[String(bp)] + "；好的一邊 " + gs + " 分、" + this.PERM[String(gp)] + "。差距就在這裡。\n\n接下來幾題會告訴你，這個差距要用什麼代價換。" };
+    } else {
+      v = { stop: false, title: "兩邊差不多", body: "壞的一邊 " + bs + " 分，好的一邊 " + gs + " 分，這張圖上看不出誰重誰輕。\n\n這通常不是壞事。它代表值不值得還要看後面幾題，特別是「什麼都不改，一年後會是什麼樣子」那一題。" };
+    }
+    if (s.worstOdds === "low") v.body += "\n\n另外，你自己也覺得最壞的情況不太可能發生。";
+    if (s.worstOdds === "high") v.body += "\n\n另外，你覺得它很可能發生——那第二題「怎麼接住它」，就是這整張卡最重要的一格。";
+    return v;
+  }
+  verdictLine() {
+    const s = this.state, bs = this.num(s.worstScore), gs = this.num(s.bestScore), bp = Number(s.worstPerm || 0);
+    if (bp === 1 && bs >= 8) return { stop: true, text: "最壞的一邊是永久的，而且很重。\n這本書的算法不適用於你。" };
+    if (gs - bs >= 2 && bp <= 0.5) return { stop: false, text: "壞的 " + bs + " 分、" + this.PERM[String(bp)] + "；好的 " + gs + " 分。\n差距在這裡。" };
+    return { stop: false, text: "壞的 " + bs + " 分，好的 " + gs + " 分。\n誰重誰輕，還要看下面幾格。" };
+  }
+
+  archive() {
+    const s = this.state; if (!s.worstText.trim()) return;
+    const card = { id: "fear_" + Date.now().toString(36), createdAt: new Date().toISOString(),
+      worstText: s.worstText.trim(), worstScore: s.worstScore, worstPerm: s.worstPerm, worstOdds: s.worstOdds,
+      fixText: s.fixText.trim(), bestText: s.bestText.trim(), bestScore: s.bestScore, bestPerm: s.bestPerm, precedent: s.precedent.trim(),
+      survive: s.survive.trim(), delayed: s.delayed.trim(), ministep: s.ministep.trim(),
+      costMoney: s.costMoney.trim(), costMood: s.costMood.trim(), costBody: s.costBody.trim(),
+      waitFor: s.waitFor.trim(), waitSignal: s.waitSignal.trim(), backRev: s.backRev, backText: s.backText.trim(), backMonths: String(s.backMonths).trim() };
+    const cards = [card, ...this.state.cards].slice(0, 50);
+    this.setState({ cards }); this.saveCards(cards, true);
+  }
+  deleteCard(id) { const cards = this.state.cards.filter(c => c.id !== id); this.setState({ cards }); this.saveCards(cards); }
+
+  cardText() {
+    const s = this.state;
+    return "恐懼拆解卡\n\n最壞的情況：" + s.worstText.trim() + "\n（影響 " + this.num(s.worstScore) + " 分 · " + this.PERM[String(s.worstPerm || 0)] + " · " + (this.ODDS[s.worstOdds] || "—") + "）" +
+      "\n\n我會怎麼接住它：" + s.fixText.trim() + "\n\n順利的話會得到：" + s.bestText.trim() + "\n（影響 " + this.num(s.bestScore) + " 分 · " + this.PERM[String(s.bestPerm || 0)] + "）" +
+      "\n\n收入沒了，我靠這個撐：" + s.survive.trim() + "\n\n這星期先做這一小步：" + s.ministep.trim() + "\n為了：" + s.delayed.trim() +
+      "\n\n什麼都不改，一年後：\n" + this.costText() + "\n\n我在等的：" + this.waitText().replace(/\n/g, "　") + "\n\n我的退路：" + this.backLine().replace(/\n/g, "　") + "\n\n寫下來的害怕，才拆得動。";
+  }
+  cardTextOf(c) {
+    return "恐懼拆解卡\n\n最壞的情況：" + (c.worstText || "") + "\n\n這星期先做這一小步：" + (c.ministep || "") + "\n\n寫下來的害怕，才拆得動。";
+  }
+  toast(msg) { this.setState({ toastOn: true, toastMsg: msg }); clearTimeout(this._t); this._t = setTimeout(() => this.setState({ toastOn: false }), 1700); }
+  async copy() { try { await navigator.clipboard.writeText(this.cardText()); this.toast("已複製恐懼拆解卡文字"); } catch (_) { this.toast("瀏覽器未允許複製"); } }
+  async share() { try { if (navigator.share) await navigator.share({ title: "我的恐懼拆解卡", text: this.cardText() }); else { await navigator.clipboard.writeText(this.cardText()); this.toast("已複製，可貼到其他地方"); } } catch (_) {} }
+  async shareCard(c) { try { if (navigator.share) await navigator.share({ title: "我的恐懼拆解卡", text: this.cardTextOf(c) }); else { await navigator.clipboard.writeText(this.cardTextOf(c)); this.toast("已複製"); } } catch (_) {} }
+  onSubmitFeedback(e) { e.preventDefault(); var self = this; var fd = new FormData(); fd.append("email", this.state.email || ""); fd.append("message", this.state.feedbackText || ""); fd.append("tool", "恐懼拆解卡"); fd.append("_subject", "Toolbook 工具回饋 · 恐懼拆解卡"); fd.append("submission_type", "工具完成後回饋"); this.setState({ subLabel: "傳送中…", subStatus: "" }); fetch("https://formspree.io/f/mlgkgveq", { method: "POST", body: fd, headers: { Accept: "application/json" } }).then(function (r) { if (!r.ok) throw r; return r.json(); }).then(function () { self.setState({ subLabel: "已送出", subStatus: "已傳給創作者 ✓" }); }).catch(function () { self.setState({ subLabel: "傳給創作者", subStatus: "送出失敗，請稍後再試" }); }); }
+
+  segOpts(key, opts) {
+    return opts.map(o => ({
+      label: o.label, onClick: () => this.set(key, o.v),
+      bd: String(this.state[key]) === String(o.v) && this.state[key] !== null ? "#35456a" : "#e3ddd0",
+      bg: String(this.state[key]) === String(o.v) && this.state[key] !== null ? "#35456a" : "transparent",
+      col: String(this.state[key]) === String(o.v) && this.state[key] !== null ? "#fbf9f4" : "#938a78",
+    }));
+  }
+
+  async _png(spec){try{const m=await import("./toolbook-card.js");const ok=await m.downloadCardPNG(spec);this.toast(ok?"卡片圖片已儲存":"圖片產生失敗");}catch(_){this.toast("圖片產生失敗");}}
+  async saveImage(){const s=this.state;await this._png({title:"恐懼拆解卡",sub:"FEAR · Nº 04",filename:"恐懼拆解卡-Toolbook",mantra:"寫下來的害怕，才拆得動。",edition:"Edition Nº 04 · MMXXVI",blocks:[{k:"最壞的情況",v:s.worstText.trim()||"—",big:true,meta:"影響 "+this.num(s.worstScore)+" 分 · "+this.PERM[String(s.worstPerm||0)]+" · "+(this.ODDS[s.worstOdds]||"—")},{k:"我會怎麼接住它",v:s.fixText.trim()||"—",serif:true},{k:"順利的話會得到",v:s.bestText.trim()||"—",big:true,meta:"影響 "+this.num(s.bestScore)+" 分 · "+this.PERM[String(s.bestPerm||0)]},{k:"收入沒了，我靠這個撐",v:s.survive.trim()||"—"},{k:"這星期先做這一小步",v:s.ministep.trim()||"—",big:true,meta:s.delayed.trim()?"為了："+s.delayed.trim():""},{k:"什麼都不改，一年後",v:this.costText()},{k:"我在等的",v:this.waitText()},{k:"我的退路",v:this.backLine()}]});}
+
+  renderVals() {
+    const s = this.state, step = s.step;
+    const dots = [1, 2, 3, 4, 5, 6, 7, 8, 9].map(n => ({ w: n === step ? "15px" : "5px", bg: n === step ? "#35456a" : (n < step ? "#cec6b4" : "#e3ddd0") }));
+    const showGate = step >= 1 && step <= 9;
+    const gateBad = showGate && !this.gateOk(step);
+    // plot positions (main): box x52 y16 w252 h172 -> px(perm,64,208) py(score,22,160)
+    const px = (perm, x0, w) => x0 + (perm === null ? 0.5 : Number(perm)) * w;
+    const py = (score, y0, h) => y0 + h - ((this.num(score) - 1) / 9) * h;
+    let badX = px(s.worstPerm, 64, 208), badY = py(s.worstScore, 22, 160), goodX = px(s.bestPerm, 64, 208), goodY = py(s.bestScore, 22, 160);
+    if (Math.abs(badX - goodX) < 16 && Math.abs(badY - goodY) < 16) { badX -= 10; goodX += 10; }
+    const refBadX = px(0, 64, 208), refBadY = py(3.5, 22, 160), refGoodX = px(1, 64, 208), refGoodY = py(9.5, 22, 160);
+    // card plot: box x30 y10 w256 h112 -> px(perm,44,228) py(score,16,100)
+    let cBadX = px(s.worstPerm, 44, 228), cBadY = py(s.worstScore, 16, 100), cGoodX = px(s.bestPerm, 44, 228), cGoodY = py(s.bestScore, 16, 100);
+    if (Math.abs(cBadX - cGoodX) < 13 && Math.abs(cBadY - cGoodY) < 13) { cBadX -= 8; cGoodX += 8; }
+    const v = this.verdict(), vl = this.verdictLine();
+    const cards = s.cards.map((c, n) => ({ idx: s.cards.length - n, date: new Date(c.createdAt).toLocaleDateString("zh-HK", { year: "numeric", month: "2-digit", day: "2-digit" }), worst: c.worstText || "—", step: c.ministep || "—", onDel: (e) => { if (e && e.stopPropagation) e.stopPropagation(); this.deleteCard(c.id); }, onOpen: () => this.set("openedCard", c) }));
+    const oc = s.openedCard;
+    return {
+      dots, backColor: step === 0 ? "transparent" : "#938a78", onBack: () => this.prev(),
+      s0: step === 0, s1: step === 1, s2: step === 2, s3: step === 3, s4: step === 4, s5: step === 5, s6: step === 6, s7: step === 7, s8: step === 8, s9: step === 9, s10: step === 10,
+      worstText: s.worstText, worstScore: s.worstScore, fixText: s.fixText, bestText: s.bestText, bestScore: s.bestScore, precedent: s.precedent,
+      survive: s.survive, delayed: s.delayed, ministep: s.ministep, costMoney: s.costMoney, costMood: s.costMood, costBody: s.costBody,
+      waitFor: s.waitFor, waitSignal: s.waitSignal, backText: s.backText, backMonths: s.backMonths,
+      onWorstText: e => this.set("worstText", e.target.value), onWorstScore: e => this.set("worstScore", Number(e.target.value)),
+      onFixText: e => this.set("fixText", e.target.value), onBestText: e => this.set("bestText", e.target.value), onBestScore: e => this.set("bestScore", Number(e.target.value)),
+      onPrecedent: e => this.set("precedent", e.target.value), onSurvive: e => this.set("survive", e.target.value),
+      onDelayed: e => this.set("delayed", e.target.value), onMinistep: e => this.set("ministep", e.target.value),
+      onCostMoney: e => this.set("costMoney", e.target.value), onCostMood: e => this.set("costMood", e.target.value), onCostBody: e => this.set("costBody", e.target.value),
+      onWaitFor: e => this.set("waitFor", e.target.value), onWaitSignal: e => this.set("waitSignal", e.target.value),
+      onBackText: e => this.set("backText", e.target.value), onBackMonths: e => this.set("backMonths", e.target.value),
+      worstChips: this.WORST_CHIPS.map(label => ({ label, onClick: () => this.appendChip("worstText", label) })),
+      waitChips: this.WAIT_CHIPS.map(label => ({ label, onClick: () => { if (!this.state.waitFor.trim()) this.set("waitFor", label); } })),
+      worstPermOpts: this.segOpts("worstPerm", [{ v: 0, label: "暫時的" }, { v: 0.5, label: "說不準" }, { v: 1, label: "永久的" }]),
+      worstOddsOpts: this.segOpts("worstOdds", [{ v: "high", label: "很可能" }, { v: "mid", label: "說不準" }, { v: "low", label: "不太可能" }]),
+      bestPermOpts: this.segOpts("bestPerm", [{ v: 0, label: "暫時的" }, { v: 0.5, label: "說不準" }, { v: 1, label: "永久的" }]),
+      backRevOpts: this.segOpts("backRev", [{ v: "easy", label: "回得去" }, { v: "hard", label: "要花點力氣" }, { v: "none", label: "回不去" }]),
+      badX, badY, goodX, goodY, refBadX, refBadY, refGoodX, refGoodY,
+      badTX: badX, badTY: badY - 14, goodTX: goodX, goodTY: goodY + 20,
+      refBadTX: refBadX + 11, refBadTY: refBadY + 3, refGoodTX: refGoodX - 11, refGoodTY: refGoodY + 3,
+      verdictTitle: v.title, verdictBody: v.body, verdictBd: v.stop ? "#9c5f4a" : "#cec6b4", verdictBw: v.stop ? "2px" : "1px", verdictTitleCol: v.stop ? "#9c5f4a" : "#241f18",
+      cBadX, cBadY, cGoodX, cGoodY, cardVerdict: vl.text,
+      cWorst: s.worstText.trim() || "—", cWorstMeta: "影響 " + this.num(s.worstScore) + " 分 · " + this.PERM[String(s.worstPerm || 0)] + " · " + (this.ODDS[s.worstOdds] || "—"),
+      cFix: s.fixText.trim() || "—", cBest: s.bestText.trim() || "—", cBestMeta: "影響 " + this.num(s.bestScore) + " 分 · " + this.PERM[String(s.bestPerm || 0)] + (s.precedent.trim() ? " · 已有人走過：" + s.precedent.trim() : ""),
+      cSurvive: s.survive.trim() || "—", cStep: s.ministep.trim() || "—", cDelayed: s.delayed.trim() ? "為了：" + s.delayed.trim() : "—",
+      cCost: this.costText(), cWait: this.waitText(), cBack: this.backLine(),
+      onCopy: () => this.copy(), onShare: () => this.share(), onSaveImage: () => this.saveImage(),
+      onHome: () => { window.location.href = "index.html"; },
+      feedbackText: s.feedbackText, email: s.email, subLabel: s.subLabel, subStatus: s.subStatus,
+      onFeedbackText: e => this.set("feedbackText", e.target.value), onEmail: e => this.set("email", e.target.value), onSubmitFeedback: e => this.onSubmitFeedback(e),
+      showGate, gateMsg: gateBad ? (step === 1 ? "寫下最壞的情況，並選好下面兩格" : step === 3 ? "寫下好的那一面，並選好是暫時還是永久" : step === 6 ? "兩格都要寫：那件事，和這星期的一小步" : step === 7 ? "三個地方，至少寫一個" : step === 9 ? "先回答「回不回得去」" : "完成這一題，才能繼續") : "",
+      onNext: step === 10 ? () => this.newCard() : () => this.next(),
+      nextLabel: step === 0 ? "開始" : step === 4 ? "繼續" : step === 9 ? "生成恐懼拆解卡" : step === 10 ? "再做一張新的恐懼拆解卡" : "下一步",
+      nextDisabled: gateBad ? "disabled" : "", nextOp: gateBad ? ".5" : "1", nextBg: gateBad ? "#b7bdcb" : "#35456a",
+      toastOn: s.toastOn, toastMsg: s.toastMsg,
+      cards, recordsCount: s.cards.length, hasCards: s.cards.length > 0, noCards: s.cards.length === 0,
+      showRecordsBtn: (step === 0 || step === 10) && s.cards.length > 0,
+      onOpenRecords: () => this.set("recordsOpen", true),
+      recordsOpen: s.recordsOpen, onCloseRecords: () => this.set("recordsOpen", false), stop: e => e.stopPropagation(),
+      exampleOpen: s.exampleOpen, onOpenExample: () => this.set("exampleOpen", true), onCloseExample: () => this.set("exampleOpen", false),
+      hasOpened: !!oc, ocWorst: oc ? (oc.worstText || "—") : "—", ocStep: oc ? (oc.ministep || "—") : "—",
+      onCloseCard: () => this.set("openedCard", null), onShareOpened: () => { if (oc) this.shareCard(oc); },
+    };
+  }
+}
+</script>
+</body>
+</html>

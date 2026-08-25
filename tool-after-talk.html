@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CKM6MRRVBM"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-CKM6MRRVBM');</script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="fonts.css?v=2">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:#e9e3d6;color:#241f18;font-family:-apple-system,"PingFang TC","PingFang SC",sans-serif;line-height:1.7;-webkit-font-smoothing:antialiased;}
+  a{color:#35456a;text-decoration:none;transition:.18s;}
+  a:hover{color:#26324f;}
+  input,textarea,button{font-family:inherit;}
+  textarea::placeholder{color:#938a78;opacity:.7;}
+  textarea:focus{outline:none;border-color:#cec6b4!important;}
+  ::selection{background:rgba(53,69,106,.15);}
+</style>
+</helmet>
+<div style="position:relative;min-height:100vh;padding:0 0 40px;background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E&quot;);background-color:#e9e3d6;">
+  <div style="max-width:460px;margin:0 auto;min-height:100vh;background:rgba(251,249,244,.5);border-left:1px solid #e3ddd0;border-right:1px solid #e3ddd0;padding:0 30px 40px;">
+
+    <div style="height:52px;display:flex;align-items:center;justify-content:space-between;">
+      <a href="index.html" style="font-family:'Noto Serif TC',serif;font-size:13px;letter-spacing:2px;color:#938a78;">TOOLBOOK<span style="color:#35456a;">.</span></a>
+      <a href="index.html" style="color:#938a78;font-size:16px;" title="回首頁">✕</a>
+    </div>
+
+    <header style="padding:18px 0 4px;">
+      <div style="color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:10px;">工具 Nº 10 · 對話</div>
+      <h1 style="font-family:'Noto Serif TC',serif;font-size:25px;font-weight:600;line-height:1.55;margin-bottom:8px;">講完話之後</h1>
+      <div style="font-size:13px;color:#938a78;margin-bottom:10px;line-height:1.8;">哪一句最接近你現在的狀況？挑一句，我給你對應的那一題。<br />一次只有一題，答完就好。</div>
+      <div onClick="{{ onOpenExample }}" style="margin-bottom:22px;color:#35456a;font-size:13px;cursor:pointer;text-decoration:underline;text-underline-offset:3px;display:inline-block;">看一個填好的例子 →</div>
+    </header>
+
+    <sc-if value="{{ picking }}">
+      <div>
+        <sc-for list="{{ picks }}" as="p" hint-placeholder-count="7">
+          <button onClick="{{ p.onClick }}" style="width:100%;text-align:left;border:1px solid #e3ddd0;background:#fbf9f4;border-radius:4px;padding:14px 16px;margin-bottom:9px;font-size:15px;color:#241f18;cursor:pointer;line-height:1.6;display:flex;gap:12px;align-items:baseline;" style-hover="border-color:#cec6b4;">
+            <span style="font-family:'Noto Serif TC',serif;font-size:11px;letter-spacing:2px;color:#35456a;flex:0 0 22px;">{{ p.no }}</span>
+            <span style="flex:1 1 auto;">{{ p.pick }}</span>
+          </button>
+        </sc-for>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ open }}">
+      <div style="border:1px solid #cec6b4;background:#fbf9f4;border-radius:4px;padding:18px 18px 16px;box-shadow:inset 0 0 0 3px #e9e3d6,inset 0 0 0 4px #cec6b4;">
+        <div style="font-family:'Noto Serif TC',serif;font-size:11px;letter-spacing:3px;color:#35456a;margin-bottom:7px;">{{ qnum }}</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:21px;font-weight:600;line-height:1.5;margin-bottom:8px;">{{ qtitle }}</h2>
+        <div style="font-size:13px;color:#655e51;line-height:1.85;margin-bottom:14px;">{{ qhint }}</div>
+        <div style="margin-bottom:12px;">
+          <label style="display:block;font-family:'Noto Serif TC',serif;font-size:12.5px;letter-spacing:1px;color:#35456a;margin-bottom:5px;">{{ alabel }}</label>
+          <textarea value="{{ answer }}" onInput="{{ onAnswer }}" maxlength="600" placeholder="{{ aph }}" style="width:100%;border:1px solid #e3ddd0;background:#fff;border-radius:3px;font-family:'Noto Serif TC',serif;font-size:16.5px;line-height:1.7;color:#241f18;resize:none;min-height:76px;padding:10px 12px;"></textarea>
+        </div>
+        <sc-if value="{{ needAsk }}">
+          <div style="margin-bottom:12px;">
+            <label style="display:block;font-family:'Noto Serif TC',serif;font-size:12.5px;letter-spacing:1px;color:#35456a;margin-bottom:5px;">你打算怎麼跟他核對？</label>
+            <textarea value="{{ ask }}" onInput="{{ onAsk }}" maxlength="300" placeholder="寫一句你真的講得出口的話" style="width:100%;border:1px solid #e3ddd0;background:#fff;border-radius:3px;font-family:'Noto Serif TC',serif;font-size:16.5px;line-height:1.7;color:#241f18;resize:none;min-height:76px;padding:10px 12px;"></textarea>
+            <div style="font-size:12px;color:#938a78;margin-top:5px;line-height:1.75;">上面那一格是你的猜測，不是判定他真的那樣想。所以這一格不能空著——猜測的用處是讓你有話可問。</div>
+          </div>
+        </sc-if>
+        <div style="display:flex;gap:9px;margin-top:4px;">
+          <button onClick="{{ onSave }}" disabled="{{ saveDisabled }}" style="flex:1;background:{{ saveBg }};color:#fbf9f4;border:1px solid {{ saveBg }};border-radius:3px;padding:13px;font-size:13.5px;font-weight:600;letter-spacing:1px;cursor:pointer;opacity:{{ saveOp }};">留下這一題</button>
+          <button onClick="{{ onBackPick }}" style="flex:0 0 auto;padding:13px 18px;background:transparent;border:1px solid #e3ddd0;color:#938a78;border-radius:3px;font-size:13.5px;font-weight:500;letter-spacing:1px;cursor:pointer;">換一題</button>
+        </div>
+        <div style="text-align:center;font-size:11.5px;color:#938a78;min-height:17px;margin-top:11px;letter-spacing:.5px;">{{ stateMsg }}</div>
+      </div>
+    </sc-if>
+
+    <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:30px;color:#655e51;font-size:12.5px;line-height:1.85;">
+      <b style="font-family:'Noto Serif TC',serif;color:#35456a;display:block;margin-bottom:3px;font-size:13px;">為什麼一次只給一題</b>
+      這七題出自《非暴力溝通》。書裡有一整節在警告：四個要素說得再標準，也可能只是照著格子填，人根本沒意識到自己在做什麼。<br /><br />
+      <b style="color:#35456a;">所以這張卡故意一次只給一題。</b>填滿七格不會讓你更清楚，只會讓你以為填完就完成了。
+    </div>
+    <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:18px;color:#655e51;font-size:12.5px;line-height:1.85;">
+      <b style="font-family:'Noto Serif TC',serif;color:#35456a;display:block;margin-bottom:3px;font-size:13px;">這張卡不做什麼</b>
+      它不問對方做錯了什麼，也不替他開脫。他做的事仍然是他做的——這裡只處理你能動的那一半。<br /><br />
+      它不判你對錯、不算完成率、不記你用了幾天。第六題那格猜測也不會告訴你猜對了沒有，因為只有對方能認定。
+    </div>
+
+    <div style="margin-top:30px;border-top:1px solid #e3ddd0;padding-top:18px;">
+      <h2 style="font-family:'Noto Serif TC',serif;font-size:15px;font-weight:600;margin-bottom:4px;">你留下的</h2>
+      <div style="font-size:11.5px;color:#938a78;margin-bottom:14px;">只留最近 14 筆，存在這個瀏覽器，沒有上傳。</div>
+      <sc-if value="{{ hasPast }}">
+        <sc-for list="{{ past }}" as="c" hint-placeholder-count="0">
+          <div style="border-bottom:1px solid #e3ddd0;padding:12px 0;">
+            <div style="display:flex;justify-content:space-between;align-items:baseline;"><div style="font-size:10.5px;color:#938a78;letter-spacing:1px;margin-bottom:4px;">{{ c.date }} · 題 {{ c.q }}</div><span onClick="{{ c.onDel }}" style="font-size:10.5px;color:#938a78;cursor:pointer;">刪除</span></div>
+            <div style="font-family:'Noto Serif TC',serif;font-size:13.5px;color:#35456a;margin-bottom:4px;">{{ c.qTitle }}</div>
+            <div style="font-family:'Noto Serif TC',serif;font-size:14.5px;line-height:1.7;color:#4d463b;white-space:pre-wrap;">{{ c.answer }}</div>
+            <sc-if value="{{ c.hasAsk }}">
+              <div style="font-size:12.5px;color:#938a78;margin-top:5px;line-height:1.75;">要問他的：{{ c.ask }}</div>
+            </sc-if>
+          </div>
+        </sc-for>
+        <button onClick="{{ onClear }}" style="border:0;background:transparent;color:#938a78;font-size:11.5px;display:block;margin:18px auto 0;cursor:pointer;text-decoration:underline;">清空全部紀錄</button>
+      </sc-if>
+      <sc-if value="{{ noPast }}">
+        <div style="color:#938a78;font-size:12.5px;padding:10px 0;">還沒有紀錄。挑一題開始。</div>
+      </sc-if>
+    </div>
+
+    <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:30px;color:#655e51;font-size:12.5px;line-height:1.85;">
+      <b style="font-family:'Noto Serif TC',serif;color:#35456a;display:block;margin-bottom:3px;font-size:13px;">下一步</b>
+      想把整件事從頭理一次，用 <a href="tool-review.html">復盤卡</a>：先寫你實際做了什麼，再跟你原本想要的對一次。<br /><br />
+      想知道這七題怎麼挑出來的、書裡哪些我沒有用，看 <a href="book-nonviolent-communication.html">這本書的工具地圖</a>。<br /><br />
+      最後一件事：<b style="color:#35456a;">如果這件事已經讓你睡不好、影響到日常，找專業的人談會比填卡有用。</b>這張卡處理的是一次對話，不處理那個。
+    </div>
+
+    <footer style="text-align:center;color:#938a78;font-size:10.5px;letter-spacing:1px;padding:34px 0 0;">TOOLBOOK<span style="color:#35456a;">.</span> EDITIONS · 把好書變成工具</footer>
+
+  </div>
+
+  <sc-if value="{{ exampleOpen }}">
+    <div onClick="{{ onCloseExample }}" style="position:fixed;inset:0;z-index:30;background:rgba(36,31,24,.4);display:flex;justify-content:center;">
+      <div onClick="{{ stop }}" style="width:min(440px,100%);height:100%;background:#f3efe7;padding:22px 24px 34px;overflow-y:auto;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:22px;font-weight:600;white-space:nowrap;">一個填好的例子</div>
+          <span onClick="{{ onCloseExample }}" style="color:#938a78;font-size:22px;cursor:pointer;">✕</span>
+        </div>
+        <p style="font-size:12.5px;color:#938a78;margin-bottom:18px;line-height:1.75;">假設有個人剛跟家人講完話，覺得不對勁。七句裡他挑了最接近的那句「我講清楚了，他還是沒做」，工具只給他對應的一題——他答完這一題就好：</p>
+
+        <div style="border:1px solid #cec6b4;background:#fbf9f4;border-radius:4px;padding:18px 18px 16px;box-shadow:inset 0 0 0 3px #f3efe7,inset 0 0 0 4px #cec6b4;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:11px;letter-spacing:3px;color:#35456a;margin-bottom:7px;">題 一</div>
+          <h2 style="font-family:'Noto Serif TC',serif;font-size:21px;font-weight:600;line-height:1.5;margin-bottom:8px;">你要的那件事，攝影機拍得到嗎？</h2>
+          <div style="font-size:13px;color:#655e51;line-height:1.85;margin-bottom:14px;">把它寫成一個畫面：鏡頭對著他，會拍到什麼動作？如果寫不出畫面，對方也做不出來。</div>
+          <div style="font-family:'Noto Serif TC',serif;font-size:12.5px;letter-spacing:1px;color:#35456a;margin-bottom:5px;">鏡頭會拍到什麼</div>
+          <div style="border:1px solid #e3ddd0;background:#fff;border-radius:3px;font-family:'Noto Serif TC',serif;font-size:16.5px;line-height:1.7;color:#241f18;padding:12px 14px;white-space:pre-wrap;">不是「多在意這個家一點」，是「每天回到家，先把當天用過的碗洗掉」。</div>
+        </div>
+
+        <div style="margin-top:22px;">
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:10px;">這個例子想讓你看到三件事</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;"><b>一次只處理一題</b>，不要一次翻整段對話——挑最接近的一句，它只給你對應的那一題，答完就好。</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;">它針對<b>「剛才那段對話」</b>，不是通則教學——問的是你這次遇到的狀況，不是溝通的大道理。</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;color:#554d40;font-size:13.5px;line-height:1.85;"><b>不評你對錯、不打完成率</b>——它不判對錯、不算你答了幾題，只幫你把話理清。</div>
+        </div>
+
+        <button onClick="{{ onCloseExample }}" style="display:block;width:100%;border:none;background:#35456a;color:#fbf9f4;border-radius:2px;padding:14px;font-size:14px;letter-spacing:1px;cursor:pointer;margin-top:24px;">懂了，開始做我自己的</button>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ toastOn }}">
+    <div style="position:fixed;bottom:40px;left:50%;transform:translateX(-50%);background:#241f18;color:#fbf9f4;padding:10px 18px;border-radius:3px;font-size:12px;letter-spacing:.5px;">{{ toastMsg }}</div>
+  </sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:460,&quot;height&quot;:920}}">
+class Component extends DCLogic {
+  state = { cur: null, answer: "", ask: "", history: [], toastOn: false, toastMsg: "", exampleOpen: false };
+  HKEY = "toolbook_after_talk_history_v1";
+  DKEY = "toolbook_after_talk_v1";
+  NUM = ["題 一", "題 二", "題 三", "題 四", "題 五", "題 六", "題 七"];
+  QS = [
+    { pick: "我講清楚了，他還是沒做", title: "你要的那件事，攝影機拍得到嗎？", hint: "把它寫成一個畫面：鏡頭對著他，會拍到什麼動作？如果寫不出畫面，對方也做不出來。", label: "鏡頭會拍到什麼", ph: "例如：不是「多在意這個家一點」，是「回家先把碗放進洗碗機」" },
+    { pick: "我不知道自己到底想要什麼", title: "這是一個動作，還是一種狀態？", hint: "先寫下你想要的。然後看一眼：句子裡有沒有「某個人去做某件事」？有，那是辦法。把辦法拿掉，剩下的才是你要的。", label: "先寫你想要的，再寫拿掉辦法之後剩下什麼", ph: "例如：想要他每天打電話（辦法）→ 拿掉之後剩下的是：我想知道他還記得我" },
+    { pick: "他說不，我就火了", title: "對方說不之後，我做了什麼？", hint: "只寫接下來那半分鐘你做的事。說服、加壓、擺臉色、轉身就走，都算。這一格不寫他做了什麼——請求和要求的差別就在這半分鐘。", label: "那半分鐘我做了什麼", ph: "照實寫，不用修飾" },
+    { pick: "我在想怎麼讓他配合", title: "他會因為什麼原因照我的話做？", hint: "問完「我希望他做什麼」，還要再問這一題。如果你猜到的原因是怕、是內疚、是不想吵，那你提的不是請求。", label: "我猜他照做的原因是", ph: "寫下來看看，這一題騙不了自己" },
+    { pick: "我一直在罵自己", title: "我這樣罵自己，是因為什麼需要沒被滿足？", hint: "先照原話寫下你罵自己那一句，再寫你缺的是什麼。這一格不要求你原諒自己，只要求換一個問法。", label: "我罵自己那句話，和我缺的東西", ph: "例如：我怎麼這麼沒用 → 我需要的是：知道自己還做得到" },
+    { pick: "他拒絕了我，我想不通", title: "是什麼使他沒辦法答應？", hint: "用這一題換掉「他為什麼要拒絕我」。但先講清楚：下面寫的是猜測，不是他的想法。", label: "我猜，是什麼使他沒辦法答應", ph: "寫你想到的可能，不用寫得篤定", needAsk: true },
+    { pick: "我只講得出我不要什麼", title: "我不要什麼，那我要什麼？", hint: "上面寫你不要的，下面把它翻成你要的——而且要是一個對方做得到的動作。", label: "我不要的，和我要的", ph: "例如：不要你一直打斷我 → 我要的是：我講完一段你再回應" },
+  ];
+
+  componentDidMount() {
+    try { const raw = localStorage.getItem(this.HKEY); if (raw) { const a = JSON.parse(raw); if (Array.isArray(a)) this.setState({ history: a.slice(0, 14) }); } } catch (_) {}
+    try { const raw = localStorage.getItem(this.DKEY); if (raw) { const d = JSON.parse(raw); if (d && typeof d.q === "number" && this.QS[d.q] && ((d.answer || "").trim() || (d.ask || "").trim())) this.setState({ cur: d.q, answer: d.answer || "", ask: d.ask || "" }); } } catch (_) {}
+  }
+  saveHistory(h) { try { localStorage.setItem(this.HKEY, JSON.stringify(h.slice(0, 14))); } catch (_) {} }
+  saveDraft(over) { const s = { ...this.state, ...over }; if (s.cur == null) { try { localStorage.removeItem(this.DKEY); } catch (_) {} return; } try { localStorage.setItem(this.DKEY, JSON.stringify({ q: s.cur, answer: s.answer, ask: s.ask })); } catch (_) {} }
+
+  openQ(i) { this.setState({ cur: i, answer: "", ask: "" }, () => this.saveDraft()); }
+  backToPicks() { this.setState({ cur: null }, () => { try { localStorage.removeItem(this.DKEY); } catch (_) {} }); }
+  onAnswer(v) { this.setState({ answer: v }, () => this.saveDraft()); }
+  onAsk(v) { this.setState({ ask: v }, () => this.saveDraft()); }
+
+  save() {
+    const s = this.state, i = s.cur; if (i == null) return;
+    const q = this.QS[i]; if (!s.answer.trim()) return;
+    if (q.needAsk && !s.ask.trim()) { this.setState({ toastMsg: "第二格還沒寫", toastOn: true }); return; }
+    const now = new Date().toISOString();
+    const rec = { id: "c" + Date.now(), createdAt: now, q: i + 1, qTitle: q.title, answer: s.answer.trim(), ask: q.needAsk ? s.ask.trim() : "" };
+    const history = [rec, ...s.history].slice(0, 14);
+    this.setState({ history, cur: null, answer: "", ask: "" });
+    this.saveHistory(history); if(typeof gtag==='function')gtag('event','tool_complete',{tool_name:'講完話之後'}); try { localStorage.removeItem(this.DKEY); } catch (_) {}
+    this.toast("留下了");
+  }
+  deleteRec(id) { const history = this.state.history.filter(c => c.id !== id); this.setState({ history }); this.saveHistory(history); }
+  clearAll() { if (!window.confirm("清空全部紀錄？留下的每一題都會消失。")) return; this.setState({ history: [] }); this.saveHistory([]); this.toast("已清空"); }
+  toast(msg) { this.setState({ toastOn: true, toastMsg: msg }); clearTimeout(this._t); this._t = setTimeout(() => this.setState({ toastOn: false }), 1600); }
+  fmt(iso) { const d = new Date(iso); if (isNaN(d.getTime())) return ""; return d.getFullYear() + "." + String(d.getMonth() + 1).padStart(2, "0") + "." + String(d.getDate()).padStart(2, "0"); }
+
+  renderVals() {
+    const s = this.state, i = s.cur, q = i != null ? this.QS[i] : null;
+    const canSave = q ? (!!s.answer.trim() && (!q.needAsk || !!s.ask.trim())) : false;
+    const past = s.history.map(c => ({ date: this.fmt(c.createdAt), q: c.q, qTitle: c.qTitle, answer: c.answer || "—", hasAsk: !!c.ask, ask: c.ask || "", onDel: () => this.deleteRec(c.id) }));
+    return {
+      picking: i == null, open: i != null,
+      picks: this.QS.map((qq, n) => ({ no: String(n + 1).padStart(2, "0"), pick: qq.pick, onClick: () => this.openQ(n) })),
+      qnum: q ? this.NUM[i] : "", qtitle: q ? q.title : "", qhint: q ? q.hint : "", alabel: q ? q.label : "", aph: q ? q.ph : "", needAsk: !!(q && q.needAsk),
+      answer: s.answer, ask: s.ask, onAnswer: e => this.onAnswer(e.target.value), onAsk: e => this.onAsk(e.target.value),
+      onSave: () => this.save(), onBackPick: () => this.backToPicks(),
+      saveDisabled: canSave ? "" : "disabled", saveBg: canSave ? "#35456a" : "#b7bdcb", saveOp: canSave ? "1" : ".5",
+      stateMsg: "",
+      past, hasPast: past.length > 0, noPast: past.length === 0, onClear: () => this.clearAll(),
+      toastOn: s.toastOn, toastMsg: s.toastMsg,
+      exampleOpen: s.exampleOpen, onOpenExample: () => this.setState({ exampleOpen: true }), onCloseExample: () => this.setState({ exampleOpen: false }), stop: e => e.stopPropagation(),
+    };
+  }
+}
+</script>
+</body>
+</html>

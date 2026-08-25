@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CKM6MRRVBM"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-CKM6MRRVBM');</script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="fonts.css?v=2">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:#e9e3d6;color:#241f18;font-family:-apple-system,"PingFang TC","PingFang SC",sans-serif;line-height:1.8;-webkit-font-smoothing:antialiased;}
+  a{color:#35456a;text-decoration:none;transition:.18s;}
+  a:hover{color:#26324f;}
+  input,textarea,button{font-family:inherit;}
+  input::placeholder,textarea::placeholder{color:#b9b09a;}
+  textarea:focus,input:focus{outline:none;border-color:#35456a!important;box-shadow:0 0 0 2px rgba(53,69,106,.08);}
+  .stage::-webkit-scrollbar{width:0;}
+  ::selection{background:rgba(53,69,106,.15);}
+</style>
+</helmet>
+<div style="position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:26px 18px;background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E&quot;);background-color:#e9e3d6;">
+
+  <div style="width:min(440px,100%);height:min(860px,94vh);display:flex;flex-direction:column;background:#fbf9f4;border:1px solid #cec6b4;border-radius:8px;box-shadow:0 20px 60px rgba(36,31,24,.16);overflow:hidden;position:relative;">
+
+    <div style="flex:none;height:52px;display:flex;align-items:center;padding:0 20px;position:relative;border-bottom:1px solid #efe9dd;">
+      <span onClick="{{ onBack }}" style="font-size:24px;line-height:1;width:24px;cursor:pointer;color:{{ backColor }};">‹</span>
+      <div style="position:absolute;left:0;right:0;display:flex;gap:6px;justify-content:center;pointer-events:none;">
+        <sc-for list="{{ dots }}" as="d" hint-placeholder-count="6">
+          <span style="height:5px;border-radius:3px;transition:.3s;width:{{ d.w }};background:{{ d.bg }};"></span>
+        </sc-for>
+      </div>
+      <a href="index.html" style="margin-left:auto;color:#938a78;font-size:16px;line-height:1;" title="回首頁">✕</a>
+    </div>
+
+    <div class="stage" style="flex:1;overflow-y:auto;padding:22px 26px 8px;">
+
+      <sc-if value="{{ s0 }}">
+        <div style="display:flex;flex-direction:column;justify-content:center;min-height:100%;text-align:center;padding:20px 0;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:30px;color:#35456a;margin-bottom:20px;">❦</div>
+          <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">工具 Nº 05 · 抉擇</div>
+          <h1 style="font-family:'Noto Serif TC',serif;font-size:27px;font-weight:600;line-height:1.7;letter-spacing:.5px;">先試一次小的，<br />再決定大的</h1>
+          <p style="color:#938a78;font-size:13.5px;line-height:1.9;margin-top:18px;">六個問題，把一個還不敢做的決定，變成一次成本很低、跑得完的試驗。</p>
+          <p style="color:#938a78;font-size:11.5px;line-height:1.85;margin-top:14px;">啟發自《一週工作 4 小時》——全書反覆用到、但作者從沒替它取名字的做法。可逆性判斷與「什麼時候定案」是查證後我加的。答案只存在這部裝置。</p>
+          <div onClick="{{ onOpenExample }}" style="margin-top:22px;color:#35456a;font-size:13px;cursor:pointer;text-decoration:underline;text-underline-offset:3px;">看一個填好的例子 →</div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ s1 }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 01 · 這個決定</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">你在猶豫的<br />是哪一件事？</h2>
+        <p style="color:#938a78;font-size:13px;margin-bottom:8px;">寫那個你想了很久、但一直沒動的決定。</p>
+        <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:16px 0 7px;">我在猶豫的決定</label>
+        <textarea value="{{ decision }}" onInput="{{ onDecision }}" maxlength="200" placeholder="例如：要不要轉去做設計" style="width:100%;min-height:90px;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:14px 15px;font-size:14.5px;color:#241f18;line-height:1.8;resize:vertical;"></textarea>
+        <div style="border:1px solid #e3ddd0;background:rgba(53,69,106,.03);border-radius:4px;padding:15px 16px;margin-top:18px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:14.5px;margin-bottom:3px;">如果做了之後想回頭，回得去嗎？</div>
+          <div style="font-size:11.5px;color:#938a78;margin-bottom:11px;line-height:1.7;">先誠實回答這一格，它決定這張卡適不適合你。</div>
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:7px;">
+            <sc-for list="{{ revOpts }}" as="o" hint-placeholder-count="3">
+              <button onClick="{{ o.onClick }}" style="border:1px solid {{ o.bd }};background:{{ o.bg }};color:{{ o.col }};border-radius:3px;padding:11px 6px;font-size:13px;cursor:pointer;line-height:1.4;font-weight:{{ o.w }};">{{ o.label }}</button>
+            </sc-for>
+          </div>
+        </div>
+        <sc-if value="{{ revAlert }}">
+          <div style="border:1px solid #9c6b52;background:rgba(156,107,82,.07);border-radius:4px;padding:15px 17px;margin-top:18px;font-size:13.5px;line-height:1.85;color:#7a4f3c;">
+            <b style="font-family:'Noto Serif TC',serif;display:block;margin-bottom:4px;font-size:14.5px;color:#9c6b52;">這張卡不適合這個決定</b>
+            有些事情一旦做了就沒有回頭路——移民身分、生育、動用一輩子的積蓄、放棄年資或執照。這類決定沒辦法用「先試小的」來預演，因為根本沒有小的版本。<br /><br />你還是可以繼續往下填，但請把它當成整理思緒，不要當成「試過了所以安全」。這種決定需要的是把不可逆的部分弄清楚，而不是試一次。
+          </div>
+        </sc-if>
+        <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:20px;color:#554d40;font-family:'EB Garamond','Noto Serif TC',serif;font-size:13px;line-height:1.9;"><b style="font-family:'Noto Serif TC',serif;color:#35456a;">為什麼先問這一題</b><br />這個做法在書裡出現過六次，每一次都是可以回頭的事——先試航一個月、先在家工作兩天、先花一筆小錢測市場。書沒有說的是：它挑的全是可逆的例子。不可逆的決定，這套方法本來就不適用。</div>
+      </sc-if>
+
+      <sc-if value="{{ s2 }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 02 · 縮小</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">有沒有一個很小的版本，<br />可以先做做看？</h2>
+        <p style="color:#938a78;font-size:13px;margin-bottom:8px;">不是「準備」，是真的做一次小的。目標是用最低的代價，換到一手的實感。</p>
+        <div style="display:flex;flex-wrap:wrap;gap:7px;margin-top:10px;">
+          <sc-for list="{{ chips }}" as="c" hint-placeholder-count="6">
+            <button onClick="{{ c.onClick }}" style="border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:9px 12px;font-size:13px;color:#554d40;cursor:pointer;" style-hover="border-color:#35456a;color:#35456a;">{{ c.label }}</button>
+          </sc-for>
+        </div>
+        <p style="color:#938a78;font-size:11.5px;margin:9px 0 0;">點一個當開頭，再改成你的版本。</p>
+        <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:16px 0 7px;">我要先試的那件小事</label>
+        <textarea value="{{ pilot }}" onInput="{{ onPilot }}" maxlength="200" placeholder="例如：接一個小的設計案，晚上做，不辭職" style="width:100%;min-height:96px;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:14px 15px;font-size:14.5px;color:#241f18;line-height:1.8;resize:vertical;"></textarea>
+        <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:20px;color:#554d40;font-family:'EB Garamond','Noto Serif TC',serif;font-size:14px;line-height:1.9;">好的試驗有一個特徵：<b style="color:#35456a;">做完之後，你會知道一些現在不知道的事。</b>如果做完只是「感覺比較踏實」，那還是準備，不是試驗。</div>
+      </sc-if>
+
+      <sc-if value="{{ s3 }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 03 · 期限與判準</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">試多久？<br />看到什麼算數？</h2>
+        <p style="color:#938a78;font-size:13px;margin-bottom:8px;">先把判準寫下來，是為了不讓事後的心情替你解釋結果。</p>
+        <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:16px 0 7px;">試多久</label>
+        <input value="{{ dur }}" onInput="{{ onDur }}" maxlength="40" placeholder="例如：四週，或做完三個案子" style="width:100%;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:13px 15px;font-size:14.5px;color:#241f18;" />
+        <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:16px 0 7px;">看到什麼，代表可以往下走</label>
+        <textarea value="{{ goSign }}" onInput="{{ onGoSign }}" maxlength="200" placeholder="例如：三個案子都交得出去，而且我還想接第四個" style="width:100%;min-height:80px;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:14px 15px;font-size:14.5px;color:#241f18;line-height:1.8;resize:vertical;"></textarea>
+        <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:16px 0 7px;">看到什麼，代表該停</label>
+        <textarea value="{{ stopSign }}" onInput="{{ onStopSign }}" maxlength="200" placeholder="例如：每次都做到凌晨，白天工作開始出錯" style="width:100%;min-height:80px;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:14px 15px;font-size:14.5px;color:#241f18;line-height:1.8;resize:vertical;"></textarea>
+        <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:20px;color:#554d40;font-family:'EB Garamond','Noto Serif TC',serif;font-size:14px;line-height:1.9;">兩個判準都要先寫。<b style="color:#35456a;">只寫「怎樣算成功」的人，最後幾乎都會覺得自己成功了。</b></div>
+      </sc-if>
+
+      <sc-if value="{{ s4 }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 04 · 上限</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">這次試驗，<br />你最多願意賠多少？</h2>
+        <p style="color:#938a78;font-size:13px;margin-bottom:8px;">先講好上限，就不會在中途才發現自己已經賠不起。</p>
+        <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:16px 0 7px;">時間上限</label>
+        <input value="{{ costTime }}" onInput="{{ onCostTime }}" maxlength="40" placeholder="例如：每週最多八小時" style="width:100%;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:13px 15px;font-size:14.5px;color:#241f18;" />
+        <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:16px 0 7px;">金錢上限<span style="font-size:11px;color:#938a78;letter-spacing:1px;border:1px solid #e3ddd0;border-radius:2px;padding:1px 7px;margin-left:8px;">可留空</span></label>
+        <input value="{{ costMoney }}" onInput="{{ onCostMoney }}" maxlength="40" placeholder="例如：兩萬元以內" style="width:100%;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:13px 15px;font-size:14.5px;color:#241f18;" />
+        <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:16px 0 7px;">其他不能賠掉的<span style="font-size:11px;color:#938a78;letter-spacing:1px;border:1px solid #e3ddd0;border-radius:2px;padding:1px 7px;margin-left:8px;">可留空</span></label>
+        <textarea value="{{ costOther }}" onInput="{{ onCostOther }}" maxlength="160" placeholder="例如：不能影響現在的工作評價、週末要留給家人" style="width:100%;min-height:70px;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:14px 15px;font-size:14.5px;color:#241f18;line-height:1.8;resize:vertical;"></textarea>
+        <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:20px;color:#554d40;font-family:'EB Garamond','Noto Serif TC',serif;font-size:13px;line-height:1.85;"><b style="font-family:'Noto Serif TC',serif;color:#35456a;">為什麼先講上限</b><br />試驗一旦投進去時間、錢、還有跟別人講過的話，人就很難喊停——會想著「都做到這裡了」。上限先寫下來，是替那個時候的自己留一個煞車。</div>
+      </sc-if>
+
+      <sc-if value="{{ s5 }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 05 · 誠實</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">這次試驗<br />回答不了什麼？<span style="font-size:11px;color:#938a78;letter-spacing:1px;border:1px solid #e3ddd0;border-radius:2px;padding:1px 7px;margin-left:8px;font-family:-apple-system,sans-serif;vertical-align:2px;">可留空</span></h2>
+        <p style="color:#938a78;font-size:13px;margin-bottom:8px;">這一步不是潑冷水，是先標出試驗照不到的地方。</p>
+        <textarea value="{{ unknown }}" onInput="{{ onUnknown }}" maxlength="200" placeholder="例如：做三個案子很新鮮，但做三年會不會膩，我還是不知道" style="width:100%;min-height:100px;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:14px 15px;font-size:14.5px;color:#241f18;line-height:1.8;resize:vertical;"></textarea>
+        <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:20px;color:#554d40;font-family:'EB Garamond','Noto Serif TC',serif;font-size:13px;line-height:1.85;"><b style="font-family:'Noto Serif TC',serif;color:#35456a;">試驗告訴你的是什麼</b><br />研究上有兩件事很清楚：小規模試的結果放大之後常常會縮水；而人預測「一個月後的心情」相當準，預測「三年後快不快樂」就很不準。<br /><br />所以一次試驗能回答的是<b style="color:#35456a;">「我做不做得下去、我喜不喜歡做這件事本身」</b>，不是「這個選擇會不會讓我長期滿意」。前者已經很有用了。</div>
+      </sc-if>
+
+      <sc-if value="{{ s6 }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 06 · 定案</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">試完之後，<br />你打算什麼時候<br />把門關上？</h2>
+        <p style="color:#938a78;font-size:13px;margin-bottom:8px;">給自己一個做決定的日子，不然試驗會無限延長成一種拖延。</p>
+        <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:16px 0 7px;">我會在這個時候做決定</label>
+        <input value="{{ decideBy }}" onInput="{{ onDecideBy }}" type="date" style="width:100%;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:12px 15px;font-size:14.5px;color:#241f18;" />
+        <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:16px 0 7px;">決定之後，我會怎麼收尾<span style="font-size:11px;color:#938a78;letter-spacing:1px;border:1px solid #e3ddd0;border-radius:2px;padding:1px 7px;margin-left:8px;">可留空</span></label>
+        <textarea value="{{ commit }}" onInput="{{ onCommit }}" maxlength="160" placeholder="例如：如果要做，就在月底前談好離職時間；如果不做，就把這件事從清單上劃掉" style="width:100%;min-height:80px;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:14px 15px;font-size:14.5px;color:#241f18;line-height:1.8;resize:vertical;"></textarea>
+        <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:20px;color:#554d40;font-family:'EB Garamond','Noto Serif TC',serif;font-size:13px;line-height:1.85;"><b style="font-family:'Noto Serif TC',serif;color:#35456a;">為什麼要關門</b><br />有研究讓人在「可以換」與「不能換」之間選擇，結果<b style="color:#35456a;">不能換的那組後來滿意度反而更高</b>——人只有在沒得反悔的時候，才會真正去適應自己的選擇。所以：試驗階段留餘地，決定之後就別再留。這是書上沒寫的那半句。</div>
+      </sc-if>
+
+      <sc-if value="{{ s7 }}">
+        <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:10px;letter-spacing:5px;text-transform:uppercase;color:#938a78;margin:4px 0 14px;">你的試驗設計</div>
+        <div style="position:relative;border:1px solid #cec6b4;border-radius:3px;padding:28px 24px 22px;background:#f3efe7;box-shadow:inset 0 0 0 5px #fbf9f4,inset 0 0 0 6px #cec6b4;">
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:22px;color:#35456a;">❦</div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:15px;letter-spacing:8px;padding-left:8px;margin-top:4px;">試 驗 卡</div>
+          <div style="text-align:center;font-size:8.5px;letter-spacing:3px;color:#938a78;text-transform:uppercase;margin-top:5px;">Pilot · Nº 05</div>
+          <div style="width:30px;height:1px;background:#35456a;opacity:.6;margin:16px auto 20px;"></div>
+          <div style="margin-bottom:16px;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">我在猶豫的決定</div><div style="font-family:'Noto Serif TC',serif;font-size:18px;font-weight:600;line-height:1.55;white-space:pre-wrap;">{{ cDecision }}</div><div style="font-size:11px;letter-spacing:1px;color:#938a78;margin-top:6px;">{{ cRev }}</div></div>
+          <div style="margin-bottom:14px;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">先試的那件小事</div><div style="font-size:14px;line-height:1.65;white-space:pre-wrap;">{{ cPilot }}</div></div>
+          <div style="margin-bottom:14px;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">試多久</div><div style="font-size:14px;line-height:1.65;white-space:pre-wrap;">{{ cDur }}</div></div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;border:1px solid #e3ddd0;border-radius:3px;margin-bottom:14px;">
+            <div style="padding:13px 14px;"><div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">可以往下走</div><div style="font-size:13.5px;line-height:1.6;white-space:pre-wrap;">{{ cGo }}</div></div>
+            <div style="padding:13px 14px;border-left:1px solid #e3ddd0;"><div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">該停</div><div style="font-size:13.5px;line-height:1.6;white-space:pre-wrap;">{{ cStop }}</div></div>
+          </div>
+          <div style="margin-bottom:14px;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">最多賠這麼多</div><div style="font-size:14px;line-height:1.65;white-space:pre-wrap;">{{ cCost }}</div></div>
+          <div style="margin-bottom:14px;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">試完還是不會知道</div><div style="font-size:14px;line-height:1.65;white-space:pre-wrap;">{{ cUnknown }}</div></div>
+          <div style="height:1px;background:#e3ddd0;margin:17px 0;"></div>
+          <div style="text-align:center;border:1px solid #cec6b4;border-radius:2px;padding:13px 12px;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">關門的日子</div><div style="font-family:'Noto Serif TC',serif;font-size:16px;color:#35456a;line-height:1.6;">{{ cDecide }}</div></div>
+          <div style="margin:14px 0 0;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">決定之後怎麼收尾</div><div style="font-size:14px;line-height:1.65;white-space:pre-wrap;">{{ cCommit }}</div></div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;color:#35456a;font-size:14px;letter-spacing:2px;margin-top:16px;">試小的，決定要大方。</div>
+          <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:10px;">Edition Nº 05 · MMXXVI</div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:16px;">
+          <button onClick="{{ onSaveImage }}" style="border:1px solid #cec6b4;background:transparent;color:#35456a;border-radius:2px;padding:12px;font-size:13px;cursor:pointer;">儲存為圖片</button>
+          <button onClick="{{ onCopy }}" style="border:1px solid #cec6b4;background:transparent;color:#35456a;border-radius:2px;padding:12px;font-size:13px;cursor:pointer;">複製文字</button>
+          <button onClick="{{ onShare }}" style="border:1px solid #cec6b4;background:transparent;color:#35456a;border-radius:2px;padding:12px;font-size:13px;cursor:pointer;">分享試驗卡</button>
+        </div>
+        <div style="border:1px solid #cec6b4;border-radius:4px;background:#fff;padding:20px;margin-top:24px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#938a78;margin-bottom:8px;">卷 III · 抉擇 · 這條線的下一步</div>
+          <p style="color:#554d40;font-size:13.5px;line-height:1.8;font-family:'EB Garamond','Noto Serif TC',serif;">把「先試的那件小事」帶進 <a href="tool-result-lock.html">成果鎖定卡</a> 給它一個交付日期；試完之後用 <a href="tool-review.html">復盤卡</a> 對一次當初寫的判準。</p>
+        </div>
+        <div style="border-top:1px solid #e3ddd0;margin-top:24px;padding-top:22px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:16px;font-weight:600;margin-bottom:4px;">做完了，跟我說一句</div>
+          <p style="font-size:12.5px;color:#938a78;margin-bottom:12px;line-height:1.75;">這張卡對你有沒有用、你希望下一個工具解決什麼——我在收集建議。留 Email，新工具上線也會通知你。</p>
+          <form onSubmit="{{ onSubmitFeedback }}">
+            <textarea value="{{ feedbackText }}" onInput="{{ onFeedbackText }}" maxlength="500" placeholder="你希望下一個工具處理什麼？（可留空）" style="width:100%;min-height:76px;border:1px solid #cec6b4;background:#fff;border-radius:2px;padding:12px 14px;font-size:14px;color:#241f18;line-height:1.7;resize:vertical;outline:none;margin-bottom:8px;"></textarea>
+            <div style="display:flex;gap:8px;">
+              <input value="{{ email }}" onInput="{{ onEmail }}" type="email" placeholder="你的 Email" required style="flex:1;border:1px solid #cec6b4;background:#fff;border-radius:2px;padding:12px 14px;font-size:14px;color:#241f18;outline:none;" />
+              <button type="submit" style="border:none;background:#35456a;color:#fbf9f4;border-radius:2px;padding:0 20px;font-size:13px;letter-spacing:1px;cursor:pointer;white-space:nowrap;">{{ subLabel }}</button>
+            </div>
+            <div style="min-height:16px;text-align:center;color:#35456a;font-size:11px;margin-top:8px;">{{ subStatus }}</div>
+          </form>
+        </div>
+      </sc-if>
+
+    </div>
+
+    <div style="flex:none;padding:12px 26px 22px;background:linear-gradient(transparent,#fbf9f4 30%);">
+      <sc-if value="{{ showGate }}">
+        <div style="text-align:center;font-size:11px;color:#938a78;margin-bottom:8px;height:15px;letter-spacing:.5px;">{{ gateMsg }}</div>
+      </sc-if>
+      <button onClick="{{ onNext }}" disabled="{{ nextDisabled }}" style="display:block;width:100%;border:none;background:{{ nextBg }};color:#fbf9f4;border-radius:2px;padding:15px;font-size:15px;font-weight:600;letter-spacing:1px;cursor:pointer;opacity:{{ nextOp }};">{{ nextLabel }}</button>
+      <sc-if value="{{ s7 }}">
+        <button onClick="{{ onHome }}" style="display:block;width:100%;border:1px solid #cec6b4;background:transparent;color:#35456a;border-radius:2px;padding:12px;font-size:13px;letter-spacing:1px;cursor:pointer;margin-top:8px;">返回主頁</button>
+      </sc-if>
+      <sc-if value="{{ showRecordsBtn }}">
+        <button onClick="{{ onOpenRecords }}" style="display:block;width:100%;border:1px solid #cec6b4;background:transparent;color:#35456a;border-radius:2px;padding:12px;font-size:13px;letter-spacing:1px;cursor:pointer;margin-top:8px;">查看試驗卡紀錄簿（{{ recordsCount }}）</button>
+      </sc-if>
+    </div>
+
+    <sc-if value="{{ toastOn }}">
+      <div style="position:absolute;bottom:96px;left:50%;transform:translateX(-50%);background:#241f18;color:#fbf9f4;padding:10px 18px;border-radius:3px;font-size:12px;letter-spacing:.5px;white-space:nowrap;">{{ toastMsg }}</div>
+    </sc-if>
+
+  </div>
+
+  <sc-if value="{{ exampleOpen }}">
+    <div onClick="{{ onCloseExample }}" style="position:fixed;inset:0;z-index:30;background:rgba(36,31,24,.4);display:flex;justify-content:center;">
+      <div onClick="{{ stop }}" style="width:min(440px,100%);height:100%;background:#f3efe7;padding:22px 24px 34px;overflow-y:auto;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:22px;font-weight:600;white-space:nowrap;">一個填好的例子</div>
+          <span onClick="{{ onCloseExample }}" style="color:#938a78;font-size:22px;cursor:pointer;">✕</span>
+        </div>
+        <p style="font-size:12.5px;color:#938a78;margin-bottom:18px;line-height:1.75;">假設有個人一直想離職去接案，卻不敢一下子辭掉全職。走完六個問題之後，他的試驗卡長這樣——</p>
+
+        <div style="position:relative;border:1px solid #cec6b4;border-radius:3px;padding:28px 24px 22px;background:#fbf9f4;box-shadow:inset 0 0 0 5px #f3efe7,inset 0 0 0 6px #cec6b4;">
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:22px;color:#35456a;">❦</div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:15px;letter-spacing:8px;padding-left:8px;margin-top:4px;">試 驗 卡</div>
+          <div style="text-align:center;font-size:8.5px;letter-spacing:3px;color:#938a78;text-transform:uppercase;margin-top:5px;">Pilot · Nº 05</div>
+          <div style="width:30px;height:1px;background:#35456a;opacity:.6;margin:16px auto 20px;"></div>
+          <div style="margin-bottom:16px;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">我在猶豫的決定</div><div style="font-family:'Noto Serif TC',serif;font-size:18px;font-weight:600;line-height:1.55;">要不要辭掉全職，改成自己接案</div><div style="font-size:11px;letter-spacing:1px;color:#938a78;margin-top:6px;">要花點力氣才回得去</div></div>
+          <div style="margin-bottom:14px;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">先試的那件小事</div><div style="font-size:14px;line-height:1.65;">先不辭職，用下班時間接一個小案子</div></div>
+          <div style="margin-bottom:14px;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">試多久</div><div style="font-size:14px;line-height:1.65;">這個月內，四個週末做完</div></div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;border:1px solid #e3ddd0;border-radius:3px;margin-bottom:14px;">
+            <div style="padding:13px 14px;"><div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">可以往下走</div><div style="font-size:13.5px;line-height:1.6;">做得起勁，客戶願意再合作</div></div>
+            <div style="padding:13px 14px;border-left:1px solid #e3ddd0;"><div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">該停</div><div style="font-size:13.5px;line-height:1.6;">四個週末都在硬撐，成品自己都不滿意</div></div>
+          </div>
+          <div style="margin-bottom:14px;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">最多賠這麼多</div><div style="font-size:14px;line-height:1.65;white-space:pre-wrap;">時間：四個週末＋每晚兩小時
+金錢：一台二手器材約 $3,000</div></div>
+          <div style="margin-bottom:14px;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">試完還是不會知道</div><div style="font-size:14px;line-height:1.65;">全職接案的收入到底夠不夠穩定養活自己</div></div>
+          <div style="height:1px;background:#e3ddd0;margin:17px 0;"></div>
+          <div style="text-align:center;border:1px solid #cec6b4;border-radius:2px;padding:13px 12px;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">關門的日子</div><div style="font-family:'Noto Serif TC',serif;font-size:16px;color:#35456a;line-height:1.6;">2026.09.30</div></div>
+          <div style="margin:14px 0 0;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">決定之後怎麼收尾</div><div style="font-size:14px;line-height:1.65;">若不做就把器材賣掉，安心留在原職；若要做，先存滿半年生活費再遞辭呈</div></div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;color:#35456a;font-size:14px;letter-spacing:2px;margin-top:16px;">試小的，決定要大方。</div>
+          <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:10px;">Edition Nº 05 · MMXXVI</div>
+        </div>
+
+        <div style="margin-top:20px;">
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:10px;">這個例子想讓你看到三件事</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;">不必一開始就辭職——<b>先用下班時間接一個小案子</b>，賭注小到輸得起，別把全部一次押上去。</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;">「可以往下走」和「該停」都在開始前<b>就先寫死</b>——免得做到一半，用當下的心情替自己找理由。</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;color:#554d40;font-size:13.5px;line-height:1.85;">給它一個<b>關門的日子和成本上限</b>——時間一到就照當初的判準決定去留，不無限拖下去。</div>
+        </div>
+
+        <button onClick="{{ onCloseExample }}" style="display:block;width:100%;border:none;background:#35456a;color:#fbf9f4;border-radius:2px;padding:14px;font-size:14px;letter-spacing:1px;cursor:pointer;margin-top:24px;">懂了，開始做我自己的</button>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ recordsOpen }}">
+    <div onClick="{{ onCloseRecords }}" style="position:fixed;inset:0;z-index:30;background:rgba(36,31,24,.4);display:flex;justify-content:center;">
+      <div onClick="{{ stop }}" style="width:min(440px,100%);height:100%;background:#f3efe7;padding:22px 24px 34px;overflow-y:auto;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:22px;font-weight:600;white-space:nowrap;">試驗卡紀錄簿</div>
+          <span onClick="{{ onCloseRecords }}" style="color:#938a78;font-size:22px;cursor:pointer;">✕</span>
+        </div>
+        <p style="font-size:12px;color:#938a78;margin-bottom:18px;">紀錄只保存在這部裝置的目前瀏覽器。</p>
+        <sc-if value="{{ hasCards }}">
+          <sc-for list="{{ cards }}" as="c" hint-placeholder-count="0">
+            <div onClick="{{ c.onOpen }}" style="background:#fbf9f4;border:1px solid #e3ddd0;border-radius:4px;padding:18px;margin-bottom:12px;cursor:pointer;" style-hover="border-color:#35456a;">
+              <div style="display:flex;justify-content:space-between;align-items:center;color:#938a78;font-size:11px;margin-bottom:12px;"><span style="white-space:nowrap;">第 {{ c.idx }} 張 · {{ c.date }}</span><span onClick="{{ c.onDel }}" style="cursor:pointer;">刪除</span></div>
+              <div style="font-size:9px;letter-spacing:2px;color:#938a78;">猶豫的決定</div><div style="font-family:'Noto Serif TC',serif;font-size:15px;margin-top:3px;white-space:pre-wrap;">{{ c.decision }}</div>
+              <div style="font-size:9px;letter-spacing:2px;color:#938a78;margin-top:10px;">先試的小事</div><div style="font-family:'Noto Serif TC',serif;font-size:15px;color:#35456a;font-weight:600;margin-top:3px;white-space:pre-wrap;">{{ c.pilot }}</div>
+              <div style="text-align:right;font-size:11px;color:#35456a;margin-top:10px;letter-spacing:1px;">開啟回顧 →</div>
+            </div>
+          </sc-for>
+        </sc-if>
+        <sc-if value="{{ noCards }}">
+          <div style="text-align:center;color:#938a78;font-size:13px;padding:60px 10px;">還沒有試驗卡。<br />完成第一張後，會保存在這裡。</div>
+        </sc-if>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ hasOpened }}">
+    <div onClick="{{ onCloseCard }}" style="position:fixed;inset:0;z-index:40;background:rgba(36,31,24,.5);display:flex;align-items:center;justify-content:center;padding:26px 20px;">
+      <div onClick="{{ stop }}" style="width:min(400px,100%);background:#fbf9f4;border-radius:8px;padding:24px;box-shadow:0 20px 60px rgba(36,31,24,.28);max-height:92vh;overflow-y:auto;">
+        <div style="position:relative;border:1px solid #cec6b4;border-radius:3px;padding:26px 22px 20px;background:#f3efe7;box-shadow:inset 0 0 0 5px #fbf9f4,inset 0 0 0 6px #cec6b4;">
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:22px;color:#35456a;">❦</div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:15px;letter-spacing:8px;padding-left:8px;margin-top:4px;">試 驗 卡</div>
+          <div style="text-align:center;font-size:8.5px;letter-spacing:3px;color:#938a78;text-transform:uppercase;margin-top:5px;">Pilot · Nº 05</div>
+          <div style="width:30px;height:1px;background:#35456a;opacity:.6;margin:16px auto 20px;"></div>
+          <div style="margin-bottom:14px;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">我在猶豫的決定</div><div style="font-family:'Noto Serif TC',serif;font-size:17px;font-weight:600;line-height:1.55;white-space:pre-wrap;">{{ ocDecision }}</div></div>
+          <div style="margin-bottom:14px;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">先試的那件小事</div><div style="font-size:14px;line-height:1.6;white-space:pre-wrap;">{{ ocPilot }}</div></div>
+          <div style="text-align:center;border:1px solid #cec6b4;border-radius:2px;padding:14px 12px;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">關門的日子</div><div style="font-family:'Noto Serif TC',serif;font-size:16px;color:#35456a;line-height:1.6;">{{ ocDecide }}</div></div>
+          <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:14px;">Edition Nº 05 · MMXXVI</div>
+        </div>
+        <button onClick="{{ onShareOpened }}" style="display:block;width:100%;border:1px solid #cec6b4;background:transparent;color:#35456a;border-radius:2px;padding:12px;font-size:13px;letter-spacing:1px;cursor:pointer;margin-top:16px;">分享這張</button>
+        <a href="tool-result-lock.html" style="display:block;text-align:center;border:1px solid #cec6b4;border-radius:2px;padding:12px;font-size:13px;letter-spacing:1px;margin-top:8px;">下一步：成果鎖定卡 →</a>
+        <button onClick="{{ onCloseCard }}" style="display:block;width:100%;border:none;background:transparent;color:#938a78;border-radius:2px;padding:10px;font-size:12px;letter-spacing:1px;cursor:pointer;margin-top:4px;">關閉</button>
+      </div>
+    </div>
+  </sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:480,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  state = {
+    step: 0, decision: "", rev: null, pilot: "", dur: "", goSign: "", stopSign: "",
+    costTime: "", costMoney: "", costOther: "", unknown: "", decideBy: "", commit: "",
+    toastOn: false, toastMsg: "", feedbackText: "", email: "", subLabel: "傳給創作者", subStatus: "",
+    cards: [], recordsOpen: false, openedCard: null, exampleOpen: false,
+  };
+  HKEY = "toolbook_pilot_history_v1";
+  REV = { easy: "這個決定回得去", hard: "要花點力氣才回得去", none: "這個決定回不去" };
+  CHIPS = ["縮短時間：只做兩天", "縮小規模：只做一個", "縮小範圍：只做其中一段", "先借不買", "先接一個小案子", "先跟一個人聊"];
+
+  componentDidMount() {
+    try { const raw = localStorage.getItem(this.HKEY); if (raw) { const a = JSON.parse(raw); if (Array.isArray(a)) this.setState({ cards: a.slice(0, 50) }); } } catch (_) {}
+  }
+  saveCards(cards, done) { try { localStorage.setItem(this.HKEY, JSON.stringify(cards.slice(0, 50))); if(done&&typeof gtag==='function')gtag('event','tool_complete',{tool_name:'小規模試驗卡'}); } catch (_) {} }
+  set(k, v) { this.setState({ [k]: v }); }
+
+  gateOk(step) {
+    const s = this.state;
+    if (step === 1) return !!s.decision.trim() && !!s.rev;
+    if (step === 2) return !!s.pilot.trim();
+    if (step === 3) return !!s.dur.trim() && !!s.goSign.trim() && !!s.stopSign.trim();
+    if (step === 4) return !!s.costTime.trim();
+    if (step === 6) return !!s.decideBy;
+    return true;
+  }
+  next() {
+    if (!this.gateOk(this.state.step)) return;
+    const n = Math.min(7, this.state.step + 1);
+    if (n === 7) this.archive();
+    this.setState({ step: n });
+    const st = document.querySelector(".stage"); if (st) st.scrollTop = 0;
+  }
+  prev() { this.setState({ step: Math.max(0, this.state.step - 1) }); const st = document.querySelector(".stage"); if (st) st.scrollTop = 0; }
+  newCard() {
+    if (!window.confirm("開始一張新的試驗卡？目前內容會清掉，舊的保留在紀錄簿。")) return;
+    this.setState({ step: 1, decision: "", rev: null, pilot: "", dur: "", goSign: "", stopSign: "", costTime: "", costMoney: "", costOther: "", unknown: "", decideBy: "", commit: "" });
+  }
+  fmtDate(raw) { if (!raw) return "—"; const p = String(raw).split("-"); return p.length === 3 ? p[0] + "." + String(p[1]).padStart(2, "0") + "." + String(p[2]).padStart(2, "0") : raw; }
+  costText() { const s = this.state, p = []; if (s.costTime.trim()) p.push("時間：" + s.costTime.trim()); if (s.costMoney.trim()) p.push("金錢：" + s.costMoney.trim()); if (s.costOther.trim()) p.push("不能賠掉：" + s.costOther.trim()); return p.join("\n") || "—"; }
+  fillPilot(text) { if (!this.state.pilot.trim()) this.set("pilot", text.split("：").pop()); }
+
+  archive() {
+    const s = this.state; if (!s.decision.trim() || !s.pilot.trim()) return;
+    const card = { id: "pilot_" + Date.now().toString(36), createdAt: new Date().toISOString(),
+      decision: s.decision.trim(), rev: s.rev, pilot: s.pilot.trim(), dur: s.dur.trim(),
+      goSign: s.goSign.trim(), stopSign: s.stopSign.trim(), costTime: s.costTime.trim(), costMoney: s.costMoney.trim(),
+      costOther: s.costOther.trim(), unknown: s.unknown.trim(), decideBy: s.decideBy, commit: s.commit.trim() };
+    const cards = [card, ...this.state.cards].slice(0, 50);
+    this.setState({ cards }); this.saveCards(cards, true);
+  }
+  deleteCard(id) { const cards = this.state.cards.filter(c => c.id !== id); this.setState({ cards }); this.saveCards(cards); }
+
+  cardTextOf(c) {
+    const cost = [c.costTime && "時間：" + c.costTime, c.costMoney && "金錢：" + c.costMoney, c.costOther && "不能賠掉：" + c.costOther].filter(Boolean).join("\n") || "—";
+    return "試驗卡\n\n我在猶豫的決定：" + (c.decision || "") + "\n（" + (c.rev ? this.REV[c.rev] : "—") + "）\n\n先試的那件小事：" + (c.pilot || "") +
+      "\n試多久：" + (c.dur || "") + "\n\n可以往下走：" + (c.goSign || "") + "\n該停：" + (c.stopSign || "") +
+      "\n\n最多賠這麼多：\n" + cost + "\n\n試完還是不會知道：" + (c.unknown || "（沒有特別標出）") +
+      "\n\n關門的日子：" + this.fmtDate(c.decideBy) + "\n決定之後怎麼收尾：" + (c.commit || "—") + "\n\n試小的，決定要大方。";
+  }
+  cur() { const s = this.state; return { decision: s.decision, rev: s.rev, pilot: s.pilot, dur: s.dur, goSign: s.goSign, stopSign: s.stopSign, costTime: s.costTime, costMoney: s.costMoney, costOther: s.costOther, unknown: s.unknown, decideBy: s.decideBy, commit: s.commit }; }
+  toast(msg) { this.setState({ toastOn: true, toastMsg: msg }); clearTimeout(this._t); this._t = setTimeout(() => this.setState({ toastOn: false }), 1700); }
+  async copy() { try { await navigator.clipboard.writeText(this.cardTextOf(this.cur())); this.toast("已複製試驗卡文字"); } catch (_) { this.toast("瀏覽器未允許複製"); } }
+  async share() { try { if (navigator.share) await navigator.share({ title: "我的試驗卡", text: this.cardTextOf(this.cur()) }); else { await navigator.clipboard.writeText(this.cardTextOf(this.cur())); this.toast("已複製，可貼到其他地方"); } } catch (_) {} }
+  async shareCard(c) { try { if (navigator.share) await navigator.share({ title: "我的試驗卡", text: this.cardTextOf(c) }); else { await navigator.clipboard.writeText(this.cardTextOf(c)); this.toast("已複製"); } } catch (_) {} }
+  onSubmitFeedback(e) { e.preventDefault(); var self = this; var fd = new FormData(); fd.append("email", this.state.email || ""); fd.append("message", this.state.feedbackText || ""); fd.append("tool", "小規模試驗卡"); fd.append("_subject", "Toolbook 工具回饋 · 小規模試驗卡"); fd.append("submission_type", "工具完成後回饋"); this.setState({ subLabel: "傳送中…", subStatus: "" }); fetch("https://formspree.io/f/mlgkgveq", { method: "POST", body: fd, headers: { Accept: "application/json" } }).then(function (r) { if (!r.ok) throw r; return r.json(); }).then(function () { self.setState({ subLabel: "已送出", subStatus: "已傳給創作者 ✓" }); }).catch(function () { self.setState({ subLabel: "傳給創作者", subStatus: "送出失敗，請稍後再試" }); }); }
+
+  async _png(spec){try{const m=await import("./toolbook-card.js");const ok=await m.downloadCardPNG(spec);this.toast(ok?"卡片圖片已儲存":"圖片產生失敗");}catch(_){this.toast("圖片產生失敗");}}
+  async saveImage(){const s=this.state;await this._png({title:"試驗卡",sub:"PILOT · Nº 05",filename:"試驗卡-Toolbook",mantra:"試小的，決定要大方。",edition:"Edition Nº 05 · MMXXVI",blocks:[{k:"我在猶豫的決定",v:s.decision.trim()||"—",big:true,meta:s.rev?this.REV[s.rev]:""},{k:"先試的那件小事",v:s.pilot.trim()||"—",serif:true},{k:"試多久",v:s.dur.trim()||"—",serif:true},{k:"可以往下走",v:s.goSign.trim()||"—"},{k:"該停",v:s.stopSign.trim()||"—"},{k:"最多賠這麼多",v:this.costText()},{k:"試完還是不會知道",v:s.unknown.trim()||"（沒有特別標出）"},{k:"關門的日子",v:this.fmtDate(s.decideBy),big:true},{k:"決定之後怎麼收尾",v:s.commit.trim()||"—"}]});}
+
+  renderVals() {
+    const s = this.state, step = s.step;
+    const dots = [1, 2, 3, 4, 5, 6].map(n => ({ w: n === step ? "16px" : "5px", bg: n === step ? "#35456a" : "#e3ddd0" }));
+    const showGate = step >= 1 && step <= 6;
+    const gateBad = showGate && !this.gateOk(step);
+    const revOpts = [{ v: "easy", label: "回得去" }, { v: "hard", label: "要花點力氣" }, { v: "none", label: "回不去" }].map(o => ({
+      label: o.label, onClick: () => this.set("rev", o.v),
+      bd: s.rev === o.v ? "#35456a" : "#e3ddd0", bg: s.rev === o.v ? "rgba(53,69,106,.07)" : "#fff",
+      col: s.rev === o.v ? "#35456a" : "#554d40", w: s.rev === o.v ? "600" : "400",
+    }));
+    const chips = this.CHIPS.map(label => ({ label, onClick: () => this.fillPilot(label) }));
+    const pullNone = s.rev === "none";
+    const cards = s.cards.map((c, n) => ({ idx: s.cards.length - n, date: new Date(c.createdAt).toLocaleDateString("zh-HK", { year: "numeric", month: "2-digit", day: "2-digit" }), decision: c.decision || "—", pilot: c.pilot || "—", onDel: (e) => { if (e && e.stopPropagation) e.stopPropagation(); this.deleteCard(c.id); }, onOpen: () => this.set("openedCard", c) }));
+    const oc = s.openedCard;
+    return {
+      dots, backColor: step === 0 ? "transparent" : "#938a78", onBack: () => this.prev(),
+      s0: step === 0, s1: step === 1, s2: step === 2, s3: step === 3, s4: step === 4, s5: step === 5, s6: step === 6, s7: step === 7,
+      decision: s.decision, pilot: s.pilot, dur: s.dur, goSign: s.goSign, stopSign: s.stopSign,
+      costTime: s.costTime, costMoney: s.costMoney, costOther: s.costOther, unknown: s.unknown, decideBy: s.decideBy, commit: s.commit,
+      onDecision: e => this.set("decision", e.target.value), onPilot: e => this.set("pilot", e.target.value),
+      onDur: e => this.set("dur", e.target.value), onGoSign: e => this.set("goSign", e.target.value), onStopSign: e => this.set("stopSign", e.target.value),
+      onCostTime: e => this.set("costTime", e.target.value), onCostMoney: e => this.set("costMoney", e.target.value), onCostOther: e => this.set("costOther", e.target.value),
+      onUnknown: e => this.set("unknown", e.target.value), onDecideBy: e => this.set("decideBy", e.target.value), onCommit: e => this.set("commit", e.target.value),
+      revOpts, revAlert: pullNone, chips,
+      cDecision: s.decision.trim() || "—", cRev: s.rev ? this.REV[s.rev] : "—", cPilot: s.pilot.trim() || "—", cDur: s.dur.trim() || "—",
+      cGo: s.goSign.trim() || "—", cStop: s.stopSign.trim() || "—", cCost: this.costText(), cUnknown: s.unknown.trim() || "（沒有特別標出）",
+      cDecide: this.fmtDate(s.decideBy), cCommit: s.commit.trim() || "—",
+      onCopy: () => this.copy(), onShare: () => this.share(), onSaveImage: () => this.saveImage(),
+      onHome: () => { window.location.href = "index.html"; },
+      feedbackText: s.feedbackText, email: s.email, subLabel: s.subLabel, subStatus: s.subStatus,
+      onFeedbackText: e => this.set("feedbackText", e.target.value), onEmail: e => this.set("email", e.target.value), onSubmitFeedback: e => this.onSubmitFeedback(e),
+      showGate, gateMsg: gateBad ? (step === 1 ? "寫下決定，並選一個回頭的難度" : step === 3 ? "三格都要填，包括「該停」" : step === 4 ? "至少寫下時間上限" : step === 6 ? "選一個做決定的日子" : "完成這一題，才能繼續") : "",
+      onNext: step === 7 ? () => this.newCard() : () => this.next(),
+      nextLabel: step === 0 ? "開始" : step === 6 ? "生成試驗卡" : step === 7 ? "再做一張新的試驗卡" : "下一步",
+      nextDisabled: gateBad ? "disabled" : "", nextOp: gateBad ? ".5" : "1", nextBg: gateBad ? "#b7bdcb" : "#35456a",
+      toastOn: s.toastOn, toastMsg: s.toastMsg,
+      cards, recordsCount: s.cards.length, hasCards: s.cards.length > 0, noCards: s.cards.length === 0,
+      showRecordsBtn: (step === 0 || step === 7) && s.cards.length > 0,
+      onOpenRecords: () => this.set("recordsOpen", true),
+      recordsOpen: s.recordsOpen, onCloseRecords: () => this.set("recordsOpen", false), stop: e => e.stopPropagation(),
+      exampleOpen: s.exampleOpen, onOpenExample: () => this.set("exampleOpen", true), onCloseExample: () => this.set("exampleOpen", false),
+      hasOpened: !!oc, ocDecision: oc ? (oc.decision || "—") : "—", ocPilot: oc ? (oc.pilot || "—") : "—", ocDecide: oc ? this.fmtDate(oc.decideBy) : "—",
+      onCloseCard: () => this.set("openedCard", null), onShareOpened: () => { if (oc) this.shareCard(oc); },
+    };
+  }
+}
+</script>
+</body>
+</html>

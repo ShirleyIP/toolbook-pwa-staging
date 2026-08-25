@@ -1,0 +1,8 @@
+@font-face{font-family:"Noto Serif TC";font-weight:400;font-style:normal;font-display:swap;src:url("fonts/NotoSerifTC-Regular.subset.woff2") format("woff2")}
+@font-face{font-family:"Noto Serif TC";font-weight:500;font-style:normal;font-display:swap;src:url("fonts/NotoSerifTC-Medium.subset.woff2") format("woff2")}
+@font-face{font-family:"Noto Serif TC";font-weight:600;font-style:normal;font-display:swap;src:url("fonts/NotoSerifTC-SemiBold.subset.woff2") format("woff2")}
+@font-face{font-family:"EB Garamond";font-weight:400;font-style:normal;font-display:swap;src:url("fonts/EBGaramond-Regular.subset.woff2") format("woff2")}
+
+/* 版面修正 2026-08-19 */
+@media(max-width:600px){.ed{display:none}}      /* 手機版隱藏品牌副標 EDITIONS，避免與導覽踩界 */
+.entry .serif{color:#35456a}                     /* 可點的清單標題上連結色，跟不可點的分區標題區分（手機無 hover）*/

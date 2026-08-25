@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CKM6MRRVBM"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-CKM6MRRVBM');</script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="fonts.css?v=2">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:#e9e3d6;color:#241f18;font-family:-apple-system,"PingFang TC","PingFang SC",sans-serif;line-height:1.8;-webkit-font-smoothing:antialiased;}
+  a{color:#35456a;text-decoration:none;transition:.18s;}
+  a:hover{color:#26324f;}
+  input,textarea,button{font-family:inherit;}
+  input::placeholder,textarea::placeholder{color:#b9b09a;}
+  textarea:focus,input:focus{outline:none;border-color:#35456a!important;box-shadow:0 0 0 2px rgba(53,69,106,.08);}
+  .stage::-webkit-scrollbar{width:0;}
+  ::selection{background:rgba(53,69,106,.15);}
+</style>
+</helmet>
+<div style="position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:26px 18px;background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E&quot;);background-color:#e9e3d6;">
+
+  <div style="width:min(440px,100%);height:min(860px,94vh);display:flex;flex-direction:column;background:#fbf9f4;border:1px solid #cec6b4;border-radius:8px;box-shadow:0 20px 60px rgba(36,31,24,.16);overflow:hidden;position:relative;">
+
+    <div style="flex:none;height:52px;display:flex;align-items:center;padding:0 20px;position:relative;border-bottom:1px solid #efe9dd;">
+      <span onClick="{{ onBack }}" style="font-size:24px;line-height:1;width:24px;cursor:pointer;color:{{ backColor }};">‹</span>
+      <div style="position:absolute;left:0;right:0;display:flex;gap:6px;justify-content:center;pointer-events:none;">
+        <sc-for list="{{ dots }}" as="d" hint-placeholder-count="4">
+          <span style="height:5px;border-radius:3px;transition:.3s;width:{{ d.w }};background:{{ d.bg }};"></span>
+        </sc-for>
+      </div>
+      <a href="index.html" style="margin-left:auto;color:#938a78;font-size:16px;line-height:1;" title="回首頁">✕</a>
+    </div>
+
+    <div class="stage" style="flex:1;overflow-y:auto;padding:22px 26px 8px;">
+
+      <sc-if value="{{ s0 }}">
+        <div style="display:flex;flex-direction:column;justify-content:center;min-height:100%;text-align:center;padding:20px 0;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:30px;color:#35456a;margin-bottom:20px;">❦</div>
+          <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">工具 Nº 12 · 承諾</div>
+          <h1 style="font-family:'Noto Serif TC',serif;font-size:27px;font-weight:600;line-height:1.7;letter-spacing:.5px;">在說「我要做」之前，<br />先算清楚代價</h1>
+          <p style="color:#938a78;font-size:13.5px;line-height:1.9;margin-top:18px;">把「想要的」和「擋在前面的代價」一起攤開看——這比光想像成功的樣子，更能讓你真的動起來，也更能讓你誠實地決定要不要做。<br />答案只存在這部裝置。</p>
+          <div onClick="{{ onOpenExample }}" style="margin-top:22px;color:#35456a;font-size:13px;cursor:pointer;text-decoration:underline;text-underline-offset:3px;">看一個填好的例子 →</div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ s1 }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 01 · 你要的</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">你想要的<br />是哪一件事？</h2>
+        <p style="color:#938a78;font-size:13px;margin-bottom:8px;">一件就好，具體一點。是一個你在猶豫要不要投入的目標、決定或改變。</p>
+        <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:16px 0 7px;">我想要</label>
+        <textarea value="{{ wish }}" onInput="{{ onWish }}" maxlength="200" placeholder="例如：接下來三個月，把那個擱了很久的作品做出來" style="width:100%;min-height:100px;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:14px 15px;font-size:14.5px;color:#241f18;line-height:1.8;resize:vertical;"></textarea>
+        <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:20px;color:#554d40;font-family:'EB Garamond','Noto Serif TC',serif;font-size:14px;line-height:1.9;">先寫「要什麼」，代價和障礙下一步再算。這一步只是把目標放到眼前。</div>
+      </sc-if>
+
+      <sc-if value="{{ s2 }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 02 · 代價</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">為了得到它，<br />你得付出什麼？</h2>
+        <div style="border-left:2px solid #35456a;background:rgba(53,69,106,.05);padding:11px 14px;margin:0 0 14px;border-radius:0 3px 3px 0;">
+          <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#938a78;margin-bottom:4px;">你要的</div>
+          <div style="font-family:'Noto Serif TC',serif;font-size:15px;line-height:1.6;white-space:pre-wrap;">{{ mirrorWish }}</div>
+        </div>
+        <p style="color:#938a78;font-size:13px;margin-bottom:8px;">你得放掉、犧牲、或持續付出的是什麼？<b style="color:#554d40;">這裡不給範例</b>——只有你知道對你來說真正的代價是什麼。</p>
+        <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:16px 0 7px;">我願意付出的代價</label>
+        <textarea value="{{ cost }}" onInput="{{ onCost }}" maxlength="240" placeholder="由你自己寫" style="width:100%;min-height:110px;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:14px 15px;font-size:14.5px;color:#241f18;line-height:1.8;resize:vertical;"></textarea>
+      </sc-if>
+
+      <sc-if value="{{ s3 }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 03 · 擋在前面的</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">現在，<br />擋在前面的是什麼？</h2>
+        <p style="color:#938a78;font-size:13px;margin-bottom:8px;">不是想像未來的美好，是看清眼前真實的阻礙——時間、精力、別人的反應、你自己的某個習慣。</p>
+        <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:16px 0 7px;">擋在中間的</label>
+        <textarea value="{{ obstacle }}" onInput="{{ onObstacle }}" maxlength="240" placeholder="例如：一坐下就想滑手機；而且晚上還要顧小孩，很難有整段時間" style="width:100%;min-height:110px;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:14px 15px;font-size:14.5px;color:#241f18;line-height:1.8;resize:vertical;"></textarea>
+        <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:20px;color:#554d40;font-family:'EB Garamond','Noto Serif TC',serif;font-size:14px;line-height:1.9;">把「想要的」和「擋在前面的」一起看，就是心理對比。研究上，這一步比光想像成功更能讓人真的行動。</div>
+      </sc-if>
+
+      <sc-if value="{{ s4 }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 04 · 決定</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">代價和障礙都看清了，<br />你還要做嗎？</h2>
+        <div style="border-left:2px solid #35456a;background:rgba(53,69,106,.05);padding:11px 14px;margin:0 0 14px;border-radius:0 3px 3px 0;">
+          <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#938a78;margin-bottom:4px;">代價 · 擋在前面的</div>
+          <div style="font-size:13.5px;line-height:1.7;white-space:pre-wrap;color:#554d40;">付出：{{ mirrorCost }}
+阻礙：{{ mirrorObstacle }}</div>
+        </div>
+        <div onClick="{{ onGo }}" style="border:1px solid {{ goBd }};background:{{ goBg }};border-radius:4px;padding:14px 15px;margin-bottom:9px;cursor:pointer;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:15px;margin-bottom:2px;color:{{ goFg }};">值得，我決定做</div>
+          <div style="font-size:12.5px;color:#938a78;line-height:1.6;">代價我看清楚了，也願意付</div>
+        </div>
+        <div onClick="{{ onHold }}" style="border:1px solid {{ holdBd }};background:{{ holdBg }};border-radius:4px;padding:14px 15px;margin-bottom:9px;cursor:pointer;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:15px;margin-bottom:2px;color:{{ holdFg }};">代價太大，先不做</div>
+          <div style="font-size:12.5px;color:#938a78;line-height:1.6;">看清楚之後，這不是現在該投入的</div>
+        </div>
+        <div onClick="{{ onThink }}" style="border:1px solid {{ thinkBd }};background:{{ thinkBg }};border-radius:4px;padding:14px 15px;cursor:pointer;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:15px;margin-bottom:2px;color:{{ thinkFg }};">還要再想想</div>
+          <div style="font-size:12.5px;color:#938a78;line-height:1.6;">還沒想清楚，但至少代價攤開了</div>
+        </div>
+        <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:20px;color:#554d40;font-family:'EB Garamond','Noto Serif TC',serif;font-size:14px;line-height:1.9;">選「先不做」不是失敗。看清代價後決定不投入，本身就是這張卡要幫你做到的事。</div>
+      </sc-if>
+
+      <sc-if value="{{ s5 }}">
+        <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:10px;letter-spacing:5px;text-transform:uppercase;color:#938a78;margin:4px 0 14px;">你的承諾成本卡</div>
+        <div style="position:relative;border:1px solid #cec6b4;border-radius:3px;padding:26px 22px 22px;background:#f3efe7;box-shadow:inset 0 0 0 5px #fbf9f4,inset 0 0 0 6px #cec6b4;">
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:22px;color:#35456a;">❦</div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:15px;letter-spacing:6px;padding-left:6px;margin-top:4px;">承 諾 成 本 卡</div>
+          <div style="text-align:center;font-size:8.5px;letter-spacing:3px;color:#938a78;text-transform:uppercase;margin-top:5px;">Commitment · Nº 12</div>
+          <div style="width:30px;height:1px;background:#35456a;opacity:.6;margin:16px auto 18px;"></div>
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">我要的</div>
+          <div style="font-family:'Noto Serif TC',serif;font-size:16px;color:#35456a;line-height:1.6;margin-bottom:14px;white-space:pre-wrap;">{{ mirrorWish }}</div>
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">我願意付的代價</div>
+          <div style="font-size:14px;line-height:1.7;margin-bottom:14px;white-space:pre-wrap;">{{ mirrorCost }}</div>
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">擋在前面的</div>
+          <div style="font-size:14px;line-height:1.7;margin-bottom:16px;white-space:pre-wrap;">{{ mirrorObstacle }}</div>
+          <div style="height:1px;background:#e3ddd0;margin-bottom:16px;"></div>
+          <div style="border:1px solid #cec6b4;border-radius:2px;padding:14px 14px;text-align:center;">
+            <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">我的決定</div>
+            <div style="font-family:'Noto Serif TC',serif;font-size:18px;color:#35456a;letter-spacing:1px;">{{ decisionLabel }}</div>
+          </div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;color:#35456a;font-size:14px;letter-spacing:1px;margin-top:16px;line-height:1.8;">{{ mantra }}</div>
+          <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:10px;">Edition Nº 12 · MMXXVI</div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:16px;">
+          <button onClick="{{ onSaveImage }}" style="border:1px solid #cec6b4;background:transparent;color:#35456a;border-radius:2px;padding:12px;font-size:13px;cursor:pointer;">儲存為圖片</button>
+          <button onClick="{{ onCopy }}" style="border:1px solid #cec6b4;background:transparent;color:#35456a;border-radius:2px;padding:12px;font-size:13px;cursor:pointer;">複製文字</button>
+          <button onClick="{{ onShare }}" style="border:1px solid #cec6b4;background:transparent;color:#35456a;border-radius:2px;padding:12px;font-size:13px;cursor:pointer;">分享這張</button>
+        </div>
+
+        <div style="border-left:2px solid #cec6b4;padding:14px 16px;margin-top:18px;background:#f3efe7;border-radius:0 3px 3px 0;">
+          <p style="font-size:13.5px;color:#554d40;line-height:1.85;margin:0;">決定了「要做」之後，接 <a href="tool-cycle.html">「週期執行器」</a> 把它切成一輪一輪往前推；還在猶豫，過幾天再回來看這張卡也可以。</p>
+        </div>
+
+        <div style="border-top:1px solid #e3ddd0;margin-top:24px;padding-top:22px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:16px;font-weight:600;margin-bottom:4px;">做完了，跟我說一句</div>
+          <p style="font-size:12.5px;color:#938a78;margin-bottom:12px;line-height:1.75;">這張卡對你有沒有用、你希望下一個工具解決什麼——我在收集建議。留 Email，新工具上線也會通知你。</p>
+          <form onSubmit="{{ onSubmitFeedback }}">
+            <textarea value="{{ feedbackText }}" onInput="{{ onFeedbackText }}" maxlength="500" placeholder="你希望下一個工具處理什麼？（可留空）" style="width:100%;min-height:76px;border:1px solid #cec6b4;background:#fff;border-radius:2px;padding:12px 14px;font-size:14px;color:#241f18;line-height:1.7;resize:vertical;outline:none;margin-bottom:8px;"></textarea>
+            <div style="display:flex;gap:8px;">
+              <input value="{{ email }}" onInput="{{ onEmail }}" type="email" placeholder="你的 Email" required style="flex:1;border:1px solid #cec6b4;background:#fff;border-radius:2px;padding:12px 14px;font-size:14px;color:#241f18;outline:none;" />
+              <button type="submit" style="border:none;background:#35456a;color:#fbf9f4;border-radius:2px;padding:0 20px;font-size:13px;letter-spacing:1px;cursor:pointer;white-space:nowrap;">{{ subLabel }}</button>
+            </div>
+            <div style="min-height:16px;text-align:center;color:#35456a;font-size:11px;margin-top:8px;">{{ subStatus }}</div>
+          </form>
+          <p style="font-size:11px;color:#b9b09a;line-height:1.7;margin-top:10px;">這張卡啟發自《12 週做完一年工作》第 19 章的承諾練習。代價由你自己衡量，這張卡不替你判斷值不值得。</p>
+        </div>
+      </sc-if>
+
+    </div>
+
+    <div style="flex:none;padding:12px 26px 22px;background:linear-gradient(transparent,#fbf9f4 30%);">
+      <sc-if value="{{ showGate }}">
+        <div style="text-align:center;font-size:11px;color:#938a78;margin-bottom:8px;height:15px;letter-spacing:.5px;">{{ gateMsg }}</div>
+      </sc-if>
+      <sc-if value="{{ showNextBtn }}">
+        <button onClick="{{ onNext }}" disabled="{{ nextDisabled }}" style="display:block;width:100%;border:none;background:{{ nextBg }};color:#fbf9f4;border-radius:2px;padding:15px;font-size:15px;font-weight:600;letter-spacing:1px;cursor:pointer;opacity:{{ nextOp }};">{{ nextLabel }}</button>
+      </sc-if>
+      <sc-if value="{{ s5 }}">
+        <button onClick="{{ onHome }}" style="display:block;width:100%;border:1px solid #cec6b4;background:transparent;color:#35456a;border-radius:2px;padding:12px;font-size:13px;letter-spacing:1px;cursor:pointer;margin-top:8px;">返回主頁</button>
+      </sc-if>
+      <sc-if value="{{ showRecordsBtn }}">
+        <button onClick="{{ onOpenRecords }}" style="display:block;width:100%;border:1px solid #cec6b4;background:transparent;color:#35456a;border-radius:2px;padding:12px;font-size:13px;letter-spacing:1px;cursor:pointer;margin-top:8px;">查看承諾成本卡紀錄簿（{{ recordsCount }}）</button>
+      </sc-if>
+    </div>
+
+    <sc-if value="{{ toastOn }}">
+      <div style="position:absolute;bottom:96px;left:50%;transform:translateX(-50%);background:#241f18;color:#fbf9f4;padding:10px 18px;border-radius:3px;font-size:12px;letter-spacing:.5px;white-space:nowrap;">{{ toastMsg }}</div>
+    </sc-if>
+
+  </div>
+
+  <sc-if value="{{ exampleOpen }}">
+    <div onClick="{{ onCloseExample }}" style="position:fixed;inset:0;z-index:30;background:rgba(36,31,24,.4);display:flex;justify-content:center;">
+      <div onClick="{{ stop }}" style="width:min(440px,100%);height:100%;background:#f3efe7;padding:22px 24px 34px;overflow-y:auto;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:22px;font-weight:600;white-space:nowrap;">一個填好的例子</div>
+          <span onClick="{{ onCloseExample }}" style="color:#938a78;font-size:22px;cursor:pointer;">✕</span>
+        </div>
+        <p style="font-size:12.5px;color:#938a78;margin-bottom:18px;line-height:1.75;">假設有個人一直想做一件事，卻遲遲沒開始。他把「想要的」和「要付的代價」一起攤開，再誠實選一個——最後那張承諾成本卡長這樣：</p>
+
+        <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:10px;letter-spacing:5px;text-transform:uppercase;color:#938a78;margin:0 0 14px;">承諾成本卡</div>
+        <div style="position:relative;border:1px solid #cec6b4;border-radius:3px;padding:26px 22px 22px;background:#fbf9f4;box-shadow:inset 0 0 0 5px #f3efe7,inset 0 0 0 6px #cec6b4;">
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:22px;color:#35456a;">❦</div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:15px;letter-spacing:6px;padding-left:6px;margin-top:4px;">承 諾 成 本 卡</div>
+          <div style="text-align:center;font-size:8.5px;letter-spacing:3px;color:#938a78;text-transform:uppercase;margin-top:5px;">Commitment · Nº 12</div>
+          <div style="width:30px;height:1px;background:#35456a;opacity:.6;margin:16px auto 18px;"></div>
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">我要的</div>
+          <div style="font-family:'Noto Serif TC',serif;font-size:16px;color:#35456a;line-height:1.6;margin-bottom:14px;white-space:pre-wrap;">接下來三個月，把擱了很久的那門線上課做出來、上架。</div>
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">我願意付的代價</div>
+          <div style="font-size:14px;line-height:1.7;margin-bottom:14px;white-space:pre-wrap;">每個週末讓出半天、暫時推掉兩個臨時的案子，有一陣子收入會少一點。</div>
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">擋在前面的</div>
+          <div style="font-size:14px;line-height:1.7;margin-bottom:16px;white-space:pre-wrap;">一坐下就想先滑手機；晚上還要顧小孩，很難有一整段完整的時間。</div>
+          <div style="height:1px;background:#e3ddd0;margin-bottom:16px;"></div>
+          <div style="border:1px solid #cec6b4;border-radius:2px;padding:14px 14px;text-align:center;">
+            <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">我的決定</div>
+            <div style="font-family:'Noto Serif TC',serif;font-size:18px;color:#35456a;letter-spacing:1px;">值得，我決定做</div>
+          </div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;color:#35456a;font-size:14px;letter-spacing:1px;margin-top:16px;line-height:1.8;">代價你看清楚了，也願意付——那就去做。</div>
+          <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:10px;">Edition Nº 12 · MMXXVI</div>
+        </div>
+
+        <div style="margin-top:20px;">
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:10px;">這個例子想讓你看到三件事</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;">把<b>「想要」和「代價」同時攤開</b>看，不是只盯著好處——光想像成功會讓人卡在原地，連代價一起看才推得動。</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;"><b>代價由你自己衡量</b>，這張卡不給標準答案——對你來說真正要付出什麼，只有你知道。</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;color:#554d40;font-size:13.5px;line-height:1.85;">看清楚之後<b>誠實選一個</b>：投入、先擱著、還是再想想——選「先不做」也不是失敗。</div>
+        </div>
+
+        <button onClick="{{ onCloseExample }}" style="display:block;width:100%;border:none;background:#35456a;color:#fbf9f4;border-radius:2px;padding:14px;font-size:14px;letter-spacing:1px;cursor:pointer;margin-top:24px;">懂了，開始做我自己的</button>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ recordsOpen }}">
+    <div onClick="{{ onCloseRecords }}" style="position:fixed;inset:0;z-index:30;background:rgba(36,31,24,.4);display:flex;justify-content:center;">
+      <div onClick="{{ stop }}" style="width:min(440px,100%);height:100%;background:#f3efe7;padding:22px 24px 34px;overflow-y:auto;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:22px;font-weight:600;white-space:nowrap;">承諾成本卡紀錄簿</div>
+          <span onClick="{{ onCloseRecords }}" style="color:#938a78;font-size:22px;cursor:pointer;">✕</span>
+        </div>
+        <p style="font-size:12px;color:#938a78;margin-bottom:18px;">紀錄只保存在這部裝置的目前瀏覽器。</p>
+        <sc-if value="{{ hasCards }}">
+          <sc-for list="{{ cards }}" as="c" hint-placeholder-count="0">
+            <div style="background:#fbf9f4;border:1px solid #e3ddd0;border-radius:4px;padding:18px;margin-bottom:12px;">
+              <div style="display:flex;justify-content:space-between;align-items:center;color:#938a78;font-size:11px;margin-bottom:12px;"><span style="white-space:nowrap;">第 {{ c.idx }} 張 · {{ c.date }} · {{ c.decision }}</span><span onClick="{{ c.onDel }}" style="cursor:pointer;">刪除</span></div>
+              <div style="font-size:9px;letter-spacing:2px;color:#938a78;">我要的</div><div style="font-family:'Noto Serif TC',serif;font-size:15px;margin-top:3px;white-space:pre-wrap;">{{ c.wish }}</div>
+              <div style="font-size:9px;letter-spacing:2px;color:#938a78;margin-top:10px;">代價</div><div style="font-size:14px;color:#35456a;margin-top:3px;white-space:pre-wrap;">{{ c.cost }}</div>
+            </div>
+          </sc-for>
+        </sc-if>
+        <sc-if value="{{ noCards }}">
+          <div style="text-align:center;color:#938a78;font-size:13px;padding:60px 10px;">還沒有卡片。<br />完成第一張後，會保存在這裡。</div>
+        </sc-if>
+      </div>
+    </div>
+  </sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:480,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  state = {
+    step: 0, wish: "", cost: "", obstacle: "", decision: "",
+    toastOn: false, toastMsg: "", feedbackText: "", email: "", subLabel: "傳給創作者", subStatus: "",
+    cards: [], recordsOpen: false, started: false, exampleOpen: false,
+  };
+  HKEY = "toolbook_commitcost_history_v1";
+  DEC = { go: "決定做", hold: "先不做", think: "再想想" };
+  MANTRA = {
+    go: "代價你看清楚了，也願意付——那就去做。",
+    hold: "看清代價後選擇先不做，是誠實，不是放棄。",
+    think: "代價和障礙已經攤開了，想清楚再決定也很好。",
+  };
+
+  componentDidMount() {
+    try { const raw = localStorage.getItem(this.HKEY); if (raw) { const a = JSON.parse(raw); if (Array.isArray(a)) this.setState({ cards: a.slice(0, 50) }); } } catch (_) {}
+  }
+  set(k, v) { this.setState({ [k]: v }); }
+  gateOk(step) {
+    const s = this.state;
+    if (step === 1) return !!s.wish.trim();
+    if (step === 2) return !!s.cost.trim();
+    if (step === 3) return !!s.obstacle.trim();
+    if (step === 4) return !!s.decision;
+    return true;
+  }
+  scrollTop() { const st = document.querySelector(".stage"); if (st) st.scrollTop = 0; }
+  next() {
+    const step = this.state.step;
+    if (step >= 1 && step <= 4 && !this.gateOk(step)) return;
+    if (step === 0 && !this.state.started) { this.setState({ started: true }); if (typeof gtag === "function") gtag("event", "tool_start", { tool_name: "承諾成本卡" }); }
+    const n = Math.min(5, step + 1);
+    if (n === 5) this.archive();
+    this.setState({ step: n });
+    this.scrollTop();
+  }
+  prev() { this.setState({ step: Math.max(0, this.state.step - 1) }); this.scrollTop(); }
+  pickDecision(d) { this.setState({ decision: d }); }
+  newCard() {
+    if (!window.confirm("再算一件新的事？目前內容會清掉。")) return;
+    this.setState({ step: 1, wish: "", cost: "", obstacle: "", decision: "" });
+    this.scrollTop();
+  }
+  archive() {
+    const s = this.state; if (!s.wish.trim()) return;
+    const card = {
+      id: "cc_" + Date.now().toString(36), createdAt: new Date().toISOString(),
+      wish: s.wish.trim(), cost: s.cost.trim(), obstacle: s.obstacle.trim(), decision: s.decision,
+    };
+    const cards = [card, ...this.state.cards].slice(0, 50);
+    this.setState({ cards });
+    try { localStorage.setItem(this.HKEY, JSON.stringify(cards.slice(0, 50))); if (typeof gtag === "function") gtag("event", "tool_complete", { tool_name: "承諾成本卡", decision: s.decision }); } catch (_) {}
+  }
+  deleteCard(id) { const cards = this.state.cards.filter(c => c.id !== id); this.setState({ cards }); try { localStorage.setItem(this.HKEY, JSON.stringify(cards)); } catch (_) {} }
+
+  cardText() {
+    const s = this.state;
+    return "承諾成本卡\n\n我要的：" + (s.wish.trim() || "—") + "\n\n我願意付的代價：" + (s.cost.trim() || "—") + "\n擋在前面的：" + (s.obstacle.trim() || "—") + "\n\n我的決定：" + (this.DEC[s.decision] || "—") + "\n\n" + (this.MANTRA[s.decision] || "");
+  }
+  toast(msg) { this.setState({ toastOn: true, toastMsg: msg }); clearTimeout(this._t); this._t = setTimeout(() => this.setState({ toastOn: false }), 1700); }
+  async copy() { try { await navigator.clipboard.writeText(this.cardText()); this.toast("已複製卡片文字"); } catch (_) { this.toast("瀏覽器未允許複製"); } }
+  async share() { try { if (navigator.share) await navigator.share({ title: "我的承諾成本卡", text: this.cardText() }); else { await navigator.clipboard.writeText(this.cardText()); this.toast("已複製，可貼到其他地方"); } } catch (_) {} }
+  onSubmitFeedback(e) { e.preventDefault(); var self = this; var fd = new FormData(); fd.append("email", this.state.email || ""); fd.append("message", this.state.feedbackText || ""); fd.append("tool", "承諾成本卡"); fd.append("_subject", "Toolbook 工具回饋 · 承諾成本卡"); fd.append("submission_type", "工具完成後回饋"); this.setState({ subLabel: "傳送中…", subStatus: "" }); fetch("https://formspree.io/f/mlgkgveq", { method: "POST", body: fd, headers: { Accept: "application/json" } }).then(function (r) { if (!r.ok) throw r; return r.json(); }).then(function () { self.setState({ subLabel: "已送出", subStatus: "已傳給創作者 ✓" }); }).catch(function () { self.setState({ subLabel: "傳給創作者", subStatus: "送出失敗，請稍後再試" }); }); }
+  async saveImage() {
+    const s = this.state;
+    const blocks = [
+      { k: "我要的", v: s.wish.trim() || "—", serif: true },
+      { k: "我願意付的代價", v: s.cost.trim() || "—" },
+      { k: "擋在前面的", v: s.obstacle.trim() || "—" },
+      { k: "我的決定", v: this.DEC[s.decision] || "—", big: true },
+    ];
+    try { const m = await import("./toolbook-card.js"); const ok = await m.downloadCardPNG({ title: "承諾成本卡", sub: "COMMITMENT · Nº 12", filename: "承諾成本卡-Toolbook", mantra: this.MANTRA[s.decision] || "", edition: "Edition Nº 12 · MMXXVI", blocks }); this.toast(ok ? "卡片圖片已儲存" : "圖片產生失敗"); } catch (_) { this.toast("圖片產生失敗"); }
+  }
+
+  renderVals() {
+    const s = this.state, step = s.step;
+    const dots = [1, 2, 3, 4].map(n => ({ w: n === step ? "16px" : "5px", bg: n === step ? "#35456a" : "#e3ddd0" }));
+    const showGate = step >= 1 && step <= 4;
+    const gateBad = showGate && !this.gateOk(step);
+    const sel = (on, prop) => {
+      const A = { bd: "#35456a", bg: "rgba(53,69,106,.06)", fg: "#35456a" };
+      const B = { bd: "#e3ddd0", bg: "#fbf9f4", fg: "#241f18" };
+      return on ? A[prop] : B[prop];
+    };
+    const cards = s.cards.map((c, n) => ({
+      idx: s.cards.length - n,
+      date: new Date(c.createdAt).toLocaleDateString("zh-HK", { year: "numeric", month: "2-digit", day: "2-digit" }),
+      decision: this.DEC[c.decision] || "—",
+      wish: c.wish || "—", cost: c.cost || "—",
+      onDel: (e) => { if (e && e.stopPropagation) e.stopPropagation(); this.deleteCard(c.id); },
+    }));
+    return {
+      dots: (step >= 1 && step <= 4) ? dots : [],
+      backColor: (step === 0) ? "transparent" : "#938a78", onBack: () => this.prev(),
+      s0: step === 0, s1: step === 1, s2: step === 2, s3: step === 3, s4: step === 4, s5: step === 5,
+      wish: s.wish, onWish: e => this.set("wish", e.target.value),
+      cost: s.cost, onCost: e => this.set("cost", e.target.value),
+      obstacle: s.obstacle, onObstacle: e => this.set("obstacle", e.target.value),
+      mirrorWish: s.wish.trim() || "—", mirrorCost: s.cost.trim() || "—", mirrorObstacle: s.obstacle.trim() || "—",
+      onGo: () => this.pickDecision("go"), onHold: () => this.pickDecision("hold"), onThink: () => this.pickDecision("think"),
+      goBd: sel(s.decision === "go", "bd"), goBg: sel(s.decision === "go", "bg"), goFg: sel(s.decision === "go", "fg"),
+      holdBd: sel(s.decision === "hold", "bd"), holdBg: sel(s.decision === "hold", "bg"), holdFg: sel(s.decision === "hold", "fg"),
+      thinkBd: sel(s.decision === "think", "bd"), thinkBg: sel(s.decision === "think", "bg"), thinkFg: sel(s.decision === "think", "fg"),
+      decisionLabel: this.DEC[s.decision] || "—", mantra: this.MANTRA[s.decision] || "",
+      onCopy: () => this.copy(), onShare: () => this.share(), onSaveImage: () => this.saveImage(),
+      onHome: () => { window.location.href = "index.html"; },
+      feedbackText: s.feedbackText, email: s.email, subLabel: s.subLabel, subStatus: s.subStatus,
+      onFeedbackText: e => this.set("feedbackText", e.target.value), onEmail: e => this.set("email", e.target.value), onSubmitFeedback: e => this.onSubmitFeedback(e),
+      showGate, gateMsg: gateBad ? (step === 1 ? "先寫下你想要的那件事" : step === 2 ? "寫下你願意付的代價，才能繼續" : step === 3 ? "寫下擋在前面的是什麼" : "選一個決定") : "",
+      showNextBtn: step <= 4 || step === 5,
+      onNext: step === 5 ? () => this.newCard() : () => this.next(),
+      nextLabel: step === 0 ? "開始" : step === 4 ? "生成承諾卡" : step === 5 ? "再算一件新的事" : "下一步",
+      nextDisabled: gateBad ? "disabled" : "", nextOp: gateBad ? ".5" : "1", nextBg: gateBad ? "#b7bdcb" : "#35456a",
+      toastOn: s.toastOn, toastMsg: s.toastMsg,
+      cards, recordsCount: s.cards.length, hasCards: s.cards.length > 0, noCards: s.cards.length === 0,
+      showRecordsBtn: (step === 0 || step === 5) && s.cards.length > 0,
+      onOpenRecords: () => this.set("recordsOpen", true),
+      recordsOpen: s.recordsOpen, onCloseRecords: () => this.set("recordsOpen", false), stop: e => e.stopPropagation(),
+      exampleOpen: s.exampleOpen, onOpenExample: () => this.set("exampleOpen", true), onCloseExample: () => this.set("exampleOpen", false),
+    };
+  }
+}
+</script>
+</body>
+</html>

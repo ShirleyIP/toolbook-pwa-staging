@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CKM6MRRVBM"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-CKM6MRRVBM');</script>
+<title>Toolbook · 把好書變成工具</title>
+<meta name="description" content="把每本書裡真正有用的方法，做成可以拿來用的工具。十五個工具按處境編成七卷，先用在自己身上，再分享給你。">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#35456a">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="apple-touch-icon" href="icon.svg">
+<link rel="stylesheet" href="fonts.css?v=2">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:#f3efe7;color:#241f18;font-family:-apple-system,"PingFang TC","PingFang SC",sans-serif;line-height:1.85;-webkit-font-smoothing:antialiased;}
+  a{color:#35456a;text-decoration:none;transition:color .18s,opacity .18s,transform .18s,border-color .18s;}
+  a:hover{color:#26324f;}
+  ::selection{background:rgba(53,69,106,.15);}
+  .serif{font-family:'Noto Serif TC',serif;}
+  .eb{font-family:'EB Garamond','Noto Serif TC',serif;}
+  .nav-links a:hover{color:#241f18;}
+  .toc-grp:hover,.toc-tool:hover{opacity:.62;}
+  .entry:hover{opacity:.82;}
+  .feature:hover{transform:translateY(-2px);}
+  .ghostbtn:hover,.topbtn:hover{border-color:#35456a !important;}
+  .grid52{display:grid;grid-template-columns:52px 1fr;column-gap:16px;align-items:baseline;color:inherit;}
+  .grid92{display:grid;grid-template-columns:92px 1fr;column-gap:26px;color:inherit;}
+  @media(max-width:560px){.two-col{grid-template-columns:1fr !important;}}
+  /* 手機版：兩行式頁首（品牌獨佔上排維持大器、連結退下排），全站一致 */
+  @media(max-width:600px){
+    nav{flex-direction:column !important;align-items:flex-start !important;gap:11px !important;padding:16px 0 14px !important;}
+    nav > a{letter-spacing:clamp(2px,1.4vw,4px) !important;font-size:clamp(17px,5vw,19px) !important;}
+    nav > a .ed{font-size:10px !important;letter-spacing:2px !important;margin-left:8px !important;display:inline !important;}
+    nav > div{gap:20px !important;}
+    nav > div a{font-size:12px !important;letter-spacing:1px !important;}
+  }
+</style>
+</head>
+<body>
+<div style="position:relative;min-height:100vh;">
+  <div style="position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.05;background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E&quot;)"></div>
+
+  <div style="max-width:860px;margin:0 auto;padding:0 26px;position:relative;z-index:1;">
+
+    <nav style="display:flex;justify-content:space-between;align-items:center;padding:18px 0;position:sticky;top:0;z-index:5;background:#f3efe7;border-bottom:1px solid #e3ddd0;">
+      <a href="#top" class="serif" style="font-size:clamp(15px,4.2vw,17px);letter-spacing:clamp(1px,1.2vw,4px);font-weight:600;color:#241f18;white-space:nowrap;">TOOLBOOK<span style="color:#35456a;">.</span><span class="ed" style="font-size:10px;letter-spacing:clamp(1px,0.8vw,3px);color:#35456a;text-transform:uppercase;font-weight:400;margin-left:clamp(4px,1.5vw,7px);">Editions</span></a>
+      <div class="nav-links" style="display:flex;gap:clamp(14px,4.5vw,22px);flex-shrink:0;">
+        <a href="#contents" style="color:#938a78;font-size:13px;letter-spacing:1px;">目錄</a>
+        <a href="#tools" style="color:#938a78;font-size:13px;letter-spacing:1px;">工具</a>
+        <a href="#appendix" style="color:#938a78;font-size:13px;letter-spacing:1px;">附錄</a>
+        <a href="records.html" style="color:#938a78;font-size:13px;letter-spacing:1px;">紀錄</a>
+      </div>
+    </nav>
+
+    <!-- 扉頁 -->
+    <header id="top" style="padding:113px 0 94px;text-align:center;">
+      <div style="color:#35456a;font-size:11px;letter-spacing:6px;text-transform:uppercase;margin-bottom:34px;">把好書 · 變成工具</div>
+      <h1 class="serif" style="font-size:clamp(30px,5vw,44px);font-weight:600;line-height:1.5;letter-spacing:2px;margin-bottom:30px;">讀過的好書，<br>不該只留在書架上。</h1>
+      <div style="display:flex;align-items:center;justify-content:center;gap:16px;color:#35456a;margin-bottom:30px;">
+        <span style="height:1px;width:44px;background:#cec6b4;"></span><span class="serif" style="font-size:16px;">❦</span><span style="height:1px;width:44px;background:#cec6b4;"></span>
+      </div>
+      <p class="eb" style="color:#554d40;font-size:16px;line-height:1.95;max-width:520px;margin:0 auto 38px;">我是一個還在路上的讀者。把每本書裡真正有用的方法，做成可以「拿來用」的工具——先用在自己身上，再分享給你。我們一起，把書中的智慧，長成自己的系統。</p>
+      <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;">
+        <a href="tool.html" style="background:#35456a;color:#fbf9f4;padding:15px 32px;border-radius:2px;font-size:15px;letter-spacing:2px;">開始第一個工具 →</a>
+        <a href="#contents" class="ghostbtn" style="border:1px solid #cec6b4;color:#35456a;padding:15px 32px;border-radius:2px;font-size:15px;letter-spacing:2px;">先看目錄</a>
+      </div>
+      <div class="serif" style="font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#938a78;margin-top:46px;">Toolbook Editions · Volume I · MMXXVI</div>
+    </header>
+
+    <!-- 目錄 -->
+    <section id="contents" style="margin-top:32px;scroll-margin-top:20px;border-top:1px solid #241f18;border-bottom:1px solid #241f18;padding:44px 0;">
+      <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:8px;flex-wrap:wrap;gap:8px;">
+        <div class="serif" style="font-size:24px;font-weight:600;letter-spacing:4px;">目　錄</div>
+        <div style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#938a78;">Contents · 你卡在哪裡？</div>
+      </div>
+      <p style="color:#938a78;font-size:13px;margin-bottom:8px;line-height:1.75;max-width:560px;">十五個工具，按你的處境編成七卷。挑一個最接近的往下翻——不確定就從卷一開始。用過之後，我會從你的方向卡替你推薦下一步。</p>
+      <p style="color:#938a78;font-size:11.5px;margin-bottom:22px;line-height:1.7;max-width:560px;">右側 Nº 是「輯號」，照上線先後編、發出即固定，所以同一卷裡不一定連號。</p>
+
+      <div style="padding:16px 0 6px;border-top:1px solid #e3ddd0;">
+        <a href="#g-listen" class="toc-grp grid52" style="margin-bottom:6px;"><span class="serif" style="font-size:15px;color:#35456a;letter-spacing:1px;">I</span><span style="display:flex;align-items:baseline;gap:12px;min-width:0;"><span class="serif" style="font-size:17px;font-weight:600;white-space:nowrap;">不知道自己要什麼</span><span style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#938a78;white-space:nowrap;">· Listen</span></span></a>
+        <a href="tool.html" class="toc-tool grid52" style="padding:5px 0;"><span></span><span style="display:flex;align-items:baseline;gap:10px;min-width:0;"><span style="font-size:14.5px;white-space:nowrap;">目標釐清器</span><span style="flex:1;border-bottom:1px dotted #cec6b4;transform:translateY(-4px);min-width:20px;"></span><span class="serif" style="font-size:12.5px;color:#35456a;letter-spacing:.5px;white-space:nowrap;">Nº 01</span></span></a>
+      </div>
+      <div style="padding:16px 0 6px;border-top:1px solid #e3ddd0;">
+        <a href="#g-move" class="toc-grp grid52" style="margin-bottom:6px;"><span class="serif" style="font-size:15px;color:#35456a;letter-spacing:1px;">II</span><span style="display:flex;align-items:baseline;gap:12px;min-width:0;"><span class="serif" style="font-size:17px;font-weight:600;white-space:nowrap;">知道要什麼，但推不動</span><span style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#938a78;white-space:nowrap;">· Move</span></span></a>
+        <a href="tool-result-lock.html" class="toc-tool grid52" style="padding:5px 0;"><span></span><span style="display:flex;align-items:baseline;gap:10px;min-width:0;"><span style="font-size:14.5px;white-space:nowrap;">成果鎖定卡</span><span style="flex:1;border-bottom:1px dotted #cec6b4;transform:translateY(-4px);min-width:20px;"></span><span class="serif" style="font-size:12.5px;color:#35456a;letter-spacing:.5px;white-space:nowrap;">Nº 02</span></span></a>
+        <a href="tool-two.html" class="toc-tool grid52" style="padding:5px 0;"><span></span><span style="display:flex;align-items:baseline;gap:10px;min-width:0;"><span style="font-size:14.5px;white-space:nowrap;">今天兩格</span><span style="flex:1;border-bottom:1px dotted #cec6b4;transform:translateY(-4px);min-width:20px;"></span><span class="serif" style="font-size:12.5px;color:#35456a;letter-spacing:.5px;white-space:nowrap;">Nº 08</span></span></a>
+        <a href="tool-review.html" class="toc-tool grid52" style="padding:5px 0;"><span></span><span style="display:flex;align-items:baseline;gap:10px;min-width:0;"><span style="font-size:14.5px;white-space:nowrap;">復盤卡</span><span style="flex:1;border-bottom:1px dotted #cec6b4;transform:translateY(-4px);min-width:20px;"></span><span class="serif" style="font-size:12.5px;color:#35456a;letter-spacing:.5px;white-space:nowrap;">Nº 03</span></span></a>
+      </div>
+      <div style="padding:16px 0 6px;border-top:1px solid #e3ddd0;">
+        <a href="#g-decide" class="toc-grp grid52" style="margin-bottom:6px;"><span class="serif" style="font-size:15px;color:#35456a;letter-spacing:1px;">III</span><span style="display:flex;align-items:baseline;gap:12px;min-width:0;"><span class="serif" style="font-size:17px;font-weight:600;white-space:nowrap;">卡在一個決定</span><span style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#938a78;white-space:nowrap;">· Decide</span></span></a>
+        <a href="tool-fear.html" class="toc-tool grid52" style="padding:5px 0;"><span></span><span style="display:flex;align-items:baseline;gap:10px;min-width:0;"><span style="font-size:14.5px;white-space:nowrap;">恐懼拆解卡</span><span style="flex:1;border-bottom:1px dotted #cec6b4;transform:translateY(-4px);min-width:20px;"></span><span class="serif" style="font-size:12.5px;color:#35456a;letter-spacing:.5px;white-space:nowrap;">Nº 04</span></span></a>
+        <a href="tool-pilot.html" class="toc-tool grid52" style="padding:5px 0;"><span></span><span style="display:flex;align-items:baseline;gap:10px;min-width:0;"><span style="font-size:14.5px;white-space:nowrap;">小規模試驗卡</span><span style="flex:1;border-bottom:1px dotted #cec6b4;transform:translateY(-4px);min-width:20px;"></span><span class="serif" style="font-size:12.5px;color:#35456a;letter-spacing:.5px;white-space:nowrap;">Nº 05</span></span></a>
+        <a href="tool-commit-cost.html" class="toc-tool grid52" style="padding:5px 0;"><span></span><span style="display:flex;align-items:baseline;gap:10px;min-width:0;"><span style="font-size:14.5px;white-space:nowrap;">承諾成本卡</span><span style="flex:1;border-bottom:1px dotted #cec6b4;transform:translateY(-4px);min-width:20px;"></span><span class="serif" style="font-size:12.5px;color:#35456a;letter-spacing:.5px;white-space:nowrap;">Nº 12</span></span></a>
+      </div>
+      <div style="padding:16px 0 6px;border-top:1px solid #e3ddd0;">
+        <a href="#g-toomuch" class="toc-grp grid52" style="margin-bottom:6px;"><span class="serif" style="font-size:15px;color:#35456a;letter-spacing:1px;">IV</span><span style="display:flex;align-items:baseline;gap:12px;min-width:0;"><span class="serif" style="font-size:17px;font-weight:600;white-space:nowrap;">事情太多</span><span style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#938a78;white-space:nowrap;">· Reduce</span></span></a>
+        <a href="tool-subtract.html" class="toc-tool grid52" style="padding:5px 0;"><span></span><span style="display:flex;align-items:baseline;gap:10px;min-width:0;"><span style="font-size:14.5px;white-space:nowrap;">減法掃描卡</span><span style="flex:1;border-bottom:1px dotted #cec6b4;transform:translateY(-4px);min-width:20px;"></span><span class="serif" style="font-size:12.5px;color:#35456a;letter-spacing:.5px;white-space:nowrap;">Nº 07</span></span></a>
+        <a href="tool-leisure.html" class="toc-tool grid52" style="padding:5px 0;"><span></span><span style="display:flex;align-items:baseline;gap:10px;min-width:0;"><span style="font-size:14.5px;white-space:nowrap;">空下來之後</span><span style="flex:1;border-bottom:1px dotted #cec6b4;transform:translateY(-4px);min-width:20px;"></span><span class="serif" style="font-size:12.5px;color:#35456a;letter-spacing:.5px;white-space:nowrap;">Nº 06</span></span></a>
+      </div>
+      <div style="padding:16px 0 6px;border-top:1px solid #e3ddd0;">
+        <a href="#g-long" class="toc-grp grid52" style="margin-bottom:6px;"><span class="serif" style="font-size:15px;color:#35456a;letter-spacing:1px;">V</span><span style="display:flex;align-items:baseline;gap:12px;min-width:0;"><span class="serif" style="font-size:17px;font-weight:600;white-space:nowrap;">要跑一段長的</span><span style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#938a78;white-space:nowrap;">· Run</span></span></a>
+        <a href="tool-cycle.html" class="toc-tool grid52" style="padding:5px 0;"><span></span><span style="display:flex;align-items:baseline;gap:10px;min-width:0;"><span style="font-size:14.5px;white-space:nowrap;">週期執行器</span><span style="flex:1;border-bottom:1px dotted #cec6b4;transform:translateY(-4px);min-width:20px;"></span><span class="serif" style="font-size:12.5px;color:#35456a;letter-spacing:.5px;white-space:nowrap;">Nº 09</span></span></a>
+        <a href="tool-habit.html" class="toc-tool grid52" style="padding:5px 0;"><span></span><span style="display:flex;align-items:baseline;gap:10px;min-width:0;"><span style="font-size:14.5px;white-space:nowrap;">習慣追蹤卡</span><span style="flex:1;border-bottom:1px dotted #cec6b4;transform:translateY(-4px);min-width:20px;"></span><span class="serif" style="font-size:12.5px;color:#35456a;letter-spacing:.5px;white-space:nowrap;">Nº 14</span></span></a>
+      </div>
+      <div style="padding:16px 0 6px;border-top:1px solid #e3ddd0;">
+        <a href="#g-talk" class="toc-grp grid52" style="margin-bottom:6px;"><span class="serif" style="font-size:15px;color:#35456a;letter-spacing:1px;">VI</span><span style="display:flex;align-items:baseline;gap:12px;min-width:0;"><span class="serif" style="font-size:17px;font-weight:600;white-space:nowrap;">跟人講完話，覺得不對勁</span><span style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#938a78;white-space:nowrap;">· Talk</span></span></a>
+        <a href="tool-after-talk.html" class="toc-tool grid52" style="padding:5px 0;"><span></span><span style="display:flex;align-items:baseline;gap:10px;min-width:0;"><span style="font-size:14.5px;white-space:nowrap;">講完話之後</span><span style="flex:1;border-bottom:1px dotted #cec6b4;transform:translateY(-4px);min-width:20px;"></span><span class="serif" style="font-size:12.5px;color:#35456a;letter-spacing:.5px;white-space:nowrap;">Nº 10</span></span></a>
+        <a href="tool-inner-voice.html" class="toc-tool grid52" style="padding:5px 0;"><span></span><span style="display:flex;align-items:baseline;gap:10px;min-width:0;"><span style="font-size:14.5px;white-space:nowrap;">內在對話改寫器</span><span style="flex:1;border-bottom:1px dotted #cec6b4;transform:translateY(-4px);min-width:20px;"></span><span class="serif" style="font-size:12.5px;color:#35456a;letter-spacing:.5px;white-space:nowrap;">Nº 13</span></span></a>
+        <a href="tool-reframe.html" class="toc-tool grid52" style="padding:5px 0;"><span></span><span style="display:flex;align-items:baseline;gap:10px;min-width:0;"><span style="font-size:14.5px;white-space:nowrap;">重新解讀卡</span><span style="flex:1;border-bottom:1px dotted #cec6b4;transform:translateY(-4px);min-width:20px;"></span><span class="serif" style="font-size:12.5px;color:#35456a;letter-spacing:.5px;white-space:nowrap;">Nº 15</span></span></a>
+      </div>
+      <div style="padding:16px 0 6px;border-top:1px solid #e3ddd0;">
+        <a href="#g-learn" class="toc-grp grid52" style="margin-bottom:6px;"><span class="serif" style="font-size:15px;color:#35456a;letter-spacing:1px;">VII</span><span style="display:flex;align-items:baseline;gap:12px;min-width:0;"><span class="serif" style="font-size:17px;font-weight:600;white-space:nowrap;">學了東西，想真的記住</span><span style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#938a78;white-space:nowrap;">· Learn</span></span></a>
+        <a href="tool-study-note.html" class="toc-tool grid52" style="padding:5px 0;"><span></span><span style="display:flex;align-items:baseline;gap:10px;min-width:0;"><span style="font-size:14.5px;white-space:nowrap;">學習筆記卡</span><span style="flex:1;border-bottom:1px dotted #cec6b4;transform:translateY(-4px);min-width:20px;"></span><span class="serif" style="font-size:12.5px;color:#35456a;letter-spacing:.5px;white-space:nowrap;">Nº 11</span></span></a>
+      </div>
+    </section>
+
+    <!-- 正文 六卷 -->
+    <section id="tools" style="scroll-margin-top:20px;">
+
+      <!-- I 聆聽 -->
+      <div id="g-listen" style="margin-top:80px;scroll-margin-top:24px;">
+        <div class="grid92" style="align-items:start;margin-bottom:30px;">
+          <div><div class="serif" style="font-size:34px;font-weight:500;color:#cbb9a0;line-height:1;">I</div><div class="serif" style="font-size:13px;color:#35456a;margin-top:8px;letter-spacing:1px;">聆聽</div><div style="font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:#938a78;margin-top:2px;">Listen</div></div>
+          <div style="padding-top:4px;"><div class="serif" style="font-size:23px;font-weight:600;line-height:1.4;letter-spacing:.5px;">不知道自己要什麼</div><div class="eb" style="color:#938a78;font-size:14px;margin-top:6px;line-height:1.7;">先聽見，再決定。</div></div>
+        </div>
+        <a href="tool.html" class="feature" style="display:block;color:inherit;position:relative;border:1px solid #cec6b4;border-radius:3px;background:#fbf9f4;padding:40px;box-shadow:inset 0 0 0 5px #f3efe7,inset 0 0 0 6px #cec6b4;">
+          <div style="display:flex;flex-wrap:wrap;gap:30px;align-items:flex-start;justify-content:space-between;">
+            <div style="flex:1 1 340px;">
+              <div class="serif" style="color:#35456a;font-size:12px;letter-spacing:2px;margin-bottom:10px;">工具 Nº 01 · 從這裡起步</div>
+              <h3 class="serif" style="font-size:31px;font-weight:600;line-height:1.35;margin-bottom:16px;">目標釐清器</h3>
+              <p class="eb" style="color:#554d40;font-size:15.5px;line-height:1.9;margin-bottom:18px;max-width:460px;">不幫你「定目標」，幫你聽見——你到底要什麼。8 個安靜的問題，最後給你一張方向卡。</p>
+              <div style="font-size:12px;color:#938a78;line-height:1.7;margin-bottom:26px;">啟發自《認知覺醒》× Dreamlining《一週工作 4 小時》。</div>
+              <div class="used" data-no="01"></div>
+              <span style="display:inline-block;background:#35456a;color:#fbf9f4;padding:13px 30px;border-radius:2px;font-size:14.5px;letter-spacing:2px;">開始 →</span>
+            </div>
+            <div style="flex:0 0 172px;border:1px solid #cec6b4;border-radius:2px;padding:24px 18px 20px;background:#f3efe7;box-shadow:inset 0 0 0 4px #fbf9f4,inset 0 0 0 5px #cec6b4;text-align:center;">
+              <div class="serif" style="font-size:20px;color:#35456a;margin-bottom:6px;">❦</div><div class="serif" style="font-size:13px;letter-spacing:8px;padding-left:8px;">方 向 卡</div><div style="font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:6px;">Direction · Nº 01</div><div style="width:26px;height:1px;background:#35456a;opacity:.6;margin:15px auto;"></div><div style="font-size:9px;letter-spacing:2px;color:#938a78;text-transform:uppercase;line-height:1.9;">走完流程<br>親手寫下</div>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <!-- II 推進 -->
+      <div id="g-move" style="margin-top:97px;scroll-margin-top:24px;">
+        <div class="grid92" style="align-items:start;margin-bottom:30px;">
+          <div><div class="serif" style="font-size:34px;font-weight:500;color:#cbb9a0;line-height:1;">II</div><div class="serif" style="font-size:13px;color:#35456a;margin-top:8px;letter-spacing:1px;">推進</div><div style="font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:#938a78;margin-top:2px;">Move</div></div>
+          <div style="padding-top:4px;"><div class="serif" style="font-size:23px;font-weight:600;line-height:1.4;letter-spacing:.5px;">知道要什麼，但推不動</div><div class="eb" style="color:#938a78;font-size:14px;margin-top:6px;line-height:1.7;">定成果 → 每天落地 → 回頭對一次。這三張是一條線。</div></div>
+        </div>
+        <a href="tool-result-lock.html" class="entry grid92" style="border-top:1px solid #e3ddd0;padding:24px 0;"><div class="serif" style="font-size:20px;color:#35456a;letter-spacing:1px;line-height:1.5;">Nº 02</div><div style="min-width:0;"><h3 class="serif" style="font-size:21px;font-weight:600;line-height:1.45;margin-bottom:9px;">成果鎖定卡</h3><p class="eb" style="color:#554d40;font-size:14.5px;line-height:1.85;margin-bottom:12px;">鎖定這一輪的唯一成果，分清必要工作與錦上添花，替研究和修改設定止損點。</p><div style="display:flex;align-items:baseline;gap:14px;"><span style="flex:1;font-size:11.5px;color:#938a78;line-height:1.65;min-width:0;">啟發自《人生效率手冊》目標建立篇，經實際問題重新整理。</span><span style="font-size:13px;letter-spacing:2px;color:#35456a;white-space:nowrap;">開始 →</span></div><div class="used" data-no="02"></div></div></a>
+        <a href="tool-two.html" class="entry grid92" style="border-top:1px solid #e3ddd0;padding:24px 0;"><div class="serif" style="font-size:20px;color:#35456a;letter-spacing:1px;line-height:1.5;">Nº 08</div><div style="min-width:0;"><h3 class="serif" style="font-size:21px;font-weight:600;line-height:1.45;margin-bottom:9px;">今天兩格</h3><p class="eb" style="color:#554d40;font-size:14.5px;line-height:1.85;margin-bottom:12px;">一天只有兩個格子，寫滿就鎖。用位置不夠來逼出取捨，不必靠意志力。</p><div style="display:flex;align-items:baseline;gap:14px;"><span style="flex:1;font-size:11.5px;color:#938a78;line-height:1.65;min-width:0;">啟發自《一週工作 4 小時》第 5 章；書中掛在帕金森定律上的說法，查證後沒有沿用。</span><span style="font-size:13px;letter-spacing:2px;color:#35456a;white-space:nowrap;">開始 →</span></div><div class="used" data-no="08"></div></div></a>
+        <a href="tool-review.html" class="entry grid92" style="border-top:1px solid #e3ddd0;padding:24px 0;"><div class="serif" style="font-size:20px;color:#35456a;letter-spacing:1px;line-height:1.5;">Nº 03</div><div style="min-width:0;"><h3 class="serif" style="font-size:21px;font-weight:600;line-height:1.45;margin-bottom:9px;">復盤卡</h3><p class="eb" style="color:#554d40;font-size:14.5px;line-height:1.85;margin-bottom:12px;">一輪做完之後，拿當初寫下的目標對一次實際結果，然後只挑一件事改。</p><div style="display:flex;align-items:baseline;gap:14px;"><span style="flex:1;font-size:11.5px;color:#938a78;line-height:1.65;min-width:0;">啟發自《人生效率手冊》工具篇；這是全書查證後證據最紮實的一項。</span><span style="font-size:13px;letter-spacing:2px;color:#35456a;white-space:nowrap;">開始 →</span></div><div class="used" data-no="03"></div></div></a>
+      </div>
+
+      <!-- III 抉擇 -->
+      <div id="g-decide" style="margin-top:97px;scroll-margin-top:24px;">
+        <div class="grid92" style="align-items:start;margin-bottom:30px;">
+          <div><div class="serif" style="font-size:34px;font-weight:500;color:#cbb9a0;line-height:1;">III</div><div class="serif" style="font-size:13px;color:#35456a;margin-top:8px;letter-spacing:1px;">抉擇</div><div style="font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:#938a78;margin-top:2px;">Decide</div></div>
+          <div style="padding-top:4px;"><div class="serif" style="font-size:23px;font-weight:600;line-height:1.4;letter-spacing:.5px;">卡在一個決定</div><div class="eb" style="color:#938a78;font-size:14px;margin-top:6px;line-height:1.7;">不敢動，多半是因為最壞的情況沒被寫下來。</div></div>
+        </div>
+        <a href="tool-fear.html" class="entry grid92" style="border-top:1px solid #e3ddd0;padding:24px 0;"><div class="serif" style="font-size:20px;color:#35456a;letter-spacing:1px;line-height:1.5;">Nº 04</div><div style="min-width:0;"><h3 class="serif" style="font-size:21px;font-weight:600;line-height:1.45;margin-bottom:9px;">恐懼拆解卡</h3><p class="eb" style="color:#554d40;font-size:14.5px;line-height:1.85;margin-bottom:12px;">擋住你的不是風險，是沒被寫下來的那件事。八個問題，把「不敢動」拆成可以逐條處理的清單。</p><div style="display:flex;align-items:baseline;gap:14px;"><span style="flex:1;font-size:11.5px;color:#938a78;line-height:1.65;min-width:0;">啟發自《一週工作 4 小時》第 3 章；第八問「你的退路是什麼」是書上沒有、我自己加的。</span><span style="font-size:13px;letter-spacing:2px;color:#35456a;white-space:nowrap;">開始 →</span></div><div class="used" data-no="04"></div></div></a>
+        <a href="tool-pilot.html" class="entry grid92" style="border-top:1px solid #e3ddd0;padding:24px 0;"><div class="serif" style="font-size:20px;color:#35456a;letter-spacing:1px;line-height:1.5;">Nº 05</div><div style="min-width:0;"><h3 class="serif" style="font-size:21px;font-weight:600;line-height:1.45;margin-bottom:9px;">小規模試驗卡</h3><p class="eb" style="color:#554d40;font-size:14.5px;line-height:1.85;margin-bottom:12px;">做大決定之前，先設計一次成本很低的試驗：試多久、看到什麼算數、什麼時候關門定案。</p><div style="display:flex;align-items:baseline;gap:14px;"><span style="flex:1;font-size:11.5px;color:#938a78;line-height:1.65;min-width:0;">啟發自《一週工作 4 小時》——全書反覆用到、但作者從沒取名字的那個做法。</span><span style="font-size:13px;letter-spacing:2px;color:#35456a;white-space:nowrap;">開始 →</span></div><div class="used" data-no="05"></div></div></a>
+        <a href="tool-commit-cost.html" class="entry grid92" style="border-top:1px solid #e3ddd0;padding:24px 0;"><div class="serif" style="font-size:20px;color:#35456a;letter-spacing:1px;line-height:1.5;">Nº 12</div><div style="min-width:0;"><h3 class="serif" style="font-size:21px;font-weight:600;line-height:1.45;margin-bottom:9px;">承諾成本卡</h3><p class="eb" style="color:#554d40;font-size:14.5px;line-height:1.85;margin-bottom:12px;">在說「我要做」之前，先把想要的和擋在前面的代價一起攤開算清楚，再誠實決定要不要投入。</p><div style="display:flex;align-items:baseline;gap:14px;"><span style="flex:1;font-size:11.5px;color:#938a78;line-height:1.65;min-width:0;">啟發自《12週做完一年工作》第 19 章的承諾練習；本質是心理對比，代價由你自己衡量。</span><span style="font-size:13px;letter-spacing:2px;color:#35456a;white-space:nowrap;">開始 →</span></div><div class="used" data-no="12"></div></div></a>
+      </div>
+
+      <!-- IV 減負 -->
+      <div id="g-toomuch" style="margin-top:97px;scroll-margin-top:24px;">
+        <div class="grid92" style="align-items:start;margin-bottom:30px;">
+          <div><div class="serif" style="font-size:34px;font-weight:500;color:#cbb9a0;line-height:1;">IV</div><div class="serif" style="font-size:13px;color:#35456a;margin-top:8px;letter-spacing:1px;">減負</div><div style="font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:#938a78;margin-top:2px;">Reduce</div></div>
+          <div style="padding-top:4px;"><div class="serif" style="font-size:23px;font-weight:600;line-height:1.4;letter-spacing:.5px;">事情太多</div><div class="eb" style="color:#938a78;font-size:14px;margin-top:6px;line-height:1.7;">先看清楚你有多少決定權，再決定減什麼。</div></div>
+        </div>
+        <a href="tool-subtract.html" class="entry grid92" style="border-top:1px solid #e3ddd0;padding:24px 0;"><div class="serif" style="font-size:20px;color:#35456a;letter-spacing:1px;line-height:1.5;">Nº 07</div><div style="min-width:0;"><h3 class="serif" style="font-size:21px;font-weight:600;line-height:1.45;margin-bottom:9px;">減法掃描卡</h3><p class="eb" style="color:#554d40;font-size:14.5px;line-height:1.85;margin-bottom:12px;">手上的事太多，該減什麼？先看清楚你有多少決定權，再挑一項動它——動之前先確認它沒有撐著別的。</p><div style="display:flex;align-items:baseline;gap:14px;"><span style="flex:1;font-size:11.5px;color:#938a78;line-height:1.65;min-width:0;">啟發自《一週工作 4 小時》的 80／20 掃描；書中示範的砍客戶砍會議是老闆權限，這張卡先問你的權限。</span><span style="font-size:13px;letter-spacing:2px;color:#35456a;white-space:nowrap;">開始 →</span></div><div class="used" data-no="07"></div></div></a>
+        <a href="tool-leisure.html" class="entry grid92" style="border-top:1px solid #e3ddd0;padding:24px 0;"><div class="serif" style="font-size:20px;color:#35456a;letter-spacing:1px;line-height:1.5;">Nº 06</div><div style="min-width:0;"><h3 class="serif" style="font-size:21px;font-weight:600;line-height:1.45;margin-bottom:9px;">空下來之後</h3><p class="eb" style="color:#554d40;font-size:14.5px;line-height:1.85;margin-bottom:12px;">時間空出來了，然後呢？這張卡不叫你把它填滿，只幫你安排一件在乎的事，並留住該留的空白。</p><div style="display:flex;align-items:baseline;gap:14px;"><span style="flex:1;font-size:11.5px;color:#938a78;line-height:1.65;min-width:0;">啟發自《一週工作 4 小時》最後一章——那一章推翻了整本書的書名，也是全書唯一有大量研究支持的一段。</span><span style="font-size:13px;letter-spacing:2px;color:#35456a;white-space:nowrap;">開始 →</span></div><div class="used" data-no="06"></div></div></a>
+      </div>
+
+      <!-- V 長程 -->
+      <div id="g-long" style="margin-top:97px;scroll-margin-top:24px;">
+        <div class="grid92" style="align-items:start;margin-bottom:30px;">
+          <div><div class="serif" style="font-size:34px;font-weight:500;color:#cbb9a0;line-height:1;">V</div><div class="serif" style="font-size:13px;color:#35456a;margin-top:8px;letter-spacing:1px;">長程</div><div style="font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:#938a78;margin-top:2px;">Run</div></div>
+          <div style="padding-top:4px;"><div class="serif" style="font-size:23px;font-weight:600;line-height:1.4;letter-spacing:.5px;">要跑一段長的</div><div class="eb" style="color:#938a78;font-size:14px;margin-top:6px;line-height:1.7;">一輪十二週，只帶一個關鍵行動。</div></div>
+        </div>
+        <a href="tool-cycle.html" class="entry grid92" style="border-top:1px solid #e3ddd0;padding:24px 0;"><div class="serif" style="font-size:20px;color:#35456a;letter-spacing:1px;line-height:1.5;">Nº 09</div><div style="min-width:0;"><h3 class="serif" style="font-size:21px;font-weight:600;line-height:1.45;margin-bottom:9px;">週期執行器</h3><p class="eb" style="color:#554d40;font-size:14.5px;line-height:1.85;margin-bottom:12px;">開一輪十二週（長度自己改），只帶一個關鍵行動。每週回來記兩個數字——不轉百分比、不設門檻、不打分。</p><div style="display:flex;align-items:baseline;gap:14px;"><span style="flex:1;font-size:11.5px;color:#938a78;line-height:1.65;min-width:0;">《12週做完一年工作》的週期結構 ×《人生效率手冊》的日層復盤；書中那條 85% 及格線查不到來源，沒有沿用。</span><span style="font-size:13px;letter-spacing:2px;color:#35456a;white-space:nowrap;">開始 →</span></div><div class="used" data-no="09"></div></div></a>
+        <a href="tool-habit.html" class="entry grid92" style="border-top:1px solid #e3ddd0;padding:24px 0;"><div class="serif" style="font-size:20px;color:#35456a;letter-spacing:1px;line-height:1.5;">Nº 14</div><div style="min-width:0;"><h3 class="serif" style="font-size:21px;font-weight:600;line-height:1.45;margin-bottom:9px;">習慣追蹤卡</h3><p class="eb" style="color:#554d40;font-size:14.5px;line-height:1.85;margin-bottom:12px;">想養成的事，每天一個點擊記一次。不顯示連續天數、不給紅叉——漏做一兩天不影響養成，斷了接回去就好；週期末才結算。</p><div style="display:flex;align-items:baseline;gap:14px;"><span style="flex:1;font-size:11.5px;color:#938a78;line-height:1.65;min-width:0;">啟發自《人生效率手冊》早起打卡與戒習慣的方法；「不顯示連續天數、漏做一兩次不影響養成」依 Lally 等人的習慣形成研究。</span><span style="font-size:13px;letter-spacing:2px;color:#35456a;white-space:nowrap;">開始 →</span></div><div class="used" data-no="14"></div></div></a>
+      </div>
+
+      <!-- VI 對話 -->
+      <div id="g-talk" style="margin-top:97px;scroll-margin-top:24px;">
+        <div class="grid92" style="align-items:start;margin-bottom:30px;">
+          <div><div class="serif" style="font-size:34px;font-weight:500;color:#cbb9a0;line-height:1;">VI</div><div class="serif" style="font-size:13px;color:#35456a;margin-top:8px;letter-spacing:1px;">對話</div><div style="font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:#938a78;margin-top:2px;">Talk</div></div>
+          <div style="padding-top:4px;"><div class="serif" style="font-size:23px;font-weight:600;line-height:1.4;letter-spacing:.5px;">跟人講完話，覺得不對勁</div><div class="eb" style="color:#938a78;font-size:14px;margin-top:6px;line-height:1.7;">不查對方，只查你剛才做了什麼。</div></div>
+        </div>
+        <a href="tool-after-talk.html" class="entry grid92" style="border-top:1px solid #e3ddd0;padding:24px 0;"><div class="serif" style="font-size:20px;color:#35456a;letter-spacing:1px;line-height:1.5;">Nº 10</div><div style="min-width:0;"><h3 class="serif" style="font-size:21px;font-weight:600;line-height:1.45;margin-bottom:9px;">講完話之後</h3><p class="eb" style="color:#554d40;font-size:14.5px;line-height:1.85;margin-bottom:12px;">挑一句最接近你狀況的，給你對應的那一題——一次只有一題。不算完成率，也不判你對錯。</p><div style="display:flex;align-items:baseline;gap:14px;"><span style="flex:1;font-size:11.5px;color:#938a78;line-height:1.65;min-width:0;">啟發自《非暴力溝通》；書中那條「二十分鐘解決衝突」與抑鬱歸因，查證後都沒有沿用。</span><span style="font-size:13px;letter-spacing:2px;color:#35456a;white-space:nowrap;">開始 →</span></div><div class="used" data-no="10"></div></div></a>
+        <a href="tool-inner-voice.html" class="entry grid92" style="border-top:1px solid #e3ddd0;padding:24px 0;"><div class="serif" style="font-size:20px;color:#35456a;letter-spacing:1px;line-height:1.5;">Nº 13</div><div style="min-width:0;"><h3 class="serif" style="font-size:21px;font-weight:600;line-height:1.45;margin-bottom:9px;">內在對話改寫器</h3><p class="eb" style="color:#554d40;font-size:14.5px;line-height:1.85;margin-bottom:12px;">腦中兩個聲音在撕扯？把它們寫下來，逐句翻成「當我……我感到……因為我需要……因此我想要」，看清自己到底要什麼。</p><div style="display:flex;align-items:baseline;gap:14px;"><span style="flex:1;font-size:11.5px;color:#938a78;line-height:1.65;min-width:0;">啟發自《非暴力溝通》；書中抑鬱歸因與「二十分鐘解決衝突」查證後都沒有沿用，並自己補上嚴重程度出口。</span><span style="font-size:13px;letter-spacing:2px;color:#35456a;white-space:nowrap;">開始 →</span></div><div class="used" data-no="13"></div></div></a>
+        <a href="tool-reframe.html" class="entry grid92" style="border-top:1px solid #e3ddd0;padding:24px 0;"><div class="serif" style="font-size:20px;color:#35456a;letter-spacing:1px;line-height:1.5;">Nº 15</div><div style="min-width:0;"><h3 class="serif" style="font-size:21px;font-weight:600;line-height:1.45;margin-bottom:9px;">重新解讀卡</h3><p class="eb" style="color:#554d40;font-size:14.5px;line-height:1.85;margin-bottom:12px;">有人一句話把你點著了？先分辨這火是真警報還是你讀過頭了；若是讀過頭，換一個同樣說得通、但你剛才沒往那想的解釋。</p><div style="display:flex;align-items:baseline;gap:14px;"><span style="flex:1;font-size:11.5px;color:#938a78;line-height:1.65;min-width:0;">啟發自《我就是你啊》的認知重評；「先分辨真警報再重讀」這條前提，原書已先立好。</span><span style="font-size:13px;letter-spacing:2px;color:#35456a;white-space:nowrap;">開始 →</span></div><div class="used" data-no="15"></div></div></a>
+      </div>
+
+
+      <!-- VII 學習 -->
+      <div id="g-learn" style="margin-top:97px;scroll-margin-top:24px;">
+        <div class="grid92" style="align-items:start;margin-bottom:30px;">
+          <div><div class="serif" style="font-size:34px;font-weight:500;color:#cbb9a0;line-height:1;">VII</div><div class="serif" style="font-size:13px;color:#35456a;margin-top:8px;letter-spacing:1px;">學習</div><div style="font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:#938a78;margin-top:2px;">Learn</div></div>
+          <div style="padding-top:4px;"><div class="serif" style="font-size:23px;font-weight:600;line-height:1.4;letter-spacing:.5px;">學了東西，想真的記住</div><div class="eb" style="color:#938a78;font-size:14px;margin-top:6px;line-height:1.7;">別只是抄得漂亮——遮住筆記，考自己一次。</div></div>
+        </div>
+        <a href="tool-study-note.html" class="entry grid92" style="border-top:1px solid #e3ddd0;padding:24px 0;"><div class="serif" style="font-size:20px;color:#35456a;letter-spacing:1px;line-height:1.5;">Nº 11</div><div style="min-width:0;"><h3 class="serif" style="font-size:21px;font-weight:600;line-height:1.45;margin-bottom:9px;">學習筆記卡</h3><p class="eb" style="color:#554d40;font-size:14.5px;line-height:1.85;margin-bottom:12px;">把剛讀完的變成一張能考自己的卡：筆記、提問、一句總結。複習時遮住筆記、只看問題把答案回想出來——回想比重讀有效。</p><div style="display:flex;align-items:baseline;gap:14px;"><span style="flex:1;font-size:11.5px;color:#938a78;line-height:1.65;min-width:0;">啟發自《人生效率手冊》第 32 章康奈爾筆記法；「自測比重讀有效」有大量研究支持。</span><span style="font-size:13px;letter-spacing:2px;color:#35456a;white-space:nowrap;">開始 →</span></div><div class="used" data-no="11"></div></div></a>
+      </div>
+    </section>
+
+    <div style="text-align:center;color:#35456a;font-size:15px;margin-top:94px;">❦</div>
+
+    <!-- 附錄 -->
+    <section id="appendix" style="margin-top:54px;scroll-margin-top:20px;border-top:1px solid #241f18;padding-top:26px;">
+      <div style="display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:8px;">
+        <div class="serif" style="font-size:22px;font-weight:600;letter-spacing:2px;">附錄 · 為什麼</div>
+        <div style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#938a78;">Appendix</div>
+      </div>
+
+      <div style="margin-top:46px;">
+        <div class="grid92" style="margin-bottom:6px;"><div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#938a78;padding-top:6px;">導讀</div><div><div class="serif" style="font-size:18px;font-weight:600;letter-spacing:.5px;">先從這裡讀</div><div style="color:#938a78;font-size:13px;margin-top:4px;line-height:1.75;">你大概是為了其中一種狀況找到這裡的。</div></div></div>
+        <a href="article.html" class="entry grid92" style="padding:18px 0;border-top:1px solid #e3ddd0;"><div></div><div><div class="serif" style="font-size:17px;font-weight:600;margin-bottom:5px;line-height:1.5;">為什麼你定了一堆目標，卻還是迷茫？</div><div class="eb" style="color:#938a78;font-size:13px;line-height:1.7;">問題可能不在你的目標，而在你還沒聽見自己真正要什麼。</div></div></a>
+        <a href="article-busy.html" class="entry grid92" style="padding:18px 0;border-top:1px solid #e3ddd0;"><div></div><div><div class="serif" style="font-size:17px;font-weight:600;margin-bottom:5px;line-height:1.5;">為什麼每天很忙，仍然沒有進展？</div><div class="eb" style="color:#938a78;font-size:13px;line-height:1.7;">問題可能不是做得不夠多，而是做的事沒有直接服務結果。</div></div></a>
+        <a href="article-not-about-you.html" class="entry grid92" style="padding:18px 0;border-top:1px solid #e3ddd0;"><div></div><div><div class="serif" style="font-size:17px;font-weight:600;margin-bottom:5px;line-height:1.5;">你不是在針對我</div><div class="eb" style="color:#938a78;font-size:13px;line-height:1.7;">讓你炸毛的，往往不是那句話，是你以為它的意思——但先分辨真警報，別把煙霧警報器也拆了。</div></div></a>
+      </div>
+
+      <div style="margin-top:46px;">
+        <div class="grid92" style="margin-bottom:6px;"><div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#938a78;padding-top:6px;">考據</div><div><div class="serif" style="font-size:18px;font-weight:600;letter-spacing:.5px;">那些很有名的說法，我去查了</div><div style="color:#938a78;font-size:13px;margin-top:4px;line-height:1.75;">這幾篇是拆穿，不是介紹。查得到出處的我標出來，查不到的我說查不到。</div></div></div>
+        <a href="article-three-numbers.html" class="entry grid92" style="padding:18px 0;border-top:1px solid #e3ddd0;"><div></div><div><div class="serif" style="font-size:17px;font-weight:600;margin-bottom:5px;line-height:1.5;">這本效率書最有名的三個數字，沒有一個站得住</div><div class="eb" style="color:#938a78;font-size:13px;line-height:1.7;">而全書最不起眼的那一段，才是唯一撐得住的。</div></div></a>
+        <a href="article-two-standards.html" class="entry grid92" style="padding:18px 0;border-top:1px solid #e3ddd0;"><div></div><div><div class="serif" style="font-size:17px;font-weight:600;margin-bottom:5px;line-height:1.5;">那個 85%，其實有兩個版本</div><div class="eb" style="color:#938a78;font-size:13px;line-height:1.7;">同一本書裡，講道理的那幾頁相當寬容，催你的那幾頁相當嚴厲。</div></div></a>
+        <a href="article-measure.html" class="entry grid92" style="padding:18px 0;border-top:1px solid #e3ddd0;"><div></div><div><div class="serif" style="font-size:17px;font-weight:600;margin-bottom:5px;line-height:1.5;">你量什麼，就只會改變什麼</div><div class="eb" style="color:#938a78;font-size:13px;line-height:1.7;">兩本書都叫你每天記一個數字，一本記時數，一本記行動。而記錄只會改變你記的那一欄。</div></div></a>
+        <a href="article-no-promise.html" class="entry grid92" style="padding:18px 0;border-top:1px solid #e3ddd0;"><div></div><div><div class="serif" style="font-size:17px;font-weight:600;margin-bottom:5px;line-height:1.5;">這套溝通方法，不承諾你學得會</div><div class="eb" style="color:#938a78;font-size:13px;line-height:1.7;">書裡最誠實的三個段落，講的都是同一件事：照著做了，對方沒有照做。</div></div></a>
+      </div>
+
+      <div style="margin-top:46px;">
+        <div class="grid92" style="margin-bottom:6px;"><div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#938a78;padding-top:6px;">書目</div><div><div class="serif" style="font-size:18px;font-weight:600;letter-spacing:.5px;">工具地圖 · 整本書逐條查證</div><div style="color:#938a78;font-size:13px;margin-top:4px;line-height:1.75;">哪些可以直接用、哪些要改過才能用、哪些我決定不做，以及為什麼。</div></div></div>
+        <a href="book-efficiency-handbook.html" class="entry grid92" style="padding:18px 0;border-top:1px solid #e3ddd0;"><div></div><div><div class="serif" style="font-size:17px;font-weight:600;margin-bottom:5px;line-height:1.5;">《人生效率手冊》· 讀完之後，接下來做什麼</div><div class="eb" style="color:#938a78;font-size:13px;line-height:1.7;">全書方法逐條查證後的地圖：可以直接用的、要改過才能用的，以及我決定不做的。</div></div></a>
+        <a href="book-four-hour-workweek.html" class="entry grid92" style="padding:18px 0;border-top:1px solid #e3ddd0;"><div></div><div><div class="serif" style="font-size:17px;font-weight:600;margin-bottom:5px;line-height:1.5;">《一週工作 4 小時》· 哪些還能用，看你在哪</div><div class="eb" style="color:#938a78;font-size:13px;line-height:1.7;">這本書出版於 2007 年。有些部分的前提變了——但變了不等於跟你無關，判準是你的處境，不是書的年份。</div></div></a>
+        <a href="book-twelve-week-year.html" class="entry grid92" style="padding:18px 0;border-top:1px solid #e3ddd0;"><div></div><div><div class="serif" style="font-size:17px;font-weight:600;margin-bottom:5px;line-height:1.5;">《12週做完一年工作》· 骨架留下，數字換掉</div><div class="eb" style="color:#938a78;font-size:13px;line-height:1.7;">最有名的三個數字都站不住，但它的兩根主柱撐得住。所以要換的是理由，不是做法。</div></div></a>
+        <a href="book-nonviolent-communication.html" class="entry grid92" style="padding:18px 0;border-top:1px solid #e3ddd0;"><div></div><div><div class="serif" style="font-size:17px;font-weight:600;margin-bottom:5px;line-height:1.5;">《非暴力溝通》· 哪幾句可以帶走</div><div class="eb" style="color:#938a78;font-size:13px;line-height:1.7;">七個問句可以帶走，已經做成一張卡。另外六個決定和八項我不做的事，連來歷一起寫出來。</div></div></a>
+        <a href="book-i-am-you.html" class="entry grid92" style="padding:18px 0;border-top:1px solid #e3ddd0;"><div></div><div><div class="serif" style="font-size:17px;font-weight:600;margin-bottom:5px;line-height:1.5;">《我就是你啊》· 一場衝突，六步怎麼走</div><div class="eb" style="color:#938a78;font-size:13px;line-height:1.7;">不是一袋方法，是一條有先後的鏈。六步各自什麼時候會失靈，我標在旁邊；其中一步已做成卡。</div></div></a>
+      </div>
+    </section>
+
+    <!-- 待刊 -->
+    <section style="margin-top:70px;border-top:1px solid #241f18;padding-top:26px;">
+      <div style="display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:6px;">
+        <div class="serif" style="font-size:22px;font-weight:600;letter-spacing:2px;">待刊</div>
+        <div style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#938a78;">Forthcoming</div>
+      </div>
+      <div style="color:#938a78;font-size:13px;margin-bottom:20px;line-height:1.75;max-width:560px;">序號按上線先後發、不預留；下方依「來源書」分組，方便讀完某本書的人找到對應的工具。做好了會從這份清單搬到正文去。</div>
+      <div class="two-col" style="display:grid;grid-template-columns:1fr 1fr;gap:0 40px;">
+        <div style="grid-column:1/-1;display:flex;align-items:baseline;gap:9px;margin-top:10px;margin-bottom:1px;"><span class="serif" style="font-size:13.5px;font-weight:600;color:#241f18;letter-spacing:1px;">跨書共用</span></div>
+        <div style="display:flex;align-items:baseline;gap:12px;padding:12px 0;border-top:1px solid #e3ddd0;"><span class="serif" style="color:#35456a;font-size:12px;letter-spacing:1px;width:44px;">Nº 01</span><span style="font-size:14.5px;">目標釐清器</span><span style="flex:1;border-bottom:1px dotted #e3ddd0;transform:translateY(-4px);min-width:12px;"></span><span style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#938a78;white-space:nowrap;">已上線</span></div>
+        <div style="grid-column:1/-1;display:flex;align-items:baseline;gap:9px;margin-top:26px;margin-bottom:1px;"><span class="serif" style="font-size:13.5px;font-weight:600;color:#241f18;letter-spacing:1px;">《人生效率手冊》</span></div>
+        <div style="display:flex;align-items:baseline;gap:12px;padding:12px 0;border-top:1px solid #e3ddd0;"><span class="serif" style="color:#35456a;font-size:12px;letter-spacing:1px;width:44px;">Nº 02</span><span style="font-size:14.5px;">成果鎖定卡</span><span style="flex:1;border-bottom:1px dotted #e3ddd0;transform:translateY(-4px);min-width:12px;"></span><span style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#938a78;white-space:nowrap;">已完成</span></div>
+        <div style="display:flex;align-items:baseline;gap:12px;padding:12px 0;border-top:1px solid #e3ddd0;"><span class="serif" style="color:#35456a;font-size:12px;letter-spacing:1px;width:44px;">Nº 03</span><span style="font-size:14.5px;">復盤卡</span><span style="flex:1;border-bottom:1px dotted #e3ddd0;transform:translateY(-4px);min-width:12px;"></span><span style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#938a78;white-space:nowrap;">已上線</span></div>
+        <div style="display:flex;align-items:baseline;gap:12px;padding:12px 0;border-top:1px solid #e3ddd0;"><span class="serif" style="color:#35456a;font-size:12px;letter-spacing:1px;width:44px;">Nº 11</span><span style="font-size:14.5px;">學習筆記卡</span><span style="flex:1;border-bottom:1px dotted #e3ddd0;transform:translateY(-4px);min-width:12px;"></span><span style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#938a78;white-space:nowrap;">已上線</span></div>
+        <div style="display:flex;align-items:baseline;gap:12px;padding:12px 0;border-top:1px solid #e3ddd0;"><span class="serif" style="color:#35456a;font-size:12px;letter-spacing:1px;width:44px;">Nº 14</span><span style="font-size:14.5px;">習慣追蹤卡</span><span style="flex:1;border-bottom:1px dotted #e3ddd0;transform:translateY(-4px);min-width:12px;"></span><span style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#938a78;white-space:nowrap;">已上線</span></div>
+        <div style="grid-column:1/-1;display:flex;align-items:baseline;gap:9px;margin-top:26px;margin-bottom:1px;"><span class="serif" style="font-size:13.5px;font-weight:600;color:#241f18;letter-spacing:1px;">《每週工作 4 小時》</span></div>
+        <div style="display:flex;align-items:baseline;gap:12px;padding:12px 0;border-top:1px solid #e3ddd0;"><span class="serif" style="color:#35456a;font-size:12px;letter-spacing:1px;width:44px;">Nº 04</span><span style="font-size:14.5px;">恐懼拆解卡</span><span style="flex:1;border-bottom:1px dotted #e3ddd0;transform:translateY(-4px);min-width:12px;"></span><span style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#938a78;white-space:nowrap;">已上線</span></div>
+        <div style="display:flex;align-items:baseline;gap:12px;padding:12px 0;border-top:1px solid #e3ddd0;"><span class="serif" style="color:#35456a;font-size:12px;letter-spacing:1px;width:44px;">Nº 05</span><span style="font-size:14.5px;">小規模試驗卡</span><span style="flex:1;border-bottom:1px dotted #e3ddd0;transform:translateY(-4px);min-width:12px;"></span><span style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#938a78;white-space:nowrap;">已上線</span></div>
+        <div style="display:flex;align-items:baseline;gap:12px;padding:12px 0;border-top:1px solid #e3ddd0;"><span class="serif" style="color:#35456a;font-size:12px;letter-spacing:1px;width:44px;">Nº 06</span><span style="font-size:14.5px;">空下來之後</span><span style="flex:1;border-bottom:1px dotted #e3ddd0;transform:translateY(-4px);min-width:12px;"></span><span style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#938a78;white-space:nowrap;">已上線</span></div>
+        <div style="display:flex;align-items:baseline;gap:12px;padding:12px 0;border-top:1px solid #e3ddd0;"><span class="serif" style="color:#35456a;font-size:12px;letter-spacing:1px;width:44px;">Nº 07</span><span style="font-size:14.5px;">減法掃描卡</span><span style="flex:1;border-bottom:1px dotted #e3ddd0;transform:translateY(-4px);min-width:12px;"></span><span style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#938a78;white-space:nowrap;">已上線</span></div>
+        <div style="display:flex;align-items:baseline;gap:12px;padding:12px 0;border-top:1px solid #e3ddd0;"><span class="serif" style="color:#35456a;font-size:12px;letter-spacing:1px;width:44px;">Nº 08</span><span style="font-size:14.5px;">今天兩格</span><span style="flex:1;border-bottom:1px dotted #e3ddd0;transform:translateY(-4px);min-width:12px;"></span><span style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#938a78;white-space:nowrap;">已上線</span></div>
+        <div style="grid-column:1/-1;display:flex;align-items:baseline;gap:9px;margin-top:26px;margin-bottom:1px;"><span class="serif" style="font-size:13.5px;font-weight:600;color:#241f18;letter-spacing:1px;">《12 週做完一年工作》</span></div>
+        <div style="display:flex;align-items:baseline;gap:12px;padding:12px 0;border-top:1px solid #e3ddd0;"><span class="serif" style="color:#35456a;font-size:12px;letter-spacing:1px;width:44px;">Nº 09</span><span style="font-size:14.5px;">週期執行器</span><span style="flex:1;border-bottom:1px dotted #e3ddd0;transform:translateY(-4px);min-width:12px;"></span><span style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#938a78;white-space:nowrap;">已上線</span></div>
+        <div style="display:flex;align-items:baseline;gap:12px;padding:12px 0;border-top:1px solid #e3ddd0;"><span class="serif" style="color:#35456a;font-size:12px;letter-spacing:1px;width:44px;">Nº 12</span><span style="font-size:14.5px;">承諾成本卡</span><span style="flex:1;border-bottom:1px dotted #e3ddd0;transform:translateY(-4px);min-width:12px;"></span><span style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#938a78;white-space:nowrap;">已上線</span></div>
+        <div style="grid-column:1/-1;display:flex;align-items:baseline;gap:9px;margin-top:26px;margin-bottom:1px;"><span class="serif" style="font-size:13.5px;font-weight:600;color:#241f18;letter-spacing:1px;">《非暴力溝通》</span></div>
+        <div style="display:flex;align-items:baseline;gap:12px;padding:12px 0;border-top:1px solid #e3ddd0;"><span class="serif" style="color:#35456a;font-size:12px;letter-spacing:1px;width:44px;">Nº 10</span><span style="font-size:14.5px;">講完話之後</span><span style="flex:1;border-bottom:1px dotted #e3ddd0;transform:translateY(-4px);min-width:12px;"></span><span style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#938a78;white-space:nowrap;">已上線</span></div>
+        <div style="display:flex;align-items:baseline;gap:12px;padding:12px 0;border-top:1px solid #e3ddd0;"><span class="serif" style="color:#35456a;font-size:12px;letter-spacing:1px;width:44px;">Nº 13</span><span style="font-size:14.5px;">內在對話改寫器</span><span style="flex:1;border-bottom:1px dotted #e3ddd0;transform:translateY(-4px);min-width:12px;"></span><span style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#938a78;white-space:nowrap;">已上線</span></div>
+        <div style="grid-column:1/-1;display:flex;align-items:baseline;gap:9px;margin-top:26px;margin-bottom:1px;"><span class="serif" style="font-size:13.5px;font-weight:600;color:#241f18;letter-spacing:1px;">《我就是你啊》</span></div>
+        <div style="display:flex;align-items:baseline;gap:12px;padding:12px 0;border-top:1px solid #e3ddd0;"><span class="serif" style="color:#35456a;font-size:12px;letter-spacing:1px;width:44px;">Nº 15</span><span style="font-size:14.5px;">重新解讀卡</span><span style="flex:1;border-bottom:1px dotted #e3ddd0;transform:translateY(-4px);min-width:12px;"></span><span style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#938a78;white-space:nowrap;">已上線</span></div>
+        <div style="grid-column:1/-1;display:flex;align-items:baseline;gap:9px;margin-top:26px;margin-bottom:1px;"><span class="serif" style="font-size:13.5px;font-weight:600;color:#241f18;letter-spacing:1px;">尚在規劃（來源書未拆）</span></div>
+        <div style="display:flex;align-items:baseline;gap:12px;padding:12px 0;border-top:1px solid #e3ddd0;opacity:.5;"><span class="serif" style="color:#35456a;font-size:12px;letter-spacing:1px;width:44px;">—</span><span style="font-size:14.5px;">興趣變現孵化器</span><span style="flex:1;border-bottom:1px dotted #e3ddd0;transform:translateY(-4px);min-width:12px;"></span><span style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#938a78;white-space:nowrap;">釀製中</span></div>
+        <div style="display:flex;align-items:baseline;gap:12px;padding:12px 0;border-top:1px solid #e3ddd0;opacity:.5;"><span class="serif" style="color:#35456a;font-size:12px;letter-spacing:1px;width:44px;">—</span><span style="font-size:14.5px;">微行動啟動器</span><span style="flex:1;border-bottom:1px dotted #e3ddd0;transform:translateY(-4px);min-width:12px;"></span><span style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#938a78;white-space:nowrap;">規劃中</span></div>
+      </div>
+    </section>
+
+    <!-- 版權頁 -->
+    <section style="margin-top:70px;">
+      <div style="border:1px solid #cec6b4;border-radius:3px;padding:46px 34px;text-align:center;background:rgba(251,249,244,.65);">
+        <div style="color:#35456a;font-size:15px;margin-bottom:14px;">❦</div>
+        <div class="serif" style="font-size:22px;font-weight:600;margin-bottom:8px;">有新工具，第一個讓你知道</div>
+        <p style="color:#938a78;font-size:13.5px;margin-bottom:26px;">偶爾一封信，只談把書變成工具這件事。</p>
+        <form id="subForm" style="display:flex;gap:10px;max-width:420px;margin:0 auto;flex-wrap:wrap;">
+          <input type="email" name="email" placeholder="你的 Email" required style="flex:1;min-width:200px;border:1px solid #cec6b4;background:#f3efe7;border-radius:2px;padding:14px 16px;font-size:15px;font-family:inherit;color:#241f18;" />
+          <button type="submit" id="subBtn" style="border:none;background:#35456a;color:#fbf9f4;border-radius:2px;padding:0 26px;font-family:inherit;font-size:14px;letter-spacing:1px;cursor:pointer;">通知我</button>
+        </form>
+      </div>
+    </section>
+
+    <footer style="color:#938a78;font-size:12px;text-align:center;padding:56px 0 48px;letter-spacing:.5px;">
+      <div class="serif" style="margin-bottom:6px;letter-spacing:2px;">TOOLBOOK<span style="color:#35456a;">.</span> EDITIONS</div>
+      把好書變成工具 · 一個還在路上的讀者 · MMXXVI
+          <div style="margin-top:8px;font-size:11px;color:#a89f8c;letter-spacing:.5px;">© 2026 Toolbook · 內容著作權所有，轉載請註明出處</div>
+    </footer>
+
+  </div>
+
+  <a href="#top" id="topBtn" class="topbtn" style="position:fixed;bottom:24px;right:24px;z-index:20;display:flex;align-items:center;gap:8px;padding:11px 16px;background:#fbf9f4;border:1px solid #cec6b4;border-radius:2px;font-size:12px;letter-spacing:2px;color:#35456a;white-space:nowrap;box-shadow:0 3px 14px rgba(36,31,24,.1);opacity:0;pointer-events:none;transform:translateY(8px);transition:opacity .35s ease,transform .35s ease;">
+    <span class="serif" style="font-size:14px;line-height:1;">↑</span>回到頁首
+  </a>
+</div>
+
+<script>
+(function(){
+  // 漸進增強：讀 localStorage，替用過的工具補一行「你用過」。內容本身已是靜態 HTML。
+  var CFG={"01":{key:"toolbook_direction_cards_v1",sum:["want"]},"02":{key:"toolbook_result_lock_history_v1",sum:["outcome"]},"03":{key:"toolbook_review_history_v1",sum:["onething","lesson"]},"04":{key:"toolbook_fear_history_v1",sum:["ministep","backText","worstText"]},"05":{key:"toolbook_pilot_history_v1",sum:["pilot","decision"]},"06":{key:"toolbook_leisure_history_v1",sum:["thing","firstStep"]},"07":{key:"toolbook_subtract_history_v1",sum:["action"]},"08":{key:"toolbook_two_v1",byDate:true,sum:["one","two"]},"09":{key:"toolbook_cycle_history_v1",sum:["deliver","want"]},"10":{key:"toolbook_after_talk_history_v1",sum:["answer"]}};
+  function oneLine(t,max){t=String(t||"").replace(/\s+/g," ").trim();max=max||32;return t.length>max?t.slice(0,max)+"…":t;}
+  function firstFilled(o,f){if(!o)return"";for(var i=0;i<f.length;i++){var v=o[f[i]];if(typeof v==="string"&&v.trim())return v.trim();}return"";}
+  Object.keys(CFG).forEach(function(no){
+    var c=CFG[no],u=null;
+    try{var raw=localStorage.getItem(c.key);if(!raw)return;var v=JSON.parse(raw);
+      if(c.byDate){if(v&&typeof v==="object"&&!Array.isArray(v)){var days=Object.keys(v).filter(function(k){return v[k]&&((v[k].one||"").trim()||(v[k].two||"").trim());}).sort().reverse();if(days.length)u={count:days.length,unit:"天",summary:oneLine(v[days[0]].one||v[days[0]].two)};}}
+      else if(Array.isArray(v)&&v.length){u={count:v.length,unit:"筆",summary:oneLine(firstFilled(v[0],c.sum))};}
+    }catch(e){}
+    if(!u)return;
+    var line="你用過 · "+u.count+" "+u.unit+(u.summary?" · 上次："+u.summary:"");
+    document.querySelectorAll('.used[data-no="'+no+'"]').forEach(function(el){
+      if(el.closest(".feature")) el.style.cssText="border-left:2px solid #35456a;padding-left:12px;margin:-14px 0 24px;font-size:12px;color:#35456a;line-height:1.7;";
+      else el.style.cssText="font-size:11.5px;color:#35456a;margin-top:10px;line-height:1.6;";
+      el.textContent=line;
+    });
+  });
+  // 回到頁首
+  var topBtn=document.getElementById("topBtn");
+  function onScroll(){var v=window.scrollY>520;topBtn.style.opacity=v?"1":"0";topBtn.style.pointerEvents=v?"auto":"none";topBtn.style.transform=v?"translateY(0)":"translateY(8px)";}
+  window.addEventListener("scroll",onScroll,{passive:true});onScroll();
+  // 訂閱 → Formspree
+  var form=document.getElementById("subForm"),btn=document.getElementById("subBtn");
+  form.addEventListener("submit",function(e){
+    e.preventDefault();
+    var fd=new FormData();fd.append("email",form.querySelector("input[type=email]").value||"");fd.append("_subject","Toolbook 新工具訂閱");fd.append("submission_type","首頁訂閱");
+    btn.textContent="傳送中…";
+    fetch("https://formspree.io/f/mlgkgveq",{method:"POST",body:fd,headers:{Accept:"application/json"}})
+      .then(function(r){if(!r.ok)throw r;return r.json();})
+      .then(function(){btn.textContent="已記下 ✓";if(typeof gtag==="function")gtag("event","sign_up",{method:"home_subscribe"});})
+      .catch(function(){btn.textContent="再試一次";});
+  });
+})();
+</script>
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function () {
+      navigator.serviceWorker.register('./sw.js').catch(function () {});
+    });
+  }
+</script>
+</body>
+</html>

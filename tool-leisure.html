@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CKM6MRRVBM"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-CKM6MRRVBM');</script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="fonts.css?v=2">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:#e9e3d6;color:#241f18;font-family:-apple-system,"PingFang TC","PingFang SC",sans-serif;line-height:1.8;-webkit-font-smoothing:antialiased;}
+  a{color:#35456a;text-decoration:none;transition:.18s;}
+  a:hover{color:#26324f;}
+  input,textarea,button{font-family:inherit;}
+  input::placeholder,textarea::placeholder{color:#b9b09a;}
+  textarea:focus,input:focus{outline:none;border-color:#35456a!important;box-shadow:0 0 0 2px rgba(53,69,106,.08);}
+  .stage::-webkit-scrollbar{width:0;}
+  ::selection{background:rgba(53,69,106,.15);}
+</style>
+</helmet>
+<div style="position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:26px 18px;background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E&quot;);background-color:#e9e3d6;">
+
+  <div style="width:min(440px,100%);height:min(860px,94vh);display:flex;flex-direction:column;background:#fbf9f4;border:1px solid #cec6b4;border-radius:8px;box-shadow:0 20px 60px rgba(36,31,24,.16);overflow:hidden;position:relative;">
+
+    <div style="flex:none;height:52px;display:flex;align-items:center;padding:0 20px;position:relative;border-bottom:1px solid #efe9dd;">
+      <span onClick="{{ onBack }}" style="font-size:24px;line-height:1;width:24px;cursor:pointer;color:{{ backColor }};">‹</span>
+      <div style="position:absolute;left:0;right:0;display:flex;gap:6px;justify-content:center;pointer-events:none;">
+        <sc-for list="{{ dots }}" as="d" hint-placeholder-count="6">
+          <span style="height:5px;border-radius:3px;transition:.3s;width:{{ d.w }};background:{{ d.bg }};"></span>
+        </sc-for>
+      </div>
+      <a href="index.html" style="margin-left:auto;color:#938a78;font-size:16px;line-height:1;" title="回首頁">✕</a>
+    </div>
+
+    <div class="stage" style="flex:1;overflow-y:auto;padding:22px 26px 8px;">
+
+      <sc-if value="{{ s0 }}">
+        <div style="display:flex;flex-direction:column;justify-content:center;min-height:100%;text-align:center;padding:20px 0;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:30px;color:#35456a;margin-bottom:20px;">❦</div>
+          <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">工具 Nº 06 · 減負</div>
+          <h1 style="font-family:'Noto Serif TC',serif;font-size:27px;font-weight:600;line-height:1.7;letter-spacing:.5px;">時間空出來了，<br />然後呢？</h1>
+          <p style="color:#938a78;font-size:13.5px;line-height:1.9;margin-top:18px;">這張卡不會叫你把空閒填滿。它只幫你安排一件真正在乎的事，然後把該留的空白留住。</p>
+          <p style="color:#938a78;font-size:11.5px;line-height:1.85;margin-top:14px;">啟發自《一週工作 4 小時》最後一章——那一章推翻了整本書的書名，也是全書唯一有大量研究支持的一段。答案只存在這部裝置。</p>
+          <div onClick="{{ onOpenExample }}" style="margin-top:22px;color:#35456a;font-size:13px;cursor:pointer;text-decoration:underline;text-underline-offset:3px;">看一個填好的例子 →</div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ s1 }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 01 · 這段空白</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">先問一句：<br />這段空下來的時間，<br />是你自己選的嗎？</h2>
+        <p style="color:#938a78;font-size:13px;margin-bottom:8px;">兩種空閒完全不一樣，這張卡只幫得上其中一種。</p>
+        <div style="border:1px solid #e3ddd0;background:rgba(53,69,106,.03);border-radius:4px;padding:15px 16px;margin-top:18px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:14.5px;margin-bottom:3px;">這段時間空出來，是因為</div>
+          <div style="font-size:11.5px;color:#938a78;margin-bottom:11px;line-height:1.7;">沒有標準答案，選最接近的那個。</div>
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:7px;">
+            <sc-for list="{{ srcOpts }}" as="o" hint-placeholder-count="3">
+              <button onClick="{{ o.onClick }}" style="border:1px solid {{ o.bd }};background:{{ o.bg }};color:{{ o.col }};border-radius:3px;padding:11px 6px;font-size:13px;cursor:pointer;line-height:1.4;font-weight:{{ o.w }};">{{ o.label }}</button>
+            </sc-for>
+          </div>
+        </div>
+        <sc-if value="{{ srcAlert }}">
+          <div style="border:1px solid #9c6b52;background:rgba(156,107,82,.07);border-radius:4px;padding:15px 17px;margin-top:18px;font-size:13.5px;line-height:1.85;color:#7a4f3c;">
+            <b style="font-family:'Noto Serif TC',serif;display:block;margin-bottom:4px;font-size:14.5px;color:#9c6b52;">那這張卡幫不上真正的忙</b>
+            失業、被裁、生病、被迫提早退休——這些帶來的難受，來源多半不是「時間太多」，而是收入不穩、跟人斷了聯繫、或是突然不知道自己是誰。研究上這幾件事是分得很開的。<br /><br />把時間安排滿，解決不了那幾件事。真正有用的通常是：先處理收入與現實安排，保住一兩個固定會見到面的人，需要的話找專業的人談談。<br /><br />你還是可以繼續填，它或許能幫你整理一點頭緒。但請不要把「安排得不夠好」當成自己的問題。
+          </div>
+        </sc-if>
+        <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:16px 0 7px;">這段空白大概有多長</label>
+        <input value="{{ span }}" onInput="{{ onSpan }}" maxlength="40" placeholder="例如：接下來三週，或每天下班後三小時" style="width:100%;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:13px 15px;font-size:14.5px;color:#241f18;" />
+      </sc-if>
+
+      <sc-if value="{{ s2 }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 02 · 現況</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">這幾天，<br />它實際上都怎麼過？</h2>
+        <p style="color:#938a78;font-size:13px;margin-bottom:8px;">不用美化，也不用檢討。寫實際發生的樣子就好。</p>
+        <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:16px 0 7px;">實際上都在做</label>
+        <textarea value="{{ actual }}" onInput="{{ onActual }}" maxlength="200" placeholder="例如：滑手機、追劇、想著應該做點什麼但沒動" style="width:100%;min-height:96px;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:14px 15px;font-size:14.5px;color:#241f18;line-height:1.8;resize:vertical;"></textarea>
+        <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:20px;color:#655e51;font-size:12.5px;line-height:1.85;"><b style="font-family:'Noto Serif TC',serif;color:#35456a;display:block;margin-bottom:3px;">先講清楚一件事</b>空閒本身不是問題。有研究追蹤過三萬多人，發現可支配的時間太少會不快樂，但太多之後，快樂也會往下掉——<b style="color:#35456a;">關鍵不在時間多少，而在那段時間裡有沒有一件你在乎的事</b>。所以這張卡要找的不是「怎麼把時間用好」，是那件你在乎的事。</div>
+      </sc-if>
+
+      <sc-if value="{{ s3 }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 03 · 那件事</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">有沒有一件事，<br />你一直說<br />「等有空再做」？</h2>
+        <p style="color:#938a78;font-size:13px;margin-bottom:8px;">不必有用、不必有產出、不必變成副業。你在乎就夠了。</p>
+        <div style="display:flex;flex-wrap:wrap;gap:7px;margin-top:10px;">
+          <sc-for list="{{ chips }}" as="c" hint-placeholder-count="6">
+            <button onClick="{{ c.onClick }}" style="border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:9px 12px;font-size:13px;color:#554d40;cursor:pointer;" style-hover="border-color:#35456a;color:#35456a;">{{ c.label }}</button>
+          </sc-for>
+        </div>
+        <p style="color:#938a78;font-size:11.5px;margin:9px 0 0;">點一個當開頭，再換成你自己的。</p>
+        <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:16px 0 7px;">我一直想做的那件事</label>
+        <textarea value="{{ thing }}" onInput="{{ onThing }}" maxlength="200" placeholder="例如：把爸爸留下來的舊照片整理成一本相簿" style="width:100%;min-height:90px;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:14px 15px;font-size:14.5px;color:#241f18;line-height:1.8;resize:vertical;"></textarea>
+        <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:20px;color:#554d40;font-family:'EB Garamond','Noto Serif TC',serif;font-size:14px;line-height:1.9;">如果腦裡冒出來的第一個念頭是「應該去進修」「應該做點對職涯有幫助的事」——先放一邊。<b style="color:#35456a;">那通常是別人的聲音。</b>再想一次：哪件事你想起來會有一點期待？</div>
+      </sc-if>
+
+      <sc-if value="{{ s4 }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 04 · 第一下</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">它的第一個小動作<br />是什麼？</h2>
+        <p style="color:#938a78;font-size:13px;margin-bottom:8px;">小到今天、這個下午就能做完的那種。</p>
+        <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:16px 0 7px;">第一個小動作</label>
+        <textarea value="{{ firstStep }}" onInput="{{ onFirstStep }}" maxlength="160" placeholder="例如：把裝照片的那個箱子從櫃子上拿下來" style="width:100%;min-height:76px;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:14px 15px;font-size:14.5px;color:#241f18;line-height:1.8;resize:vertical;"></textarea>
+        <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:16px 0 7px;">什麼時候做</label>
+        <input value="{{ whenv }}" onInput="{{ onWhen }}" maxlength="40" placeholder="例如：今天晚上、這個週六早上" style="width:100%;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:13px 15px;font-size:14.5px;color:#241f18;" />
+        <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:20px;color:#554d40;font-family:'EB Garamond','Noto Serif TC',serif;font-size:14px;line-height:1.9;">先做一個小到不會失敗的動作，比先想清楚整件事要怎麼做更容易開始。<b style="color:#35456a;">整理不出頭緒的時候，通常是還沒開始，不是還沒想好。</b></div>
+      </sc-if>
+
+      <sc-if value="{{ s5 }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 05 · 留白</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">這段時間裡，<br />你要留多少<br />不安排？</h2>
+        <p style="color:#938a78;font-size:13px;margin-bottom:8px;">這一格跟前面相反：它是要你保護一段不做任何事的時間。</p>
+        <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:16px 0 7px;">我要留下不安排的時間</label>
+        <input value="{{ blank }}" onInput="{{ onBlank }}" maxlength="60" placeholder="例如：每個週日整天，誰也不約" style="width:100%;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:13px 15px;font-size:14.5px;color:#241f18;" />
+        <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:20px;color:#655e51;font-size:12.5px;line-height:1.85;"><b style="font-family:'Noto Serif TC',serif;color:#35456a;display:block;margin-bottom:3px;">為什麼要特地留</b>空閒不需要被填滿。有實驗發現，先做一段無聊的事，之後在需要想點子的任務上反而表現更好——放空是有用處的，只是那個用處不會馬上出現。而且這張卡最怕變成一件事：把休息也變成待辦清單。<b style="color:#35456a;">留白不是還沒安排，它本身就是安排。</b></div>
+      </sc-if>
+
+      <sc-if value="{{ s6 }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 06 · 怎麼算好</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">過完這段時間，<br />你希望回頭是<br />什麼感覺？</h2>
+        <p style="color:#938a78;font-size:13px;margin-bottom:8px;">不是「完成了幾件事」，是你希望自己回頭看的時候，覺得這段時間怎麼樣。</p>
+        <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:16px 0 7px;">我希望回頭的時候</label>
+        <textarea value="{{ feel }}" onInput="{{ onFeel }}" maxlength="160" placeholder="例如：覺得自己有好好休息，而且做了一件真的想做的事" style="width:100%;min-height:80px;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:14px 15px;font-size:14.5px;color:#241f18;line-height:1.8;resize:vertical;"></textarea>
+        <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:20px;color:#554d40;font-family:'EB Garamond','Noto Serif TC',serif;font-size:14px;line-height:1.9;">寫下來是為了之後對得上。<b style="color:#35456a;">不要寫「有效率」——那是工作的判準，不是生活的。</b></div>
+      </sc-if>
+
+      <sc-if value="{{ s7 }}">
+        <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:10px;letter-spacing:5px;text-transform:uppercase;color:#938a78;margin:4px 0 14px;">你的安排</div>
+        <div style="position:relative;border:1px solid #cec6b4;border-radius:3px;padding:28px 24px 22px;background:#f3efe7;box-shadow:inset 0 0 0 5px #fbf9f4,inset 0 0 0 6px #cec6b4;">
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:22px;color:#35456a;">❦</div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:15px;letter-spacing:8px;padding-left:8px;margin-top:4px;">空 白 卡</div>
+          <div style="text-align:center;font-size:8.5px;letter-spacing:3px;color:#938a78;text-transform:uppercase;margin-top:5px;">After the Rush · Nº 06</div>
+          <div style="width:30px;height:1px;background:#35456a;opacity:.6;margin:16px auto 20px;"></div>
+          <div style="margin-bottom:16px;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">這段空白</div><div style="font-family:'Noto Serif TC',serif;font-size:18px;font-weight:600;line-height:1.55;white-space:pre-wrap;">{{ cSpan }}</div><div style="font-size:11px;letter-spacing:1px;color:#938a78;margin-top:6px;">{{ cSource }}</div></div>
+          <div style="margin-bottom:14px;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">我一直想做的那件事</div><div style="font-size:14px;line-height:1.65;white-space:pre-wrap;">{{ cThing }}</div></div>
+          <div style="margin-bottom:14px;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">第一個小動作</div><div style="font-size:14px;line-height:1.65;white-space:pre-wrap;">{{ cStep }}</div></div>
+          <div style="height:1px;background:#e3ddd0;margin:17px 0;"></div>
+          <div style="text-align:center;border:1px dashed #cec6b4;border-radius:2px;padding:14px 12px;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">留給自己、不安排</div><div style="font-family:'Noto Serif TC',serif;font-size:16px;color:#35456a;line-height:1.6;white-space:pre-wrap;">{{ cBlank }}</div></div>
+          <div style="margin:14px 0 0;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">我希望回頭的時候</div><div style="font-size:14px;line-height:1.65;white-space:pre-wrap;">{{ cFeel }}</div></div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;color:#35456a;font-size:14px;letter-spacing:2px;margin-top:16px;">空白不是還沒安排。</div>
+          <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:10px;">Edition Nº 06 · MMXXVI</div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:16px;">
+          <button onClick="{{ onSaveImage }}" style="border:1px solid #cec6b4;background:transparent;color:#35456a;border-radius:2px;padding:12px;font-size:13px;cursor:pointer;">儲存為圖片</button>
+          <button onClick="{{ onCopy }}" style="border:1px solid #cec6b4;background:transparent;color:#35456a;border-radius:2px;padding:12px;font-size:13px;cursor:pointer;">複製文字</button>
+          <button onClick="{{ onShare }}" style="border:1px solid #cec6b4;background:transparent;color:#35456a;border-radius:2px;padding:12px;font-size:13px;cursor:pointer;">分享空白卡</button>
+        </div>
+        <div style="border:1px solid #cec6b4;border-radius:4px;background:#fff;padding:20px;margin-top:24px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#938a78;margin-bottom:8px;">這張卡不打算做的事</div>
+          <p style="color:#554d40;font-size:13.5px;line-height:1.8;font-family:'EB Garamond','Noto Serif TC',serif;">它不會提醒你、不會統計你完成了幾項、也不會告訴你這段時間過得好不好。那些都是工作用的工具，搬到這裡只會把休息變成另一份工作。時間到了，你自己回來看一眼就好。</p>
+        </div>
+        <div style="border:1px solid #cec6b4;border-radius:4px;background:#fff;padding:20px;margin-top:14px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#938a78;margin-bottom:8px;">這條線的下一步</div>
+          <p style="color:#554d40;font-size:13.5px;line-height:1.8;font-family:'EB Garamond','Noto Serif TC',serif;">如果那件在乎的事一直排不進日子裡，用 <a href="tool-two.html">今天兩格</a> 把它放進其中一格——一天只有兩格，它就不必跟十件事搶位置。如果它是一個還沒把握的決定，先用 <a href="tool-pilot.html">小規模試驗卡</a> 設計一次成本很低的試驗。</p>
+        </div>
+        <div style="border-top:1px solid #e3ddd0;margin-top:24px;padding-top:22px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:16px;font-weight:600;margin-bottom:4px;">做完了，跟我說一句</div>
+          <p style="font-size:12.5px;color:#938a78;margin-bottom:12px;line-height:1.75;">這張卡對你有沒有用、你希望下一個工具解決什麼——我在收集建議。留 Email，新工具上線也會通知你。</p>
+          <form onSubmit="{{ onSubmitFeedback }}">
+            <textarea value="{{ feedbackText }}" onInput="{{ onFeedbackText }}" maxlength="500" placeholder="你希望下一個工具處理什麼？（可留空）" style="width:100%;min-height:76px;border:1px solid #cec6b4;background:#fff;border-radius:2px;padding:12px 14px;font-size:14px;color:#241f18;line-height:1.7;resize:vertical;outline:none;margin-bottom:8px;"></textarea>
+            <div style="display:flex;gap:8px;">
+              <input value="{{ email }}" onInput="{{ onEmail }}" type="email" placeholder="你的 Email" required style="flex:1;border:1px solid #cec6b4;background:#fff;border-radius:2px;padding:12px 14px;font-size:14px;color:#241f18;outline:none;" />
+              <button type="submit" style="border:none;background:#35456a;color:#fbf9f4;border-radius:2px;padding:0 20px;font-size:13px;letter-spacing:1px;cursor:pointer;white-space:nowrap;">{{ subLabel }}</button>
+            </div>
+            <div style="min-height:16px;text-align:center;color:#35456a;font-size:11px;margin-top:8px;">{{ subStatus }}</div>
+          </form>
+        </div>
+      </sc-if>
+
+    </div>
+
+    <div style="flex:none;padding:12px 26px 22px;background:linear-gradient(transparent,#fbf9f4 30%);">
+      <sc-if value="{{ showGate }}">
+        <div style="text-align:center;font-size:11px;color:#938a78;margin-bottom:8px;height:15px;letter-spacing:.5px;">{{ gateMsg }}</div>
+      </sc-if>
+      <button onClick="{{ onNext }}" disabled="{{ nextDisabled }}" style="display:block;width:100%;border:none;background:{{ nextBg }};color:#fbf9f4;border-radius:2px;padding:15px;font-size:15px;font-weight:600;letter-spacing:1px;cursor:pointer;opacity:{{ nextOp }};">{{ nextLabel }}</button>
+      <sc-if value="{{ s7 }}">
+        <button onClick="{{ onHome }}" style="display:block;width:100%;border:1px solid #cec6b4;background:transparent;color:#35456a;border-radius:2px;padding:12px;font-size:13px;letter-spacing:1px;cursor:pointer;margin-top:8px;">返回主頁</button>
+      </sc-if>
+      <sc-if value="{{ showRecordsBtn }}">
+        <button onClick="{{ onOpenRecords }}" style="display:block;width:100%;border:1px solid #cec6b4;background:transparent;color:#35456a;border-radius:2px;padding:12px;font-size:13px;letter-spacing:1px;cursor:pointer;margin-top:8px;">查看空白卡紀錄簿（{{ recordsCount }}）</button>
+      </sc-if>
+    </div>
+
+    <sc-if value="{{ toastOn }}">
+      <div style="position:absolute;bottom:96px;left:50%;transform:translateX(-50%);background:#241f18;color:#fbf9f4;padding:10px 18px;border-radius:3px;font-size:12px;letter-spacing:.5px;white-space:nowrap;">{{ toastMsg }}</div>
+    </sc-if>
+
+  </div>
+
+  <sc-if value="{{ exampleOpen }}">
+    <div onClick="{{ onCloseExample }}" style="position:fixed;inset:0;z-index:30;background:rgba(36,31,24,.4);display:flex;justify-content:center;">
+      <div onClick="{{ stop }}" style="width:min(440px,100%);height:100%;background:#f3efe7;padding:22px 24px 34px;overflow-y:auto;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:22px;font-weight:600;white-space:nowrap;">一個填好的例子</div>
+          <span onClick="{{ onCloseExample }}" style="color:#938a78;font-size:22px;cursor:pointer;">✕</span>
+        </div>
+        <p style="font-size:12.5px;color:#938a78;margin-bottom:18px;line-height:1.75;">假設有個人終於把每天加班的時間省了下來，多出好幾個晚上。走完之後，他的空白卡長這樣——</p>
+
+        <div style="position:relative;border:1px solid #cec6b4;border-radius:3px;padding:28px 24px 22px;background:#fbf9f4;box-shadow:inset 0 0 0 5px #f3efe7,inset 0 0 0 6px #cec6b4;">
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:22px;color:#35456a;">❦</div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:15px;letter-spacing:8px;padding-left:8px;margin-top:4px;">空 白 卡</div>
+          <div style="text-align:center;font-size:8.5px;letter-spacing:3px;color:#938a78;text-transform:uppercase;margin-top:5px;">After the Rush · Nº 06</div>
+          <div style="width:30px;height:1px;background:#35456a;opacity:.6;margin:16px auto 20px;"></div>
+          <div style="margin-bottom:16px;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">這段空白</div><div style="font-family:'Noto Serif TC',serif;font-size:18px;font-weight:600;line-height:1.55;">每個平日晚上，多出來的兩個小時</div><div style="font-size:11px;letter-spacing:1px;color:#938a78;margin-top:6px;">這段時間是我自己安排的</div></div>
+          <div style="margin-bottom:14px;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">我一直想做的那件事</div><div style="font-size:14px;line-height:1.65;">重新開始畫畫，不為交差、只為自己</div></div>
+          <div style="margin-bottom:14px;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">第一個小動作</div><div style="font-size:14px;line-height:1.65;white-space:pre-wrap;">把顏料和紙從箱子裡翻出來，隨手畫十分鐘
+這個週三晚上 20:00</div></div>
+          <div style="height:1px;background:#e3ddd0;margin:17px 0;"></div>
+          <div style="text-align:center;border:1px dashed #cec6b4;border-radius:2px;padding:14px 12px;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">留給自己、不安排</div><div style="font-family:'Noto Serif TC',serif;font-size:16px;color:#35456a;line-height:1.6;">週日整個下午，什麼都不排</div></div>
+          <div style="margin:14px 0 0;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">我希望回頭的時候</div><div style="font-size:14px;line-height:1.65;">覺得這段時間真的是我自己的，沒有又被工作填滿</div></div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;color:#35456a;font-size:14px;letter-spacing:2px;margin-top:16px;">空白不是還沒安排。</div>
+          <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:10px;">Edition Nº 06 · MMXXVI</div>
+        </div>
+
+        <div style="margin-top:20px;">
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:10px;">這個例子想讓你看到三件事</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;">空出來的晚上<b>不是拿來塞更多待辦</b>——這張卡只安排一件事，其餘的時間刻意留白。</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;">挑的是「畫畫」這種<b>真正想做、卻沒什麼用處</b>的事，不是又一項「應該去補」的進修。</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;color:#554d40;font-size:13.5px;line-height:1.85;">不寫「開始畫畫」這種空願望，而是給它一個<b>這週就能起步的具體小動作</b>——小到今晚就能動。</div>
+        </div>
+
+        <button onClick="{{ onCloseExample }}" style="display:block;width:100%;border:none;background:#35456a;color:#fbf9f4;border-radius:2px;padding:14px;font-size:14px;letter-spacing:1px;cursor:pointer;margin-top:24px;">懂了，開始做我自己的</button>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ recordsOpen }}">
+    <div onClick="{{ onCloseRecords }}" style="position:fixed;inset:0;z-index:30;background:rgba(36,31,24,.4);display:flex;justify-content:center;">
+      <div onClick="{{ stop }}" style="width:min(440px,100%);height:100%;background:#f3efe7;padding:22px 24px 34px;overflow-y:auto;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:22px;font-weight:600;white-space:nowrap;">空白卡紀錄簿</div>
+          <span onClick="{{ onCloseRecords }}" style="color:#938a78;font-size:22px;cursor:pointer;">✕</span>
+        </div>
+        <p style="font-size:12px;color:#938a78;margin-bottom:18px;">紀錄只保存在這部裝置的目前瀏覽器。</p>
+        <sc-if value="{{ hasCards }}">
+          <sc-for list="{{ cards }}" as="c" hint-placeholder-count="0">
+            <div onClick="{{ c.onOpen }}" style="background:#fbf9f4;border:1px solid #e3ddd0;border-radius:4px;padding:18px;margin-bottom:12px;cursor:pointer;" style-hover="border-color:#35456a;">
+              <div style="display:flex;justify-content:space-between;align-items:center;color:#938a78;font-size:11px;margin-bottom:12px;"><span style="white-space:nowrap;">第 {{ c.idx }} 張 · {{ c.date }}</span><span onClick="{{ c.onDel }}" style="cursor:pointer;">刪除</span></div>
+              <div style="font-size:9px;letter-spacing:2px;color:#938a78;">這段空白</div><div style="font-family:'Noto Serif TC',serif;font-size:15px;margin-top:3px;white-space:pre-wrap;">{{ c.span }}</div>
+              <div style="font-size:9px;letter-spacing:2px;color:#938a78;margin-top:10px;">想做的那件事</div><div style="font-family:'Noto Serif TC',serif;font-size:15px;color:#35456a;font-weight:600;margin-top:3px;white-space:pre-wrap;">{{ c.thing }}</div>
+              <div style="text-align:right;font-size:11px;color:#35456a;margin-top:10px;letter-spacing:1px;">開啟回顧 →</div>
+            </div>
+          </sc-for>
+        </sc-if>
+        <sc-if value="{{ noCards }}">
+          <div style="text-align:center;color:#938a78;font-size:13px;padding:60px 10px;">還沒有空白卡。<br />完成第一張後，會保存在這裡。</div>
+        </sc-if>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ hasOpened }}">
+    <div onClick="{{ onCloseCard }}" style="position:fixed;inset:0;z-index:40;background:rgba(36,31,24,.5);display:flex;align-items:center;justify-content:center;padding:26px 20px;">
+      <div onClick="{{ stop }}" style="width:min(400px,100%);background:#fbf9f4;border-radius:8px;padding:24px;box-shadow:0 20px 60px rgba(36,31,24,.28);max-height:92vh;overflow-y:auto;">
+        <div style="position:relative;border:1px solid #cec6b4;border-radius:3px;padding:26px 22px 20px;background:#f3efe7;box-shadow:inset 0 0 0 5px #fbf9f4,inset 0 0 0 6px #cec6b4;">
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:22px;color:#35456a;">❦</div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:15px;letter-spacing:8px;padding-left:8px;margin-top:4px;">空 白 卡</div>
+          <div style="text-align:center;font-size:8.5px;letter-spacing:3px;color:#938a78;text-transform:uppercase;margin-top:5px;">After the Rush · Nº 06</div>
+          <div style="width:30px;height:1px;background:#35456a;opacity:.6;margin:16px auto 20px;"></div>
+          <div style="margin-bottom:14px;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">我一直想做的那件事</div><div style="font-family:'Noto Serif TC',serif;font-size:17px;font-weight:600;line-height:1.55;white-space:pre-wrap;">{{ ocThing }}</div></div>
+          <div style="margin-bottom:14px;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">第一個小動作</div><div style="font-size:14px;line-height:1.6;white-space:pre-wrap;">{{ ocStep }}</div></div>
+          <div style="text-align:center;border:1px dashed #cec6b4;border-radius:2px;padding:14px 12px;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">留給自己、不安排</div><div style="font-family:'Noto Serif TC',serif;font-size:16px;color:#35456a;line-height:1.6;white-space:pre-wrap;">{{ ocBlank }}</div></div>
+          <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:14px;">Edition Nº 06 · MMXXVI</div>
+        </div>
+        <button onClick="{{ onShareOpened }}" style="display:block;width:100%;border:1px solid #cec6b4;background:transparent;color:#35456a;border-radius:2px;padding:12px;font-size:13px;letter-spacing:1px;cursor:pointer;margin-top:16px;">分享這張</button>
+        <a href="tool-two.html" style="display:block;text-align:center;border:1px solid #cec6b4;border-radius:2px;padding:12px;font-size:13px;letter-spacing:1px;margin-top:8px;">下一步：今天兩格 →</a>
+        <button onClick="{{ onCloseCard }}" style="display:block;width:100%;border:none;background:transparent;color:#938a78;border-radius:2px;padding:10px;font-size:12px;letter-spacing:1px;cursor:pointer;margin-top:4px;">關閉</button>
+      </div>
+    </div>
+  </sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:480,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  state = {
+    step: 0, source: null, span: "", actual: "", thing: "", firstStep: "", whenv: "", blank: "", feel: "",
+    toastOn: false, toastMsg: "", feedbackText: "", email: "", subLabel: "傳給創作者", subStatus: "",
+    cards: [], recordsOpen: false, openedCard: null, exampleOpen: false,
+  };
+  HKEY = "toolbook_leisure_history_v1";
+  SRC = { chosen: "這段時間是我自己安排的", mixed: "一半是我安排的", forced: "這段時間不是我能決定的" };
+  CHIPS = ["學一個沒有用處的東西", "見一個很久沒見的人", "把一直想去的地方走一趟", "做一件手工", "重讀一本喜歡的書", "好好把飯煮起來"];
+
+  componentDidMount() {
+    try { const raw = localStorage.getItem(this.HKEY); if (raw) { const a = JSON.parse(raw); if (Array.isArray(a)) this.setState({ cards: a.slice(0, 50) }); } } catch (_) {}
+  }
+  saveCards(cards, done) { try { localStorage.setItem(this.HKEY, JSON.stringify(cards.slice(0, 50))); if(done&&typeof gtag==='function')gtag('event','tool_complete',{tool_name:'空下來之後'}); } catch (_) {} }
+  set(k, v) { this.setState({ [k]: v }); }
+
+  gateOk(step) {
+    const s = this.state;
+    if (step === 1) return !!s.source && !!s.span.trim();
+    if (step === 3) return !!s.thing.trim();
+    if (step === 4) return !!s.firstStep.trim() && !!s.whenv.trim();
+    if (step === 5) return !!s.blank.trim();
+    return true;
+  }
+  next() {
+    if (!this.gateOk(this.state.step)) return;
+    const n = Math.min(7, this.state.step + 1);
+    if (n === 7) this.archive();
+    this.setState({ step: n });
+    const st = document.querySelector(".stage"); if (st) st.scrollTop = 0;
+  }
+  prev() { this.setState({ step: Math.max(0, this.state.step - 1) }); const st = document.querySelector(".stage"); if (st) st.scrollTop = 0; }
+  newCard() {
+    if (!window.confirm("開始一張新的空白卡？目前內容會清掉，舊的保留在紀錄簿。")) return;
+    this.setState({ step: 1, source: null, span: "", actual: "", thing: "", firstStep: "", whenv: "", blank: "", feel: "" });
+  }
+  stepText() { const s = this.state; return (s.firstStep.trim() || "—") + (s.whenv.trim() ? "\n" + s.whenv.trim() : ""); }
+  fillThing(text) { if (!this.state.thing.trim()) this.set("thing", text); }
+
+  archive() {
+    const s = this.state; if (!s.thing.trim()) return;
+    const card = { id: "leisure_" + Date.now().toString(36), createdAt: new Date().toISOString(), source: s.source,
+      span: s.span.trim(), actual: s.actual.trim(), thing: s.thing.trim(), firstStep: s.firstStep.trim(), whenv: s.whenv.trim(), blank: s.blank.trim(), feel: s.feel.trim() };
+    const cards = [card, ...this.state.cards].slice(0, 50);
+    this.setState({ cards }); this.saveCards(cards, true);
+  }
+  deleteCard(id) { const cards = this.state.cards.filter(c => c.id !== id); this.setState({ cards }); this.saveCards(cards); }
+
+  cardTextOf(c) {
+    const step = (c.firstStep || "—") + (c.whenv ? "（" + c.whenv + "）" : "");
+    return "空白卡\n\n這段空白：" + (c.span || "") + "\n（" + (c.source ? this.SRC[c.source] : "—") + "）\n\n我一直想做的那件事：" + (c.thing || "") +
+      "\n第一個小動作：" + step + "\n\n留給自己、不安排：" + (c.blank || "") + "\n\n我希望回頭的時候：" + (c.feel || "—") + "\n\n空白不是還沒安排。";
+  }
+  cur() { const s = this.state; return { source: s.source, span: s.span, actual: s.actual, thing: s.thing, firstStep: s.firstStep, whenv: s.whenv, blank: s.blank, feel: s.feel }; }
+  toast(msg) { this.setState({ toastOn: true, toastMsg: msg }); clearTimeout(this._t); this._t = setTimeout(() => this.setState({ toastOn: false }), 1700); }
+  async copy() { try { await navigator.clipboard.writeText(this.cardTextOf(this.cur())); this.toast("已複製空白卡文字"); } catch (_) { this.toast("瀏覽器未允許複製"); } }
+  async share() { try { if (navigator.share) await navigator.share({ title: "我的空白卡", text: this.cardTextOf(this.cur()) }); else { await navigator.clipboard.writeText(this.cardTextOf(this.cur())); this.toast("已複製，可貼到其他地方"); } } catch (_) {} }
+  async shareCard(c) { try { if (navigator.share) await navigator.share({ title: "我的空白卡", text: this.cardTextOf(c) }); else { await navigator.clipboard.writeText(this.cardTextOf(c)); this.toast("已複製"); } } catch (_) {} }
+  onSubmitFeedback(e) { e.preventDefault(); var self = this; var fd = new FormData(); fd.append("email", this.state.email || ""); fd.append("message", this.state.feedbackText || ""); fd.append("tool", "空下來之後"); fd.append("_subject", "Toolbook 工具回饋 · 空下來之後"); fd.append("submission_type", "工具完成後回饋"); this.setState({ subLabel: "傳送中…", subStatus: "" }); fetch("https://formspree.io/f/mlgkgveq", { method: "POST", body: fd, headers: { Accept: "application/json" } }).then(function (r) { if (!r.ok) throw r; return r.json(); }).then(function () { self.setState({ subLabel: "已送出", subStatus: "已傳給創作者 ✓" }); }).catch(function () { self.setState({ subLabel: "傳給創作者", subStatus: "送出失敗，請稍後再試" }); }); }
+
+  async _png(spec){try{const m=await import("./toolbook-card.js");const ok=await m.downloadCardPNG(spec);this.toast(ok?"卡片圖片已儲存":"圖片產生失敗");}catch(_){this.toast("圖片產生失敗");}}
+  async saveImage(){const s=this.state;await this._png({title:"空白卡",sub:"AFTER THE RUSH · Nº 06",filename:"空白卡-Toolbook",mantra:"空白不是還沒安排。",edition:"Edition Nº 06 · MMXXVI",blocks:[{k:"這段空白",v:s.span.trim()||"—",big:true,meta:s.source?this.SRC[s.source]:""},{k:"我一直想做的那件事",v:s.thing.trim()||"—",serif:true},{k:"第一個小動作",v:this.stepText()},{k:"留給自己、不安排",v:s.blank.trim()||"—",big:true},{k:"我希望回頭的時候",v:s.feel.trim()||"—"}]});}
+
+  renderVals() {
+    const s = this.state, step = s.step;
+    const dots = [1, 2, 3, 4, 5, 6].map(n => ({ w: n === step ? "16px" : "5px", bg: n === step ? "#35456a" : "#e3ddd0" }));
+    const showGate = step >= 1 && step <= 6;
+    const gateBad = showGate && !this.gateOk(step);
+    const srcOpts = [{ v: "chosen", label: "我自己安排的" }, { v: "mixed", label: "一半一半" }, { v: "forced", label: "不是我能決定的" }].map(o => ({
+      label: o.label, onClick: () => this.set("source", o.v),
+      bd: s.source === o.v ? "#35456a" : "#e3ddd0", bg: s.source === o.v ? "rgba(53,69,106,.07)" : "#fff",
+      col: s.source === o.v ? "#35456a" : "#554d40", w: s.source === o.v ? "600" : "400",
+    }));
+    const chips = this.CHIPS.map(label => ({ label, onClick: () => this.fillThing(label) }));
+    const cards = s.cards.map((c, n) => ({ idx: s.cards.length - n, date: new Date(c.createdAt).toLocaleDateString("zh-HK", { year: "numeric", month: "2-digit", day: "2-digit" }), span: c.span || "—", thing: c.thing || "—", onDel: (e) => { if (e && e.stopPropagation) e.stopPropagation(); this.deleteCard(c.id); }, onOpen: () => this.set("openedCard", c) }));
+    const oc = s.openedCard;
+    return {
+      dots, backColor: step === 0 ? "transparent" : "#938a78", onBack: () => this.prev(),
+      s0: step === 0, s1: step === 1, s2: step === 2, s3: step === 3, s4: step === 4, s5: step === 5, s6: step === 6, s7: step === 7,
+      span: s.span, actual: s.actual, thing: s.thing, firstStep: s.firstStep, whenv: s.whenv, blank: s.blank, feel: s.feel,
+      onSpan: e => this.set("span", e.target.value), onActual: e => this.set("actual", e.target.value), onThing: e => this.set("thing", e.target.value),
+      onFirstStep: e => this.set("firstStep", e.target.value), onWhen: e => this.set("whenv", e.target.value), onBlank: e => this.set("blank", e.target.value), onFeel: e => this.set("feel", e.target.value),
+      srcOpts, srcAlert: s.source === "forced", chips,
+      cSpan: s.span.trim() || "—", cSource: s.source ? this.SRC[s.source] : "—", cThing: s.thing.trim() || "—", cStep: this.stepText(), cBlank: s.blank.trim() || "—", cFeel: s.feel.trim() || "—",
+      onCopy: () => this.copy(), onShare: () => this.share(), onSaveImage: () => this.saveImage(),
+      onHome: () => { window.location.href = "index.html"; },
+      feedbackText: s.feedbackText, email: s.email, subLabel: s.subLabel, subStatus: s.subStatus,
+      onFeedbackText: e => this.set("feedbackText", e.target.value), onEmail: e => this.set("email", e.target.value), onSubmitFeedback: e => this.onSubmitFeedback(e),
+      showGate, gateMsg: gateBad ? (step === 1 ? "選一個，並寫下大概多長" : step === 4 ? "寫下第一個動作和時間" : step === 5 ? "留一段時間給自己" : "完成這一題，才能繼續") : "",
+      onNext: step === 7 ? () => this.newCard() : () => this.next(),
+      nextLabel: step === 0 ? "開始" : step === 6 ? "生成空白卡" : step === 7 ? "再做一張新的空白卡" : "下一步",
+      nextDisabled: gateBad ? "disabled" : "", nextOp: gateBad ? ".5" : "1", nextBg: gateBad ? "#b7bdcb" : "#35456a",
+      toastOn: s.toastOn, toastMsg: s.toastMsg,
+      cards, recordsCount: s.cards.length, hasCards: s.cards.length > 0, noCards: s.cards.length === 0,
+      showRecordsBtn: (step === 0 || step === 7) && s.cards.length > 0,
+      onOpenRecords: () => this.set("recordsOpen", true),
+      recordsOpen: s.recordsOpen, onCloseRecords: () => this.set("recordsOpen", false), stop: e => e.stopPropagation(),
+      exampleOpen: s.exampleOpen, onOpenExample: () => this.set("exampleOpen", true), onCloseExample: () => this.set("exampleOpen", false),
+      hasOpened: !!oc, ocThing: oc ? (oc.thing || "—") : "—", ocStep: oc ? ((oc.firstStep || "—") + (oc.whenv ? "\n" + oc.whenv : "")) : "—", ocBlank: oc ? (oc.blank || "—") : "—",
+      onCloseCard: () => this.set("openedCard", null), onShareOpened: () => { if (oc) this.shareCard(oc); },
+    };
+  }
+}
+</script>
+</body>
+</html>

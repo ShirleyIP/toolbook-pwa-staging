@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CKM6MRRVBM"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-CKM6MRRVBM');</script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="fonts.css?v=2">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:#e9e3d6;color:#241f18;font-family:-apple-system,"PingFang TC","PingFang SC",sans-serif;line-height:1.8;-webkit-font-smoothing:antialiased;}
+  a{color:#35456a;text-decoration:none;transition:.18s;}
+  a:hover{color:#26324f;}
+  input,textarea,button{font-family:inherit;}
+  input::placeholder,textarea::placeholder{color:#b9b09a;}
+  textarea:focus,input:focus{outline:none;border-color:#35456a!important;box-shadow:0 0 0 2px rgba(53,69,106,.08);}
+  .stage::-webkit-scrollbar{width:0;}
+  ::selection{background:rgba(53,69,106,.15);}
+</style>
+</helmet>
+<div style="position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:26px 18px;background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E&quot;);background-color:#e9e3d6;">
+
+  <div style="width:min(440px,100%);height:min(860px,94vh);display:flex;flex-direction:column;background:#fbf9f4;border:1px solid #cec6b4;border-radius:8px;box-shadow:0 20px 60px rgba(36,31,24,.16);overflow:hidden;position:relative;">
+
+    <div style="flex:none;height:52px;display:flex;align-items:center;padding:0 20px;position:relative;border-bottom:1px solid #efe9dd;">
+      <span onClick="{{ onBack }}" style="font-size:24px;line-height:1;width:24px;cursor:pointer;color:{{ backColor }};">‹</span>
+      <div style="position:absolute;left:0;right:0;display:flex;gap:6px;justify-content:center;pointer-events:none;">
+        <sc-for list="{{ dots }}" as="d" hint-placeholder-count="6">
+          <span style="height:5px;border-radius:3px;transition:.3s;width:{{ d.w }};background:{{ d.bg }};"></span>
+        </sc-for>
+      </div>
+      <a href="index.html" style="margin-left:auto;color:#938a78;font-size:16px;line-height:1;" title="回首頁">✕</a>
+    </div>
+
+    <div class="stage" style="flex:1;overflow-y:auto;padding:22px 26px 8px;">
+
+      <sc-if value="{{ s0 }}">
+        <div style="display:flex;flex-direction:column;justify-content:center;min-height:100%;text-align:center;padding:20px 0;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:30px;color:#35456a;margin-bottom:20px;">❦</div>
+          <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">工具 Nº 07 · 減負</div>
+          <h1 style="font-family:'Noto Serif TC',serif;font-size:27px;font-weight:600;line-height:1.7;letter-spacing:.5px;">手上的事太多，<br />該減什麼？</h1>
+          <p style="color:#938a78;font-size:13.5px;line-height:1.9;margin-top:18px;">六個問題，先看清楚你有多少決定權，再挑一項真的動它——而且動之前，先確認它沒有撐著別的東西。</p>
+          <p style="color:#938a78;font-size:11.5px;line-height:1.85;margin-top:14px;">啟發自《一週工作 4 小時》的 80／20 掃描。書中示範的是砍客戶、砍會議，那是老闆的權限；這張卡先問你的權限。答案只存在這部裝置。</p>
+          <div onClick="{{ onOpenExample }}" style="margin-top:22px;color:#35456a;font-size:13px;cursor:pointer;text-decoration:underline;text-underline-offset:3px;">看一個填好的例子 →</div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ s1 }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 01 · 你的權限</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">這些事，<br />你說了算嗎？</h2>
+        <p style="color:#938a78;font-size:13px;margin-bottom:8px;">這一題決定這張卡最後能給你什麼建議。</p>
+        <div style="border:1px solid #e3ddd0;background:rgba(53,69,106,.03);border-radius:4px;padding:15px 16px;margin-top:18px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:14.5px;margin-bottom:3px;">手上的工作，哪些要做、哪些不做</div>
+          <div style="font-size:11.5px;color:#938a78;margin-bottom:11px;line-height:1.7;">選最接近的那個。</div>
+          <div style="display:grid;grid-template-columns:1fr;gap:7px;">
+            <sc-for list="{{ powerOpts }}" as="o" hint-placeholder-count="3">
+              <button onClick="{{ o.onClick }}" style="border:1px solid {{ o.bd }};background:{{ o.bg }};color:{{ o.col }};border-radius:3px;padding:12px 13px;font-size:13.5px;cursor:pointer;line-height:1.5;text-align:left;font-weight:{{ o.w }};">{{ o.label }}</button>
+            </sc-for>
+          </div>
+        </div>
+        <sc-if value="{{ powerAlert }}">
+          <div style="border:1px solid #9c6b52;background:rgba(156,107,82,.07);border-radius:4px;padding:15px 17px;margin-top:18px;font-size:13.5px;line-height:1.85;color:#7a4f3c;">
+            <b style="font-family:'Noto Serif TC',serif;display:block;margin-bottom:4px;font-size:14.5px;color:#9c6b52;">那就先不要用「砍」這個字</b>
+            書裡示範的是砍客戶、砍會議、每天只做兩件事——那些是老闆或自僱者的權限。受雇的人照著做去推掉主管交辦的事，代價可能是考核不利，甚至丟工作。<br /><br />這張卡接下來會把「砍掉」換成<b style="color:#7a4f3c;">「哪一項值得提出來談」</b>。減法一樣做得到，但路徑不同：先讓對方看見取捨，而不是自己單方面停掉。
+          </div>
+        </sc-if>
+      </sc-if>
+
+      <sc-if value="{{ s2 }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 02 · 攤開來</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">這陣子，<br />你的時間都花在<br />哪些事上？</h2>
+        <p style="color:#938a78;font-size:13px;margin-bottom:8px;">一行一項，八到十項就夠。先不要判斷好壞，先寫出來。</p>
+        <textarea value="{{ items }}" onInput="{{ onItems }}" maxlength="600" placeholder="例如：&#10;每週例會&#10;回客戶訊息&#10;做月報&#10;帶新人&#10;主要專案&#10;臨時插件" style="width:100%;min-height:150px;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:14px 15px;font-size:14.5px;color:#241f18;line-height:1.9;resize:vertical;"></textarea>
+        <div style="border:1px dashed #cec6b4;border-radius:4px;padding:13px 15px;margin-top:16px;font-size:12.5px;color:#6b6353;line-height:1.8;"><b style="font-family:'Noto Serif TC',serif;color:#35456a;">這張卡只掃工作與專案。</b>不要把家人、朋友、伴侶放進來——把關係拿去算投入產出比，是這個方法最容易出事的地方，而且沒有任何研究支持那樣做有好處。</div>
+      </sc-if>
+
+      <sc-if value="{{ s3 }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 03 · 最耗的</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">哪幾項<br />最消耗你？</h2>
+        <p style="color:#938a78;font-size:13px;margin-bottom:8px;">從上一頁挑出兩三項。消耗不只是花時間，也包括做完之後整個人空掉的那種。</p>
+        <div style="border-left:2px solid #35456a;background:rgba(53,69,106,.05);padding:12px 15px;margin:14px 0 4px;border-radius:0 3px 3px 0;"><div style="font-size:9px;letter-spacing:2.2px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">你剛才寫的</div><div style="font-family:'Noto Serif TC',serif;font-size:14px;line-height:1.75;white-space:pre-wrap;">{{ mirrorItems }}</div></div>
+        <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:16px 0 7px;">最消耗的兩三項</label>
+        <textarea value="{{ drain }}" onInput="{{ onDrain }}" maxlength="300" placeholder="例如：&#10;每週例會&#10;臨時插件" style="width:100%;min-height:100px;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:14px 15px;font-size:14.5px;color:#241f18;line-height:1.9;resize:vertical;"></textarea>
+      </sc-if>
+
+      <sc-if value="{{ s4 }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 04 · 最值的</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">哪幾項<br />帶來最多成果？</h2>
+        <p style="color:#938a78;font-size:13px;margin-bottom:8px;">同一份清單，這次挑真正推動事情前進的那幾項。</p>
+        <div style="border-left:2px solid #35456a;background:rgba(53,69,106,.05);padding:12px 15px;margin:14px 0 4px;border-radius:0 3px 3px 0;"><div style="font-size:9px;letter-spacing:2.2px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">你剛才寫的</div><div style="font-family:'Noto Serif TC',serif;font-size:14px;line-height:1.75;white-space:pre-wrap;">{{ mirrorItems }}</div></div>
+        <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:16px 0 7px;">最有成果的兩三項</label>
+        <textarea value="{{ gain }}" onInput="{{ onGain }}" maxlength="300" placeholder="例如：&#10;主要專案&#10;帶新人" style="width:100%;min-height:100px;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:14px 15px;font-size:14.5px;color:#241f18;line-height:1.9;resize:vertical;"></textarea>
+        <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:20px;color:#655e51;font-size:12.5px;line-height:1.85;"><b style="font-family:'Noto Serif TC',serif;color:#35456a;display:block;margin-bottom:3px;">為什麼要分開問</b>少數事情帶來多數成果，這個現象在很多領域都量得到。但「剛好八成」是後來被講順口的說法，不是規律——真正的比例每個人、每份工作都不一樣。所以這裡不算百分比，只挑出你自己那幾項。</div>
+      </sc-if>
+
+      <sc-if value="{{ s5 }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 05 · 先別急</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">你想減掉的那些，<br />有沒有哪一項<br />其實撐著別的？</h2>
+        <p style="color:#938a78;font-size:13px;margin-bottom:8px;">這一步是煞車。減法最常見的失敗，是砍掉了看起來沒產出、但別的事靠它撐著的那一項。</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;border:1px solid #e3ddd0;border-radius:3px;margin-bottom:18px;">
+          <div style="padding:13px 14px;"><div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">最消耗</div><div style="font-size:13.5px;line-height:1.7;white-space:pre-wrap;">{{ mirrorDrain }}</div></div>
+          <div style="padding:13px 14px;border-left:1px solid #e3ddd0;"><div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">最有成果</div><div style="font-size:13.5px;line-height:1.7;white-space:pre-wrap;">{{ mirrorGain }}</div></div>
+        </div>
+        <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:16px 0 7px;">有沒有哪一項是別的事的基礎<span style="font-size:11px;color:#938a78;letter-spacing:1px;border:1px solid #e3ddd0;border-radius:2px;padding:1px 7px;margin-left:8px;">可留空</span></label>
+        <textarea value="{{ support }}" onInput="{{ onSupport }}" maxlength="240" placeholder="例如：例會很煩，但我大部分的資訊都是在那裡拿到的；停掉之後我會變成最後一個知道的人" style="width:100%;min-height:90px;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:14px 15px;font-size:14.5px;color:#241f18;line-height:1.8;resize:vertical;"></textarea>
+        <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:20px;color:#655e51;font-size:12.5px;line-height:1.85;"><b style="font-family:'Noto Serif TC',serif;color:#35456a;display:block;margin-bottom:3px;">為什麼要問</b>有研究看科學論文的產出分布，發現那些被引用最多的頂尖成果，是靠大量看起來平庸的研究墊起來的——把「產出低的多數」砍掉，頂尖的那些也就不會出現。<br />所以判準不是「這件事本身有沒有產出」，是<b style="color:#35456a;">「少了它，別的事還轉得動嗎」</b>。</div>
+      </sc-if>
+
+      <sc-if value="{{ s6 }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 06 · 只動一項</div>
+        <sc-if value="{{ powerNone }}">
+          <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">這一週，<br />你要把哪一項<br />提出來談？</h2>
+          <p style="color:#938a78;font-size:13px;margin-bottom:8px;">只挑一項。你要的不是自己停掉它，是讓決定的人看見取捨。</p>
+        </sc-if>
+        <sc-if value="{{ powerNotNone }}">
+          <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">這一週，<br />你要動哪一項？</h2>
+          <p style="color:#938a78;font-size:13px;margin-bottom:8px;">只挑一項。同時動三項，你會分不出是哪一項讓情況變好。</p>
+        </sc-if>
+        <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:16px 0 7px;">{{ actLabel }}</label>
+        <textarea value="{{ action }}" onInput="{{ onAction }}" maxlength="240" placeholder="{{ actPlaceholder }}" style="width:100%;min-height:90px;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:14px 15px;font-size:14.5px;color:#241f18;line-height:1.8;resize:vertical;"></textarea>
+        <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:16px 0 7px;">省下來的時間要給誰<span style="font-size:11px;color:#938a78;letter-spacing:1px;border:1px solid #e3ddd0;border-radius:2px;padding:1px 7px;margin-left:8px;">可留空</span></label>
+        <input value="{{ freed }}" onInput="{{ onFreed }}" maxlength="60" placeholder="例如：給主要專案，不要又被填滿" style="width:100%;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:13px 15px;font-size:14.5px;color:#241f18;" />
+        <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:20px;color:#554d40;font-family:'EB Garamond','Noto Serif TC',serif;font-size:14px;line-height:1.9;">省下來的時間如果沒有先講好去處，它通常會自己被填滿——而且填進去的多半是最吵的那件事，不是最重要的。</div>
+      </sc-if>
+
+      <sc-if value="{{ s7 }}">
+        <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:10px;letter-spacing:5px;text-transform:uppercase;color:#938a78;margin:4px 0 14px;">你的取捨</div>
+        <div style="position:relative;border:1px solid #cec6b4;border-radius:3px;padding:28px 24px 22px;background:#f3efe7;box-shadow:inset 0 0 0 5px #fbf9f4,inset 0 0 0 6px #cec6b4;">
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:22px;color:#35456a;">❦</div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:15px;letter-spacing:8px;padding-left:8px;margin-top:4px;">減 法 卡</div>
+          <div style="text-align:center;font-size:8.5px;letter-spacing:3px;color:#938a78;text-transform:uppercase;margin-top:5px;">Subtract · Nº 07</div>
+          <div style="width:30px;height:1px;background:#35456a;opacity:.6;margin:16px auto 20px;"></div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;border:1px solid #e3ddd0;border-radius:3px;margin-bottom:14px;">
+            <div style="padding:13px 14px;"><div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">最消耗</div><div style="font-size:13.5px;line-height:1.7;white-space:pre-wrap;">{{ cDrain }}</div></div>
+            <div style="padding:13px 14px;border-left:1px solid #e3ddd0;"><div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">最有成果</div><div style="font-size:13.5px;line-height:1.7;white-space:pre-wrap;">{{ cGain }}</div></div>
+          </div>
+          <div style="margin-bottom:14px;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:7px;">但這一項撐著別的</div><div style="font-size:14px;white-space:pre-wrap;line-height:1.65;">{{ cSupport }}</div></div>
+          <div style="height:1px;background:#e3ddd0;margin:17px 0;"></div>
+          <div style="text-align:center;border:1px solid #cec6b4;border-radius:2px;padding:14px 12px;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">{{ cActK }}</div><div style="font-family:'Noto Serif TC',serif;font-size:16px;color:#35456a;line-height:1.6;white-space:pre-wrap;">{{ cAction }}</div></div>
+          <div style="margin:14px 0 0;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:7px;">省下的時間給</div><div style="font-size:14px;white-space:pre-wrap;line-height:1.65;">{{ cFreed }}</div></div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;color:#35456a;font-size:14px;letter-spacing:2px;margin-top:16px;">減一項，看清楚，再減下一項。</div>
+          <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:10px;">Edition Nº 07 · MMXXVI</div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:16px;">
+          <button onClick="{{ onSaveImage }}" style="border:1px solid #cec6b4;background:transparent;color:#35456a;border-radius:2px;padding:12px;font-size:13px;cursor:pointer;">儲存為圖片</button>
+          <button onClick="{{ onCopy }}" style="border:1px solid #cec6b4;background:transparent;color:#35456a;border-radius:2px;padding:12px;font-size:13px;cursor:pointer;">複製文字</button>
+          <button onClick="{{ onShare }}" style="border:1px solid #cec6b4;background:transparent;color:#35456a;border-radius:2px;padding:12px;font-size:13px;cursor:pointer;">分享減法卡</button>
+        </div>
+        <div style="border:1px solid #cec6b4;border-radius:4px;background:#fff;padding:20px;margin-top:24px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#938a78;margin-bottom:8px;">卷 IV · 減負 · 這條線的下一步</div>
+          <p style="color:#554d40;font-size:13.5px;line-height:1.8;font-family:'EB Garamond','Noto Serif TC',serif;">一週之後，用 <a href="tool-review.html">復盤卡</a> 對一次：真的動了嗎？省下來的時間去了哪裡？情況有沒有變好？</p>
+        </div>
+        <div style="border-top:1px solid #e3ddd0;margin-top:24px;padding-top:22px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:16px;font-weight:600;margin-bottom:4px;">做完了，跟我說一句</div>
+          <p style="font-size:12.5px;color:#938a78;margin-bottom:12px;line-height:1.75;">這張卡對你有沒有用、你希望下一個工具解決什麼——我在收集建議。留 Email，新工具上線也會通知你。</p>
+          <form onSubmit="{{ onSubmitFeedback }}">
+            <textarea value="{{ feedbackText }}" onInput="{{ onFeedbackText }}" maxlength="500" placeholder="你希望下一個工具處理什麼？（可留空）" style="width:100%;min-height:76px;border:1px solid #cec6b4;background:#fff;border-radius:2px;padding:12px 14px;font-size:14px;color:#241f18;line-height:1.7;resize:vertical;outline:none;margin-bottom:8px;"></textarea>
+            <div style="display:flex;gap:8px;">
+              <input value="{{ email }}" onInput="{{ onEmail }}" type="email" placeholder="你的 Email" required style="flex:1;border:1px solid #cec6b4;background:#fff;border-radius:2px;padding:12px 14px;font-size:14px;color:#241f18;outline:none;" />
+              <button type="submit" style="border:none;background:#35456a;color:#fbf9f4;border-radius:2px;padding:0 20px;font-size:13px;letter-spacing:1px;cursor:pointer;white-space:nowrap;">{{ subLabel }}</button>
+            </div>
+            <div style="min-height:16px;text-align:center;color:#35456a;font-size:11px;margin-top:8px;">{{ subStatus }}</div>
+          </form>
+        </div>
+      </sc-if>
+
+    </div>
+
+    <div style="flex:none;padding:12px 26px 22px;background:linear-gradient(transparent,#fbf9f4 30%);">
+      <sc-if value="{{ showGate }}">
+        <div style="text-align:center;font-size:11px;color:#938a78;margin-bottom:8px;height:15px;letter-spacing:.5px;">{{ gateMsg }}</div>
+      </sc-if>
+      <button onClick="{{ onNext }}" disabled="{{ nextDisabled }}" style="display:block;width:100%;border:none;background:{{ nextBg }};color:#fbf9f4;border-radius:2px;padding:15px;font-size:15px;font-weight:600;letter-spacing:1px;cursor:pointer;opacity:{{ nextOp }};">{{ nextLabel }}</button>
+      <sc-if value="{{ s7 }}">
+        <button onClick="{{ onHome }}" style="display:block;width:100%;border:1px solid #cec6b4;background:transparent;color:#35456a;border-radius:2px;padding:12px;font-size:13px;letter-spacing:1px;cursor:pointer;margin-top:8px;">返回主頁</button>
+      </sc-if>
+      <sc-if value="{{ showRecordsBtn }}">
+        <button onClick="{{ onOpenRecords }}" style="display:block;width:100%;border:1px solid #cec6b4;background:transparent;color:#35456a;border-radius:2px;padding:12px;font-size:13px;letter-spacing:1px;cursor:pointer;margin-top:8px;">查看減法卡紀錄簿（{{ recordsCount }}）</button>
+      </sc-if>
+    </div>
+
+    <sc-if value="{{ toastOn }}">
+      <div style="position:absolute;bottom:96px;left:50%;transform:translateX(-50%);background:#241f18;color:#fbf9f4;padding:10px 18px;border-radius:3px;font-size:12px;letter-spacing:.5px;white-space:nowrap;">{{ toastMsg }}</div>
+    </sc-if>
+
+  </div>
+
+  <sc-if value="{{ exampleOpen }}">
+    <div onClick="{{ onCloseExample }}" style="position:fixed;inset:0;z-index:30;background:rgba(36,31,24,.4);display:flex;justify-content:center;">
+      <div onClick="{{ stop }}" style="width:min(440px,100%);height:100%;background:#f3efe7;padding:22px 24px 34px;overflow-y:auto;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:22px;font-weight:600;white-space:nowrap;">一個填好的例子</div>
+          <span onClick="{{ onCloseExample }}" style="color:#938a78;font-size:22px;cursor:pointer;">✕</span>
+        </div>
+        <p style="font-size:12.5px;color:#938a78;margin-bottom:18px;line-height:1.75;">假設有個人手上的事多到喘不過氣，覺得每件都不能不做。走完六個問題之後，他的減法卡長這樣——</p>
+
+        <div style="position:relative;border:1px solid #cec6b4;border-radius:3px;padding:28px 24px 22px;background:#fbf9f4;box-shadow:inset 0 0 0 5px #f3efe7,inset 0 0 0 6px #cec6b4;">
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:22px;color:#35456a;">❦</div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:15px;letter-spacing:8px;padding-left:8px;margin-top:4px;">減 法 卡</div>
+          <div style="text-align:center;font-size:8.5px;letter-spacing:3px;color:#938a78;text-transform:uppercase;margin-top:5px;">Subtract · Nº 07</div>
+          <div style="width:30px;height:1px;background:#35456a;opacity:.6;margin:16px auto 20px;"></div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;border:1px solid #e3ddd0;border-radius:3px;margin-bottom:14px;">
+            <div style="padding:13px 14px;"><div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">最消耗</div><div style="font-size:13.5px;line-height:1.7;">每天盯各個群組、回一堆不重要的通知</div></div>
+            <div style="padding:13px 14px;border-left:1px solid #e3ddd0;"><div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">最有成果</div><div style="font-size:13.5px;line-height:1.7;">每週那一份給客戶的提案</div></div>
+          </div>
+          <div style="margin-bottom:14px;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:7px;">但這一項撐著別的</div><div style="font-size:14px;line-height:1.65;">那堆訊息裡，只有早上那次同步是團隊真的需要的</div></div>
+          <div style="height:1px;background:#e3ddd0;margin:17px 0;"></div>
+          <div style="text-align:center;border:1px solid #cec6b4;border-radius:2px;padding:14px 12px;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">這週要動的那一項</div><div style="font-family:'Noto Serif TC',serif;font-size:16px;color:#35456a;line-height:1.6;">只留早上一次同步，其餘通知改成一天集中看兩次</div></div>
+          <div style="margin:14px 0 0;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:7px;">省下的時間給</div><div style="font-size:14px;line-height:1.65;">每天多出的一小時，拿去把那份提案做得更好</div></div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;color:#35456a;font-size:14px;letter-spacing:2px;margin-top:16px;">減一項，看清楚，再減下一項。</div>
+          <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:10px;">Edition Nº 07 · MMXXVI</div>
+        </div>
+
+        <div style="margin-top:20px;">
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:10px;">這個例子想讓你看到三件事</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;">這張卡不問你「還該加什麼」，而是<b>先掃出哪些其實可以停掉</b>——先做減法，不是加法。</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;">把「最消耗」和「最有成果」擺在一起看，常會發現<b>兩者不是同一件事</b>——這就是 80／20：少數事帶來多數結果，其餘可以砍。</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;color:#554d40;font-size:13.5px;line-height:1.85;">不是一次砍光，<b>這週只挑一項真的動它</b>——而且動之前先確認它沒有撐著別的東西。</div>
+        </div>
+
+        <button onClick="{{ onCloseExample }}" style="display:block;width:100%;border:none;background:#35456a;color:#fbf9f4;border-radius:2px;padding:14px;font-size:14px;letter-spacing:1px;cursor:pointer;margin-top:24px;">懂了，開始做我自己的</button>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ recordsOpen }}">
+    <div onClick="{{ onCloseRecords }}" style="position:fixed;inset:0;z-index:30;background:rgba(36,31,24,.4);display:flex;justify-content:center;">
+      <div onClick="{{ stop }}" style="width:min(440px,100%);height:100%;background:#f3efe7;padding:22px 24px 34px;overflow-y:auto;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:22px;font-weight:600;white-space:nowrap;">減法卡紀錄簿</div>
+          <span onClick="{{ onCloseRecords }}" style="color:#938a78;font-size:22px;cursor:pointer;">✕</span>
+        </div>
+        <p style="font-size:12px;color:#938a78;margin-bottom:18px;">紀錄只保存在這部裝置的目前瀏覽器。</p>
+        <sc-if value="{{ hasCards }}">
+          <sc-for list="{{ cards }}" as="c" hint-placeholder-count="0">
+            <div onClick="{{ c.onOpen }}" style="background:#fbf9f4;border:1px solid #e3ddd0;border-radius:4px;padding:18px;margin-bottom:12px;cursor:pointer;" style-hover="border-color:#35456a;">
+              <div style="display:flex;justify-content:space-between;align-items:center;color:#938a78;font-size:11px;margin-bottom:12px;"><span style="white-space:nowrap;">第 {{ c.idx }} 張 · {{ c.date }}</span><span onClick="{{ c.onDel }}" style="cursor:pointer;">刪除</span></div>
+              <div style="font-size:9px;letter-spacing:2px;color:#938a78;">最消耗</div><div style="font-family:'Noto Serif TC',serif;font-size:15px;margin-top:3px;white-space:pre-wrap;">{{ c.drain }}</div>
+              <div style="font-size:9px;letter-spacing:2px;color:#938a78;margin-top:10px;">{{ c.actLabel }}</div><div style="font-family:'Noto Serif TC',serif;font-size:15px;color:#35456a;font-weight:600;margin-top:3px;white-space:pre-wrap;">{{ c.action }}</div>
+              <div style="text-align:right;font-size:11px;color:#35456a;margin-top:10px;letter-spacing:1px;">開啟回顧 →</div>
+            </div>
+          </sc-for>
+        </sc-if>
+        <sc-if value="{{ noCards }}">
+          <div style="text-align:center;color:#938a78;font-size:13px;padding:60px 10px;">還沒有減法卡。<br />完成第一張後，會保存在這裡。</div>
+        </sc-if>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ hasOpened }}">
+    <div onClick="{{ onCloseCard }}" style="position:fixed;inset:0;z-index:40;background:rgba(36,31,24,.5);display:flex;align-items:center;justify-content:center;padding:26px 20px;">
+      <div onClick="{{ stop }}" style="width:min(400px,100%);background:#fbf9f4;border-radius:8px;padding:24px;box-shadow:0 20px 60px rgba(36,31,24,.28);max-height:92vh;overflow-y:auto;">
+        <div style="position:relative;border:1px solid #cec6b4;border-radius:3px;padding:26px 22px 20px;background:#f3efe7;box-shadow:inset 0 0 0 5px #fbf9f4,inset 0 0 0 6px #cec6b4;">
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:22px;color:#35456a;">❦</div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:15px;letter-spacing:8px;padding-left:8px;margin-top:4px;">減 法 卡</div>
+          <div style="text-align:center;font-size:8.5px;letter-spacing:3px;color:#938a78;text-transform:uppercase;margin-top:5px;">Subtract · Nº 07</div>
+          <div style="width:30px;height:1px;background:#35456a;opacity:.6;margin:16px auto 20px;"></div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;border:1px solid #e3ddd0;border-radius:3px;margin-bottom:14px;">
+            <div style="padding:13px 14px;"><div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">最消耗</div><div style="font-size:13.5px;line-height:1.7;white-space:pre-wrap;">{{ ocDrain }}</div></div>
+            <div style="padding:13px 14px;border-left:1px solid #e3ddd0;"><div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">最有成果</div><div style="font-size:13.5px;line-height:1.7;white-space:pre-wrap;">{{ ocGain }}</div></div>
+          </div>
+          <div style="text-align:center;border:1px solid #cec6b4;border-radius:2px;padding:14px 12px;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">{{ ocActK }}</div><div style="font-family:'Noto Serif TC',serif;font-size:16px;color:#35456a;line-height:1.6;white-space:pre-wrap;">{{ ocAction }}</div></div>
+          <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:14px;">Edition Nº 07 · MMXXVI</div>
+        </div>
+        <button onClick="{{ onShareOpened }}" style="display:block;width:100%;border:1px solid #cec6b4;background:transparent;color:#35456a;border-radius:2px;padding:12px;font-size:13px;letter-spacing:1px;cursor:pointer;margin-top:16px;">分享這張</button>
+        <a href="tool-review.html" style="display:block;text-align:center;border:1px solid #cec6b4;border-radius:2px;padding:12px;font-size:13px;letter-spacing:1px;margin-top:8px;">下一步：一週後用復盤卡 →</a>
+        <button onClick="{{ onCloseCard }}" style="display:block;width:100%;border:none;background:transparent;color:#938a78;border-radius:2px;padding:10px;font-size:12px;letter-spacing:1px;cursor:pointer;margin-top:4px;">關閉</button>
+      </div>
+    </div>
+  </sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:480,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  state = {
+    step: 0, power: null, items: "", drain: "", gain: "", support: "", action: "", freed: "",
+    toastOn: false, toastMsg: "", feedbackText: "", email: "", subLabel: "傳給創作者", subStatus: "",
+    cards: [], recordsOpen: false, openedCard: null, exampleOpen: false,
+  };
+  HKEY = "toolbook_subtract_history_v1";
+  POWER = { own: "這些事大部分我可以自己決定", some: "一部分可以決定，一部分要談", none: "大部分不是我能決定的" };
+
+  componentDidMount() {
+    try { const raw = localStorage.getItem(this.HKEY); if (raw) { const a = JSON.parse(raw); if (Array.isArray(a)) this.setState({ cards: a.slice(0, 50) }); } } catch (_) {}
+  }
+  saveCards(cards, done) { try { localStorage.setItem(this.HKEY, JSON.stringify(cards.slice(0, 50))); if(done&&typeof gtag==='function')gtag('event','tool_complete',{tool_name:'減法掃描卡'}); } catch (_) {} }
+  set(k, v) { this.setState({ [k]: v }); }
+
+  gateOk(step) {
+    const s = this.state;
+    if (step === 1) return !!s.power;
+    if (step === 2) return !!s.items.trim();
+    if (step === 3) return !!s.drain.trim();
+    if (step === 4) return !!s.gain.trim();
+    if (step === 6) return !!s.action.trim();
+    return true;
+  }
+  next() {
+    if (!this.gateOk(this.state.step)) return;
+    const n = Math.min(7, this.state.step + 1);
+    if (n === 7) this.archive();
+    this.setState({ step: n });
+    const st = document.querySelector(".stage"); if (st) st.scrollTop = 0;
+  }
+  prev() { this.setState({ step: Math.max(0, this.state.step - 1) }); const st = document.querySelector(".stage"); if (st) st.scrollTop = 0; }
+  newCard() {
+    if (!window.confirm("開始一張新的減法卡？目前內容會清掉，舊的保留在紀錄簿。")) return;
+    this.setState({ step: 1, power: null, items: "", drain: "", gain: "", support: "", action: "", freed: "" });
+  }
+  actLabelOf(power) { return power === "none" ? "我要提出來談的那一項，以及怎麼開口" : "我要動的那一項，以及怎麼動"; }
+  actKeyOf(power) { return power === "none" ? "這週要提出來談的" : "這週要動的那一項"; }
+
+  archive() {
+    const s = this.state; if (!s.action.trim()) return;
+    const card = { id: "sub_" + Date.now().toString(36), createdAt: new Date().toISOString(), power: s.power,
+      items: s.items.trim(), drain: s.drain.trim(), gain: s.gain.trim(), support: s.support.trim(), action: s.action.trim(), freed: s.freed.trim() };
+    const cards = [card, ...this.state.cards].slice(0, 50);
+    this.setState({ cards }); this.saveCards(cards, true);
+  }
+  deleteCard(id) { const cards = this.state.cards.filter(c => c.id !== id); this.setState({ cards }); this.saveCards(cards); }
+
+  cardTextOf(c) {
+    return "減法卡\n\n（" + (c.power ? this.POWER[c.power] : "—") + "）\n\n最消耗：\n" + (c.drain || "—") + "\n\n最有成果：\n" + (c.gain || "—") +
+      "\n\n但這一項撐著別的：" + (c.support || "（沒有特別標出）") + "\n\n" + this.actKeyOf(c.power) + "：" + (c.action || "—") +
+      "\n省下的時間給：" + (c.freed || "—") + "\n\n減一項，看清楚，再減下一項。";
+  }
+  cur() { const s = this.state; return { power: s.power, drain: s.drain, gain: s.gain, support: s.support, action: s.action, freed: s.freed }; }
+  toast(msg) { this.setState({ toastOn: true, toastMsg: msg }); clearTimeout(this._t); this._t = setTimeout(() => this.setState({ toastOn: false }), 1700); }
+  async copy() { try { await navigator.clipboard.writeText(this.cardTextOf(this.cur())); this.toast("已複製減法卡文字"); } catch (_) { this.toast("瀏覽器未允許複製"); } }
+  async share() { try { if (navigator.share) await navigator.share({ title: "我的減法卡", text: this.cardTextOf(this.cur()) }); else { await navigator.clipboard.writeText(this.cardTextOf(this.cur())); this.toast("已複製，可貼到其他地方"); } } catch (_) {} }
+  async shareCard(c) { try { if (navigator.share) await navigator.share({ title: "我的減法卡", text: this.cardTextOf(c) }); else { await navigator.clipboard.writeText(this.cardTextOf(c)); this.toast("已複製"); } } catch (_) {} }
+  onSubmitFeedback(e) { e.preventDefault(); var self = this; var fd = new FormData(); fd.append("email", this.state.email || ""); fd.append("message", this.state.feedbackText || ""); fd.append("tool", "減法掃描卡"); fd.append("_subject", "Toolbook 工具回饋 · 減法掃描卡"); fd.append("submission_type", "工具完成後回饋"); this.setState({ subLabel: "傳送中…", subStatus: "" }); fetch("https://formspree.io/f/mlgkgveq", { method: "POST", body: fd, headers: { Accept: "application/json" } }).then(function (r) { if (!r.ok) throw r; return r.json(); }).then(function () { self.setState({ subLabel: "已送出", subStatus: "已傳給創作者 ✓" }); }).catch(function () { self.setState({ subLabel: "傳給創作者", subStatus: "送出失敗，請稍後再試" }); }); }
+
+  async _png(spec){try{const m=await import("./toolbook-card.js");const ok=await m.downloadCardPNG(spec);this.toast(ok?"卡片圖片已儲存":"圖片產生失敗");}catch(_){this.toast("圖片產生失敗");}}
+  async saveImage(){const s=this.state;await this._png({title:"減法卡",sub:"SUBTRACT · Nº 07",filename:"減法卡-Toolbook",mantra:"減一項，看清楚，再減下一項。",edition:"Edition Nº 07 · MMXXVI",blocks:[{k:"最消耗",v:s.drain.trim()||"—",serif:true},{k:"最有成果",v:s.gain.trim()||"—",serif:true},{k:"但這一項撐著別的",v:s.support.trim()||"（沒有特別標出）"},{k:this.actKeyOf(s.power),v:s.action.trim()||"—",big:true},{k:"省下的時間給",v:s.freed.trim()||"—"}]});}
+
+  renderVals() {
+    const s = this.state, step = s.step, none = s.power === "none";
+    const dots = [1, 2, 3, 4, 5, 6].map(n => ({ w: n === step ? "16px" : "5px", bg: n === step ? "#35456a" : "#e3ddd0" }));
+    const showGate = step >= 1 && step <= 6;
+    const gateBad = showGate && !this.gateOk(step);
+    const powerOpts = [{ v: "own", label: "大部分我可以自己決定" }, { v: "some", label: "一部分可以，一部分要跟人談" }, { v: "none", label: "大部分不是我能決定的" }].map(o => ({
+      label: o.label, onClick: () => this.set("power", o.v),
+      bd: s.power === o.v ? "#35456a" : "#e3ddd0", bg: s.power === o.v ? "rgba(53,69,106,.07)" : "#fff",
+      col: s.power === o.v ? "#35456a" : "#554d40", w: s.power === o.v ? "600" : "400",
+    }));
+    const cards = s.cards.map((c, n) => ({ idx: s.cards.length - n, date: new Date(c.createdAt).toLocaleDateString("zh-HK", { year: "numeric", month: "2-digit", day: "2-digit" }), drain: c.drain || "—", action: c.action || "—", actLabel: this.actKeyOf(c.power), onDel: (e) => { if (e && e.stopPropagation) e.stopPropagation(); this.deleteCard(c.id); }, onOpen: () => this.set("openedCard", c) }));
+    const oc = s.openedCard;
+    return {
+      dots, backColor: step === 0 ? "transparent" : "#938a78", onBack: () => this.prev(),
+      s0: step === 0, s1: step === 1, s2: step === 2, s3: step === 3, s4: step === 4, s5: step === 5, s6: step === 6, s7: step === 7,
+      items: s.items, drain: s.drain, gain: s.gain, support: s.support, action: s.action, freed: s.freed,
+      onItems: e => this.set("items", e.target.value), onDrain: e => this.set("drain", e.target.value), onGain: e => this.set("gain", e.target.value),
+      onSupport: e => this.set("support", e.target.value), onAction: e => this.set("action", e.target.value), onFreed: e => this.set("freed", e.target.value),
+      powerOpts, powerAlert: none, powerNone: none, powerNotNone: !none,
+      mirrorItems: s.items.trim() || "—", mirrorDrain: s.drain.trim() || "—", mirrorGain: s.gain.trim() || "—",
+      actLabel: this.actLabelOf(s.power), actPlaceholder: none ? "例如：跟主管說每週例會佔掉我三小時，問可不可以改兩週一次，或只參加前半段" : "例如：每週例會改成兩週一次，我先問問看主管的想法",
+      cDrain: s.drain.trim() || "—", cGain: s.gain.trim() || "—", cSupport: s.support.trim() || "（沒有特別標出）",
+      cActK: this.actKeyOf(s.power), cAction: s.action.trim() || "—", cFreed: s.freed.trim() || "—",
+      onCopy: () => this.copy(), onShare: () => this.share(), onSaveImage: () => this.saveImage(),
+      onHome: () => { window.location.href = "index.html"; },
+      feedbackText: s.feedbackText, email: s.email, subLabel: s.subLabel, subStatus: s.subStatus,
+      onFeedbackText: e => this.set("feedbackText", e.target.value), onEmail: e => this.set("email", e.target.value), onSubmitFeedback: e => this.onSubmitFeedback(e),
+      showGate, gateMsg: gateBad ? (step === 1 ? "先選一個" : step === 2 ? "至少寫幾項出來" : step === 6 ? "挑一項就好" : "完成這一題，才能繼續") : "",
+      onNext: step === 7 ? () => this.newCard() : () => this.next(),
+      nextLabel: step === 0 ? "開始" : step === 6 ? "生成減法卡" : step === 7 ? "再做一張新的減法卡" : "下一步",
+      nextDisabled: gateBad ? "disabled" : "", nextOp: gateBad ? ".5" : "1", nextBg: gateBad ? "#b7bdcb" : "#35456a",
+      toastOn: s.toastOn, toastMsg: s.toastMsg,
+      cards, recordsCount: s.cards.length, hasCards: s.cards.length > 0, noCards: s.cards.length === 0,
+      showRecordsBtn: (step === 0 || step === 7) && s.cards.length > 0,
+      onOpenRecords: () => this.set("recordsOpen", true),
+      recordsOpen: s.recordsOpen, onCloseRecords: () => this.set("recordsOpen", false), stop: e => e.stopPropagation(),
+      exampleOpen: s.exampleOpen, onOpenExample: () => this.set("exampleOpen", true), onCloseExample: () => this.set("exampleOpen", false),
+      hasOpened: !!oc, ocDrain: oc ? (oc.drain || "—") : "—", ocGain: oc ? (oc.gain || "—") : "—", ocAction: oc ? (oc.action || "—") : "—", ocActK: oc ? this.actKeyOf(oc.power) : "—",
+      onCloseCard: () => this.set("openedCard", null), onShareOpened: () => { if (oc) this.shareCard(oc); },
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CKM6MRRVBM"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-CKM6MRRVBM');</script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="fonts.css?v=2">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:#e9e3d6;color:#241f18;font-family:-apple-system,"PingFang TC","PingFang SC",sans-serif;line-height:1.8;-webkit-font-smoothing:antialiased;}
+  a{color:#35456a;text-decoration:none;transition:.18s;}
+  a:hover{color:#26324f;}
+  input,textarea,button{font-family:inherit;}
+  input::placeholder,textarea::placeholder{color:#b9b09a;}
+  textarea:focus,input:focus{outline:none;border-color:#35456a!important;box-shadow:0 0 0 2px rgba(53,69,106,.08);}
+  .stage::-webkit-scrollbar{width:0;}
+  ::selection{background:rgba(53,69,106,.15);}
+</style>
+</helmet>
+<div style="position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:26px 18px;background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E&quot;);background-color:#e9e3d6;">
+
+  <div style="width:min(440px,100%);height:min(880px,94vh);display:flex;flex-direction:column;background:#fbf9f4;border:1px solid #cec6b4;border-radius:8px;box-shadow:0 20px 60px rgba(36,31,24,.16);overflow:hidden;position:relative;">
+
+    <div style="flex:none;height:52px;display:flex;align-items:center;padding:0 20px;position:relative;border-bottom:1px solid #efe9dd;">
+      <span onClick="{{ onBack }}" style="font-size:24px;line-height:1;width:24px;cursor:pointer;color:{{ backColor }};">‹</span>
+      <div style="position:absolute;left:0;right:0;display:flex;gap:6px;justify-content:center;pointer-events:none;">
+        <sc-for list="{{ dots }}" as="d" hint-placeholder-count="6">
+          <span style="height:5px;border-radius:3px;transition:.3s;width:{{ d.w }};background:{{ d.bg }};"></span>
+        </sc-for>
+      </div>
+      <a href="index.html" style="margin-left:auto;color:#938a78;font-size:16px;line-height:1;" title="回首頁">✕</a>
+    </div>
+
+    <div class="stage" style="flex:1;overflow-y:auto;padding:22px 26px 8px;">
+
+      <sc-if value="{{ s0 }}">
+        <div style="display:flex;flex-direction:column;justify-content:center;min-height:100%;text-align:center;padding:20px 0;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:30px;color:#35456a;margin-bottom:20px;">❦</div>
+          <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">工具 Nº 09 · 長程</div>
+          <h1 style="font-family:'Noto Serif TC',serif;font-size:27px;font-weight:600;line-height:1.7;letter-spacing:.5px;">開一輪，<br />只帶一個關鍵行動</h1>
+          <p style="color:#938a78;font-size:13.5px;line-height:1.9;margin-top:18px;">六個問題把一輪定下來：你要什麼、擋在中間的是什麼、這一輪交付什麼、關鍵行動、一輪多長、要不要讓一個人知道。之後每週回來記兩個數字。</p>
+          <p style="color:#938a78;font-size:11.5px;line-height:1.85;margin-top:14px;">啟發自《12 週做完一年工作》，數字換掉、骨架留下。答案只存在這部裝置。</p>
+          <div onClick="{{ onOpenExample }}" style="margin-top:22px;color:#35456a;font-size:13px;cursor:pointer;text-decoration:underline;text-underline-offset:3px;">看一個填好的例子 →</div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ s1 }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 01 · 方向</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">你想要的<br />是什麼？</h2>
+        <p style="color:#938a78;font-size:13px;margin-bottom:8px;">寫遠一點的那個方向，不是這一輪的任務。這一欄只是拿來對準，不需要精確。</p>
+        <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:16px 0 7px;">你想要的</label>
+        <textarea value="{{ want }}" onInput="{{ onWant }}" maxlength="160" placeholder="例如：靠自己的作品養活自己" style="width:100%;min-height:80px;border:1px solid #e3ddd0;background:#fff;border-radius:4px;padding:14px 15px;font-size:14.5px;color:#241f18;line-height:1.8;resize:vertical;"></textarea>
+        <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:20px;color:#655e51;font-size:12.5px;line-height:1.85;"><b style="font-family:'Noto Serif TC',serif;color:#35456a;display:block;margin-bottom:3px;">為什麼要有這一欄</b>近的期限給你動力，遠的方向給你判準。兩個一起放著，比只留一個好。</div>
+      </sc-if>
+
+      <sc-if value="{{ s2 }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 02 · 障礙</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">擋在中間的<br />是什麼？</h2>
+        <p style="color:#938a78;font-size:13px;margin-bottom:8px;">具體的那個，不是「我不夠自律」。時間、錢、某個人、某項不會的技能都算。</p>
+        <div style="border-left:2px solid #35456a;background:rgba(53,69,106,.05);padding:12px 15px;margin:14px 0 4px;border-radius:0 3px 3px 0;"><div style="font-size:9px;letter-spacing:2.2px;text-transform:uppercase;color:#938a78;margin-bottom:4px;">你想要的</div><div style="font-family:'Noto Serif TC',serif;font-size:15px;line-height:1.6;white-space:pre-wrap;">{{ mirrorWant }}</div></div>
+        <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:16px 0 7px;">擋在中間的</label>
+        <textarea value="{{ blocker }}" onInput="{{ onBlocker }}" maxlength="160" placeholder="例如：白天的工作佔掉最清醒的四小時" style="width:100%;min-height:80px;border:1px solid #e3ddd0;background:#fff;border-radius:4px;padding:14px 15px;font-size:14.5px;color:#241f18;line-height:1.8;resize:vertical;"></textarea>
+        <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:20px;color:#655e51;font-size:12.5px;line-height:1.85;"><b style="font-family:'Noto Serif TC',serif;color:#35456a;display:block;margin-bottom:3px;">這一步不能跳</b>只想像做到之後的樣子，投入的努力反而會下降——因為在心裡已經先達成了。想要什麼跟擋在中間的是什麼一起寫，才會動起來。</div>
+      </sc-if>
+
+      <sc-if value="{{ s3 }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 03 · 交付</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">這一輪，<br />要交付什麼？</h2>
+        <p style="color:#938a78;font-size:13px;margin-bottom:8px;">一件就好。要能拿給別人看的那種，不是「更了解自己」。</p>
+        <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:16px 0 7px;">這一輪要交付的</label>
+        <textarea value="{{ deliver }}" onInput="{{ onDeliver }}" maxlength="160" placeholder="例如：一個能收費的線上課程，錄完並上架" style="width:100%;min-height:72px;border:1px solid #e3ddd0;background:#fff;border-radius:4px;padding:14px 15px;font-size:14.5px;color:#241f18;line-height:1.8;resize:vertical;"></textarea>
+        <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:16px 0 7px;">什麼算完成</label>
+        <textarea value="{{ donedef }}" onInput="{{ onDonedef }}" maxlength="160" placeholder="例如：八支影片上架，付款連結測試過" style="width:100%;min-height:72px;border:1px solid #e3ddd0;background:#fff;border-radius:4px;padding:14px 15px;font-size:14.5px;color:#241f18;line-height:1.8;resize:vertical;"></textarea>
+        <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:20px;color:#554d40;font-family:'EB Garamond','Noto Serif TC',serif;font-size:14px;line-height:1.9;">「什麼算完成」是這一輪的成果那一欄。下面的關鍵行動是行動那一欄——<b style="color:#35456a;">兩欄分開記，不要拿其中一欄當另一欄的成績。</b></div>
+      </sc-if>
+
+      <sc-if value="{{ s4 }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 04 · 關鍵行動</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">遇到什麼情況，<br />你就做什麼？</h2>
+        <p style="color:#938a78;font-size:13px;margin-bottom:8px;">預設只填一個。一次推進的事情越少，你反而越推得動。</p>
+        <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:16px 0 7px;">遇到這個情況</label>
+        <textarea value="{{ iff }}" onInput="{{ onIff }}" maxlength="120" placeholder="例如：每天早上倒完咖啡坐下之後" style="width:100%;min-height:64px;border:1px solid #e3ddd0;background:#fff;border-radius:4px;padding:14px 15px;font-size:14.5px;color:#241f18;line-height:1.8;resize:vertical;"></textarea>
+        <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:16px 0 7px;">我就做這件事</label>
+        <textarea value="{{ thenn }}" onInput="{{ onThenn }}" maxlength="120" placeholder="例如：錄一段十分鐘的課程草稿" style="width:100%;min-height:64px;border:1px solid #e3ddd0;background:#fff;border-radius:4px;padding:14px 15px;font-size:14.5px;color:#241f18;line-height:1.8;resize:vertical;"></textarea>
+        <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:20px;color:#655e51;font-size:12.5px;line-height:1.85;"><b style="font-family:'Noto Serif TC',serif;color:#35456a;display:block;margin-bottom:3px;">為什麼要寫成兩半</b>把行動綁在一個具體的觸發時刻上，實際做到的比例會提高。書裡教的格式只寫了做什麼和第幾週完成，沒有寫觸發的那一刻——那正是有效的部分。</div>
+      </sc-if>
+
+      <sc-if value="{{ s5 }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 05 · 長度</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">這一輪<br />要跑多久？</h2>
+        <p style="color:#938a78;font-size:13px;margin-bottom:8px;">預設十二週，可以改。四週到二十六週都行。</p>
+        <div style="display:flex;align-items:center;justify-content:center;gap:18px;margin:22px 0 10px;">
+          <button onClick="{{ onWeekMinus }}" style="width:52px;height:52px;border-radius:50%;border:1px solid #cec6b4;background:#fbf9f4;color:#35456a;font-size:22px;cursor:pointer;">−</button>
+          <div style="display:flex;align-items:baseline;gap:6px;"><b style="font-family:'Noto Serif TC',serif;font-size:44px;color:#241f18;">{{ weeks }}</b><span style="font-size:14px;color:#938a78;">週</span></div>
+          <button onClick="{{ onWeekPlus }}" style="width:52px;height:52px;border-radius:50%;border:1px solid #cec6b4;background:#fbf9f4;color:#35456a;font-size:22px;cursor:pointer;">＋</button>
+        </div>
+        <div style="text-align:center;font-size:13px;color:#938a78;margin-bottom:6px;">結束日大約是 {{ endDatePreview }}</div>
+        <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:20px;color:#655e51;font-size:12.5px;line-height:1.85;"><b style="font-family:'Noto Serif TC',serif;color:#35456a;display:block;margin-bottom:3px;">十二這個數字沒有依據</b>把長期目標切成看得見盡頭的短週期，這件事有紮實的實驗支持；但沒有任何研究說十二週優於八週或十六週。書的作者自己也說過，年底那個日期只是隨手挑的——同一個理由也支持你自己挑長度。</div>
+      </sc-if>
+
+      <sc-if value="{{ s6 }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 06 · 一個人</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">要不要讓<br />一個人知道？<span style="font-size:11px;color:#938a78;letter-spacing:1px;border:1px solid #e3ddd0;border-radius:2px;padding:1px 7px;margin-left:8px;font-family:-apple-system,sans-serif;vertical-align:2px;">可留空</span></h2>
+        <p style="color:#938a78;font-size:13px;margin-bottom:8px;">一個就好，寫名字或關係都可以。不填也完全沒問題。</p>
+        <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:16px 0 7px;">讓這個人知道</label>
+        <textarea value="{{ teller }}" onInput="{{ onTeller }}" maxlength="80" placeholder="例如：阿哲／我姐" style="width:100%;min-height:60px;border:1px solid #e3ddd0;background:#fff;border-radius:4px;padding:14px 15px;font-size:14.5px;color:#241f18;line-height:1.8;resize:vertical;"></textarea>
+        <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:20px;color:#655e51;font-size:12.5px;line-height:1.85;"><b style="font-family:'Noto Serif TC',serif;color:#35456a;display:block;margin-bottom:3px;">為什麼只有一個人，而且不公開</b>把跟身分有關的目標公開宣告出去，當事人反而執行得比較不積極，對目標最認真的人最明顯。但「找一個人一起做」不在那組研究的射程內，方向站得住。所以這裡不做公開打卡、不做社群牆、不做排行。</div>
+      </sc-if>
+
+      <sc-if value="{{ s7 }}">
+        <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:10px;letter-spacing:5px;text-transform:uppercase;color:#938a78;margin:4px 0 14px;">你的這一輪</div>
+        <div style="position:relative;border:1px solid #cec6b4;border-radius:3px;padding:28px 24px 22px;background:#f3efe7;box-shadow:inset 0 0 0 5px #fbf9f4,inset 0 0 0 6px #cec6b4;">
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:22px;color:#35456a;">❦</div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:15px;letter-spacing:8px;padding-left:8px;margin-top:4px;">週 期 卡</div>
+          <div style="text-align:center;font-size:8.5px;letter-spacing:3px;color:#938a78;text-transform:uppercase;margin-top:5px;">Cycle · Nº 09</div>
+          <div style="width:30px;height:1px;background:#35456a;opacity:.6;margin:16px auto 20px;"></div>
+          <div style="border:1px solid #e3ddd0;border-radius:3px;margin-bottom:16px;">
+            <div style="padding:13px 15px;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">你想要的</div><div style="font-family:'Noto Serif TC',serif;font-size:15.5px;line-height:1.55;white-space:pre-wrap;">{{ cardWant }}</div></div>
+            <div style="padding:13px 15px;border-top:1px solid #e3ddd0;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">擋在中間的</div><div style="font-family:'Noto Serif TC',serif;font-size:15.5px;line-height:1.55;white-space:pre-wrap;">{{ cardBlocker }}</div></div>
+          </div>
+          <div style="margin-bottom:14px;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:7px;">這一輪要交付</div><div style="font-size:14px;white-space:pre-wrap;line-height:1.65;">{{ cardDeliver }}</div></div>
+          <div style="margin-bottom:14px;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:7px;">什麼算完成</div><div style="font-size:14px;white-space:pre-wrap;line-height:1.65;">{{ cardDone }}</div></div>
+          <div style="height:1px;background:#e3ddd0;margin:17px 0;"></div>
+          <div style="text-align:center;border:1px solid #cec6b4;border-radius:2px;padding:14px 12px;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">關鍵行動</div><div style="font-family:'Noto Serif TC',serif;font-size:16px;color:#35456a;line-height:1.6;white-space:pre-wrap;">{{ cardAction }}</div></div>
+          <div style="margin-top:14px;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:7px;">長度</div><div style="font-size:14px;white-space:pre-wrap;line-height:1.65;">{{ cardWeeks }}</div></div>
+          <div style="margin-top:14px;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:7px;">讓誰知道</div><div style="font-size:14px;white-space:pre-wrap;line-height:1.65;">{{ cardTeller }}</div></div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;color:#35456a;font-size:14px;letter-spacing:2px;margin-top:16px;">近的期限給動力，遠的方向給判準。</div>
+          <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:10px;">Edition Nº 09 · MMXXVI</div>
+        </div>
+
+        <sc-if value="{{ showWeeklog }}">
+          <div style="border:1px solid #cec6b4;background:#fbf9f4;padding:22px;margin:26px 0 0;border-radius:4px;">
+            <h4 style="font-family:'Noto Serif TC',serif;font-size:17px;margin-bottom:6px;">{{ logTitle }}</h4>
+            <p style="font-size:13px;color:#938a78;line-height:1.75;margin-bottom:16px;">兩個數字就夠。<b style="color:#35456a;">這裡不轉百分比、不打分、沒有及格線。</b></p>
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:14px;padding:10px 0;border-bottom:1px solid #e3ddd0;font-size:15px;"><span>這週計畫幾項</span><div style="display:flex;align-items:center;gap:12px;"><button onClick="{{ onPlanMinus }}" style="width:38px;height:38px;border-radius:50%;border:1px solid #cec6b4;background:#fbf9f4;color:#35456a;font-size:18px;cursor:pointer;">−</button><b style="font-family:'Noto Serif TC',serif;font-size:24px;min-width:34px;text-align:center;display:inline-block;">{{ planCount }}</b><button onClick="{{ onPlanPlus }}" style="width:38px;height:38px;border-radius:50%;border:1px solid #cec6b4;background:#fbf9f4;color:#35456a;font-size:18px;cursor:pointer;">＋</button></div></div>
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:14px;padding:10px 0;border-bottom:1px solid #e3ddd0;font-size:15px;"><span>實際完成幾項</span><div style="display:flex;align-items:center;gap:12px;"><button onClick="{{ onDoneMinus }}" style="width:38px;height:38px;border-radius:50%;border:1px solid #cec6b4;background:#fbf9f4;color:#35456a;font-size:18px;cursor:pointer;">−</button><b style="font-family:'Noto Serif TC',serif;font-size:24px;min-width:34px;text-align:center;display:inline-block;">{{ doneCount }}</b><button onClick="{{ onDonePlus }}" style="width:38px;height:38px;border-radius:50%;border:1px solid #cec6b4;background:#fbf9f4;color:#35456a;font-size:18px;cursor:pointer;">＋</button></div></div>
+            <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:16px 0 7px;">成果那一欄動了嗎？<span style="font-size:11px;color:#938a78;letter-spacing:1px;border:1px solid #e3ddd0;border-radius:2px;padding:1px 7px;margin-left:8px;">可留空</span></label>
+            <input value="{{ lognote }}" onInput="{{ onLognote }}" maxlength="90" placeholder="例如：兩支影片錄完了，還沒剪" style="width:100%;border:1px solid #e3ddd0;background:#fff;border-radius:4px;padding:12px 14px;font-size:14px;color:#241f18;" />
+            <button onClick="{{ onLogSave }}" style="width:100%;margin-top:16px;border:1px solid #35456a;background:#35456a;color:#fbf9f4;border-radius:3px;padding:13px;font-size:14px;font-weight:600;letter-spacing:1px;cursor:pointer;">記下這一週</button>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ showTrend }}">
+          <div style="font-family:'Noto Serif TC',serif;font-size:15px;color:#35456a;letter-spacing:1px;margin:26px 0 10px;">這一輪的走勢</div>
+          <sc-for list="{{ trend }}" as="t" hint-placeholder-count="0">
+            <div style="display:flex;gap:10px;align-items:baseline;padding:11px 0;border-bottom:1px solid #e3ddd0;font-size:14.5px;color:#332f28;"><span style="font-family:'Noto Serif TC',serif;color:#35456a;min-width:62px;">第 {{ t.w }} 週</span><span style="min-width:104px;">計畫 {{ t.plan }}　完成 {{ t.done }}</span><span style="color:#938a78;font-size:13.5px;">{{ t.note }}</span></div>
+          </sc-for>
+          <p style="font-size:12.5px;color:#938a78;margin-top:12px;line-height:1.75;">看的是幾週下來的樣子，不是單週的高低。漏記一兩週不影響這一輪。</p>
+        </sc-if>
+
+        <sc-if value="{{ showEnd }}">
+          <div style="border:1px solid #cec6b4;background:#fbf9f4;padding:22px;margin-top:24px;border-radius:4px;">
+            <b style="font-family:'Noto Serif TC',serif;font-size:16px;display:block;margin-bottom:8px;">這一輪跑完了</b>
+            <p style="font-size:14px;color:#332f28;line-height:1.8;margin-bottom:14px;">接下來是不記分的空檔：去復盤卡把當初說要交付的跟實際交付的對一次，再決定要不要開下一輪。</p>
+            <a href="tool-review.html" style="color:#35456a;font-size:14px;">用復盤卡對一次 →</a>
+          </div>
+        </sc-if>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:16px;">
+          <button onClick="{{ onSaveImage }}" style="border:1px solid #cec6b4;background:transparent;color:#35456a;border-radius:2px;padding:12px;font-size:13px;cursor:pointer;">儲存為圖片</button>
+          <button onClick="{{ onCopy }}" style="border:1px solid #cec6b4;background:transparent;color:#35456a;border-radius:2px;padding:12px;font-size:13px;cursor:pointer;">複製文字</button>
+          <button onClick="{{ onShare }}" style="border:1px solid #cec6b4;background:transparent;color:#35456a;border-radius:2px;padding:12px;font-size:13px;cursor:pointer;">分享這一輪</button>
+        </div>
+        <div style="border:1px solid #cec6b4;border-radius:4px;background:#fff;padding:20px;margin-top:24px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#938a78;margin-bottom:8px;">每天那一層</div>
+          <p style="color:#554d40;font-size:13.5px;line-height:1.8;font-family:'EB Garamond','Noto Serif TC',serif;">這張卡管的是週和一輪。每天實際做了什麼、跟計畫差在哪，用 <a href="tool-review.html">復盤卡</a> 記——那一層有最強的證據支持。</p>
+        </div>
+        <div style="border-top:1px solid #e3ddd0;margin-top:24px;padding-top:22px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:16px;font-weight:600;margin-bottom:4px;">做了幾週之後，跟我說一句</div>
+          <p style="font-size:12.5px;color:#938a78;margin-bottom:12px;line-height:1.75;">這個工具對你有沒有用、你希望下一個工具解決什麼——我在收集建議。留 Email，新工具上線也會通知你。</p>
+          <form onSubmit="{{ onSubmitFeedback }}">
+            <textarea value="{{ feedbackText }}" onInput="{{ onFeedbackText }}" maxlength="500" placeholder="你希望下一個工具處理什麼？（可留空）" style="width:100%;min-height:76px;border:1px solid #cec6b4;background:#fff;border-radius:2px;padding:12px 14px;font-size:14px;color:#241f18;line-height:1.7;resize:vertical;outline:none;margin-bottom:8px;"></textarea>
+            <div style="display:flex;gap:8px;">
+              <input value="{{ email }}" onInput="{{ onEmail }}" type="email" placeholder="你的 Email" required style="flex:1;border:1px solid #cec6b4;background:#fff;border-radius:2px;padding:12px 14px;font-size:14px;color:#241f18;outline:none;" />
+              <button type="submit" style="border:none;background:#35456a;color:#fbf9f4;border-radius:2px;padding:0 20px;font-size:13px;letter-spacing:1px;cursor:pointer;white-space:nowrap;">{{ subLabel }}</button>
+            </div>
+            <div style="min-height:16px;text-align:center;color:#35456a;font-size:11px;margin-top:8px;">{{ subStatus }}</div>
+          </form>
+        </div>
+      </sc-if>
+
+    </div>
+
+    <div style="flex:none;padding:12px 26px 22px;background:linear-gradient(transparent,#fbf9f4 30%);">
+      <sc-if value="{{ showGate }}">
+        <div style="text-align:center;font-size:11px;color:#938a78;margin-bottom:8px;height:15px;letter-spacing:.5px;">{{ gateMsg }}</div>
+      </sc-if>
+      <button onClick="{{ onNext }}" disabled="{{ nextDisabled }}" style="display:block;width:100%;border:none;background:{{ nextBg }};color:#fbf9f4;border-radius:2px;padding:15px;font-size:15px;font-weight:600;letter-spacing:1px;cursor:pointer;opacity:{{ nextOp }};">{{ nextLabel }}</button>
+      <sc-if value="{{ s7 }}">
+        <button onClick="{{ onHome }}" style="display:block;width:100%;border:1px solid #cec6b4;background:transparent;color:#35456a;border-radius:2px;padding:12px;font-size:13px;letter-spacing:1px;cursor:pointer;margin-top:8px;">返回主頁</button>
+      </sc-if>
+      <sc-if value="{{ showRecordsBtn }}">
+        <button onClick="{{ onOpenRecords }}" style="display:block;width:100%;border:1px solid #cec6b4;background:transparent;color:#35456a;border-radius:2px;padding:12px;font-size:13px;letter-spacing:1px;cursor:pointer;margin-top:8px;">查看週期紀錄簿（{{ recordsCount }}）</button>
+      </sc-if>
+    </div>
+
+    <sc-if value="{{ toastOn }}">
+      <div style="position:absolute;bottom:96px;left:50%;transform:translateX(-50%);background:#241f18;color:#fbf9f4;padding:10px 18px;border-radius:3px;font-size:12px;letter-spacing:.5px;white-space:nowrap;">{{ toastMsg }}</div>
+    </sc-if>
+
+  </div>
+
+  <!-- 填好的例子 -->
+  <sc-if value="{{ exampleOpen }}">
+    <div onClick="{{ onCloseExample }}" style="position:fixed;inset:0;z-index:30;background:rgba(36,31,24,.4);display:flex;justify-content:center;">
+      <div onClick="{{ stop }}" style="width:min(440px,100%);height:100%;background:#f3efe7;padding:22px 24px 34px;overflow-y:auto;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:22px;font-weight:600;white-space:nowrap;">一個填好的例子</div>
+          <span onClick="{{ onCloseExample }}" style="color:#938a78;font-size:22px;cursor:pointer;">✕</span>
+        </div>
+        <p style="font-size:12.5px;color:#938a78;margin-bottom:18px;line-height:1.75;">假設有個人白天上班，一直想把攝影做成能收費的東西，卻總停在「之後再說」。他開一輪十二週，只逼自己扛一件事——他的週期卡長這樣：</p>
+
+        <div style="position:relative;border:1px solid #cec6b4;border-radius:3px;padding:28px 24px 22px;background:#fbf9f4;box-shadow:inset 0 0 0 5px #f3efe7,inset 0 0 0 6px #cec6b4;">
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:22px;color:#35456a;">❦</div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:15px;letter-spacing:8px;padding-left:8px;margin-top:4px;">週 期 卡</div>
+          <div style="text-align:center;font-size:8.5px;letter-spacing:3px;color:#938a78;text-transform:uppercase;margin-top:5px;">Cycle · Nº 09</div>
+          <div style="width:30px;height:1px;background:#35456a;opacity:.6;margin:16px auto 20px;"></div>
+          <div style="border:1px solid #e3ddd0;border-radius:3px;margin-bottom:16px;">
+            <div style="padding:13px 15px;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">你想要的</div><div style="font-family:'Noto Serif TC',serif;font-size:15.5px;line-height:1.55;white-space:pre-wrap;">靠自己的攝影養活自己</div></div>
+            <div style="padding:13px 15px;border-top:1px solid #e3ddd0;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">擋在中間的</div><div style="font-family:'Noto Serif TC',serif;font-size:15.5px;line-height:1.55;white-space:pre-wrap;">白天的工作佔掉最清醒的四小時</div></div>
+          </div>
+          <div style="margin-bottom:14px;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:7px;">這一輪要交付</div><div style="font-size:14px;white-space:pre-wrap;line-height:1.65;">一套能收費的線上攝影課，錄完並上架</div></div>
+          <div style="margin-bottom:14px;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:7px;">什麼算完成</div><div style="font-size:14px;white-space:pre-wrap;line-height:1.65;">八支影片上架，付款連結測試過</div></div>
+          <div style="height:1px;background:#e3ddd0;margin:17px 0;"></div>
+          <div style="text-align:center;border:1px solid #cec6b4;border-radius:2px;padding:14px 12px;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">關鍵行動</div><div style="font-family:'Noto Serif TC',serif;font-size:16px;color:#35456a;line-height:1.6;white-space:pre-wrap;">每天早上倒完咖啡坐下，就錄一段十分鐘的課程草稿</div></div>
+          <div style="margin-top:14px;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:7px;">長度</div><div style="font-size:14px;white-space:pre-wrap;line-height:1.65;">12 週</div></div>
+          <div style="margin-top:14px;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:7px;">讓誰知道</div><div style="font-size:14px;white-space:pre-wrap;line-height:1.65;">我姐</div></div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;color:#35456a;font-size:14px;letter-spacing:2px;margin-top:16px;">近的期限給動力，遠的方向給判準。</div>
+          <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:10px;">Edition Nº 09 · MMXXVI</div>
+        </div>
+
+        <div style="margin-top:20px;">
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:10px;">這個例子想讓你看到三件事</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;">一輪只扛<b>一個</b>關鍵行動，不是把清單塞滿。事情越少，你反而越推得動。</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;">每週回來只記<b>兩個數字</b>——計畫幾項、實際幾項。看的是幾週下來的走勢，不是單週的高低。</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;color:#554d40;font-size:13.5px;line-height:1.85;">書裡那條 85% 及格線查不到來源，這裡沒有沿用。<b>這裡不轉百分比、不打分、不判你及不及格。</b></div>
+        </div>
+
+        <button onClick="{{ onCloseExample }}" style="display:block;width:100%;border:none;background:#35456a;color:#fbf9f4;border-radius:2px;padding:14px;font-size:14px;letter-spacing:1px;cursor:pointer;margin-top:24px;">懂了，開始做我自己的</button>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ recordsOpen }}">
+    <div onClick="{{ onCloseRecords }}" style="position:fixed;inset:0;z-index:30;background:rgba(36,31,24,.4);display:flex;justify-content:center;">
+      <div onClick="{{ stop }}" style="width:min(440px,100%);height:100%;background:#f3efe7;padding:22px 24px 34px;overflow-y:auto;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:22px;font-weight:600;white-space:nowrap;">週期紀錄簿</div>
+          <span onClick="{{ onCloseRecords }}" style="color:#938a78;font-size:22px;cursor:pointer;">✕</span>
+        </div>
+        <p style="font-size:12px;color:#938a78;margin-bottom:18px;">紀錄只保存在這部裝置的目前瀏覽器。點一輪可以繼續記錄。</p>
+        <sc-if value="{{ hasCards }}">
+          <sc-for list="{{ cards }}" as="c" hint-placeholder-count="0">
+            <div onClick="{{ c.onOpen }}" style="background:#fbf9f4;border:1px solid #e3ddd0;border-radius:4px;padding:18px;margin-bottom:12px;cursor:pointer;" style-hover="border-color:#35456a;">
+              <div style="display:flex;justify-content:space-between;align-items:center;color:#938a78;font-size:11px;margin-bottom:12px;"><span style="white-space:nowrap;">第 {{ c.idx }} 輪 · {{ c.date }}</span><span onClick="{{ c.onDel }}" style="cursor:pointer;">刪除</span></div>
+              <div style="font-size:9px;letter-spacing:2px;color:#938a78;">這一輪要交付</div><div style="font-family:'Noto Serif TC',serif;font-size:15px;margin-top:3px;white-space:pre-wrap;">{{ c.deliver }}</div>
+              <div style="font-size:9px;letter-spacing:2px;color:#938a78;margin-top:10px;">關鍵行動</div><div style="font-family:'Noto Serif TC',serif;font-size:15px;color:#35456a;font-weight:600;margin-top:3px;white-space:pre-wrap;">{{ c.action }}</div>
+              <div style="font-size:11px;color:#938a78;margin-top:10px;letter-spacing:.5px;">{{ c.weeks }} 週 · 已記 {{ c.logCount }} 週　<span style="color:#35456a;">開啟這一輪 →</span></div>
+            </div>
+          </sc-for>
+        </sc-if>
+        <sc-if value="{{ noCards }}">
+          <div style="text-align:center;color:#938a78;font-size:13px;padding:60px 10px;">還沒有紀錄。<br />開了第一輪之後會保存在這裡。</div>
+        </sc-if>
+      </div>
+    </div>
+  </sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:480,&quot;height&quot;:920}}">
+class Component extends DCLogic {
+  state = {
+    step: 0, want: "", blocker: "", deliver: "", donedef: "", iff: "", thenn: "", weeks: 12, teller: "",
+    startedAt: "", logs: [], planCount: 3, doneCount: 0, lognote: "", draftId: "",
+    toastOn: false, toastMsg: "", feedbackText: "", email: "", subLabel: "傳給創作者", subStatus: "",
+    cards: [], recordsOpen: false, exampleOpen: false,
+  };
+  HKEY = "toolbook_cycle_history_v1";
+  DKEY = "toolbook_cycle_v1";
+
+  componentDidMount() {
+    try { const raw = localStorage.getItem(this.HKEY); if (raw) { const a = JSON.parse(raw); if (Array.isArray(a)) this.setState({ cards: a.slice(0, 50) }); } } catch (_) {}
+    try { const raw = localStorage.getItem(this.DKEY); if (raw) { const d = JSON.parse(raw); if (d && typeof d === "object") this.setState({
+      step: Number.isInteger(d.step) ? Math.max(0, Math.min(7, d.step)) : 0,
+      want: d.want || "", blocker: d.blocker || "", deliver: d.deliver || "", donedef: d.donedef || "", iff: d.iff || "", thenn: d.thenn || "",
+      weeks: d.weeks || 12, teller: d.teller || "", startedAt: d.startedAt || "", logs: Array.isArray(d.logs) ? d.logs : [], planCount: Number.isInteger(d.planCount) ? d.planCount : 3, draftId: d.draftId || "",
+    }); } } catch (_) {}
+  }
+  saveCards(cards, done) { try { localStorage.setItem(this.HKEY, JSON.stringify(cards.slice(0, 50))); if(done&&typeof gtag==='function')gtag('event','tool_complete',{tool_name:'週期執行器'}); } catch (_) {} }
+  saveDraft(over) {
+    const s = { ...this.state, ...over };
+    try { localStorage.setItem(this.DKEY, JSON.stringify({ step: s.step, draftId: s.draftId, startedAt: s.startedAt, logs: s.logs, planCount: s.planCount, want: s.want, blocker: s.blocker, deliver: s.deliver, donedef: s.donedef, iff: s.iff, thenn: s.thenn, weeks: s.weeks, teller: s.teller })); } catch (_) {}
+  }
+  set(k, v) { this.setState({ [k]: v }, () => this.saveDraft()); }
+
+  gateOk(step) {
+    const s = this.state;
+    if (step === 1) return !!s.want.trim();
+    if (step === 2) return !!s.blocker.trim();
+    if (step === 3) return !!s.deliver.trim() && !!s.donedef.trim();
+    if (step === 4) return !!s.iff.trim() && !!s.thenn.trim();
+    return true;
+  }
+  clampWeeks(w) { return Math.min(26, Math.max(4, w)); }
+  addDays(iso, days) { const d = iso ? new Date(iso) : new Date(); d.setDate(d.getDate() + days); return d; }
+  fmt(d) { return d.getFullYear() + "." + String(d.getMonth() + 1).padStart(2, "0") + "." + String(d.getDate()).padStart(2, "0"); }
+  actionText() { const a = this.state.iff.trim(), b = this.state.thenn.trim(); return a && b ? a + "，就" + b : "—"; }
+  weeksText() { const s = this.state; return s.startedAt ? s.weeks + " 週 · " + this.fmt(new Date(s.startedAt)) + " 至 " + this.fmt(this.addDays(s.startedAt, s.weeks * 7)) : s.weeks + " 週"; }
+
+  next() {
+    if (!this.gateOk(this.state.step)) return;
+    let st = this.state.step;
+    if (st === 6) {
+      const startedAt = this.state.startedAt || new Date().toISOString();
+      const draftId = this.state.draftId || ("cycle_" + Date.now().toString(36) + "_" + Math.random().toString(36).slice(2, 6));
+      this.setState({ step: 7, startedAt, draftId }, () => { this.archive(); this.saveDraft(); });
+    } else {
+      this.setState({ step: Math.min(7, st + 1) }, () => this.saveDraft());
+    }
+    const stage = document.querySelector(".stage"); if (stage) stage.scrollTop = 0;
+  }
+  prev() { this.setState({ step: Math.max(0, this.state.step - 1) }, () => this.saveDraft()); const stage = document.querySelector(".stage"); if (stage) stage.scrollTop = 0; }
+  startNew() {
+    if (!window.confirm("開新的一輪？這一輪會保留在紀錄簿。")) return;
+    this.setState({ step: 1, want: "", blocker: "", deliver: "", donedef: "", iff: "", thenn: "", weeks: 12, teller: "", startedAt: "", logs: [], planCount: 3, doneCount: 0, lognote: "", draftId: "" }, () => this.saveDraft());
+  }
+
+  archive() {
+    const s = this.state; if (!s.deliver.trim() && !s.want.trim()) return;
+    const id = s.draftId || ("cycle_" + Date.now().toString(36));
+    const old = s.cards.find(c => c.id === id);
+    const card = { id, createdAt: old ? old.createdAt : new Date().toISOString(), startedAt: s.startedAt, want: s.want.trim(), blocker: s.blocker.trim(), deliver: s.deliver.trim(), donedef: s.donedef.trim(), iff: s.iff.trim(), thenn: s.thenn.trim(), weeks: s.weeks, teller: s.teller.trim(), logs: s.logs };
+    const cards = [card, ...s.cards.filter(c => c.id !== id)].slice(0, 50);
+    this.setState({ cards, draftId: id }); this.saveCards(cards, true);
+  }
+  deleteCard(id) { const cards = this.state.cards.filter(c => c.id !== id); this.setState({ cards }); this.saveCards(cards); }
+  loadRound(id) {
+    const c = this.state.cards.find(x => x.id === id); if (!c) return;
+    this.setState({ step: 7, want: c.want || "", blocker: c.blocker || "", deliver: c.deliver || "", donedef: c.donedef || "", iff: c.iff || "", thenn: c.thenn || "", weeks: c.weeks || 12, teller: c.teller || "", startedAt: c.startedAt || c.createdAt || "", logs: Array.isArray(c.logs) ? c.logs : [], planCount: 3, doneCount: 0, lognote: "", draftId: c.id, recordsOpen: false }, () => this.saveDraft());
+    this.toast("已開啟這一輪");
+  }
+  saveLog() {
+    const s = this.state; const w = Math.min(s.weeks, s.logs.length + 1);
+    const logs = [...s.logs, { w, plan: s.planCount, done: s.doneCount, note: s.lognote.trim() }];
+    this.setState({ logs, lognote: "", doneCount: 0 }, () => { this.archive(); this.saveDraft(); });
+    this.toast("已記下第 " + w + " 週");
+  }
+
+  cardText() {
+    const s = this.state, t = ["週期卡（" + s.weeks + " 週）", "", "你想要的：" + s.want.trim(), "擋在中間的：" + s.blocker.trim(), "", "這一輪要交付：" + s.deliver.trim(), "什麼算完成：" + s.donedef.trim(), "", "關鍵行動：" + this.actionText(), "讓誰知道：" + (s.teller.trim() || "沒有告訴任何人")];
+    if (s.logs.length) { t.push("", "走勢："); s.logs.forEach(l => t.push("第 " + l.w + " 週　計畫 " + l.plan + "　完成 " + l.done + (l.note ? "　" + l.note : ""))); }
+    t.push("", "近的期限給動力，遠的方向給判準。"); return t.join("\n");
+  }
+  toast(msg) { this.setState({ toastOn: true, toastMsg: msg }); clearTimeout(this._t); this._t = setTimeout(() => this.setState({ toastOn: false }), 1700); }
+  async copy() { try { await navigator.clipboard.writeText(this.cardText()); this.toast("已複製這一輪的文字"); } catch (_) { this.toast("瀏覽器未允許複製"); } }
+  async share() { try { if (navigator.share) await navigator.share({ title: "我的這一輪", text: this.cardText() }); else { await navigator.clipboard.writeText(this.cardText()); this.toast("已複製，可貼到其他地方"); } } catch (_) {} }
+  onSubmitFeedback(e) { e.preventDefault(); var self = this; var fd = new FormData(); fd.append("email", this.state.email || ""); fd.append("message", this.state.feedbackText || ""); fd.append("tool", "週期執行器"); fd.append("_subject", "Toolbook 工具回饋 · 週期執行器"); fd.append("submission_type", "工具完成後回饋"); this.setState({ subLabel: "傳送中…", subStatus: "" }); fetch("https://formspree.io/f/mlgkgveq", { method: "POST", body: fd, headers: { Accept: "application/json" } }).then(function (r) { if (!r.ok) throw r; return r.json(); }).then(function () { self.setState({ subLabel: "已送出", subStatus: "已傳給創作者 ✓" }); }).catch(function () { self.setState({ subLabel: "傳給創作者", subStatus: "送出失敗，請稍後再試" }); }); }
+
+  async _png(spec){try{const m=await import("./toolbook-card.js");const ok=await m.downloadCardPNG(spec);this.toast(ok?"卡片圖片已儲存":"圖片產生失敗");}catch(_){this.toast("圖片產生失敗");}}
+  async saveImage(){const s=this.state;const trend=s.logs.length?s.logs.map(l=>"第 "+l.w+" 週　計畫 "+l.plan+"　完成 "+l.done).join("\n"):"還沒有紀錄";await this._png({title:"週期卡",sub:"CYCLE · Nº 09",filename:"週期卡-Toolbook",mantra:"近的期限給動力，遠的方向給判準。",edition:"Edition Nº 09 · MMXXVI",blocks:[{k:"你想要的",v:s.want.trim()||"—",big:true},{k:"擋在中間的",v:s.blocker.trim()||"—",serif:true},{k:"這一輪要交付",v:s.deliver.trim()||"—",serif:true},{k:"什麼算完成",v:s.donedef.trim()||"—"},{k:"關鍵行動",v:this.actionText(),big:true},{k:"長度",v:this.weeksText()},{k:"走勢",v:trend}]});}
+
+  renderVals() {
+    const s = this.state, step = s.step;
+    const dots = [1, 2, 3, 4, 5, 6].map(n => { const on = Math.min(step - 1, 5); return { w: n - 1 === on ? "16px" : "5px", bg: n - 1 === on ? "#35456a" : "#e3ddd0" }; });
+    const showGate = step >= 1 && step <= 6;
+    const gateBad = showGate && !this.gateOk(step);
+    const done = s.logs.length >= s.weeks;
+    const trend = s.logs.map(l => ({ w: l.w, plan: l.plan, done: l.done, note: l.note || "" }));
+    const cards = s.cards.map((c, n) => ({ idx: s.cards.length - n, date: new Date(c.createdAt).toLocaleDateString("zh-HK", { year: "numeric", month: "2-digit", day: "2-digit" }), deliver: c.deliver || "—", action: (c.iff && c.thenn) ? c.iff + "，就" + c.thenn : "—", weeks: c.weeks || 12, logCount: (c.logs || []).length, onDel: (e) => { if (e && e.stopPropagation) e.stopPropagation(); this.deleteCard(c.id); }, onOpen: () => this.loadRound(c.id) }));
+    return {
+      dots, backColor: step === 0 ? "transparent" : "#938a78", onBack: () => this.prev(),
+      s0: step === 0, s1: step === 1, s2: step === 2, s3: step === 3, s4: step === 4, s5: step === 5, s6: step === 6, s7: step === 7,
+      want: s.want, blocker: s.blocker, deliver: s.deliver, donedef: s.donedef, iff: s.iff, thenn: s.thenn, teller: s.teller, weeks: s.weeks,
+      onWant: e => this.set("want", e.target.value), onBlocker: e => this.set("blocker", e.target.value), onDeliver: e => this.set("deliver", e.target.value),
+      onDonedef: e => this.set("donedef", e.target.value), onIff: e => this.set("iff", e.target.value), onThenn: e => this.set("thenn", e.target.value), onTeller: e => this.set("teller", e.target.value),
+      mirrorWant: s.want.trim() || "—",
+      onWeekMinus: () => this.set("weeks", this.clampWeeks(s.weeks - 1)), onWeekPlus: () => this.set("weeks", this.clampWeeks(s.weeks + 1)),
+      endDatePreview: this.fmt(this.addDays(s.startedAt || new Date().toISOString(), s.weeks * 7)),
+      cardWant: s.want.trim() || "—", cardBlocker: s.blocker.trim() || "—", cardDeliver: s.deliver.trim() || "—", cardDone: s.donedef.trim() || "—",
+      cardAction: this.actionText(), cardWeeks: this.weeksText(), cardTeller: s.teller.trim() || "沒有告訴任何人",
+      showWeeklog: !done, showTrend: s.logs.length > 0, showEnd: done, trend,
+      logTitle: "第 " + Math.min(s.weeks, s.logs.length + 1) + " 週結算", planCount: s.planCount, doneCount: s.doneCount, lognote: s.lognote,
+      onPlanMinus: () => this.set("planCount", Math.max(0, s.planCount - 1)), onPlanPlus: () => this.set("planCount", Math.min(20, s.planCount + 1)),
+      onDoneMinus: () => this.setState({ doneCount: Math.max(0, s.doneCount - 1) }), onDonePlus: () => this.setState({ doneCount: Math.min(20, s.doneCount + 1) }),
+      onLognote: e => this.setState({ lognote: e.target.value }), onLogSave: () => this.saveLog(),
+      onCopy: () => this.copy(), onShare: () => this.share(), onSaveImage: () => this.saveImage(),
+      onHome: () => { window.location.href = "index.html"; },
+      feedbackText: s.feedbackText, email: s.email, subLabel: s.subLabel, subStatus: s.subStatus,
+      onFeedbackText: e => this.setState({ feedbackText: e.target.value }), onEmail: e => this.setState({ email: e.target.value }), onSubmitFeedback: e => this.onSubmitFeedback(e),
+      showGate, gateMsg: gateBad ? (step === 3 ? "兩欄都要寫：交付什麼、什麼算完成" : step === 4 ? "兩半都要寫：什麼情況、做什麼" : "完成這一題，才能繼續") : "",
+      onNext: step === 7 ? () => this.startNew() : () => this.next(),
+      nextLabel: step === 0 ? "開始" : step === 6 ? "開始這一輪" : step === 7 ? "開新的一輪" : "下一步",
+      nextDisabled: gateBad ? "disabled" : "", nextOp: gateBad ? ".5" : "1", nextBg: gateBad ? "#b7bdcb" : "#35456a",
+      toastOn: s.toastOn, toastMsg: s.toastMsg,
+      cards, recordsCount: s.cards.length, hasCards: s.cards.length > 0, noCards: s.cards.length === 0,
+      showRecordsBtn: (step === 0 || step === 7) && s.cards.length > 0,
+      onOpenRecords: () => this.setState({ recordsOpen: true }),
+      recordsOpen: s.recordsOpen, onCloseRecords: () => this.setState({ recordsOpen: false }), stop: e => e.stopPropagation(),
+      exampleOpen: s.exampleOpen, onOpenExample: () => this.set("exampleOpen", true), onCloseExample: () => this.set("exampleOpen", false),
+    };
+  }
+}
+</script>
+</body>
+</html>
