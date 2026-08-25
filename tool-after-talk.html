@@ -3,6 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#e9e3d6">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-CKM6MRRVBM"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-CKM6MRRVBM');</script>
 <script src="./support.js"></script>
@@ -22,7 +25,7 @@
   ::selection{background:rgba(53,69,106,.15);}
   .tool-shell-page{display:flex!important;align-items:flex-start;justify-content:center;padding:26px 18px 40px!important;}
   .tool-shell-card{width:min(440px,100%);min-height:calc(100vh - 52px);margin:0 auto;background:#fbf9f4!important;border:1px solid #cec6b4;border-radius:8px;box-shadow:0 20px 60px rgba(36,31,24,.16);box-sizing:border-box;}
-  .tool-shell-topbar{position:sticky!important;top:0;z-index:20;margin:0 -30px;padding:0 30px;background-color:#fbf9f4!important;border-bottom:1px solid #efe9dd;isolation:isolate;box-shadow:0 1px 0 rgba(36,31,24,.03);-webkit-backdrop-filter:none;backdrop-filter:none;}
+  .tool-shell-topbar{position:sticky!important;top:0;z-index:20;height:calc(52px + env(safe-area-inset-top))!important;margin:0 -30px;padding:env(safe-area-inset-top) 30px 0!important;background-color:#fbf9f4!important;background-image:linear-gradient(#fbf9f4,#fbf9f4)!important;background-clip:padding-box;border-bottom:1px solid #efe9dd;isolation:isolate;box-shadow:0 1px 0 rgba(36,31,24,.03);-webkit-backdrop-filter:none;backdrop-filter:none;-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0);-webkit-backface-visibility:hidden;backface-visibility:hidden;}
 </style>
 </helmet>
 <div class="tool-shell-page" style="position:relative;min-height:100vh;padding:0 0 40px;background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E&quot;);background-color:#e9e3d6;">
