@@ -28,12 +28,13 @@
   .entry:hover{opacity:.82;}
   .feature:hover{transform:translateY(-2px);}
   .ghostbtn:hover,.topbtn:hover{border-color:#35456a !important;}
+  .site-nav{isolation:isolate;background-color:#f3efe7 !important;background-clip:padding-box;box-shadow:0 1px 0 #e3ddd0;-webkit-backdrop-filter:none;backdrop-filter:none;-webkit-transform:translateZ(0);transform:translateZ(0);}
   .grid52{display:grid;grid-template-columns:52px 1fr;column-gap:16px;align-items:baseline;color:inherit;}
   .grid92{display:grid;grid-template-columns:92px 1fr;column-gap:26px;color:inherit;}
   @media(max-width:560px){.two-col{grid-template-columns:1fr !important;}}
   /* 手機版：兩行式頁首（品牌獨佔上排維持大器、連結退下排），全站一致 */
   @media(max-width:600px){
-    nav{flex-direction:column !important;align-items:flex-start !important;gap:11px !important;padding:16px 0 14px !important;}
+    nav{flex-direction:column !important;align-items:flex-start !important;gap:11px !important;padding:max(16px,env(safe-area-inset-top)) 0 14px !important;}
     nav > a{letter-spacing:clamp(2px,1.4vw,4px) !important;font-size:clamp(17px,5vw,19px) !important;}
     nav > a .ed{font-size:10px !important;letter-spacing:2px !important;margin-left:8px !important;display:inline !important;}
     nav > div{gap:20px !important;}
@@ -47,7 +48,7 @@
 
   <div style="max-width:860px;margin:0 auto;padding:0 26px;position:relative;z-index:1;">
 
-    <nav style="display:flex;justify-content:space-between;align-items:center;padding:18px 0;position:sticky;top:0;z-index:5;background:#f3efe7;border-bottom:1px solid #e3ddd0;">
+    <nav class="site-nav" style="display:flex;justify-content:space-between;align-items:center;padding:18px 0;position:sticky;top:0;z-index:10;background:#f3efe7;border-bottom:1px solid #e3ddd0;">
       <a href="#top" class="serif" style="font-size:clamp(15px,4.2vw,17px);letter-spacing:clamp(1px,1.2vw,4px);font-weight:600;color:#241f18;white-space:nowrap;">TOOLBOOK<span style="color:#35456a;">.</span><span class="ed" style="font-size:10px;letter-spacing:clamp(1px,0.8vw,3px);color:#35456a;text-transform:uppercase;font-weight:400;margin-left:clamp(4px,1.5vw,7px);">Editions</span></a>
       <div class="nav-links" style="display:flex;gap:clamp(14px,4.5vw,22px);flex-shrink:0;">
         <a href="#contents" style="color:#938a78;font-size:13px;letter-spacing:1px;">目錄</a>
