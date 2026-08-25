@@ -6,8 +6,3 @@
 /* 版面修正 2026-08-19 */
 @media(max-width:600px){.ed{display:none}}      /* 手機版隱藏品牌副標 EDITIONS，避免與導覽踩界 */
 .entry .serif{color:#35456a}                     /* 可點的清單標題上連結色，跟不可點的分區標題區分（手機無 hover）*/
-
-/* 工具共用外框：長頁工具與卡片工具維持同一個 Toolbook 殼 */
-.tool-shell-page{display:flex!important;align-items:flex-start;justify-content:center;padding:26px 18px 40px!important;}
-.tool-shell-card{width:min(440px,100%);min-height:calc(100vh - 52px);margin:0 auto;background:#fbf9f4!important;border:1px solid #cec6b4;border-radius:8px;box-shadow:0 20px 60px rgba(36,31,24,.16);box-sizing:border-box;}
-.tool-shell-topbar{position:sticky!important;top:0;z-index:20;margin:0 -30px;padding:0 30px;background-color:#fbf9f4!important;border-bottom:1px solid #efe9dd;isolation:isolate;box-shadow:0 1px 0 rgba(36,31,24,.03);-webkit-backdrop-filter:none;backdrop-filter:none;}

@@ -8,7 +8,6 @@ const SHELL_FILES = [
   './toolbook-card.js',
   './toolbook.js',
   './fonts.css',
-  './tool-shell.css',
   './manifest.webmanifest',
   './icon.svg',
   './vendor/react.production.min.js',
